@@ -35,6 +35,7 @@ NSString *const kTwitterApiSecret = @"FgJV89KXSGYf42opyMLFfZxk5J9fPIwITzYrKsZWG0
     return sharedInstance;
 }
 
+#pragma mark - Getters, setters
 - (NSString *)token {
     
     if (!_token) {
@@ -43,7 +44,6 @@ NSString *const kTwitterApiSecret = @"FgJV89KXSGYf42opyMLFfZxk5J9fPIwITzYrKsZWG0
     return _token;
 }
 
-#pragma mark - Getters, setters
 - (void)setToken:(NSString *)token {
     
     _token = token;
