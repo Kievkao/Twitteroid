@@ -7,7 +7,7 @@
 //
 
 #import "TWRLoginWebVC.h"
-#import "TWRLoginManager.h"
+#import "TWRTwitterAPIManager+TWRLogin.h"
 
 @interface TWRLoginWebVC () <UIWebViewDelegate>
 
@@ -33,7 +33,7 @@
         
         NSString *token = d[@"oauth_token"];
         NSString *verifier = d[@"oauth_verifier"];
-        [[TWRLoginManager sharedInstance] setOAuthToken:token oauthVerifier:verifier];
+        [[TWRTwitterAPIManager sharedInstance] setOAuthToken:token oauthVerifier:verifier];
         
         return NO;
     }

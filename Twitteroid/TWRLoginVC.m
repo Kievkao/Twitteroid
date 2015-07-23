@@ -8,7 +8,8 @@
 
 #import "TWRLoginVC.h"
 #import "TWRLoginWebVC.h"
-#import "TWRLoginManager.h"
+#import "TWRFeedVC.h"
+#import "TWRTwitterAPIManager+TWRLogin.h"
 
 @interface TWRLoginVC ()
 
@@ -18,15 +19,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
+    if ([[TWRTwitterAPIManager sharedInstance] isUserAlreadyLogged]) {
+        [self peformLogin];
+    }
 }
 
 - (IBAction)loginBtnClicked:(id)sender {
+    
+    [self peformLogin];
+}
 
+- (void)peformLogin {
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
     __block TWRLoginWebVC *webVC = nil;
     
-    [[TWRLoginManager sharedInstance] loginWithOpenRequestBlock:^(NSURLRequest *request) {
-
+    [[TWRTwitterAPIManager sharedInstance] loginWithOpenRequestBlock:^(NSURLRequest *request) {
+        
         webVC = [self.storyboard instantiateViewControllerWithIdentifier:[TWRLoginWebVC identifier]];
         [self presentViewController:webVC animated:YES completion:^{
             [webVC.webView loadRequest:request];
@@ -35,6 +46,15 @@
     } completion:^(NSError *error) {
         if (webVC) {
             [webVC dismissViewControllerAnimated:YES completion:nil];
+        }
+        
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+        if (!error) {
+            [self.navigationController setViewControllers:@[[self.storyboard instantiateViewControllerWithIdentifier:[TWRFeedVC identifier]]] animated:YES];
+        }
+        else {
+            [self showInfoAlertWithTitle:NSLocalizedString(@"Error", @"Error title") text:NSLocalizedString(@"Twitter login error", @"Twitter login error message")];
         }
     }];
 }

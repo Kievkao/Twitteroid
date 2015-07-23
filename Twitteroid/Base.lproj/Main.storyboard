@@ -7,7 +7,7 @@
         <!--FeedVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="TWRFeedVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TWRFeedVC" id="BYZ-38-t0r" customClass="TWRFeedVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -51,8 +51,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NdA-1h-z44">
-                                <rect key="frame" x="277" y="285" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <rect key="frame" x="281" y="515" width="38" height="30"/>
+                                <state key="normal" title="Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -63,8 +63,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="NdA-1h-z44" secondAttribute="centerX" id="0EO-BP-itj"/>
+                            <constraint firstItem="PuS-O5-3E7" firstAttribute="top" secondItem="NdA-1h-z44" secondAttribute="bottom" constant="55" id="6tS-rM-Pgr"/>
                             <constraint firstAttribute="centerY" secondItem="NdA-1h-z44" secondAttribute="centerY" id="uGy-mw-eEs"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="uGy-mw-eEs"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="t4Z-hG-eeM"/>
                 </viewController>

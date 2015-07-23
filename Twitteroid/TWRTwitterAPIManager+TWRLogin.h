@@ -1,16 +1,16 @@
 //
-//  TWRLoginManager.h
+//  TWRTwitterAPIManager+TWRLogin.h
 //  Twitteroid
 //
 //  Created by Mac on 23/07/15.
 //  Copyright (c) 2015 Kievkao. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "TWRTwitterAPIManager.h"
 
-@interface TWRLoginManager : NSObject
+@interface TWRTwitterAPIManager (TWRLogin)
 
-+ (instancetype)sharedInstance;
+- (BOOL)isUserAlreadyLogged;
 - (void)loginWithOpenRequestBlock:(void (^)(NSURLRequest *request))requestBlock completion:(void (^)(NSError *error))completion;
 - (void)setOAuthToken:(NSString *)token oauthVerifier:(NSString *)verifier;
 

@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Kievkao. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "TWRBaseVC.h"
 
-@interface TWRLoginVC : UIViewController
+@interface TWRLoginVC : TWRBaseVC
 
 @end
