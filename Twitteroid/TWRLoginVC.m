@@ -23,16 +23,19 @@
 
 - (IBAction)loginBtnClicked:(id)sender {
 
-    TWRLoginWebVC *webVC = [self.storyboard instantiateViewControllerWithIdentifier:[TWRLoginWebVC identifier]];
+    __block TWRLoginWebVC *webVC = nil;
     
     [[TWRLoginManager sharedInstance] loginWithOpenRequestBlock:^(NSURLRequest *request) {
 
+        webVC = [self.storyboard instantiateViewControllerWithIdentifier:[TWRLoginWebVC identifier]];
         [self presentViewController:webVC animated:YES completion:^{
             [webVC.webView loadRequest:request];
         }];
         
     } completion:^(NSError *error) {
-        [webVC dismissViewControllerAnimated:YES completion:nil];
+        if (webVC) {
+            [webVC dismissViewControllerAnimated:YES completion:nil];
+        }
     }];
 }
 

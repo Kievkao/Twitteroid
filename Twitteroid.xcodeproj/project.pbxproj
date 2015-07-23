@@ -35,6 +35,9 @@
 		04AF02BC1B61054F002CEB65 /* TWRLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AF02BB1B61054F002CEB65 /* TWRLoginVC.m */; };
 		04AF02CA1B61098C002CEB65 /* TWRLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AF02C91B61098C002CEB65 /* TWRLoginManager.m */; };
 		04AF02D11B6111F4002CEB65 /* TWRLoginWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AF02D01B6111F4002CEB65 /* TWRLoginWebVC.m */; };
+		04AF02DA1B61244A002CEB65 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AF02D91B61244A002CEB65 /* Security.framework */; };
+		04AF02DF1B612489002CEB65 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AF02DC1B612489002CEB65 /* SSKeychain.m */; };
+		04AF02E01B612489002CEB65 /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AF02DE1B612489002CEB65 /* SSKeychainQuery.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +105,11 @@
 		04AF02C91B61098C002CEB65 /* TWRLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRLoginManager.m; sourceTree = "<group>"; };
 		04AF02CF1B6111F4002CEB65 /* TWRLoginWebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRLoginWebVC.h; sourceTree = "<group>"; };
 		04AF02D01B6111F4002CEB65 /* TWRLoginWebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRLoginWebVC.m; sourceTree = "<group>"; };
+		04AF02D91B61244A002CEB65 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		04AF02DB1B612489002CEB65 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
+		04AF02DC1B612489002CEB65 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
+		04AF02DD1B612489002CEB65 /* SSKeychainQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychainQuery.h; sourceTree = "<group>"; };
+		04AF02DE1B612489002CEB65 /* SSKeychainQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychainQuery.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04AF02DA1B61244A002CEB65 /* Security.framework in Frameworks */,
 				04AF02821B6103DC002CEB65 /* Twitter.framework in Frameworks */,
 				04AF02801B6103D5002CEB65 /* Social.framework in Frameworks */,
 				04AF027E1B6103CF002CEB65 /* Accounts.framework in Frameworks */,
@@ -189,6 +198,7 @@
 		04AF02831B6103E4002CEB65 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04AF02D91B61244A002CEB65 /* Security.framework */,
 				04AF02811B6103DC002CEB65 /* Twitter.framework */,
 				04AF027F1B6103D5002CEB65 /* Social.framework */,
 				04AF027D1B6103CF002CEB65 /* Accounts.framework */,
@@ -234,6 +244,7 @@
 		04AF02881B61046F002CEB65 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				04AF02D21B611CD8002CEB65 /* SSKeychain */,
 				04AF02891B61048D002CEB65 /* STTwitter */,
 			);
 			name = Libraries;
@@ -295,6 +306,17 @@
 				04AF02D01B6111F4002CEB65 /* TWRLoginWebVC.m */,
 			);
 			name = Login;
+			sourceTree = "<group>";
+		};
+		04AF02D21B611CD8002CEB65 /* SSKeychain */ = {
+			isa = PBXGroup;
+			children = (
+				04AF02DB1B612489002CEB65 /* SSKeychain.h */,
+				04AF02DC1B612489002CEB65 /* SSKeychain.m */,
+				04AF02DD1B612489002CEB65 /* SSKeychainQuery.h */,
+				04AF02DE1B612489002CEB65 /* SSKeychainQuery.m */,
+			);
+			name = SSKeychain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -417,8 +439,10 @@
 				04AF02A31B6104A5002CEB65 /* NSDateFormatter+STTwitter.m in Sources */,
 				04AF02B51B6104B0002CEB65 /* JSONSyntaxHighlight.m in Sources */,
 				04AF02B91B61051C002CEB65 /* TWRFeedVC.m in Sources */,
+				04AF02DF1B612489002CEB65 /* SSKeychain.m in Sources */,
 				04AF02571B60FE49002CEB65 /* main.m in Sources */,
 				04AF02AD1B6104A5002CEB65 /* STTwitterStreamParser.m in Sources */,
+				04AF02E01B612489002CEB65 /* SSKeychainQuery.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
