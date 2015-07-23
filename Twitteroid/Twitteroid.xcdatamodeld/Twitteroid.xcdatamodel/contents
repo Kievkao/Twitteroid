@@ -1,4 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14E46" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="TWRHash" representedClassName="TWRHash" syncable="YES">
+        <attribute name="endIndex" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="startIndex" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="tweet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TWRTweet" inverseName="hashes" inverseEntity="TWRTweet" syncable="YES"/>
+    </entity>
+    <entity name="TWRMedia" representedClassName="TWRMedia" syncable="YES">
+        <attribute name="mediaURL" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="tweet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TWRTweet" inverseName="medias" inverseEntity="TWRTweet" syncable="YES"/>
+    </entity>
+    <entity name="TWRPlace" representedClassName="TWRPlace" syncable="YES">
+        <attribute name="countryName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lattitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="tweet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TWRTweet" inverseName="place" inverseEntity="TWRTweet" syncable="YES"/>
+    </entity>
+    <entity name="TWRTweet" representedClassName="TWRTweet" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userAvatarURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="hashes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="TWRHash" inverseName="tweet" inverseEntity="TWRHash" syncable="YES"/>
+        <relationship name="medias" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="TWRMedia" inverseName="tweet" inverseEntity="TWRMedia" syncable="YES"/>
+        <relationship name="place" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="TWRPlace" inverseName="tweet" inverseEntity="TWRPlace" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="TWRTweet" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="TWRHash" positionX="-54" positionY="0" width="128" height="105"/>
+        <element name="TWRPlace" positionX="-45" positionY="45" width="128" height="105"/>
+        <element name="TWRMedia" positionX="-36" positionY="63" width="128" height="75"/>
+    </elements>
 </model>

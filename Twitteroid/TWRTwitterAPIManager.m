@@ -23,17 +23,6 @@ NSString *const kTwitterApiSecret = @"FgJV89KXSGYf42opyMLFfZxk5J9fPIwITzYrKsZWG0
 @implementation TWRTwitterAPIManager
 @synthesize token = _token, tokenSecret = _tokenSecret;
 
-+ (instancetype)sharedInstance
-{
-    static dispatch_once_t once;
-    static id sharedInstance;
-    
-    dispatch_once(&once, ^{
-        sharedInstance = [[self alloc] init];
-    });
-    return sharedInstance;
-}
-
 #pragma mark - Getters, setters
 - (NSString *)token {
     
