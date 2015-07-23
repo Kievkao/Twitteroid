@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@class STTwitterAPI;
+#import "STTwitter.h"
 
 extern NSString *const kTwitterApiKey;
 extern NSString *const kTwitterApiSecret;

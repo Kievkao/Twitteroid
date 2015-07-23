@@ -7,7 +7,6 @@
 //
 
 #import "TWRTwitterAPIManager.h"
-#import "STTwitter.h"
 #import "SSKeychain.h"
 
 static NSString *const kKeychainAccountKey = @"kievkao.Twitteroid";

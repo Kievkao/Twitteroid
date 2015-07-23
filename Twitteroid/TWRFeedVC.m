@@ -8,6 +8,7 @@
 
 #import "TWRFeedVC.h"
 #import "TWRTwitCell.h"
+#import "TWRTwitterAPIManager+TWRFeed.h"
 
 @interface TWRFeedVC ()
 
@@ -18,6 +19,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [[TWRTwitterAPIManager sharedInstance] getFeedSinceTwitID:nil count:20 completion:^(NSError *error, NSArray *items) {
+        NSLog(@"hello");
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

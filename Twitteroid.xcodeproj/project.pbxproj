@@ -12,6 +12,7 @@
 		047B071F1B6153690058316F /* TWRBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B071E1B6153690058316F /* TWRBaseVC.m */; };
 		047B07231B6159010058316F /* TWRBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B07221B6159010058316F /* TWRBaseTableViewCell.m */; };
 		047B07261B6159480058316F /* TWRTwitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B07251B6159480058316F /* TWRTwitCell.m */; };
+		047B07291B615B6A0058316F /* TWRTwitterAPIManager+TWRFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B07281B615B6A0058316F /* TWRTwitterAPIManager+TWRFeed.m */; };
 		04AF02571B60FE49002CEB65 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AF02561B60FE49002CEB65 /* main.m */; };
 		04AF025A1B60FE4A002CEB65 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AF02591B60FE4A002CEB65 /* AppDelegate.m */; };
 		04AF025D1B60FE4A002CEB65 /* Twitteroid.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04AF025B1B60FE4A002CEB65 /* Twitteroid.xcdatamodeld */; };
@@ -67,6 +68,8 @@
 		047B07221B6159010058316F /* TWRBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRBaseTableViewCell.m; sourceTree = "<group>"; };
 		047B07241B6159480058316F /* TWRTwitCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRTwitCell.h; sourceTree = "<group>"; };
 		047B07251B6159480058316F /* TWRTwitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRTwitCell.m; sourceTree = "<group>"; };
+		047B07271B615B6A0058316F /* TWRTwitterAPIManager+TWRFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TWRTwitterAPIManager+TWRFeed.h"; sourceTree = "<group>"; };
+		047B07281B615B6A0058316F /* TWRTwitterAPIManager+TWRFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TWRTwitterAPIManager+TWRFeed.m"; sourceTree = "<group>"; };
 		04AF02511B60FE49002CEB65 /* Twitteroid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twitteroid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04AF02551B60FE49002CEB65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04AF02561B60FE49002CEB65 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -179,6 +182,13 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		047B072A1B615D830058316F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		04AF02481B60FE49002CEB65 = {
 			isa = PBXGroup;
 			children = (
@@ -200,10 +210,11 @@
 		04AF02531B60FE49002CEB65 /* Twitteroid */ = {
 			isa = PBXGroup;
 			children = (
-				04AF02C71B61097D002CEB65 /* Managers */,
-				04AF02841B6103F1002CEB65 /* CoreData */,
+				047B072A1B615D830058316F /* Model */,
 				04AF02851B6103FA002CEB65 /* View */,
 				04AF02871B61042F002CEB65 /* Controllers */,
+				04AF02C71B61097D002CEB65 /* Managers */,
+				04AF02841B6103F1002CEB65 /* CoreData */,
 				04AF02581B60FE49002CEB65 /* AppDelegate.h */,
 				04AF02591B60FE4A002CEB65 /* AppDelegate.m */,
 				047B071C1B6153570058316F /* BaseClasses */,
@@ -344,6 +355,8 @@
 				04AF02C91B61098C002CEB65 /* TWRTwitterAPIManager.m */,
 				047B07191B61520B0058316F /* TWRTwitterAPIManager+TWRLogin.h */,
 				047B071A1B61520B0058316F /* TWRTwitterAPIManager+TWRLogin.m */,
+				047B07271B615B6A0058316F /* TWRTwitterAPIManager+TWRFeed.h */,
+				047B07281B615B6A0058316F /* TWRTwitterAPIManager+TWRFeed.m */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -474,6 +487,7 @@
 				04AF02AB1B6104A5002CEB65 /* STTwitterOS.m in Sources */,
 				04AF02A51B6104A5002CEB65 /* NSString+STTwitter.m in Sources */,
 				04AF02D11B6111F4002CEB65 /* TWRLoginWebVC.m in Sources */,
+				047B07291B615B6A0058316F /* TWRTwitterAPIManager+TWRFeed.m in Sources */,
 				04AF02A71B6104A5002CEB65 /* STTwitterAPI.m in Sources */,
 				04AF02A61B6104A5002CEB65 /* STHTTPRequest+STTwitter.m in Sources */,
 				04AF02B41B6104B0002CEB65 /* BAVPlistNode.m in Sources */,
