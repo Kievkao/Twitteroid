@@ -18,4 +18,8 @@
     return @"createdAt";
 }
 
++ (NSString *)tweetIDParameter {
+    return @"tweetId";
+}
+
 @end

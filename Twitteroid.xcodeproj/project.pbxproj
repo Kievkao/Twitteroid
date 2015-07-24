@@ -68,6 +68,7 @@
 		DE0B9C091B626EFF00CFC490 /* TWRHashtag.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9C081B626EFF00CFC490 /* TWRHashtag.m */; };
 		DE0B9C0C1B626F0F00CFC490 /* TWRHashtag+TWRHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9C0B1B626F0F00CFC490 /* TWRHashtag+TWRHelper.m */; };
 		DE0B9C101B62713600CFC490 /* TWRMedia+TWRHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9C0F1B62713600CFC490 /* TWRMedia+TWRHelper.m */; };
+		DE0B9C141B6273B800CFC490 /* TWRFeedVC+TWRParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9C131B6273B800CFC490 /* TWRFeedVC+TWRParsing.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -203,6 +204,8 @@
 		DE0B9C0B1B626F0F00CFC490 /* TWRHashtag+TWRHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TWRHashtag+TWRHelper.m"; sourceTree = "<group>"; };
 		DE0B9C0E1B62713600CFC490 /* TWRMedia+TWRHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TWRMedia+TWRHelper.h"; sourceTree = "<group>"; };
 		DE0B9C0F1B62713600CFC490 /* TWRMedia+TWRHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TWRMedia+TWRHelper.m"; sourceTree = "<group>"; };
+		DE0B9C121B6273B800CFC490 /* TWRFeedVC+TWRParsing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TWRFeedVC+TWRParsing.h"; sourceTree = "<group>"; };
+		DE0B9C131B6273B800CFC490 /* TWRFeedVC+TWRParsing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TWRFeedVC+TWRParsing.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -404,9 +407,8 @@
 		04AF02871B61042F002CEB65 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				DE0B9C111B6273A800CFC490 /* Feed */,
 				04AF02CB1B611020002CEB65 /* Login */,
-				04AF02B71B61051C002CEB65 /* TWRFeedVC.h */,
-				04AF02B81B61051C002CEB65 /* TWRFeedVC.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -555,6 +557,17 @@
 			name = TWRMedia;
 			sourceTree = "<group>";
 		};
+		DE0B9C111B6273A800CFC490 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				04AF02B71B61051C002CEB65 /* TWRFeedVC.h */,
+				04AF02B81B61051C002CEB65 /* TWRFeedVC.m */,
+				DE0B9C121B6273B800CFC490 /* TWRFeedVC+TWRParsing.h */,
+				DE0B9C131B6273B800CFC490 /* TWRFeedVC+TWRParsing.m */,
+			);
+			name = Feed;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -691,6 +704,7 @@
 				DE0B9BE81B62417500CFC490 /* INSCircleInfiniteIndicator.m in Sources */,
 				04AF02BC1B61054F002CEB65 /* TWRLoginVC.m in Sources */,
 				DE0B9BEB1B6247F500CFC490 /* TWRTweet+TWRHelper.m in Sources */,
+				DE0B9C141B6273B800CFC490 /* TWRFeedVC+TWRParsing.m in Sources */,
 				DE0B9BE41B62403200CFC490 /* INSTwitterPullToRefresh.m in Sources */,
 				04AF025D1B60FE4A002CEB65 /* Twitteroid.xcdatamodeld in Sources */,
 				04AF02B61B6104B0002CEB65 /* STHTTPRequest.m in Sources */,

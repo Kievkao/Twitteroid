@@ -54,7 +54,7 @@
             [self.navigationController setViewControllers:@[[self.storyboard instantiateViewControllerWithIdentifier:[TWRFeedVC identifier]]] animated:YES];
         }
         else {
-            [self showInfoAlertWithTitle:NSLocalizedString(@"Error", @"Error title") text:NSLocalizedString(@"Twitter login error", @"Twitter login error message")];
+            [self showInfoAlertWithTitle:NSLocalizedString(@"Error", @"Error title") text:error.localizedDescription];
         }
     }];
 }

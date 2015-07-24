@@ -51,7 +51,7 @@
         requestBlock([NSURLRequest requestWithURL:url]);
         
     } authenticateInsteadOfAuthorize:NO forceLogin:@(YES) screenName:nil oauthCallback:@"myapp.here.com" errorBlock:^(NSError *error) {
-        NSLog(@"-- error: %@", error);
+        completion(error);
     }];
 }
 

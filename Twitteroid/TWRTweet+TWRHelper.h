@@ -12,5 +12,6 @@
 
 + (NSString *)entityName;
 + (NSString *)defaultSortDescriptor;
++ (NSString *)tweetIDParameter;
 
 @end

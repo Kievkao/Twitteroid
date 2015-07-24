@@ -10,11 +10,8 @@
 #import "TWRFeedVC.h"
 #import "TWRTwitCell.h"
 #import "TWRTwitterAPIManager+TWRFeed.h"
-#import "TWRCoreDataManager.h"
-#import "TWRTweet.h"
-#import "TWRHashtag.h"
-#import "TWRMedia.h"
 #import "NSDateFormatter+LocaleAdditions.h"
+#import "TWRFeedVC+TWRParsing.h"
 #import "UIScrollView+INSPullToRefresh.h"
 #import "INSTwitterPullToRefresh.h"
 #import "INSCircleInfiniteIndicator.h"
@@ -26,7 +23,6 @@ static NSUInteger const kTweetsLoadingPortion = 20;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-@property (strong, nonatomic) NSDateFormatter *dateFormatter;
 
 @end
 
@@ -38,73 +34,6 @@ static NSUInteger const kTweetsLoadingPortion = 20;
     [self pullToRefreshSetup];
     [self infinitiveScrollSetup];
     [self startFetching];
-    
-    [[TWRTwitterAPIManager sharedInstance] getFeedSinceTwitID:nil count:kTweetsLoadingPortion completion:^(NSError *error, NSArray *items) {
-        if (!error) {
-            [self parseTweetsArray:items];
-        }
-        else {
-            NSLog(@"Loading error");
-        }
-    }];
-}
-
-- (void)parseTweetsArray:(NSArray *)items {
-    
-    for (NSDictionary *oneItem in items) {
-        
-        TWRTweet *tweet = [TWRCoreDataManager insertNewTweetInContext:[TWRCoreDataManager mainContext]];
-        
-        tweet.createdAt = [self.dateFormatter dateFromString:oneItem[@"created_at"]];
-        
-        NSDictionary *userInfoDict = oneItem[@"user"];
-        tweet.userAvatarURL = userInfoDict[@"profile_image_url"];
-        tweet.userName = userInfoDict[@"name"];
-        tweet.userNickname = userInfoDict[@"screen_name"];
-        tweet.tweetId = oneItem[@"id_str"];
-        tweet.text = oneItem[@"text"];
-        
-        if (![oneItem[@"place"] isKindOfClass:[NSNull class]]) {
-            NSDictionary *placeDict = oneItem[@"place"];
-            NSDictionary *boundingBoxDict = placeDict[@"bounding_box"];
-            NSArray *coordinates = boundingBoxDict[@"coordinates"];
-        }
-        
-        if (![oneItem[@"entities"] isKindOfClass:[NSNull class]]) {
-            NSDictionary *entitiesDict = oneItem[@"entities"];
-            
-            if (![entitiesDict[@"hashtags"] isKindOfClass:[NSNull class]]) {
-                NSArray *hastagsArray = entitiesDict[@"hashtags"];
-                
-                NSMutableSet *hashtags = [NSMutableSet set];
-                
-                for (NSDictionary *hash in hastagsArray) {
-                    
-                    NSArray *indicies = hash[@"indicies"];
-                    TWRHashtag *hashtag = [TWRCoreDataManager insertNewHashtagInContext:[TWRCoreDataManager mainContext]];
-                    hashtag.startIndex = [[indicies firstObject] intValue];
-                    hashtag.endIndex = [[indicies lastObject] intValue];
-                    hashtag.text = hash[@"text"];
-                    hashtag.tweet = tweet;
-                    
-                    [hashtags addObject:hashtag];
-                }
-                
-                tweet.hashtags = hashtags;
-            }
-            
-            if (![entitiesDict[@"media"] isKindOfClass:[NSNull class]]) {
-                NSArray *mediaArray = entitiesDict[@"media"];\
-                NSDictionary *mediaDict = [mediaArray firstObject];
-                
-                TWRMedia *media = [TWRCoreDataManager insertNewMediaInContext:[TWRCoreDataManager mainContext]];
-                media.mediaURL = mediaDict[@"media_url"];
-                media.tweet = tweet;
-                
-                tweet.medias = [NSSet setWithObject:media];
-            }
-        }
-    }
 }
 
 - (NSDateFormatter *)dateFormatter {
@@ -175,16 +104,30 @@ static NSUInteger const kTweetsLoadingPortion = 20;
 #pragma mark - Infinitive scroll && PullToRefresh
 - (void)pullToRefreshSetup {
     [self.tableView ins_addPullToRefreshWithHeight:60.0 handler:^(UIScrollView *scrollView) {
-        int64_t delayInSeconds = 1;
-        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        
+        [self loadPortionFromTweetID:nil withCompletion:^(NSError *error) {
             [scrollView ins_endPullToRefresh];
-        });
+        }];
     }];
     
     UIView <INSPullToRefreshBackgroundViewDelegate> *pullToRefresh = [self pullToRefreshViewFromCurrentStyle];
     self.tableView.ins_pullToRefreshBackgroundView.delegate = pullToRefresh;
     [self.tableView.ins_pullToRefreshBackgroundView addSubview:pullToRefresh];
+}
+
+- (void)loadPortionFromTweetID:(NSString *)tweetID withCompletion:(void (^)(NSError *error))loadingCompletion {
+    
+    [[TWRTwitterAPIManager sharedInstance] getFeedSinceTwitID:tweetID count:kTweetsLoadingPortion completion:^(NSError *error, NSArray *items) {
+        if (!error) {
+            [self parseTweetsArray:items];
+            [TWRCoreDataManager saveContext:[TWRCoreDataManager mainContext]];
+        }
+        else {
+            NSLog(@"Loading error");
+        }
+        
+        loadingCompletion(error);
+    }];
 }
 
 - (void)infinitiveScrollSetup {

@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Kievkao. All rights reserved.
 //
 
-#import <CoreData/CoreData.h>
 #import "AppDelegate.h"
 #import "TWRCoreDataManager.h"
 #import "TWRMedia+TWRHelper.h"
@@ -21,7 +20,7 @@
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:[TWRTweet entityName]];
     
-    [fetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:[TWRTweet defaultSortDescriptor] ascending:YES]]];
+    [fetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:[TWRTweet defaultSortDescriptor] ascending:NO]]];
     
     NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:MAIN_CONTEXT sectionNameKeyPath:nil cacheName:nil];
     
@@ -47,5 +46,26 @@
     return media;
 }
 
++ (BOOL)isExistsTweetWithID:(NSString *)tweetID performInContext:(NSManagedObjectContext *)context {
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:[TWRTweet entityName]];
+    
+    request.predicate = [NSPredicate predicateWithFormat:@"%K = %@", [TWRTweet tweetIDParameter], tweetID];
+    NSError *error = nil;
+    
+    NSArray *results = [context executeFetchRequest:request error:&error];
+    return results.count;
+}
+
++ (void)saveContext:(NSManagedObjectContext *)context {
+
+    [context performBlock:^{
+        NSError *error = nil;
+        [context save:&error];
+        if (error) {
+            NSLog(@"Context saving error");
+        }
+    }];
+}
 
 @end
