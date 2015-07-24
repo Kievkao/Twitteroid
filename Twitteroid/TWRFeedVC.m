@@ -144,7 +144,7 @@ static NSUInteger const kTweetsLoadingPortion = 20;
 
 - (void)loadPortionFromTweetID:(NSString *)tweetID withCompletion:(void (^)(NSError *error))loadingCompletion {
     
-    [[TWRTwitterAPIManager sharedInstance] getFeedSinceTwitID:tweetID count:kTweetsLoadingPortion completion:^(NSError *error, NSArray *items) {
+    [[TWRTwitterAPIManager sharedInstance] getFeedOlderThatTwitID:tweetID count:kTweetsLoadingPortion completion:^(NSError *error, NSArray *items) {
         if (!error) {
             [self parseTweetsArray:items];
             [TWRCoreDataManager saveContext:[TWRCoreDataManager mainContext]];
@@ -162,19 +162,43 @@ static NSUInteger const kTweetsLoadingPortion = 20;
         
         if ([self isInternetActive]) {
             
-            TWRTweet *lastTweet = [self.fetchedResultsController objectAtIndexPath:[[self.tableView indexPathsForVisibleRows] lastObject]];
-            NSString *lastTweetID = lastTweet.tweetId;
-            
-            [[TWRTwitterAPIManager sharedInstance] getFeedSinceTwitID:lastTweetID count:kTweetsLoadingPortion completion:^(NSError *error, NSArray *items) {
-                if (!error) {
-                    [self parseTweetsArray:items];
-                    [TWRCoreDataManager saveContext:[TWRCoreDataManager mainContext]];
-                }
-                else {
-                    NSLog(@"Loading error");
-                }
-                [scrollView ins_endInfinityScrollWithStoppingContentOffset:YES];
-            }];
+            if ([[TWRTwitterAPIManager sharedInstance] isSessionLoginDone]) {
+                TWRTweet *lastTweet = [self.fetchedResultsController objectAtIndexPath:[[self.tableView indexPathsForVisibleRows] lastObject]];
+                NSString *lastTweetID = lastTweet.tweetId;
+                
+                [[TWRTwitterAPIManager sharedInstance] getFeedOlderThatTwitID:lastTweetID count:kTweetsLoadingPortion completion:^(NSError *error, NSArray *items) {
+                    if (!error) {
+                        [self parseTweetsArray:items];
+                        [TWRCoreDataManager saveContext:[TWRCoreDataManager mainContext]];
+                    }
+                    else {
+                        NSLog(@"Loading error");
+                    }
+                    [scrollView ins_endInfinityScrollWithStoppingContentOffset:YES];
+                }];
+            }
+            else {
+                [[TWRTwitterAPIManager sharedInstance] reloginWithCompletion:^(NSError *error) {
+                    if (!error) {
+                        TWRTweet *lastTweet = [self.fetchedResultsController objectAtIndexPath:[[self.tableView indexPathsForVisibleRows] lastObject]];
+                        NSString *lastTweetID = lastTweet.tweetId;
+                        
+                        [[TWRTwitterAPIManager sharedInstance] getFeedOlderThatTwitID:lastTweetID count:kTweetsLoadingPortion completion:^(NSError *error, NSArray *items) {
+                            if (!error) {
+                                [self parseTweetsArray:items];
+                                [TWRCoreDataManager saveContext:[TWRCoreDataManager mainContext]];
+                            }
+                            else {
+                                NSLog(@"Loading error");
+                            }
+                            [scrollView ins_endInfinityScrollWithStoppingContentOffset:YES];
+                        }];
+                    }
+                    else {
+                        [self showInfoAlertWithTitle:NSLocalizedString(@"Error", @"Error title") text:error.localizedDescription];
+                    }
+                }];
+            }
         }
         else {
             [self showInfoAlertWithTitle:NSLocalizedString(@"Connection Failed", @"Connection Failed") text:NSLocalizedString(@"Please check your internet connection", @"Please check your internet connection")];

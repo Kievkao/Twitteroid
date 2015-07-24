@@ -10,6 +10,6 @@
 
 @interface TWRTwitterAPIManager (TWRFeed)
 
-- (void)getFeedSinceTwitID:(NSString *)twitID count:(NSUInteger)count completion:(void(^)(NSError *error, NSArray *items))completion;
+- (void)getFeedOlderThatTwitID:(NSString *)twitID count:(NSUInteger)count completion:(void(^)(NSError *error, NSArray *items))completion;
 
 @end

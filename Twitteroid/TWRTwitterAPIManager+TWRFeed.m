@@ -11,9 +11,9 @@
 
 @implementation TWRTwitterAPIManager (TWRFeed)
 
-- (void)getFeedSinceTwitID:(NSString *)twitID count:(NSUInteger)count completion:(void(^)(NSError *error, NSArray *items))completion
+- (void)getFeedOlderThatTwitID:(NSString *)twitID count:(NSUInteger)count completion:(void(^)(NSError *error, NSArray *items))completion
 {
-    [self.twitter getHomeTimelineSinceID:twitID count:count successBlock:^(NSArray *statuses) {
+    [self.twitter getStatusesHomeTimelineWithCount:[NSString stringWithFormat:@"%d", count] sinceID:nil maxID:twitID trimUser:nil excludeReplies:nil contributorDetails:nil includeEntities:nil successBlock:^(NSArray *statuses) {
         completion(nil, statuses);
     } errorBlock:^(NSError *error) {
         completion(error, nil);
