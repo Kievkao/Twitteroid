@@ -21,7 +21,7 @@
     [super viewDidLoad];
     
     if ([[TWRTwitterAPIManager sharedInstance] isUserAlreadyLogged]) {
-        [self peformLogin];
+        [self openFeedViewController];
     }
 }
 
@@ -51,12 +51,16 @@
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         
         if (!error) {
-            [self.navigationController setViewControllers:@[[self.storyboard instantiateViewControllerWithIdentifier:[TWRFeedVC identifier]]] animated:YES];
+            [self openFeedViewController];
         }
         else {
             [self showInfoAlertWithTitle:NSLocalizedString(@"Error", @"Error title") text:error.localizedDescription];
         }
     }];
+}
+
+- (void)openFeedViewController {
+    [self.navigationController setViewControllers:@[[self.storyboard instantiateViewControllerWithIdentifier:[TWRFeedVC identifier]]] animated:YES];
 }
 
 @end

@@ -12,6 +12,8 @@
 
 - (BOOL)isUserAlreadyLogged;
 - (void)loginWithOpenRequestBlock:(void (^)(NSURLRequest *request))requestBlock completion:(void (^)(NSError *error))completion;
+- (void)reloginWithCompletion:(void (^)(NSError *error))completion;
 - (void)setOAuthToken:(NSString *)token oauthVerifier:(NSString *)verifier;
+- (BOOL)isSessionLoginDone;
 
 @end

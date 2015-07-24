@@ -10,6 +10,7 @@
 #import "TWRFeedVC.h"
 #import "TWRTwitCell.h"
 #import "TWRTwitterAPIManager+TWRFeed.h"
+#import "TWRTwitterAPIManager+TWRLogin.h"
 #import "NSDateFormatter+LocaleAdditions.h"
 #import "TWRFeedVC+TWRParsing.h"
 #import "UIScrollView+INSPullToRefresh.h"
@@ -105,9 +106,23 @@ static NSUInteger const kTweetsLoadingPortion = 20;
 - (void)pullToRefreshSetup {
     [self.tableView ins_addPullToRefreshWithHeight:60.0 handler:^(UIScrollView *scrollView) {
         
-        [self loadPortionFromTweetID:nil withCompletion:^(NSError *error) {
-            [scrollView ins_endPullToRefresh];
-        }];
+        if ([[TWRTwitterAPIManager sharedInstance] isSessionLoginDone]) {
+            [self loadPortionFromTweetID:nil withCompletion:^(NSError *error) {
+                [scrollView ins_endPullToRefresh];
+            }];
+        }
+        else {
+            [[TWRTwitterAPIManager sharedInstance] reloginWithCompletion:^(NSError *error) {
+                if (!error) {
+                    [self loadPortionFromTweetID:nil withCompletion:^(NSError *error) {
+                        [scrollView ins_endPullToRefresh];
+                    }];
+                }
+                else {
+                    [self showInfoAlertWithTitle:NSLocalizedString(@"Error", @"Error title") text:error.localizedDescription];
+                }
+            }];
+        }
     }];
     
     UIView <INSPullToRefreshBackgroundViewDelegate> *pullToRefresh = [self pullToRefreshViewFromCurrentStyle];

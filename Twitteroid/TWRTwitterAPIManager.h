@@ -20,4 +20,6 @@ extern NSString *const kTwitterApiSecret;
 @property (nonatomic, strong) NSString *tokenSecret;
 @property (nonatomic, strong) void (^loginCompletion)(NSError *error);
 
+@property (nonatomic) BOOL sessionLoginDone;
+
 @end
