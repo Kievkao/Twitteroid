@@ -16,13 +16,13 @@
 #import "UIScrollView+INSPullToRefresh.h"
 #import "INSTwitterPullToRefresh.h"
 #import "INSCircleInfiniteIndicator.h"
+#import "Reachability.h"
 
 static NSUInteger const kTweetsLoadingPortion = 20;
 
 @interface TWRFeedVC () <NSFetchedResultsControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @end
@@ -49,6 +49,12 @@ static NSUInteger const kTweetsLoadingPortion = 20;
 
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBarHidden = NO;
+}
+
+- (BOOL)isInternetActive {
+    Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
+    return !(networkStatus == NotReachable);
 }
 
 #pragma mark - NSFetchedResultsController stuff
@@ -104,24 +110,30 @@ static NSUInteger const kTweetsLoadingPortion = 20;
 
 #pragma mark - Infinitive scroll && PullToRefresh
 - (void)pullToRefreshSetup {
+    
     [self.tableView ins_addPullToRefreshWithHeight:60.0 handler:^(UIScrollView *scrollView) {
         
-        if ([[TWRTwitterAPIManager sharedInstance] isSessionLoginDone]) {
-            [self loadPortionFromTweetID:nil withCompletion:^(NSError *error) {
-                [scrollView ins_endPullToRefresh];
-            }];
+        if ([self isInternetActive]) {
+            if ([[TWRTwitterAPIManager sharedInstance] isSessionLoginDone]) {
+                [self loadPortionFromTweetID:nil withCompletion:^(NSError *error) {
+                    [scrollView ins_endPullToRefresh];
+                }];
+            }
+            else {
+                [[TWRTwitterAPIManager sharedInstance] reloginWithCompletion:^(NSError *error) {
+                    if (!error) {
+                        [self loadPortionFromTweetID:nil withCompletion:^(NSError *error) {
+                            [scrollView ins_endPullToRefresh];
+                        }];
+                    }
+                    else {
+                        [self showInfoAlertWithTitle:NSLocalizedString(@"Error", @"Error title") text:error.localizedDescription];
+                    }
+                }];
+            }
         }
         else {
-            [[TWRTwitterAPIManager sharedInstance] reloginWithCompletion:^(NSError *error) {
-                if (!error) {
-                    [self loadPortionFromTweetID:nil withCompletion:^(NSError *error) {
-                        [scrollView ins_endPullToRefresh];
-                    }];
-                }
-                else {
-                    [self showInfoAlertWithTitle:NSLocalizedString(@"Error", @"Error title") text:error.localizedDescription];
-                }
-            }];
+            [self showInfoAlertWithTitle:NSLocalizedString(@"Connection Failed", @"Connection Failed") text:NSLocalizedString(@"Please check your internet connection", @"Please check your internet connection")];
         }
     }];
     
@@ -148,11 +160,26 @@ static NSUInteger const kTweetsLoadingPortion = 20;
 - (void)infinitiveScrollSetup {
     [self.tableView ins_addInfinityScrollWithHeight:60 handler:^(UIScrollView *scrollView) {
         
-        int64_t delayInSeconds = 1;
-        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-            [scrollView ins_endInfinityScrollWithStoppingContentOffset:YES];
-        });
+        if ([self isInternetActive]) {
+            
+            TWRTweet *lastTweet = [self.fetchedResultsController objectAtIndexPath:[[self.tableView indexPathsForVisibleRows] lastObject]];
+            NSString *lastTweetID = lastTweet.tweetId;
+            
+            [[TWRTwitterAPIManager sharedInstance] getFeedSinceTwitID:lastTweetID count:kTweetsLoadingPortion completion:^(NSError *error, NSArray *items) {
+                if (!error) {
+                    [self parseTweetsArray:items];
+                    [TWRCoreDataManager saveContext:[TWRCoreDataManager mainContext]];
+                }
+                else {
+                    NSLog(@"Loading error");
+                }
+                [scrollView ins_endInfinityScrollWithStoppingContentOffset:YES];
+            }];
+        }
+        else {
+            [self showInfoAlertWithTitle:NSLocalizedString(@"Connection Failed", @"Connection Failed") text:NSLocalizedString(@"Please check your internet connection", @"Please check your internet connection")];
+            [scrollView ins_endInfinityScrollWithStoppingContentOffset:NO];
+        }
     }];
     
     UIView <INSAnimatable> *infinityIndicator = [self infinityIndicatorViewFromCurrentStyle];
