@@ -7,9 +7,16 @@
 //
 
 #import "TWRBaseSingletonNSObject.h"
+@class TWRTweet, TWRHashtag, TWRMedia;
 
 @interface TWRCoreDataManager : TWRBaseSingletonNSObject
 
++ (NSManagedObjectContext *)mainContext;
+
 + (NSFetchedResultsController *)fetchedResultsControllerForTweetsFeed;
+
++ (TWRTweet *)insertNewTweetInContext:(NSManagedObjectContext *)context;
++ (TWRHashtag *)insertNewHashtagInContext:(NSManagedObjectContext *)context;
++ (TWRMedia *)insertNewMediaInContext:(NSManagedObjectContext *)context;
 
 @end

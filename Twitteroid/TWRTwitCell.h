@@ -10,4 +10,6 @@
 
 @interface TWRTwitCell : TWRBaseTableViewCell
 
+- (void)setTwitText:(NSString *)text;
+
 @end

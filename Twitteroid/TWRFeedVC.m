@@ -12,7 +12,9 @@
 #import "TWRTwitterAPIManager+TWRFeed.h"
 #import "TWRCoreDataManager.h"
 #import "TWRTweet.h"
-
+#import "TWRHashtag.h"
+#import "TWRMedia.h"
+#import "NSDateFormatter+LocaleAdditions.h"
 #import "UIScrollView+INSPullToRefresh.h"
 #import "INSTwitterPullToRefresh.h"
 #import "INSCircleInfiniteIndicator.h"
@@ -24,6 +26,7 @@ static NSUInteger const kTweetsLoadingPortion = 20;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSDateFormatter *dateFormatter;
 
 @end
 
@@ -36,9 +39,82 @@ static NSUInteger const kTweetsLoadingPortion = 20;
     [self infinitiveScrollSetup];
     [self startFetching];
     
-//    [[TWRTwitterAPIManager sharedInstance] getFeedSinceTwitID:nil count:kTweetsLoadingPortion completion:^(NSError *error, NSArray *items) {
-//        NSLog(@"hello");
-//    }];
+    [[TWRTwitterAPIManager sharedInstance] getFeedSinceTwitID:nil count:kTweetsLoadingPortion completion:^(NSError *error, NSArray *items) {
+        if (!error) {
+            [self parseTweetsArray:items];
+        }
+        else {
+            NSLog(@"Loading error");
+        }
+    }];
+}
+
+- (void)parseTweetsArray:(NSArray *)items {
+    
+    for (NSDictionary *oneItem in items) {
+        
+        TWRTweet *tweet = [TWRCoreDataManager insertNewTweetInContext:[TWRCoreDataManager mainContext]];
+        
+        tweet.createdAt = [self.dateFormatter dateFromString:oneItem[@"created_at"]];
+        
+        NSDictionary *userInfoDict = oneItem[@"user"];
+        tweet.userAvatarURL = userInfoDict[@"profile_image_url"];
+        tweet.userName = userInfoDict[@"name"];
+        tweet.userNickname = userInfoDict[@"screen_name"];
+        tweet.tweetId = oneItem[@"id_str"];
+        tweet.text = oneItem[@"text"];
+        
+        if (![oneItem[@"place"] isKindOfClass:[NSNull class]]) {
+            NSDictionary *placeDict = oneItem[@"place"];
+            NSDictionary *boundingBoxDict = placeDict[@"bounding_box"];
+            NSArray *coordinates = boundingBoxDict[@"coordinates"];
+        }
+        
+        if (![oneItem[@"entities"] isKindOfClass:[NSNull class]]) {
+            NSDictionary *entitiesDict = oneItem[@"entities"];
+            
+            if (![entitiesDict[@"hashtags"] isKindOfClass:[NSNull class]]) {
+                NSArray *hastagsArray = entitiesDict[@"hashtags"];
+                
+                NSMutableSet *hashtags = [NSMutableSet set];
+                
+                for (NSDictionary *hash in hastagsArray) {
+                    
+                    NSArray *indicies = hash[@"indicies"];
+                    TWRHashtag *hashtag = [TWRCoreDataManager insertNewHashtagInContext:[TWRCoreDataManager mainContext]];
+                    hashtag.startIndex = [[indicies firstObject] intValue];
+                    hashtag.endIndex = [[indicies lastObject] intValue];
+                    hashtag.text = hash[@"text"];
+                    hashtag.tweet = tweet;
+                    
+                    [hashtags addObject:hashtag];
+                }
+                
+                tweet.hashtags = hashtags;
+            }
+            
+            if (![entitiesDict[@"media"] isKindOfClass:[NSNull class]]) {
+                NSArray *mediaArray = entitiesDict[@"media"];\
+                NSDictionary *mediaDict = [mediaArray firstObject];
+                
+                TWRMedia *media = [TWRCoreDataManager insertNewMediaInContext:[TWRCoreDataManager mainContext]];
+                media.mediaURL = mediaDict[@"media_url"];
+                media.tweet = tweet;
+                
+                tweet.medias = [NSSet setWithObject:media];
+            }
+        }
+    }
+}
+
+- (NSDateFormatter *)dateFormatter {
+    
+    if (!_dateFormatter) {
+        _dateFormatter = [[NSDateFormatter alloc] initWithSafeLocale];
+        [_dateFormatter setDateFormat:@"eee MMM dd HH:mm:ss Z yyyy"];
+    }
+    
+    return _dateFormatter;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -158,6 +234,8 @@ static NSUInteger const kTweetsLoadingPortion = 20;
 - (void)configureCell:(TWRTwitCell *)cell forIndexPath:(NSIndexPath *)indexPath {
     
     TWRTweet *tweet = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    [cell setTwitText:tweet.text];
 }
 
 + (NSString *)identifier {

@@ -20,4 +20,9 @@
     return @"TWRTwitCell";
 }
 
+- (void)setTwitText:(NSString *)text {
+    
+    self.twitTextLabel.text = text;
+}
+
 @end

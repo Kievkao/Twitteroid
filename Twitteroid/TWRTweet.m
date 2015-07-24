@@ -2,12 +2,12 @@
 //  TWRTweet.m
 //  Twitteroid
 //
-//  Created by Mac on 23/07/15.
+//  Created by Andrey Kravchenko on 7/24/15.
 //  Copyright (c) 2015 Kievkao. All rights reserved.
 //
 
 #import "TWRTweet.h"
-#import "TWRHash.h"
+#import "TWRHashtag.h"
 #import "TWRMedia.h"
 #import "TWRPlace.h"
 
@@ -15,10 +15,12 @@
 @implementation TWRTweet
 
 @dynamic createdAt;
+@dynamic text;
 @dynamic userAvatarURL;
 @dynamic userName;
-@dynamic text;
-@dynamic hashes;
+@dynamic tweetId;
+@dynamic userNickname;
+@dynamic hashtags;
 @dynamic medias;
 @dynamic place;
 
