@@ -6,18 +6,24 @@
 //  Copyright (c) 2015 Kievkao. All rights reserved.
 //
 
+#import <CoreData/CoreData.h>
 #import "TWRFeedVC.h"
 #import "TWRTwitCell.h"
 #import "TWRTwitterAPIManager+TWRFeed.h"
+#import "TWRCoreDataManager.h"
+#import "TWRTweet.h"
+
 #import "UIScrollView+INSPullToRefresh.h"
-#import "INSAnimatable.h"
 #import "INSTwitterPullToRefresh.h"
-#import "INSPullToRefreshBackgroundView.h"
 #import "INSCircleInfiniteIndicator.h"
 
-@interface TWRFeedVC ()
+static NSUInteger const kTweetsLoadingPortion = 20;
+
+@interface TWRFeedVC () <NSFetchedResultsControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @end
 
@@ -28,14 +34,66 @@
     
     [self pullToRefreshSetup];
     [self infinitiveScrollSetup];
+    [self startFetching];
     
-//    [[TWRTwitterAPIManager sharedInstance] getFeedSinceTwitID:nil count:20 completion:^(NSError *error, NSArray *items) {
+//    [[TWRTwitterAPIManager sharedInstance] getFeedSinceTwitID:nil count:kTweetsLoadingPortion completion:^(NSError *error, NSArray *items) {
 //        NSLog(@"hello");
 //    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBarHidden = NO;
+}
+
+#pragma mark - NSFetchedResultsController stuff
+- (void)startFetching {
+    
+    NSError *error = nil;
+    [self.fetchedResultsController performFetch:&error];
+    
+    if (error) {
+        [self showInfoAlertWithTitle:NSLocalizedString(@"Error", @"Error title") text:error.localizedDescription];
+    }
+}
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView beginUpdates];
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView endUpdates];
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+    switch (type) {
+        case NSFetchedResultsChangeInsert: {
+            [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        }
+        case NSFetchedResultsChangeDelete: {
+            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        }
+        case NSFetchedResultsChangeUpdate: {
+            [self configureCell:(TWRTwitCell *)[self.tableView cellForRowAtIndexPath:indexPath] forIndexPath:indexPath];
+            break;
+        }
+        case NSFetchedResultsChangeMove: {
+            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        }
+    }
+}
+
+- (NSFetchedResultsController *)fetchedResultsController {
+    
+    if (!_fetchedResultsController) {
+        _fetchedResultsController = [TWRCoreDataManager fetchedResultsControllerForTweetsFeed];
+        _fetchedResultsController.delegate = self;
+    }
+    
+    return _fetchedResultsController;
 }
 
 #pragma mark - Infinitive scroll && PullToRefresh
@@ -77,8 +135,15 @@
 }
 
 #pragma mark - UITableView Datasource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return [[self.fetchedResultsController sections] count];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 12;
+    NSArray *sections = [self.fetchedResultsController sections];
+    id<NSFetchedResultsSectionInfo> sectionInfo = [sections objectAtIndex:section];
+    
+    return [sectionInfo numberOfObjects];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -90,8 +155,9 @@
     return cell;
 }
 
-- (void)configureCell:(TWRTwitCell *)cell forIndexPath:(NSIndexPath *)indePath {
+- (void)configureCell:(TWRTwitCell *)cell forIndexPath:(NSIndexPath *)indexPath {
     
+    TWRTweet *tweet = [self.fetchedResultsController objectAtIndexPath:indexPath];
 }
 
 + (NSString *)identifier {

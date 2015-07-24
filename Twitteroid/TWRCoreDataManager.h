@@ -10,4 +10,6 @@
 
 @interface TWRCoreDataManager : TWRBaseSingletonNSObject
 
++ (NSFetchedResultsController *)fetchedResultsControllerForTweetsFeed;
+
 @end

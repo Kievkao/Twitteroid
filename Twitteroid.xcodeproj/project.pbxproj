@@ -64,6 +64,7 @@
 		DE0B9BE11B62334900CFC490 /* UIView+INSFirstReponder.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9BDD1B62334900CFC490 /* UIView+INSFirstReponder.m */; };
 		DE0B9BE41B62403200CFC490 /* INSTwitterPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9BE31B62403200CFC490 /* INSTwitterPullToRefresh.m */; };
 		DE0B9BE81B62417500CFC490 /* INSCircleInfiniteIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9BE71B62417500CFC490 /* INSCircleInfiniteIndicator.m */; };
+		DE0B9BEB1B6247F500CFC490 /* TWRTweet+TWRHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9BEA1B6247F500CFC490 /* TWRTweet+TWRHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +192,8 @@
 		DE0B9BE51B62404F00CFC490 /* INSAnimatable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSAnimatable.h; sourceTree = "<group>"; };
 		DE0B9BE61B62417500CFC490 /* INSCircleInfiniteIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSCircleInfiniteIndicator.h; sourceTree = "<group>"; };
 		DE0B9BE71B62417500CFC490 /* INSCircleInfiniteIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSCircleInfiniteIndicator.m; sourceTree = "<group>"; };
+		DE0B9BE91B6247F500CFC490 /* TWRTweet+TWRHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TWRTweet+TWRHelper.h"; sourceTree = "<group>"; };
+		DE0B9BEA1B6247F500CFC490 /* TWRTweet+TWRHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TWRTweet+TWRHelper.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +255,8 @@
 				04AF025B1B60FE4A002CEB65 /* Twitteroid.xcdatamodeld */,
 				047B07351B6167E80058316F /* TWRTweet.h */,
 				047B07361B6167E80058316F /* TWRTweet.m */,
+				DE0B9BE91B6247F500CFC490 /* TWRTweet+TWRHelper.h */,
+				DE0B9BEA1B6247F500CFC490 /* TWRTweet+TWRHelper.m */,
 				047B07321B6167E80058316F /* TWRMedia.h */,
 				047B07331B6167E80058316F /* TWRMedia.m */,
 				047B072F1B6167E80058316F /* TWRHash.h */,
@@ -637,6 +642,7 @@
 				047B07231B6159010058316F /* TWRBaseTableViewCell.m in Sources */,
 				DE0B9BE81B62417500CFC490 /* INSCircleInfiniteIndicator.m in Sources */,
 				04AF02BC1B61054F002CEB65 /* TWRLoginVC.m in Sources */,
+				DE0B9BEB1B6247F500CFC490 /* TWRTweet+TWRHelper.m in Sources */,
 				DE0B9BE41B62403200CFC490 /* INSTwitterPullToRefresh.m in Sources */,
 				04AF025D1B60FE4A002CEB65 /* Twitteroid.xcdatamodeld in Sources */,
 				04AF02B61B6104B0002CEB65 /* STHTTPRequest.m in Sources */,
