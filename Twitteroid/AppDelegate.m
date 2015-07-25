@@ -20,7 +20,20 @@
     
     [SSKeychain setAccessibilityType:kSecAttrAccessibleWhenUnlocked];
     
+    [self setupAppearance];
+    
     return YES;
+}
+
+- (void)setupAppearance {
+    
+    [[UINavigationBar appearance] setTranslucent:NO];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor navBarColor]];
+    [[UINavigationBar appearance] setTintColor:[UIColor navBarTitleColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor navBarTitleColor],
+                                                           NSFontAttributeName : [UIFont navBarTitleFont]}];
+    
+    [[UIBarButtonItem appearance] setTintColor:[UIColor navBarTitleColor]];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

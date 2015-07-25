@@ -10,5 +10,7 @@
 #define Twitteroid_PrefixHeader_pch
 
 #import "MBProgressHUD.h"
+#import "UIColor+TWRColors.h"
+#import "UIFont+TWRFonts.h"
 
 #endif

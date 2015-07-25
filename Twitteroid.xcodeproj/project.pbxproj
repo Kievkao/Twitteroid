@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		043AB9B91B64117E005F2BD5 /* UIColor+TWRColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 043AB9B81B64117E005F2BD5 /* UIColor+TWRColors.m */; };
+		043AB9BC1B6411BC005F2BD5 /* UIColor+BHRUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 043AB9BB1B6411BC005F2BD5 /* UIColor+BHRUtils.m */; };
+		043AB9BF1B64124E005F2BD5 /* UIFont+TWRFonts.m in Sources */ = {isa = PBXBuildFile; fileRef = 043AB9BE1B64124E005F2BD5 /* UIFont+TWRFonts.m */; };
+		043AB9C21B6418ED005F2BD5 /* TWRCellMediaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 043AB9C11B6418ED005F2BD5 /* TWRCellMediaView.m */; };
 		047B07171B614FE40058316F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B07161B614FE40058316F /* MBProgressHUD.m */; };
 		047B071B1B61520B0058316F /* TWRTwitterAPIManager+TWRLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B071A1B61520B0058316F /* TWRTwitterAPIManager+TWRLogin.m */; };
 		047B071F1B6153690058316F /* TWRBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B071E1B6153690058316F /* TWRBaseVC.m */; };
@@ -56,6 +60,7 @@
 		04AF02DA1B61244A002CEB65 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AF02D91B61244A002CEB65 /* Security.framework */; };
 		04AF02DF1B612489002CEB65 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AF02DC1B612489002CEB65 /* SSKeychain.m */; };
 		04AF02E01B612489002CEB65 /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AF02DE1B612489002CEB65 /* SSKeychainQuery.m */; };
+		04D9CD3D1B642ACF006B224D /* STTweetLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D9CD3C1B642ACF006B224D /* STTweetLabel.m */; };
 		DE0B9BDE1B62334900CFC490 /* INSInfiniteScrollBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9BD71B62334900CFC490 /* INSInfiniteScrollBackgroundView.m */; };
 		DE0B9BDF1B62334900CFC490 /* INSPullToRefreshBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9BD91B62334900CFC490 /* INSPullToRefreshBackgroundView.m */; };
 		DE0B9BE01B62334900CFC490 /* UIScrollView+INSPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9BDB1B62334900CFC490 /* UIScrollView+INSPullToRefresh.m */; };
@@ -83,6 +88,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		043AB9B71B64117E005F2BD5 /* UIColor+TWRColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TWRColors.h"; sourceTree = "<group>"; };
+		043AB9B81B64117E005F2BD5 /* UIColor+TWRColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TWRColors.m"; sourceTree = "<group>"; };
+		043AB9BA1B6411BC005F2BD5 /* UIColor+BHRUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+BHRUtils.h"; sourceTree = "<group>"; };
+		043AB9BB1B6411BC005F2BD5 /* UIColor+BHRUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BHRUtils.m"; sourceTree = "<group>"; };
+		043AB9BD1B64124E005F2BD5 /* UIFont+TWRFonts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+TWRFonts.h"; sourceTree = "<group>"; };
+		043AB9BE1B64124E005F2BD5 /* UIFont+TWRFonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+TWRFonts.m"; sourceTree = "<group>"; };
+		043AB9C01B6418ED005F2BD5 /* TWRCellMediaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRCellMediaView.h; sourceTree = "<group>"; };
+		043AB9C11B6418ED005F2BD5 /* TWRCellMediaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRCellMediaView.m; sourceTree = "<group>"; };
 		047B07151B614FE40058316F /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		047B07161B614FE40058316F /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		047B07181B6150240058316F /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -180,6 +193,8 @@
 		04AF02DC1B612489002CEB65 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
 		04AF02DD1B612489002CEB65 /* SSKeychainQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychainQuery.h; sourceTree = "<group>"; };
 		04AF02DE1B612489002CEB65 /* SSKeychainQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychainQuery.m; sourceTree = "<group>"; };
+		04D9CD3B1B642ACF006B224D /* STTweetLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTweetLabel.h; sourceTree = "<group>"; };
+		04D9CD3C1B642ACF006B224D /* STTweetLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTweetLabel.m; sourceTree = "<group>"; };
 		DE0B9BD61B62334900CFC490 /* INSInfiniteScrollBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSInfiniteScrollBackgroundView.h; sourceTree = "<group>"; };
 		DE0B9BD71B62334900CFC490 /* INSInfiniteScrollBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSInfiniteScrollBackgroundView.m; sourceTree = "<group>"; };
 		DE0B9BD81B62334900CFC490 /* INSPullToRefreshBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSPullToRefreshBackgroundView.h; sourceTree = "<group>"; };
@@ -233,6 +248,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		043AB9B61B641165005F2BD5 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				DE0B9C1B1B628D5300CFC490 /* Reachability.h */,
+				DE0B9C1C1B628D5300CFC490 /* Reachability.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
 		047B07141B614FD20058316F /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,8 +375,7 @@
 		04AF02541B60FE49002CEB65 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				DE0B9C1B1B628D5300CFC490 /* Reachability.h */,
-				DE0B9C1C1B628D5300CFC490 /* Reachability.m */,
+				043AB9B61B641165005F2BD5 /* Reachability */,
 				DE0B9BF91B62694100CFC490 /* Categories */,
 				04AF02881B61046F002CEB65 /* Libraries */,
 				04AF02831B6103E4002CEB65 /* Frameworks */,
@@ -421,6 +444,7 @@
 		04AF02881B61046F002CEB65 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				04D9CD3A1B642AC3006B224D /* STTweetLabel */,
 				DE0B9BD51B62333C00CFC490 /* INSPullToRefresh */,
 				047B073E1B61695D0058316F /* Haneke */,
 				047B07141B614FD20058316F /* MBProgressHUD */,
@@ -500,6 +524,15 @@
 			name = SSKeychain;
 			sourceTree = "<group>";
 		};
+		04D9CD3A1B642AC3006B224D /* STTweetLabel */ = {
+			isa = PBXGroup;
+			children = (
+				04D9CD3B1B642ACF006B224D /* STTweetLabel.h */,
+				04D9CD3C1B642ACF006B224D /* STTweetLabel.m */,
+			);
+			name = STTweetLabel;
+			sourceTree = "<group>";
+		};
 		DE0B9BD51B62333C00CFC490 /* INSPullToRefresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -534,6 +567,12 @@
 		DE0B9BF91B62694100CFC490 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				043AB9B71B64117E005F2BD5 /* UIColor+TWRColors.h */,
+				043AB9B81B64117E005F2BD5 /* UIColor+TWRColors.m */,
+				043AB9BD1B64124E005F2BD5 /* UIFont+TWRFonts.h */,
+				043AB9BE1B64124E005F2BD5 /* UIFont+TWRFonts.m */,
+				043AB9BA1B6411BC005F2BD5 /* UIColor+BHRUtils.h */,
+				043AB9BB1B6411BC005F2BD5 /* UIColor+BHRUtils.m */,
 				DE0B9BF61B6267ED00CFC490 /* NSDateFormatter+LocaleAdditions.h */,
 				DE0B9BF71B6267ED00CFC490 /* NSDateFormatter+LocaleAdditions.m */,
 			);
@@ -569,6 +608,8 @@
 				04AF02B81B61051C002CEB65 /* TWRFeedVC.m */,
 				DE0B9C121B6273B800CFC490 /* TWRFeedVC+TWRParsing.h */,
 				DE0B9C131B6273B800CFC490 /* TWRFeedVC+TWRParsing.m */,
+				043AB9C01B6418ED005F2BD5 /* TWRCellMediaView.h */,
+				043AB9C11B6418ED005F2BD5 /* TWRCellMediaView.m */,
 			);
 			name = Feed;
 			sourceTree = "<group>";
@@ -683,10 +724,13 @@
 				04AF02A51B6104A5002CEB65 /* NSString+STTwitter.m in Sources */,
 				047B07341B6167E80058316F /* TWRMedia.m in Sources */,
 				04AF02D11B6111F4002CEB65 /* TWRLoginWebVC.m in Sources */,
+				043AB9BC1B6411BC005F2BD5 /* UIColor+BHRUtils.m in Sources */,
 				047B07291B615B6A0058316F /* TWRTwitterAPIManager+TWRFeed.m in Sources */,
 				DE0B9BDF1B62334900CFC490 /* INSPullToRefreshBackgroundView.m in Sources */,
 				04AF02A71B6104A5002CEB65 /* STTwitterAPI.m in Sources */,
+				04D9CD3D1B642ACF006B224D /* STTweetLabel.m in Sources */,
 				04AF02A61B6104A5002CEB65 /* STHTTPRequest+STTwitter.m in Sources */,
+				043AB9C21B6418ED005F2BD5 /* TWRCellMediaView.m in Sources */,
 				047B07571B61696E0058316F /* UIView+Haneke.m in Sources */,
 				DE0B9C1D1B628D5300CFC490 /* Reachability.m in Sources */,
 				04AF02B41B6104B0002CEB65 /* BAVPlistNode.m in Sources */,
@@ -706,6 +750,7 @@
 				04AF02AA1B6104A5002CEB65 /* STTwitterOAuth.m in Sources */,
 				04AF02A91B6104A5002CEB65 /* STTwitterHTML.m in Sources */,
 				047B07521B61696E0058316F /* HNKDiskFetcher.m in Sources */,
+				043AB9B91B64117E005F2BD5 /* UIColor+TWRColors.m in Sources */,
 				047B07231B6159010058316F /* TWRBaseTableViewCell.m in Sources */,
 				DE0B9BE81B62417500CFC490 /* INSCircleInfiniteIndicator.m in Sources */,
 				04AF02BC1B61054F002CEB65 /* TWRLoginVC.m in Sources */,
@@ -726,6 +771,7 @@
 				04AF02571B60FE49002CEB65 /* main.m in Sources */,
 				047B07261B6159480058316F /* TWRTwitCell.m in Sources */,
 				04AF02AD1B6104A5002CEB65 /* STTwitterStreamParser.m in Sources */,
+				043AB9BF1B64124E005F2BD5 /* UIFont+TWRFonts.m in Sources */,
 				DE0B9BE01B62334900CFC490 /* UIScrollView+INSPullToRefresh.m in Sources */,
 				04AF02E01B612489002CEB65 /* SSKeychainQuery.m in Sources */,
 				DE0B9C101B62713600CFC490 /* TWRMedia+TWRHelper.m in Sources */,

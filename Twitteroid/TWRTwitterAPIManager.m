@@ -23,6 +23,11 @@ NSString *const kTwitterApiSecret = @"FgJV89KXSGYf42opyMLFfZxk5J9fPIwITzYrKsZWG0
 @implementation TWRTwitterAPIManager
 @synthesize token = _token, tokenSecret = _tokenSecret;
 
+- (void)resetKeychain {
+    self.token = nil;
+    self.tokenSecret = nil;
+}
+
 #pragma mark - Getters, setters
 - (NSString *)token {
     

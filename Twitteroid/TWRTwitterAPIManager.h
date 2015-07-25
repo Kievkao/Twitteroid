@@ -22,4 +22,6 @@ extern NSString *const kTwitterApiSecret;
 
 @property (nonatomic) BOOL sessionLoginDone;
 
+- (void)resetKeychain;
+
 @end

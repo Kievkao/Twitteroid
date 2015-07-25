@@ -27,7 +27,9 @@
         tweet.userName = userInfoDict[@"name"];
         tweet.userNickname = userInfoDict[@"screen_name"];
         tweet.tweetId = oneItem[@"id_str"];
-        tweet.text = oneItem[@"text"];
+        
+        NSDictionary *tweetTextContainer = (oneItem[@"retweeted_status"]) ? (oneItem[@"retweeted_status"]) : oneItem;
+        tweet.text = tweetTextContainer[@"text"];
         
         if (![oneItem[@"place"] isKindOfClass:[NSNull class]]) {
             NSDictionary *placeDict = oneItem[@"place"];

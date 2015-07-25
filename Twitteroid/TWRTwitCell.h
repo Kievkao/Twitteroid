@@ -10,6 +10,7 @@
 
 @interface TWRTwitCell : TWRBaseTableViewCell
 
++ (CGFloat)cellHeightForTableViewWidth:(CGFloat)tableViewWidth tweetText:(NSString *)text mediaPresent:(BOOL)isMediaPresent;
 - (void)setTwitText:(NSString *)text;
 
 @end
