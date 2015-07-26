@@ -21,5 +21,6 @@
 + (TWRMedia *)insertNewMediaInContext:(NSManagedObjectContext *)context;
 
 + (BOOL)isExistsTweetWithID:(NSString *)tweetID performInContext:(NSManagedObjectContext *)context;
++ (BOOL)isAnySavedTweets;
 
 @end

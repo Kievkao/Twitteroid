@@ -27,6 +27,17 @@
     return fetchedResultsController;
 }
 
++ (BOOL)isAnySavedTweets {
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:[TWRTweet entityName]];
+    [fetchRequest setFetchLimit:1];
+    
+    NSError *error = nil;
+    NSArray *results = [MAIN_CONTEXT executeFetchRequest:fetchRequest error:&error];
+    
+    return (results.count > 0);
+}
+
 + (NSManagedObjectContext *)mainContext {
     return MAIN_CONTEXT;
 }
@@ -59,7 +70,7 @@
 
 + (void)saveContext:(NSManagedObjectContext *)context {
 
-    [context performBlock:^{
+    [context performBlockAndWait:^{
         NSError *error = nil;
         [context save:&error];
         if (error) {

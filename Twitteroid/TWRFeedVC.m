@@ -31,10 +31,22 @@ static NSUInteger const kTweetsLoadingPortion = 20;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     [self pullToRefreshSetup];
     [self infinitiveScrollSetup];
     [self startFetching];
+    
+    if (![TWRCoreDataManager isAnySavedTweets]) {
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        
+        [self checkEnvirAndLoadFromTweetID:nil withCompletion:^(NSError *error) {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        }];
+    }
+}
+
++ (NSString *)identifier {
+    return @"TWRFeedVC";
 }
 
 - (NSDateFormatter *)dateFormatter {
@@ -108,41 +120,31 @@ static NSUInteger const kTweetsLoadingPortion = 20;
     return _fetchedResultsController;
 }
 
-#pragma mark - Infinitive scroll && PullToRefresh
-- (void)pullToRefreshSetup {
+#pragma mark - Data loading
+- (void)checkEnvirAndLoadFromTweetID:(NSString *)tweetID withCompletion:(void (^)(NSError *error))loadingCompletion {
     
-    [self.tableView ins_addPullToRefreshWithHeight:60.0 handler:^(UIScrollView *scrollView) {
-        
-        if ([self isInternetActive]) {
-            if ([[TWRTwitterAPIManager sharedInstance] isSessionLoginDone]) {
-                [self loadPortionFromTweetID:nil withCompletion:^(NSError *error) {
-                    [scrollView ins_endPullToRefresh];
-                }];
+    BOOL isSessionLoginDone = [[TWRTwitterAPIManager sharedInstance] isSessionLoginDone];
+    BOOL isInternetActive = [self isInternetActive];
+    
+    if (!isInternetActive) {
+        [self showInfoAlertWithTitle:NSLocalizedString(@"Connection Failed", @"Connection Failed") text:NSLocalizedString(@"Please check your internet connection", @"Please check your internet connection")];
+    }
+    else if (!isSessionLoginDone) {
+        [[TWRTwitterAPIManager sharedInstance] reloginWithCompletion:^(NSError *error) {
+            if (!error) {
+                [self loadFromTweetID:tweetID withCompletion:loadingCompletion];
             }
             else {
-                [[TWRTwitterAPIManager sharedInstance] reloginWithCompletion:^(NSError *error) {
-                    if (!error) {
-                        [self loadPortionFromTweetID:nil withCompletion:^(NSError *error) {
-                            [scrollView ins_endPullToRefresh];
-                        }];
-                    }
-                    else {
-                        [self showInfoAlertWithTitle:NSLocalizedString(@"Error", @"Error title") text:error.localizedDescription];
-                    }
-                }];
+                [self showInfoAlertWithTitle:NSLocalizedString(@"Error", @"Error title") text:error.localizedDescription];
             }
-        }
-        else {
-            [self showInfoAlertWithTitle:NSLocalizedString(@"Connection Failed", @"Connection Failed") text:NSLocalizedString(@"Please check your internet connection", @"Please check your internet connection")];
-        }
-    }];
-    
-    UIView <INSPullToRefreshBackgroundViewDelegate> *pullToRefresh = [self pullToRefreshViewFromCurrentStyle];
-    self.tableView.ins_pullToRefreshBackgroundView.delegate = pullToRefresh;
-    [self.tableView.ins_pullToRefreshBackgroundView addSubview:pullToRefresh];
+        }];
+    }
+    else {
+        [self loadFromTweetID:tweetID withCompletion:loadingCompletion];
+    }
 }
 
-- (void)loadPortionFromTweetID:(NSString *)tweetID withCompletion:(void (^)(NSError *error))loadingCompletion {
+- (void)loadFromTweetID:(NSString *)tweetID withCompletion:(void (^)(NSError *error))loadingCompletion {
     
     [[TWRTwitterAPIManager sharedInstance] getFeedOlderThatTwitID:tweetID count:kTweetsLoadingPortion completion:^(NSError *error, NSArray *items) {
         if (!error) {
@@ -157,53 +159,32 @@ static NSUInteger const kTweetsLoadingPortion = 20;
     }];
 }
 
+#pragma mark - Infinitive scroll && PullToRefresh
+- (void)pullToRefreshSetup {
+    
+    [self.tableView ins_addPullToRefreshWithHeight:60.0 handler:^(UIScrollView *scrollView) {
+        [self checkEnvirAndLoadFromTweetID:nil withCompletion:^(NSError *error) {
+            [scrollView ins_endPullToRefresh];
+        }];
+    }];
+    
+    UIView <INSPullToRefreshBackgroundViewDelegate> *pullToRefresh = [self pullToRefreshViewFromCurrentStyle];
+    self.tableView.ins_pullToRefreshBackgroundView.delegate = pullToRefresh;
+    [self.tableView.ins_pullToRefreshBackgroundView addSubview:pullToRefresh];
+}
+
 - (void)infinitiveScrollSetup {
     [self.tableView ins_addInfinityScrollWithHeight:60 handler:^(UIScrollView *scrollView) {
         
-        if ([self isInternetActive]) {
-            
-            if ([[TWRTwitterAPIManager sharedInstance] isSessionLoginDone]) {
-                TWRTweet *lastTweet = [self.fetchedResultsController objectAtIndexPath:[[self.tableView indexPathsForVisibleRows] lastObject]];
-                NSString *lastTweetID = lastTweet.tweetId;
-                
-                [[TWRTwitterAPIManager sharedInstance] getFeedOlderThatTwitID:lastTweetID count:kTweetsLoadingPortion completion:^(NSError *error, NSArray *items) {
-                    if (!error) {
-                        [self parseTweetsArray:items];
-                        [TWRCoreDataManager saveContext:[TWRCoreDataManager mainContext]];
-                    }
-                    else {
-                        NSLog(@"Loading error");
-                    }
-                    [scrollView ins_endInfinityScrollWithStoppingContentOffset:YES];
-                }];
+        TWRTweet *lastTweet = [self.fetchedResultsController objectAtIndexPath:[[self.tableView indexPathsForVisibleRows] lastObject]];
+        NSString *lastTweetID = lastTweet.tweetId;
+        
+        [self checkEnvirAndLoadFromTweetID:lastTweetID withCompletion:^(NSError *error) {
+            if (error) {
+                NSLog(@"Loading error");
             }
-            else {
-                [[TWRTwitterAPIManager sharedInstance] reloginWithCompletion:^(NSError *error) {
-                    if (!error) {
-                        TWRTweet *lastTweet = [self.fetchedResultsController objectAtIndexPath:[[self.tableView indexPathsForVisibleRows] lastObject]];
-                        NSString *lastTweetID = lastTweet.tweetId;
-                        
-                        [[TWRTwitterAPIManager sharedInstance] getFeedOlderThatTwitID:lastTweetID count:kTweetsLoadingPortion completion:^(NSError *error, NSArray *items) {
-                            if (!error) {
-                                [self parseTweetsArray:items];
-                                [TWRCoreDataManager saveContext:[TWRCoreDataManager mainContext]];
-                            }
-                            else {
-                                NSLog(@"Loading error");
-                            }
-                            [scrollView ins_endInfinityScrollWithStoppingContentOffset:YES];
-                        }];
-                    }
-                    else {
-                        [self showInfoAlertWithTitle:NSLocalizedString(@"Error", @"Error title") text:error.localizedDescription];
-                    }
-                }];
-            }
-        }
-        else {
-            [self showInfoAlertWithTitle:NSLocalizedString(@"Connection Failed", @"Connection Failed") text:NSLocalizedString(@"Please check your internet connection", @"Please check your internet connection")];
-            [scrollView ins_endInfinityScrollWithStoppingContentOffset:NO];
-        }
+            [scrollView ins_endInfinityScrollWithStoppingContentOffset:YES];
+        }];
     }];
     
     UIView <INSAnimatable> *infinityIndicator = [self infinityIndicatorViewFromCurrentStyle];
@@ -225,7 +206,6 @@ static NSUInteger const kTweetsLoadingPortion = 20;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     return 85;
 }
 
@@ -257,10 +237,6 @@ static NSUInteger const kTweetsLoadingPortion = 20;
     TWRTweet *tweet = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     [cell setTwitText:tweet.text];
-}
-
-+ (NSString *)identifier {
-    return @"TWRFeedVC";
 }
 
 @end
