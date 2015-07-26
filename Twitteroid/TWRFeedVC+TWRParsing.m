@@ -60,7 +60,7 @@
                 tweet.hashtags = hashtags;
             }
             
-            if (![entitiesDict[@"media"] isKindOfClass:[NSNull class]]) {
+            if (entitiesDict[@"media"]) {
                 NSArray *mediaArray = entitiesDict[@"media"];\
                 NSDictionary *mediaDict = [mediaArray firstObject];
                 

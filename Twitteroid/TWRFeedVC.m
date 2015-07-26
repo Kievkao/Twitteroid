@@ -8,6 +8,7 @@
 
 #import <CoreData/CoreData.h>
 #import "TWRFeedVC.h"
+#import "TWRMedia.h"
 #import "TWRTwitCell.h"
 #import "TWRTwitterAPIManager+TWRFeed.h"
 #import "TWRTwitterAPIManager+TWRLogin.h"
@@ -247,7 +248,13 @@ static NSUInteger const kTweetsLoadingPortion = 20;
     [cell setAuthorAvatarByURLStr:tweet.userAvatarURL];
     
     if (tweet.medias.count) {
-        [cell setImagesCount:tweet.medias.count];
+        
+        NSMutableArray *mediaUrlsArray = [NSMutableArray new];
+        
+        for (TWRMedia *media in tweet.medias) {
+            [mediaUrlsArray addObject:media.mediaURL];
+        }
+        [cell setImagesURLs:mediaUrlsArray];
     }
     else {
         [cell hideMediaFrame];

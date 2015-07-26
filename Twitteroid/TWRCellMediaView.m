@@ -7,6 +7,7 @@
 //
 
 #import "TWRCellMediaView.h"
+#import "UIImageView+WebCache.h"
 
 @interface TWRCellMediaView()
 
@@ -16,23 +17,23 @@
 
 @implementation TWRCellMediaView
 
-- (void)setImagesCount:(NSUInteger)count {
+- (void)setImages:(NSArray *)images {
     
-    switch (count) {
+    switch (images.count) {
         case 1:
-            [self setupOneImage];
+            [self setupOneImage:images];
             break;
             
         case 2:
-            [self setupTwoImages];
+            [self setupTwoImages:images];
             break;
             
         case 3:
-            [self setupThreeImages];
+            [self setupThreeImages:images];
             break;
             
         case 4:
-            [self setupFourImages];
+            [self setupFourImages:images];
             break;
             
         default:
@@ -56,7 +57,6 @@
     imageView.clipsToBounds = YES;
     imageView.userInteractionEnabled = YES;
     imageView.tag = tag;
-    imageView.image = [UIImage imageNamed:@"mozart"];
     UITapGestureRecognizer *gestureRec = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleImageTapFrom:)];
     [imageView addGestureRecognizer:gestureRec];
     
@@ -69,19 +69,24 @@
 - (void)handleImageTapFrom:(UITapGestureRecognizer *)recognizer
 {
     UIImageView *tappedView = (UIImageView *)recognizer.view;
-    NSLog(@"Tapped UIImageView with tag: %d", tappedView.tag);
+    NSLog(@"Tapped UIImageView with tag: %ld", (long)tappedView.tag);
 }
 
-- (void)setupOneImage {
+- (void)setupOneImage:(NSArray *)images {
     
     UIImageView *imageView = [self createImageViewWithTag:1];
+    
+    [imageView sd_setImageWithURL:[NSURL URLWithString:[images firstObject]] placeholderImage:[UIImage mediaImagePlaceholder]];
     [imageView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero];
 }
 
-- (void)setupTwoImages {
+- (void)setupTwoImages:(NSArray *)images {
 
     UIImageView *imageView1 = [self createImageViewWithTag:1];
     UIImageView *imageView2 = [self createImageViewWithTag:2];
+    
+    [imageView1 sd_setImageWithURL:[NSURL URLWithString:[images firstObject]] placeholderImage:[UIImage mediaImagePlaceholder]];
+    [imageView2 sd_setImageWithURL:[NSURL URLWithString:[images lastObject]] placeholderImage:[UIImage mediaImagePlaceholder]];
     
     [imageView1 autoPinEdgeToSuperviewEdge:ALEdgeTop];
     [imageView1 autoPinEdgeToSuperviewEdge:ALEdgeLeft];
@@ -94,11 +99,15 @@
     [imageView2 autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:imageView1];
 }
 
-- (void)setupThreeImages {
+- (void)setupThreeImages:(NSArray *)images {
     
     UIImageView *imageView1 = [self createImageViewWithTag:1];
     UIImageView *imageView2 = [self createImageViewWithTag:2];
     UIImageView *imageView3 = [self createImageViewWithTag:3];
+    
+    [imageView1 sd_setImageWithURL:[NSURL URLWithString:images[0]] placeholderImage:[UIImage mediaImagePlaceholder]];
+    [imageView2 sd_setImageWithURL:[NSURL URLWithString:images[1]] placeholderImage:[UIImage mediaImagePlaceholder]];
+    [imageView3 sd_setImageWithURL:[NSURL URLWithString:images[2]] placeholderImage:[UIImage mediaImagePlaceholder]];
     
     [imageView1 autoPinEdgeToSuperviewEdge:ALEdgeTop];
     [imageView1 autoPinEdgeToSuperviewEdge:ALEdgeLeft];
@@ -116,12 +125,17 @@
     [imageView3 autoMatchDimension:ALDimensionHeight toDimension:ALDimensionHeight ofView:imageView1 withMultiplier:0.5];
 }
 
-- (void)setupFourImages {
+- (void)setupFourImages:(NSArray *)images {
     
     UIImageView *imageView1 = [self createImageViewWithTag:1];
     UIImageView *imageView2 = [self createImageViewWithTag:2];
     UIImageView *imageView3 = [self createImageViewWithTag:3];
     UIImageView *imageView4 = [self createImageViewWithTag:4];
+    
+    [imageView1 sd_setImageWithURL:[NSURL URLWithString:images[0]] placeholderImage:[UIImage mediaImagePlaceholder]];
+    [imageView2 sd_setImageWithURL:[NSURL URLWithString:images[1]] placeholderImage:[UIImage mediaImagePlaceholder]];
+    [imageView3 sd_setImageWithURL:[NSURL URLWithString:images[2]] placeholderImage:[UIImage mediaImagePlaceholder]];
+    [imageView4 sd_setImageWithURL:[NSURL URLWithString:images[3]] placeholderImage:[UIImage mediaImagePlaceholder]];
     
     [imageView1 autoPinEdgeToSuperviewEdge:ALEdgeTop];
     [imageView1 autoPinEdgeToSuperviewEdge:ALEdgeLeft];

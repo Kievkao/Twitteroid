@@ -11,5 +11,6 @@
 @interface UIImage (TWRImages)
 
 + (UIImage *)avatarPlaceholder;
++ (UIImage *)mediaImagePlaceholder;
 
 @end

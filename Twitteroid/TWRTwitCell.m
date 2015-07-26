@@ -9,9 +9,10 @@
 #import "TWRTwitCell.h"
 #import "TWRCellMediaView.h"
 #import "STTweetLabel.h"
-#import "Haneke.h"
 
-static CGFloat const kMediaHeight = 150.0;
+#import "UIImageView+WebCache.h"
+
+static CGFloat const kMediaHeight = 200.0;
 static CGFloat const kMinimumCellHeight = 75.0;
 
 static CGFloat const kCellContentSideSpace = 8.0;
@@ -70,11 +71,10 @@ static CGFloat const kMediaViewBottomSpace = 4.0;
     self.mediaViewHeight.constant = 0;
 }
 
-- (void)setImagesCount:(NSUInteger)count {
+- (void)setImagesURLs:(NSArray *)imagesURLs {
     
     self.mediaViewHeight.constant = kMediaHeight;
-    [self.mediaView setImagesCount:count];
-    
+    [self.mediaView setImages:imagesURLs];
 }
 
 - (void)setAuthorName:(NSString *)name {
@@ -86,12 +86,10 @@ static CGFloat const kMediaViewBottomSpace = 4.0;
 }
 
 - (void)setAuthorAvatarByURLStr:(NSString *)avatarUrl {
-    [self.authorAvatarImageView hnk_setImageFromURL:[NSURL URLWithString:avatarUrl] placeholder:[UIImage avatarPlaceholder]];
+    [self.authorAvatarImageView sd_setImageWithURL:[NSURL URLWithString:avatarUrl] placeholderImage:nil];
 }
 
-
 - (void)setTwitText:(NSString *)text {
-    
     self.twitTextLabel.text = text;
 }
 

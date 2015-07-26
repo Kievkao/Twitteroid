@@ -17,7 +17,7 @@
 - (void)setAuthorNickname:(NSString *)nickname;
 - (void)setAuthorAvatarByURLStr:(NSString *)avatarUrl;
 
-- (void)setImagesCount:(NSUInteger)count;
+- (void)setImagesURLs:(NSArray *)imagesURLs;
 - (void)hideMediaFrame;
 
 @end

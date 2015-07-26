@@ -11,7 +11,12 @@
 @implementation UIImage (TWRImages)
 
 + (UIImage *)avatarPlaceholder {
+    return [UIImage imageNamed:@"mozart"];
+}
+
++ (UIImage *)mediaImagePlaceholder {
     return [UIImage imageNamed:@"iconTwitter"];
 }
+
 
 @end
