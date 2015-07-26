@@ -214,7 +214,7 @@ static NSUInteger const kTweetsLoadingPortion = 20;
     TWRTweet *tweet = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     BOOL isMedia = NO;
-    if (indexPath.row % 2) {
+    if (tweet.medias.count) {
         isMedia = YES;
     }
     
@@ -241,10 +241,13 @@ static NSUInteger const kTweetsLoadingPortion = 20;
     
     TWRTweet *tweet = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
+    [cell setAuthorName:tweet.userName];
+    [cell setAuthorNickname:tweet.userNickname];
     [cell setTwitText:tweet.text];
+    [cell setAuthorAvatarByURLStr:tweet.userAvatarURL];
     
-    if (indexPath.row % 2) {
-        [cell setImagesCount:4];
+    if (tweet.medias.count) {
+        [cell setImagesCount:tweet.medias.count];
     }
     else {
         [cell hideMediaFrame];

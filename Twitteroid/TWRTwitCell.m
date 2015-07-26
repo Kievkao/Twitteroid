@@ -9,6 +9,7 @@
 #import "TWRTwitCell.h"
 #import "TWRCellMediaView.h"
 #import "STTweetLabel.h"
+#import "Haneke.h"
 
 static CGFloat const kMediaHeight = 150.0;
 static CGFloat const kMinimumCellHeight = 75.0;
@@ -75,6 +76,19 @@ static CGFloat const kMediaViewBottomSpace = 4.0;
     [self.mediaView setImagesCount:count];
     
 }
+
+- (void)setAuthorName:(NSString *)name {
+    self.authorNameLabel.text = name;
+}
+
+- (void)setAuthorNickname:(NSString *)nickname {
+    self.authorNickNameLabel.text = [NSString stringWithFormat:@"@%@", nickname];
+}
+
+- (void)setAuthorAvatarByURLStr:(NSString *)avatarUrl {
+    [self.authorAvatarImageView hnk_setImageFromURL:[NSURL URLWithString:avatarUrl] placeholder:[UIImage avatarPlaceholder]];
+}
+
 
 - (void)setTwitText:(NSString *)text {
     

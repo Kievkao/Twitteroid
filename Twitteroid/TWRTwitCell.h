@@ -11,7 +11,12 @@
 @interface TWRTwitCell : TWRBaseTableViewCell
 
 + (CGFloat)cellHeightForTableViewWidth:(CGFloat)tableViewWidth tweetText:(NSString *)text mediaPresent:(BOOL)isMediaPresent;
+
 - (void)setTwitText:(NSString *)text;
+- (void)setAuthorName:(NSString *)name;
+- (void)setAuthorNickname:(NSString *)nickname;
+- (void)setAuthorAvatarByURLStr:(NSString *)avatarUrl;
+
 - (void)setImagesCount:(NSUInteger)count;
 - (void)hideMediaFrame;
 

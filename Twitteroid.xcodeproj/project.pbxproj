@@ -65,6 +65,7 @@
 		04E391CA1B65107B00F9A9C5 /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E391C21B65107B00F9A9C5 /* ALView+PureLayout.m */; };
 		04E391CB1B65107B00F9A9C5 /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E391C41B65107B00F9A9C5 /* NSArray+PureLayout.m */; };
 		04E391CC1B65107B00F9A9C5 /* NSLayoutConstraint+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E391C61B65107B00F9A9C5 /* NSLayoutConstraint+PureLayout.m */; };
+		04E391CF1B6521D700F9A9C5 /* UIImage+TWRImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E391CE1B6521D700F9A9C5 /* UIImage+TWRImages.m */; };
 		DE0B9BDE1B62334900CFC490 /* INSInfiniteScrollBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9BD71B62334900CFC490 /* INSInfiniteScrollBackgroundView.m */; };
 		DE0B9BDF1B62334900CFC490 /* INSPullToRefreshBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9BD91B62334900CFC490 /* INSPullToRefreshBackgroundView.m */; };
 		DE0B9BE01B62334900CFC490 /* UIScrollView+INSPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9BDB1B62334900CFC490 /* UIScrollView+INSPullToRefresh.m */; };
@@ -210,6 +211,8 @@
 		04E391C71B65107B00F9A9C5 /* PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureLayout.h; sourceTree = "<group>"; };
 		04E391C81B65107B00F9A9C5 /* PureLayout+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PureLayout+Internal.h"; sourceTree = "<group>"; };
 		04E391C91B65107B00F9A9C5 /* PureLayoutDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureLayoutDefines.h; sourceTree = "<group>"; };
+		04E391CD1B6521D700F9A9C5 /* UIImage+TWRImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+TWRImages.h"; sourceTree = "<group>"; };
+		04E391CE1B6521D700F9A9C5 /* UIImage+TWRImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TWRImages.m"; sourceTree = "<group>"; };
 		DE0B9BD61B62334900CFC490 /* INSInfiniteScrollBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSInfiniteScrollBackgroundView.h; sourceTree = "<group>"; };
 		DE0B9BD71B62334900CFC490 /* INSInfiniteScrollBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSInfiniteScrollBackgroundView.m; sourceTree = "<group>"; };
 		DE0B9BD81B62334900CFC490 /* INSPullToRefreshBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSPullToRefreshBackgroundView.h; sourceTree = "<group>"; };
@@ -619,6 +622,8 @@
 				043AB9BB1B6411BC005F2BD5 /* UIColor+BHRUtils.m */,
 				DE0B9BF61B6267ED00CFC490 /* NSDateFormatter+LocaleAdditions.h */,
 				DE0B9BF71B6267ED00CFC490 /* NSDateFormatter+LocaleAdditions.m */,
+				04E391CD1B6521D700F9A9C5 /* UIImage+TWRImages.h */,
+				04E391CE1B6521D700F9A9C5 /* UIImage+TWRImages.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -773,6 +778,7 @@
 				04DF7FCC1B64CFC700907D1B /* RQShineLabel.m in Sources */,
 				DE0B9BDF1B62334900CFC490 /* INSPullToRefreshBackgroundView.m in Sources */,
 				04AF02A71B6104A5002CEB65 /* STTwitterAPI.m in Sources */,
+				04E391CF1B6521D700F9A9C5 /* UIImage+TWRImages.m in Sources */,
 				04D9CD3D1B642ACF006B224D /* STTweetLabel.m in Sources */,
 				04AF02A61B6104A5002CEB65 /* STHTTPRequest+STTwitter.m in Sources */,
 				043AB9C21B6418ED005F2BD5 /* TWRCellMediaView.m in Sources */,

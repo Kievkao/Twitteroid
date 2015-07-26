@@ -13,5 +13,6 @@
 #import "PureLayout.h"
 #import "UIColor+TWRColors.h"
 #import "UIFont+TWRFonts.h"
+#import "UIImage+TWRImages.h"
 
 #endif
