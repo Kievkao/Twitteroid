@@ -9,6 +9,9 @@
 #ifndef Twitteroid_PrefixHeader_pch
 #define Twitteroid_PrefixHeader_pch
 
+#define IS_IPAD ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+#define IS_IPHONE ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
+
 #import "MBProgressHUD.h"
 #import "PureLayout.h"
 #import "UIColor+TWRColors.h"

@@ -12,7 +12,8 @@
 
 #import "UIImageView+WebCache.h"
 
-static CGFloat const kMediaHeight = 200.0;
+static CGFloat const kIPhoneMediaHeight = 200.0;
+static CGFloat const kIPadMediaHeight = 300.0;
 static CGFloat const kMinimumCellHeight = 75.0;
 
 static CGFloat const kCellContentSideSpace = 8.0;
@@ -45,7 +46,7 @@ static CGFloat const kMediaViewBottomSpace = 4.0;
     CGFloat fixedSpaces = kBackViewSideSpace + kBackViewSideSpace + kTweetTextTopToBackViewSpace + kTweetTextBottomSpace + kMediaViewBottomSpace;
     
     if (isMediaPresent) {
-        fixedSpaces += kMediaHeight;
+        fixedSpaces += IS_IPHONE ? kIPhoneMediaHeight : kIPadMediaHeight;
     }
     
     CGFloat tweetTextLabelWidth = tableViewWidth - kCellContentSideSpace*5 - kAuthorAvatarImageViewWidth;
@@ -81,12 +82,12 @@ static CGFloat const kMediaViewBottomSpace = 4.0;
 }
 
 - (void)setImagesURLs:(NSArray *)imagesURLs {
-    self.mediaViewHeight.constant = kMediaHeight;
+    self.mediaViewHeight.constant = IS_IPHONE ? kIPhoneMediaHeight : kIPadMediaHeight;
     [self.mediaView setImages:imagesURLs];
 }
 
 - (void)setLinksURLs:(NSArray *)linksURLs {
-    self.mediaViewHeight.constant = kMediaHeight;
+    self.mediaViewHeight.constant = IS_IPHONE ? kIPhoneMediaHeight : kIPadMediaHeight;
     [self.mediaView setLinks:linksURLs];
 }
 

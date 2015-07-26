@@ -84,18 +84,27 @@
 
             if (![urls isKindOfClass:[NSNull class]]) {
                 for (NSDictionary *urlDict in urls) {
-                    TWRMedia *media = [TWRCoreDataManager insertNewMediaInContext:[TWRCoreDataManager mainContext]];
-                    media.mediaURL = urlDict[@"url"];
-                    media.tweet = tweet;
-                    media.isPhoto = NO;
+                    if ([self isYoutubeLink:urlDict[@"expanded_url"]]) {
+                        TWRMedia *media = [TWRCoreDataManager insertNewMediaInContext:[TWRCoreDataManager mainContext]];
+                        media.mediaURL = urlDict[@"expanded_url"];
+                        media.tweet = tweet;
+                        media.isPhoto = NO;
                     
-                    [tweetUrls addObject:media];
+                        [tweetUrls addObject:media];
+                    }
                 }
                 
                 tweet.medias = tweetUrls;
             }
         }
     }
+}
+
+- (BOOL)isYoutubeLink:(NSString *)urlStr {
+//@"www.youtube.com"
+//@"youtu.be"
+//@"m.youtube.com"
+    return [urlStr containsString:@"youtu"];
 }
 
 
