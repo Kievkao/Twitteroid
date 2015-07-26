@@ -10,4 +10,7 @@
 
 @interface TWRCellMediaView : UIView
 
+- (void)setImagesCount:(NSUInteger)count;
+- (void)removeAllImages;
+
 @end

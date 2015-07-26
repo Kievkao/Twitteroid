@@ -213,7 +213,12 @@ static NSUInteger const kTweetsLoadingPortion = 20;
     
     TWRTweet *tweet = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    return [TWRTwitCell cellHeightForTableViewWidth:CGRectGetWidth(tableView.frame) tweetText:tweet.text mediaPresent:NO];
+    BOOL isMedia = NO;
+    if (indexPath.row % 2) {
+        isMedia = YES;
+    }
+    
+    return [TWRTwitCell cellHeightForTableViewWidth:CGRectGetWidth(tableView.frame) tweetText:tweet.text mediaPresent:isMedia];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -237,6 +242,13 @@ static NSUInteger const kTweetsLoadingPortion = 20;
     TWRTweet *tweet = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     [cell setTwitText:tweet.text];
+    
+    if (indexPath.row % 2) {
+        [cell setImagesCount:4];
+    }
+    else {
+        [cell hideMediaFrame];
+    }
 }
 
 @end

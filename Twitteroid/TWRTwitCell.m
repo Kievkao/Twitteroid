@@ -10,6 +10,7 @@
 #import "TWRCellMediaView.h"
 #import "STTweetLabel.h"
 
+static CGFloat const kMediaHeight = 150.0;
 static CGFloat const kMinimumCellHeight = 75.0;
 
 static CGFloat const kCellContentSideSpace = 8.0;
@@ -39,8 +40,11 @@ static CGFloat const kMediaViewBottomSpace = 4.0;
 
 + (CGFloat)cellHeightForTableViewWidth:(CGFloat)tableViewWidth tweetText:(NSString *)text mediaPresent:(BOOL)isMediaPresent {
     
-    // TODO: PROCESS MEDIA FLAG
     CGFloat fixedSpaces = kBackViewSideSpace + kBackViewSideSpace + kTweetTextTopToBackViewSpace + kTweetTextBottomSpace + kMediaViewBottomSpace;
+    
+    if (isMediaPresent) {
+        fixedSpaces += kMediaHeight;
+    }
     
     CGFloat tweetTextLabelWidth = tableViewWidth - kCellContentSideSpace*5 - kAuthorAvatarImageViewWidth;
     CGSize maxTweetTextLabelSize = CGSizeMake(tweetTextLabelWidth, MAXFLOAT);
@@ -57,6 +61,19 @@ static CGFloat const kMediaViewBottomSpace = 4.0;
     [self.twitTextLabel setDetectionBlock:^(STTweetHotWord hotWordType, NSString *string, NSString *protocol, NSRange range) {
         NSLog(@"Something was clicked");
     }];
+}
+
+- (void)hideMediaFrame {
+    
+    [self.mediaView removeAllImages];
+    self.mediaViewHeight.constant = 0;
+}
+
+- (void)setImagesCount:(NSUInteger)count {
+    
+    self.mediaViewHeight.constant = kMediaHeight;
+    [self.mediaView setImagesCount:count];
+    
 }
 
 - (void)setTwitText:(NSString *)text {

@@ -12,5 +12,7 @@
 
 + (CGFloat)cellHeightForTableViewWidth:(CGFloat)tableViewWidth tweetText:(NSString *)text mediaPresent:(BOOL)isMediaPresent;
 - (void)setTwitText:(NSString *)text;
+- (void)setImagesCount:(NSUInteger)count;
+- (void)hideMediaFrame;
 
 @end
