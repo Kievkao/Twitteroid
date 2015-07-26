@@ -164,28 +164,46 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NdA-1h-z44">
-                                <rect key="frame" x="281" y="515" width="38" height="30"/>
-                                <state key="normal" title="Login">
+                                <rect key="frame" x="268" y="509" width="64" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Sing In">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="loginBtnClicked:" destination="i2j-zo-ZaH" eventType="touchUpInside" id="f6Q-ki-Owe"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="twitterIcon" translatesAutoresizingMaskIntoConstraints="NO" id="F9e-Jx-RGj">
+                                <rect key="frame" x="243" y="117" width="114" height="92"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="92" id="OHd-MB-7eD"/>
+                                    <constraint firstAttribute="width" constant="114" id="ezc-0j-0BS"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME TO TWITTEROID!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1IM-Wd-xGq" customClass="RQShineLabel">
+                                <rect key="frame" x="159" y="287" width="282" height="26"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.33333333329999998" green="0.67450980390000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="NdA-1h-z44" secondAttribute="centerX" id="0EO-BP-itj"/>
                             <constraint firstItem="PuS-O5-3E7" firstAttribute="top" secondItem="NdA-1h-z44" secondAttribute="bottom" constant="55" id="6tS-rM-Pgr"/>
-                            <constraint firstAttribute="centerY" secondItem="NdA-1h-z44" secondAttribute="centerY" id="uGy-mw-eEs"/>
+                            <constraint firstItem="1IM-Wd-xGq" firstAttribute="top" relation="lessThanOrEqual" secondItem="F9e-Jx-RGj" secondAttribute="bottom" constant="78" id="We6-ih-pZH"/>
+                            <constraint firstAttribute="centerY" secondItem="1IM-Wd-xGq" secondAttribute="centerY" id="a4c-de-Psh"/>
+                            <constraint firstItem="1IM-Wd-xGq" firstAttribute="top" relation="greaterThanOrEqual" secondItem="F9e-Jx-RGj" secondAttribute="bottom" constant="25" id="a7p-hW-fer"/>
+                            <constraint firstItem="F9e-Jx-RGj" firstAttribute="top" relation="lessThanOrEqual" secondItem="uV1-al-nkl" secondAttribute="bottom" constant="97" id="aWq-yf-VEg"/>
+                            <constraint firstAttribute="centerX" secondItem="F9e-Jx-RGj" secondAttribute="centerX" id="d77-LM-Iod"/>
+                            <constraint firstAttribute="centerX" secondItem="1IM-Wd-xGq" secondAttribute="centerX" id="zVv-BV-bUA"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="uGy-mw-eEs"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="t4Z-hG-eeM"/>
+                    <connections>
+                        <outlet property="welcomeShineLabel" destination="1IM-Wd-xGq" id="sky-Tu-lSv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ngt-SA-eIc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -230,5 +248,6 @@
     </scenes>
     <resources>
         <image name="iconTwitter" width="20" height="20"/>
+        <image name="twitterIcon" width="569" height="463"/>
     </resources>
 </document>

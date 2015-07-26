@@ -61,6 +61,7 @@
 		04AF02DF1B612489002CEB65 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AF02DC1B612489002CEB65 /* SSKeychain.m */; };
 		04AF02E01B612489002CEB65 /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AF02DE1B612489002CEB65 /* SSKeychainQuery.m */; };
 		04D9CD3D1B642ACF006B224D /* STTweetLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D9CD3C1B642ACF006B224D /* STTweetLabel.m */; };
+		04DF7FCC1B64CFC700907D1B /* RQShineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DF7FCB1B64CFC700907D1B /* RQShineLabel.m */; };
 		DE0B9BDE1B62334900CFC490 /* INSInfiniteScrollBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9BD71B62334900CFC490 /* INSInfiniteScrollBackgroundView.m */; };
 		DE0B9BDF1B62334900CFC490 /* INSPullToRefreshBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9BD91B62334900CFC490 /* INSPullToRefreshBackgroundView.m */; };
 		DE0B9BE01B62334900CFC490 /* UIScrollView+INSPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9BDB1B62334900CFC490 /* UIScrollView+INSPullToRefresh.m */; };
@@ -195,6 +196,8 @@
 		04AF02DE1B612489002CEB65 /* SSKeychainQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychainQuery.m; sourceTree = "<group>"; };
 		04D9CD3B1B642ACF006B224D /* STTweetLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTweetLabel.h; sourceTree = "<group>"; };
 		04D9CD3C1B642ACF006B224D /* STTweetLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTweetLabel.m; sourceTree = "<group>"; };
+		04DF7FCA1B64CFC700907D1B /* RQShineLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RQShineLabel.h; sourceTree = "<group>"; };
+		04DF7FCB1B64CFC700907D1B /* RQShineLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RQShineLabel.m; sourceTree = "<group>"; };
 		DE0B9BD61B62334900CFC490 /* INSInfiniteScrollBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSInfiniteScrollBackgroundView.h; sourceTree = "<group>"; };
 		DE0B9BD71B62334900CFC490 /* INSInfiniteScrollBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSInfiniteScrollBackgroundView.m; sourceTree = "<group>"; };
 		DE0B9BD81B62334900CFC490 /* INSPullToRefreshBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSPullToRefreshBackgroundView.h; sourceTree = "<group>"; };
@@ -444,6 +447,7 @@
 		04AF02881B61046F002CEB65 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				04DF7FC91B64CFBA00907D1B /* RQShineLabel */,
 				04D9CD3A1B642AC3006B224D /* STTweetLabel */,
 				DE0B9BD51B62333C00CFC490 /* INSPullToRefresh */,
 				047B073E1B61695D0058316F /* Haneke */,
@@ -531,6 +535,15 @@
 				04D9CD3C1B642ACF006B224D /* STTweetLabel.m */,
 			);
 			name = STTweetLabel;
+			sourceTree = "<group>";
+		};
+		04DF7FC91B64CFBA00907D1B /* RQShineLabel */ = {
+			isa = PBXGroup;
+			children = (
+				04DF7FCA1B64CFC700907D1B /* RQShineLabel.h */,
+				04DF7FCB1B64CFC700907D1B /* RQShineLabel.m */,
+			);
+			name = RQShineLabel;
 			sourceTree = "<group>";
 		};
 		DE0B9BD51B62333C00CFC490 /* INSPullToRefresh */ = {
@@ -726,6 +739,7 @@
 				04AF02D11B6111F4002CEB65 /* TWRLoginWebVC.m in Sources */,
 				043AB9BC1B6411BC005F2BD5 /* UIColor+BHRUtils.m in Sources */,
 				047B07291B615B6A0058316F /* TWRTwitterAPIManager+TWRFeed.m in Sources */,
+				04DF7FCC1B64CFC700907D1B /* RQShineLabel.m in Sources */,
 				DE0B9BDF1B62334900CFC490 /* INSPullToRefreshBackgroundView.m in Sources */,
 				04AF02A71B6104A5002CEB65 /* STTwitterAPI.m in Sources */,
 				04D9CD3D1B642ACF006B224D /* STTweetLabel.m in Sources */,

@@ -9,9 +9,12 @@
 #import "TWRLoginVC.h"
 #import "TWRLoginWebVC.h"
 #import "TWRFeedVC.h"
+#import "RQShineLabel.h"
 #import "TWRTwitterAPIManager+TWRLogin.h"
 
 @interface TWRLoginVC ()
+
+@property (weak, nonatomic) IBOutlet RQShineLabel *welcomeShineLabel;
 
 @end
 
@@ -23,6 +26,12 @@
     if ([[TWRTwitterAPIManager sharedInstance] isUserAlreadyLogged]) {
         [self openFeedViewController];
     }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [self.welcomeShineLabel shine];
 }
 
 - (IBAction)loginBtnClicked:(id)sender {
