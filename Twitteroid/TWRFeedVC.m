@@ -253,12 +253,21 @@ static NSUInteger const kTweetsLoadingPortion = 20;
     
     if (tweet.medias.count) {
         
-        NSMutableArray *mediaUrlsArray = [NSMutableArray new];
+            NSMutableArray *mediaUrlsArray = [NSMutableArray new];
+            
+            for (TWRMedia *media in tweet.medias) {
+                [mediaUrlsArray addObject:media.mediaURL];
+            }
+            
+            TWRMedia *media = [tweet.medias anyObject];
         
-        for (TWRMedia *media in tweet.medias) {
-            [mediaUrlsArray addObject:media.mediaURL];
-        }
-        [cell setImagesURLs:mediaUrlsArray];
+            if (media.isPhoto) {
+                [cell setImagesURLs:mediaUrlsArray];
+            }
+            else {
+                // for preventing big amount of unconvinient UIWebView, dsiplay preview only for the last link
+                [cell setLinksURLs:@[[mediaUrlsArray firstObject]]];
+            }
     }
     else {
         [cell hideMediaFrame];

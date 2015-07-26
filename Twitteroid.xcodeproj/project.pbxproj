@@ -18,7 +18,6 @@
 		047B07261B6159480058316F /* TWRTwitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B07251B6159480058316F /* TWRTwitCell.m */; };
 		047B07291B615B6A0058316F /* TWRTwitterAPIManager+TWRFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B07281B615B6A0058316F /* TWRTwitterAPIManager+TWRFeed.m */; };
 		047B072E1B6167E70058316F /* TWRPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B072D1B6167E70058316F /* TWRPlace.m */; };
-		047B07341B6167E80058316F /* TWRMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B07331B6167E80058316F /* TWRMedia.m */; };
 		047B073A1B6168230058316F /* TWRCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B07391B6168230058316F /* TWRCoreDataManager.m */; };
 		047B073D1B6168540058316F /* TWRBaseSingletonNSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B073C1B6168540058316F /* TWRBaseSingletonNSObject.m */; };
 		04AF02571B60FE49002CEB65 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AF02561B60FE49002CEB65 /* main.m */; };
@@ -53,6 +52,7 @@
 		04AF02DF1B612489002CEB65 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AF02DC1B612489002CEB65 /* SSKeychain.m */; };
 		04AF02E01B612489002CEB65 /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AF02DE1B612489002CEB65 /* SSKeychainQuery.m */; };
 		04D9CD3D1B642ACF006B224D /* STTweetLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D9CD3C1B642ACF006B224D /* STTweetLabel.m */; };
+		04DEE6501B65563C00AE0E4A /* TWRMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DEE64F1B65563C00AE0E4A /* TWRMedia.m */; };
 		04DF7FCC1B64CFC700907D1B /* RQShineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DF7FCB1B64CFC700907D1B /* RQShineLabel.m */; };
 		04E391CA1B65107B00F9A9C5 /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E391C21B65107B00F9A9C5 /* ALView+PureLayout.m */; };
 		04E391CB1B65107B00F9A9C5 /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E391C41B65107B00F9A9C5 /* NSArray+PureLayout.m */; };
@@ -124,8 +124,6 @@
 		047B07281B615B6A0058316F /* TWRTwitterAPIManager+TWRFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TWRTwitterAPIManager+TWRFeed.m"; sourceTree = "<group>"; };
 		047B072C1B6167E70058316F /* TWRPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRPlace.h; sourceTree = "<group>"; };
 		047B072D1B6167E70058316F /* TWRPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRPlace.m; sourceTree = "<group>"; };
-		047B07321B6167E80058316F /* TWRMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRMedia.h; sourceTree = "<group>"; };
-		047B07331B6167E80058316F /* TWRMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRMedia.m; sourceTree = "<group>"; };
 		047B07381B6168230058316F /* TWRCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRCoreDataManager.h; sourceTree = "<group>"; };
 		047B07391B6168230058316F /* TWRCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRCoreDataManager.m; sourceTree = "<group>"; };
 		047B073B1B6168540058316F /* TWRBaseSingletonNSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRBaseSingletonNSObject.h; sourceTree = "<group>"; };
@@ -191,6 +189,8 @@
 		04AF02DE1B612489002CEB65 /* SSKeychainQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychainQuery.m; sourceTree = "<group>"; };
 		04D9CD3B1B642ACF006B224D /* STTweetLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTweetLabel.h; sourceTree = "<group>"; };
 		04D9CD3C1B642ACF006B224D /* STTweetLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTweetLabel.m; sourceTree = "<group>"; };
+		04DEE64E1B65563C00AE0E4A /* TWRMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRMedia.h; sourceTree = "<group>"; };
+		04DEE64F1B65563C00AE0E4A /* TWRMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRMedia.m; sourceTree = "<group>"; };
 		04DF7FCA1B64CFC700907D1B /* RQShineLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RQShineLabel.h; sourceTree = "<group>"; };
 		04DF7FCB1B64CFC700907D1B /* RQShineLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RQShineLabel.m; sourceTree = "<group>"; };
 		04E391C11B65107B00F9A9C5 /* ALView+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALView+PureLayout.h"; sourceTree = "<group>"; };
@@ -435,9 +435,8 @@
 		04AF02851B6103FA002CEB65 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				04DEE6511B6557B100AE0E4A /* TWRCellMediaView */,
 				047B07201B6158EC0058316F /* Cells */,
-				043AB9C01B6418ED005F2BD5 /* TWRCellMediaView.h */,
-				043AB9C11B6418ED005F2BD5 /* TWRCellMediaView.m */,
 				04AF02611B60FE4A002CEB65 /* Main.storyboard */,
 				04AF02661B60FE4A002CEB65 /* LaunchScreen.xib */,
 			);
@@ -553,6 +552,15 @@
 				04D9CD3C1B642ACF006B224D /* STTweetLabel.m */,
 			);
 			name = STTweetLabel;
+			sourceTree = "<group>";
+		};
+		04DEE6511B6557B100AE0E4A /* TWRCellMediaView */ = {
+			isa = PBXGroup;
+			children = (
+				043AB9C01B6418ED005F2BD5 /* TWRCellMediaView.h */,
+				043AB9C11B6418ED005F2BD5 /* TWRCellMediaView.m */,
+			);
+			name = TWRCellMediaView;
 			sourceTree = "<group>";
 		};
 		04DF7FC91B64CFBA00907D1B /* RQShineLabel */ = {
@@ -682,10 +690,10 @@
 		DE0B9C0D1B62711A00CFC490 /* TWRMedia */ = {
 			isa = PBXGroup;
 			children = (
-				047B07321B6167E80058316F /* TWRMedia.h */,
-				047B07331B6167E80058316F /* TWRMedia.m */,
 				DE0B9C0E1B62713600CFC490 /* TWRMedia+TWRHelper.h */,
 				DE0B9C0F1B62713600CFC490 /* TWRMedia+TWRHelper.m */,
+				04DEE64E1B65563C00AE0E4A /* TWRMedia.h */,
+				04DEE64F1B65563C00AE0E4A /* TWRMedia.m */,
 			);
 			name = TWRMedia;
 			sourceTree = "<group>";
@@ -809,7 +817,6 @@
 				04E391FF1B6527CB00F9A9C5 /* UIImageView+HighlightedWebCache.m in Sources */,
 				04E391CA1B65107B00F9A9C5 /* ALView+PureLayout.m in Sources */,
 				04AF02A51B6104A5002CEB65 /* NSString+STTwitter.m in Sources */,
-				047B07341B6167E80058316F /* TWRMedia.m in Sources */,
 				04AF02D11B6111F4002CEB65 /* TWRLoginWebVC.m in Sources */,
 				043AB9BC1B6411BC005F2BD5 /* UIColor+BHRUtils.m in Sources */,
 				04E391F51B6527CB00F9A9C5 /* SDWebImageCompat.m in Sources */,
@@ -852,6 +859,7 @@
 				DE0B9C141B6273B800CFC490 /* TWRFeedVC+TWRParsing.m in Sources */,
 				DE0B9BE41B62403200CFC490 /* INSTwitterPullToRefresh.m in Sources */,
 				04AF025D1B60FE4A002CEB65 /* Twitteroid.xcdatamodeld in Sources */,
+				04DEE6501B65563C00AE0E4A /* TWRMedia.m in Sources */,
 				04AF02B61B6104B0002CEB65 /* STHTTPRequest.m in Sources */,
 				04E392001B6527CB00F9A9C5 /* UIImageView+WebCache.m in Sources */,
 				047B073D1B6168540058316F /* TWRBaseSingletonNSObject.m in Sources */,

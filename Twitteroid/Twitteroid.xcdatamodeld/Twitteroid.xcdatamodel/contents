@@ -7,6 +7,7 @@
         <relationship name="tweet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TWRTweet" inverseName="hashtags" inverseEntity="TWRTweet" syncable="YES"/>
     </entity>
     <entity name="TWRMedia" representedClassName="TWRMedia" syncable="YES">
+        <attribute name="isPhoto" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="mediaURL" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="tweet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TWRTweet" inverseName="medias" inverseEntity="TWRTweet" syncable="YES"/>
     </entity>
@@ -29,7 +30,7 @@
     </entity>
     <elements>
         <element name="TWRHashtag" positionX="-54" positionY="0" width="128" height="105"/>
-        <element name="TWRMedia" positionX="-36" positionY="63" width="128" height="75"/>
+        <element name="TWRMedia" positionX="-36" positionY="63" width="128" height="90"/>
         <element name="TWRPlace" positionX="-45" positionY="45" width="128" height="105"/>
         <element name="TWRTweet" positionX="-63" positionY="-18" width="128" height="180"/>
     </elements>

@@ -20,6 +20,7 @@
 - (void)setAuthorAvatarByURLStr:(NSString *)avatarUrl;
 
 - (void)setImagesURLs:(NSArray *)imagesURLs;
+- (void)setLinksURLs:(NSArray *)linksURLs;
 - (void)hideMediaFrame;
 
 @end

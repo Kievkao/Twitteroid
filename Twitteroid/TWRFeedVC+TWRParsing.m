@@ -70,11 +70,30 @@
                 TWRMedia *media = [TWRCoreDataManager insertNewMediaInContext:[TWRCoreDataManager mainContext]];
                 media.mediaURL = mediaDict[@"media_url"];
                 media.tweet = tweet;
+                media.isPhoto = YES;
                 
                 [tweetMedias addObject:media];
             }
             
             tweet.medias = tweetMedias;
+        }
+        else if (oneItem[@"entities"]) {
+            NSDictionary *entitiesDict = oneItem[@"entities"];
+            NSArray *urls = entitiesDict[@"urls"];
+            NSMutableSet *tweetUrls = [NSMutableSet new];
+
+            if (![urls isKindOfClass:[NSNull class]]) {
+                for (NSDictionary *urlDict in urls) {
+                    TWRMedia *media = [TWRCoreDataManager insertNewMediaInContext:[TWRCoreDataManager mainContext]];
+                    media.mediaURL = urlDict[@"url"];
+                    media.tweet = tweet;
+                    media.isPhoto = NO;
+                    
+                    [tweetUrls addObject:media];
+                }
+                
+                tweet.medias = tweetUrls;
+            }
         }
     }
 }

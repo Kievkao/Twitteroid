@@ -11,7 +11,7 @@
 
 @interface TWRCellMediaView()
 
-@property (nonatomic, strong) NSMutableArray *imageViews;
+@property (nonatomic, strong) NSMutableArray *mediaFrames;
 
 @end
 
@@ -41,13 +41,123 @@
     }
 }
 
-- (void)removeAllImages {
+- (void)setLinks:(NSArray *)links {
     
-    for (UIImageView *imageView in self.imageViews) {
+    switch (links.count) {
+        case 1:
+            [self setupOneWebView:links];
+            break;
+            
+        case 2:
+            [self setupTwoWebViews:links];
+            break;
+            
+        case 3:
+            [self setupThreeWebViews:links];
+            break;
+            
+        case 4:
+            [self setupFourWebViews:links];
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)setupOneWebView:(NSArray *)links {
+    
+    UIWebView *webView = [self createWebViewWithTag:1];
+    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[links firstObject]]]];
+    
+    [webView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero];
+}
+
+- (void)setupTwoWebViews:(NSArray *)links {
+    
+    UIWebView *webView1 = [self createWebViewWithTag:1];
+    UIWebView *webView2 = [self createWebViewWithTag:2];
+    
+    [webView1 loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[links firstObject]]]];
+    [webView2 loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[links lastObject]]]];
+    
+    [webView1 autoPinEdgeToSuperviewEdge:ALEdgeTop];
+    [webView1 autoPinEdgeToSuperviewEdge:ALEdgeLeft];
+    [webView1 autoPinEdgeToSuperviewEdge:ALEdgeBottom];
+    [webView1 autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self withMultiplier:0.5];
+    
+    [webView2 autoPinEdgeToSuperviewEdge:ALEdgeTop];
+    [webView2 autoPinEdgeToSuperviewEdge:ALEdgeRight];
+    [webView2 autoPinEdgeToSuperviewEdge:ALEdgeBottom];
+    [webView2 autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:webView1];
+}
+
+- (void)setupThreeWebViews:(NSArray *)links {
+    
+    UIWebView *webView1 = [self createWebViewWithTag:1];
+    UIWebView *webView2 = [self createWebViewWithTag:2];
+    UIWebView *webView3 = [self createWebViewWithTag:3];
+    
+    [webView1 loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:links[0]]]];
+    [webView2 loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:links[1]]]];
+    [webView3 loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:links[2]]]];
+    
+    [webView1 autoPinEdgeToSuperviewEdge:ALEdgeTop];
+    [webView1 autoPinEdgeToSuperviewEdge:ALEdgeLeft];
+    [webView1 autoPinEdgeToSuperviewEdge:ALEdgeBottom];
+    [webView1 autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self withMultiplier:0.5];
+    
+    [webView2 autoPinEdgeToSuperviewEdge:ALEdgeTop];
+    [webView2 autoPinEdgeToSuperviewEdge:ALEdgeRight];
+    [webView2 autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:webView1];
+    [webView2 autoMatchDimension:ALDimensionHeight toDimension:ALDimensionHeight ofView:webView1 withMultiplier:0.5];
+    
+    [webView3 autoPinEdgeToSuperviewEdge:ALEdgeBottom];
+    [webView3 autoPinEdgeToSuperviewEdge:ALEdgeRight];
+    [webView3 autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:webView1];
+    [webView3 autoMatchDimension:ALDimensionHeight toDimension:ALDimensionHeight ofView:webView1 withMultiplier:0.5];
+}
+
+- (void)setupFourWebViews:(NSArray *)links {
+    
+    UIWebView *webView1 = [self createWebViewWithTag:1];
+    UIWebView *webView2 = [self createWebViewWithTag:2];
+    UIWebView *webView3 = [self createWebViewWithTag:3];
+    UIWebView *webView4 = [self createWebViewWithTag:4];
+    
+    [webView1 loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:links[0]]]];
+    [webView2 loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:links[1]]]];
+    [webView3 loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:links[2]]]];
+    [webView4 loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:links[3]]]];
+    
+    [webView1 autoPinEdgeToSuperviewEdge:ALEdgeTop];
+    [webView1 autoPinEdgeToSuperviewEdge:ALEdgeLeft];
+    [webView1 autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self withMultiplier:0.5];
+    [webView1 autoMatchDimension:ALDimensionHeight toDimension:ALDimensionHeight ofView:self withMultiplier:0.5];
+    
+    [webView2 autoPinEdgeToSuperviewEdge:ALEdgeBottom];
+    [webView2 autoPinEdgeToSuperviewEdge:ALEdgeLeft];
+    [webView2 autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self withMultiplier:0.5];
+    [webView2 autoMatchDimension:ALDimensionHeight toDimension:ALDimensionHeight ofView:self withMultiplier:0.5];
+    
+    [webView3 autoPinEdgeToSuperviewEdge:ALEdgeTop];
+    [webView3 autoPinEdgeToSuperviewEdge:ALEdgeRight];
+    [webView3 autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self withMultiplier:0.5];
+    [webView3 autoMatchDimension:ALDimensionHeight toDimension:ALDimensionHeight ofView:self withMultiplier:0.5];
+    
+    [webView4 autoPinEdgeToSuperviewEdge:ALEdgeBottom];
+    [webView4 autoPinEdgeToSuperviewEdge:ALEdgeRight];
+    [webView4 autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self withMultiplier:0.5];
+    [webView4 autoMatchDimension:ALDimensionHeight toDimension:ALDimensionHeight ofView:self withMultiplier:0.5];
+}
+
+- (void)removeAllFrames {
+    
+    for (UIImageView *imageView in self.mediaFrames) {
         [imageView removeFromSuperview];
     }
     
-    [self.imageViews removeAllObjects];
+    [self.mediaFrames removeAllObjects];
 }
 
 - (UIImageView *)createImageViewWithTag:(NSUInteger)tag {
@@ -61,9 +171,22 @@
     [imageView addGestureRecognizer:gestureRec];
     
     [self addSubview:imageView];
-    [self.imageViews addObject:imageView];
+    [self.mediaFrames addObject:imageView];
     
     return imageView;
+}
+
+- (UIWebView *)createWebViewWithTag:(NSUInteger)tag {
+    
+    UIWebView *webView = [[UIWebView alloc] initForAutoLayout];
+    webView.contentMode = UIViewContentModeScaleAspectFit;
+    webView.scrollView.scrollEnabled = NO;
+    webView.tag = tag;
+    
+    [self addSubview:webView];
+    [self.mediaFrames addObject:webView];
+    
+    return webView;
 }
 
 - (void)handleImageTapFrom:(UITapGestureRecognizer *)recognizer
@@ -159,13 +282,13 @@
 
 }
 
-- (NSMutableArray *)imageViews {
+- (NSMutableArray *)mediaFrames {
     
-    if (!_imageViews) {
-        _imageViews = [NSMutableArray new];
+    if (!_mediaFrames) {
+        _mediaFrames = [NSMutableArray new];
     }
     
-    return _imageViews;
+    return _mediaFrames;
 }
 
 @end

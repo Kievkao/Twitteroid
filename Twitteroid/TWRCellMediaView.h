@@ -11,6 +11,7 @@
 @interface TWRCellMediaView : UIView
 
 - (void)setImages:(NSArray *)images;
-- (void)removeAllImages;
+- (void)setLinks:(NSArray *)links;
+- (void)removeAllFrames;
 
 @end

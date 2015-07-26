@@ -76,14 +76,18 @@ static CGFloat const kMediaViewBottomSpace = 4.0;
 
 - (void)hideMediaFrame {
     
-    [self.mediaView removeAllImages];
+    [self.mediaView removeAllFrames];
     self.mediaViewHeight.constant = 0;
 }
 
 - (void)setImagesURLs:(NSArray *)imagesURLs {
-    
     self.mediaViewHeight.constant = kMediaHeight;
     [self.mediaView setImages:imagesURLs];
+}
+
+- (void)setLinksURLs:(NSArray *)linksURLs {
+    self.mediaViewHeight.constant = kMediaHeight;
+    [self.mediaView setLinks:linksURLs];
 }
 
 - (void)setAuthorName:(NSString *)name {
