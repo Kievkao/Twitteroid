@@ -17,7 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
 
 + (NSString *)identifier {
@@ -40,6 +41,10 @@
     else {
         return YES;
     }
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 - (NSDictionary *)parametersDictionaryFromQueryString:(NSString *)queryString {

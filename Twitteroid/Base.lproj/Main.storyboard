@@ -19,12 +19,11 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="75" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="U2S-bA-KpL">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                                <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TWRTwitCell" id="F7C-Zc-QRj" customClass="TWRTwitCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F7C-Zc-QRj" id="lBG-5j-yKE">
+                                        <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F7C-Zc-QRj" id="lBG-5j-yKE">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sSJ-4k-te9" userLabel="whiteBackView">
@@ -85,7 +84,7 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="sSJ-4k-te9" firstAttribute="leading" secondItem="lBG-5j-yKE" secondAttribute="leadingMargin" id="4O0-Zu-aTt"/>
                                                 <constraint firstItem="sSJ-4k-te9" firstAttribute="trailing" secondItem="lBG-5j-yKE" secondAttribute="trailingMargin" id="IhX-T1-heq"/>
@@ -93,7 +92,6 @@
                                                 <constraint firstItem="sSJ-4k-te9" firstAttribute="top" secondItem="lBG-5j-yKE" secondAttribute="topMargin" id="zbp-df-Qcv"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="authorAvatarImageView" destination="AUP-w4-Npt" id="YrP-T3-bup"/>
                                             <outlet property="authorNameLabel" destination="EId-T1-pxo" id="bkd-94-d1c"/>
@@ -110,7 +108,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="U2S-bA-KpL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="1dg-Op-n5p"/>
                             <constraint firstAttribute="trailing" secondItem="U2S-bA-KpL" secondAttribute="trailing" id="JFE-Fm-adc"/>
