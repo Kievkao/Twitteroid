@@ -61,7 +61,16 @@ static CGFloat const kMediaViewBottomSpace = 4.0;
 - (void)awakeFromNib {
     
     [self.twitTextLabel setDetectionBlock:^(STTweetHotWord hotWordType, NSString *string, NSString *protocol, NSRange range) {
-        NSLog(@"Something was clicked");
+        switch (hotWordType) {
+            case STTweetLink:
+                if (self.webLinkClickedBlock) {
+                    self.webLinkClickedBlock([NSURL URLWithString:string]);
+                }
+                break;
+                
+            default:
+                break;
+        }
     }];
 }
 

@@ -60,16 +60,21 @@
                 tweet.hashtags = hashtags;
             }
             
-            if (entitiesDict[@"media"]) {
-                NSArray *mediaArray = entitiesDict[@"media"];\
-                NSDictionary *mediaDict = [mediaArray firstObject];
-                
+        }
+        if (oneItem[@"extended_entities"]) {
+            NSDictionary *extEntities = oneItem[@"extended_entities"];
+            NSArray *mediaArray = extEntities[@"media"];
+            NSMutableSet *tweetMedias = [NSMutableSet new];
+            
+            for (NSDictionary *mediaDict in mediaArray) {
                 TWRMedia *media = [TWRCoreDataManager insertNewMediaInContext:[TWRCoreDataManager mainContext]];
                 media.mediaURL = mediaDict[@"media_url"];
                 media.tweet = tweet;
                 
-                tweet.medias = [NSSet setWithObject:media];
+                [tweetMedias addObject:media];
             }
+            
+            tweet.medias = tweetMedias;
         }
     }
 }

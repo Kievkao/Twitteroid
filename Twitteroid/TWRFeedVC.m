@@ -247,6 +247,10 @@ static NSUInteger const kTweetsLoadingPortion = 20;
     [cell setTwitText:tweet.text];
     [cell setAuthorAvatarByURLStr:tweet.userAvatarURL];
     
+    cell.webLinkClickedBlock = ^(NSURL *url) {
+        [[UIApplication sharedApplication] openURL:url];
+    };
+    
     if (tweet.medias.count) {
         
         NSMutableArray *mediaUrlsArray = [NSMutableArray new];

@@ -10,6 +10,8 @@
 
 @interface TWRTwitCell : TWRBaseTableViewCell
 
+@property (nonatomic, strong) void (^webLinkClickedBlock)(NSURL *clickedUrl);
+
 + (CGFloat)cellHeightForTableViewWidth:(CGFloat)tableViewWidth tweetText:(NSString *)text mediaPresent:(BOOL)isMediaPresent;
 
 - (void)setTwitText:(NSString *)text;
