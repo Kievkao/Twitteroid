@@ -11,6 +11,7 @@
 #import "TWRTweet.h"
 #import "TWRHashtag.h"
 #import "TWRMedia.h"
+#import "TWRPlace.h"
 
 @interface TWRFeedVC : TWRBaseVC
 

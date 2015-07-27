@@ -34,7 +34,25 @@
         if (![oneItem[@"place"] isKindOfClass:[NSNull class]]) {
             NSDictionary *placeDict = oneItem[@"place"];
             NSDictionary *boundingBoxDict = placeDict[@"bounding_box"];
-            NSArray *coordinates = boundingBoxDict[@"coordinates"];
+            NSArray *coordinates = boundingBoxDict[@"coordinates"][0];
+            
+            double lattitude = 0;
+            double longitude = 0;
+            
+            for (NSArray *latLongPair in coordinates) {
+                lattitude += [[latLongPair firstObject] doubleValue];
+                longitude += [[latLongPair lastObject] doubleValue];
+            }
+            
+            lattitude /= coordinates.count;
+            longitude /= coordinates.count;
+            
+            TWRPlace *place  = [TWRCoreDataManager insertNewPlaceInContext:[TWRCoreDataManager mainContext]];
+            place.lattitude = lattitude;
+            place.longitude = longitude;
+            place.tweet = tweet;
+            
+            tweet.place = place;
         }
         
         if (![oneItem[@"entities"] isKindOfClass:[NSNull class]]) {

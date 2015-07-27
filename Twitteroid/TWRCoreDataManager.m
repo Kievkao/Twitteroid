@@ -11,6 +11,7 @@
 #import "TWRMedia+TWRHelper.h"
 #import "TWRTweet+TWRHelper.h"
 #import "TWRHashtag+TWRHelper.h"
+#import "TWRPlace+TWRHelper.h"
 
 #define MAIN_CONTEXT [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]
 
@@ -50,6 +51,11 @@
 + (TWRHashtag *)insertNewHashtagInContext:(NSManagedObjectContext *)context {
     TWRHashtag *hashtag = [NSEntityDescription insertNewObjectForEntityForName:[TWRHashtag entityName] inManagedObjectContext:context];
     return hashtag;
+}
+
++ (TWRPlace *)insertNewPlaceInContext:(NSManagedObjectContext *)context {
+    TWRPlace *place = [NSEntityDescription insertNewObjectForEntityForName:[TWRPlace entityName] inManagedObjectContext:context];
+    return place;
 }
 
 + (TWRMedia *)insertNewMediaInContext:(NSManagedObjectContext *)context {

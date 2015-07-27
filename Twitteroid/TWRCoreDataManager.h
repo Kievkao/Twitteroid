@@ -8,7 +8,7 @@
 
 #import "TWRBaseSingletonNSObject.h"
 #import <CoreData/CoreData.h>
-@class TWRTweet, TWRHashtag, TWRMedia;
+@class TWRTweet, TWRHashtag, TWRMedia, TWRPlace;
 
 @interface TWRCoreDataManager : TWRBaseSingletonNSObject
 
@@ -19,6 +19,7 @@
 + (TWRTweet *)insertNewTweetInContext:(NSManagedObjectContext *)context;
 + (TWRHashtag *)insertNewHashtagInContext:(NSManagedObjectContext *)context;
 + (TWRMedia *)insertNewMediaInContext:(NSManagedObjectContext *)context;
++ (TWRPlace *)insertNewPlaceInContext:(NSManagedObjectContext *)context;
 
 + (BOOL)isExistsTweetWithID:(NSString *)tweetID performInContext:(NSManagedObjectContext *)context;
 + (BOOL)isAnySavedTweets;

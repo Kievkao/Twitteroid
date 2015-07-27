@@ -8,7 +8,6 @@
 
 #import <CoreData/CoreData.h>
 #import "TWRFeedVC.h"
-#import "TWRMedia.h"
 #import "TWRTwitCell.h"
 #import "TWRTwitterAPIManager+TWRFeed.h"
 #import "TWRTwitterAPIManager+TWRLogin.h"

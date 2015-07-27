@@ -251,6 +251,47 @@
             </objects>
             <point key="canvasLocation" x="378" y="1663"/>
         </scene>
+        <!--LocationVC-->
+        <scene sceneID="w8O-1I-PqL">
+            <objects>
+                <viewController id="ZPE-c3-CCL" customClass="TWRLocationVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="up9-wU-qp9"/>
+                        <viewControllerLayoutGuide type="bottom" id="p4Y-TA-cr1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="B32-xU-xeE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="x8D-90-jrn">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ZPE-c3-CCL" id="b6f-Bq-2Hm"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="x8D-90-jrn" secondAttribute="trailing" id="FSS-9Y-kz3"/>
+                            <constraint firstItem="p4Y-TA-cr1" firstAttribute="top" secondItem="x8D-90-jrn" secondAttribute="bottom" id="cQ2-XN-G5D"/>
+                            <constraint firstItem="x8D-90-jrn" firstAttribute="top" secondItem="B32-xU-xeE" secondAttribute="top" id="hbK-UX-eHa"/>
+                            <constraint firstItem="x8D-90-jrn" firstAttribute="leading" secondItem="B32-xU-xeE" secondAttribute="leading" id="p8i-vE-ba7"/>
+                            <constraint firstItem="x8D-90-jrn" firstAttribute="top" secondItem="up9-wU-qp9" secondAttribute="bottom" constant="-20" id="vnd-DH-ImB"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="hbK-UX-eHa"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="x8D-90-jrn" id="J4d-ER-BLI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gPg-4n-isP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1119" y="1749"/>
+        </scene>
     </scenes>
     <resources>
         <image name="iconTwitter" width="20" height="20"/>
