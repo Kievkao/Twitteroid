@@ -6,12 +6,12 @@
 //  Copyright (c) 2015 Kievkao. All rights reserved.
 //
 
-#import "TWRBaseSingletonNSObject.h"
 #import <CoreData/CoreData.h>
 @class TWRTweet, TWRHashtag, TWRMedia, TWRPlace;
 
-@interface TWRCoreDataManager : TWRBaseSingletonNSObject
+@interface TWRCoreDataManager : NSObject
 
++ (instancetype)sharedInstance;
 + (NSManagedObjectContext *)mainContext;
 + (void)saveContext:(NSManagedObjectContext *)context;
 + (NSFetchedResultsController *)fetchedResultsControllerForTweetsFeed;
@@ -25,5 +25,8 @@
 + (BOOL)isAnySavedTweets;
 
 + (void)deleteTweetsOlderThanDate:(NSDate *)date performInContext:(NSManagedObjectContext *)context;
+
+- (void)saveAutomaticTweetsDeleteDate:(NSDate *)date;
+- (BOOL)isTweetDateIsAllowed:(NSDate *)date;
 
 @end

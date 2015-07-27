@@ -14,13 +14,16 @@
     
     for (NSDictionary *oneItem in items) {
         
-        if ([TWRCoreDataManager isExistsTweetWithID:oneItem[@"id_str"] performInContext:[TWRCoreDataManager mainContext]]) {
+        NSDate *tweetDate = [self.dateFormatter dateFromString:oneItem[@"created_at"]];
+        
+        if ([TWRCoreDataManager isExistsTweetWithID:oneItem[@"id_str"] performInContext:[TWRCoreDataManager mainContext]] ||
+            ![[TWRCoreDataManager sharedInstance] isTweetDateIsAllowed:tweetDate]) {
             continue;
         }
         
         TWRTweet *tweet = [TWRCoreDataManager insertNewTweetInContext:[TWRCoreDataManager mainContext]];
         
-        tweet.createdAt = [self.dateFormatter dateFromString:oneItem[@"created_at"]];
+        tweet.createdAt = tweetDate;
         
         NSDictionary *userInfoDict = oneItem[@"user"];
         tweet.userAvatarURL = userInfoDict[@"profile_image_url"];

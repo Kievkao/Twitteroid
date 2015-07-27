@@ -12,10 +12,29 @@
 #import "TWRTweet+TWRHelper.h"
 #import "TWRHashtag+TWRHelper.h"
 #import "TWRPlace+TWRHelper.h"
+#import "NSDate+Escort.h"
+
+static NSString *const kTweetsDeleteDateKey = @"TWRTweetsDeleteDateKey";
 
 #define MAIN_CONTEXT [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]
 
+@interface TWRCoreDataManager()
+
+@property (nonatomic, strong) NSDate *dateForOlderDeleting;
+
+@end
+
 @implementation TWRCoreDataManager
+
++ (instancetype)sharedInstance
+{
+    static dispatch_once_t once;
+    static id sharedInstance;
+    dispatch_once(&once, ^{
+        sharedInstance = [[self alloc] init];
+    });
+    return sharedInstance;
+}
 
 + (NSFetchedResultsController *)fetchedResultsControllerForTweetsFeed {
     
@@ -74,6 +93,23 @@
     return results.count;
 }
 
+- (void)saveAutomaticTweetsDeleteDate:(NSDate *)date {
+    
+    self.dateForOlderDeleting = date;
+    [[NSUserDefaults standardUserDefaults] setObject:date forKey:kTweetsDeleteDateKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (BOOL)isTweetDateIsAllowed:(NSDate *)date {
+    
+    if (self.dateForOlderDeleting && [date isEarlierThanDate:self.dateForOlderDeleting]) {
+        return NO;
+    }
+    else {
+        return YES;
+    }
+}
+
 + (void)deleteTweetsOlderThanDate:(NSDate *)date performInContext:(NSManagedObjectContext *)context {
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:[TWRTweet entityName]];
@@ -99,6 +135,15 @@
             NSLog(@"Context saving error");
         }
     }];
+}
+
+- (NSDate *)dateForOlderDeleting {
+    
+    if (!_dateForOlderDeleting) {
+        _dateForOlderDeleting = [[NSUserDefaults standardUserDefaults] objectForKey:kTweetsDeleteDateKey];
+    }
+    
+    return _dateForOlderDeleting;
 }
 
 @end

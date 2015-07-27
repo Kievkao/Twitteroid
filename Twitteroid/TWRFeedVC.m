@@ -197,7 +197,7 @@ static NSUInteger const kTweetsLoadingPortion = 20;
             if (error) {
                 NSLog(@"Loading error");
             }
-            [scrollView ins_endInfinityScrollWithStoppingContentOffset:YES];
+            [scrollView ins_endInfinityScrollWithStoppingContentOffset:NO];
         }];
     }];
     

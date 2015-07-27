@@ -8,9 +8,10 @@
 
 #import "TWRMenuVC.h"
 #import "TWRCoreDataManager.h"
+#import "NSDate+Escort.h"
 
 static NSUInteger const kInitialWeekIndex = 4;
-static NSUInteger const kTotalWeeksAmount = 52;
+static NSUInteger const kTotalWeeksAmount = 51;
 
 @interface TWRMenuVC () <UIPickerViewDataSource, UIPickerViewDelegate>
 
@@ -38,11 +39,11 @@ static NSUInteger const kTotalWeeksAmount = 52;
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     
     switch (row) {
-        case 1:
-            return [NSString stringWithFormat:@"%ld week", (long)row];
+        case 0:
+            return [NSString stringWithFormat:@"%ld week", (long)row + 1];
             
         default:
-            return [NSString stringWithFormat:@"%ld weeks", (long)row];
+            return [NSString stringWithFormat:@"%ld weeks", (long)row + 1];
     }
 }
 
@@ -60,6 +61,12 @@ static NSUInteger const kTotalWeeksAmount = 52;
 - (IBAction)applyClicked:(id)sender {
     
     [self showSureAlertWithTitle:NSLocalizedString(@"Confirmation", @"Confirmation alert title") text:NSLocalizedString(@"Are you sure to confirm this time interval?", @"\"Are you sure\" text for applying automatic tweets delete interval") okCompletionBlock:^(UIAlertAction *action) {
+        
+        NSUInteger selectedWeeksCellIndex = [self.weeksAutoDatePicker selectedRowInComponent:0];
+        
+        NSDate *selectedDate = [NSDate dateWithDaysBeforeNow:(selectedWeeksCellIndex + 1)*7];
+        [TWRCoreDataManager deleteTweetsOlderThanDate:selectedDate performInContext:[TWRCoreDataManager mainContext]];
+        [[TWRCoreDataManager sharedInstance] saveAutomaticTweetsDeleteDate:selectedDate];
         
         [self showInfoAlertWithTitle:NSLocalizedString(@"Done", @"Done alert text") text:NSLocalizedString(@"Filtered tweets have deleted", @"Filtered tweets have deleted")];
     }];

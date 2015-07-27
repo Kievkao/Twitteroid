@@ -7,13 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TWRBaseSingletonNSObject.h"
 #import "STTwitter.h"
 
 extern NSString *const kTwitterApiKey;
 extern NSString *const kTwitterApiSecret;
 
-@interface TWRTwitterAPIManager : TWRBaseSingletonNSObject
+@interface TWRTwitterAPIManager : NSObject
 
 @property (nonatomic, strong) STTwitterAPI *twitter;
 @property (nonatomic, strong) NSString *token;
@@ -22,6 +21,7 @@ extern NSString *const kTwitterApiSecret;
 
 @property (nonatomic) BOOL sessionLoginDone;
 
++ (instancetype)sharedInstance;
 - (void)resetKeychain;
 
 @end
