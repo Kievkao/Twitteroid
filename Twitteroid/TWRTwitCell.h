@@ -11,6 +11,7 @@
 @interface TWRTwitCell : TWRBaseTableViewCell
 
 @property (nonatomic, strong) void (^webLinkClickedBlock)(NSURL *clickedUrl);
+@property (nonatomic, strong) void (^locationBtnClickedBlock)();
 
 + (CGFloat)cellHeightForTableViewWidth:(CGFloat)tableViewWidth tweetText:(NSString *)text mediaPresent:(BOOL)isMediaPresent;
 
@@ -22,5 +23,6 @@
 - (void)setImagesURLs:(NSArray *)imagesURLs;
 - (void)setLinksURLs:(NSArray *)linksURLs;
 - (void)hideMediaFrame;
+- (void)setLocationBtnVisible:(BOOL)visible;
 
 @end

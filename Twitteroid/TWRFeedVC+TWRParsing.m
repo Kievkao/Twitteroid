@@ -40,8 +40,8 @@
             double longitude = 0;
             
             for (NSArray *latLongPair in coordinates) {
-                lattitude += [[latLongPair firstObject] doubleValue];
-                longitude += [[latLongPair lastObject] doubleValue];
+                lattitude += [[latLongPair lastObject] doubleValue];
+                longitude += [[latLongPair firstObject] doubleValue];
             }
             
             lattitude /= coordinates.count;

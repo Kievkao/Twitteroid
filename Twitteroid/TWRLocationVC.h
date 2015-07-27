@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import "TWRBaseVC.h"
 
-@interface TWRLocationVC : UIViewController
+@interface TWRLocationVC : TWRBaseVC
+
+@property (nonatomic) CLLocationCoordinate2D coordinates;
 
 @end

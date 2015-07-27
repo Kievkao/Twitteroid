@@ -32,6 +32,7 @@ static CGFloat const kMediaViewBottomSpace = 4.0;
 @property (weak, nonatomic) IBOutlet UILabel *authorNickNameLabel;
 @property (weak, nonatomic) IBOutlet TWRCellMediaView *mediaView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *mediaViewHeight;
+@property (weak, nonatomic) IBOutlet UIButton *locationBtn;
 
 @end
 
@@ -73,6 +74,17 @@ static CGFloat const kMediaViewBottomSpace = 4.0;
                 break;
         }
     }];
+}
+
+- (void)setLocationBtnVisible:(BOOL)visible {
+    self.locationBtn.hidden = !visible;
+}
+
+- (IBAction)locationBtnClicked:(id)sender {
+    
+    if (self.locationBtnClickedBlock) {
+        self.locationBtnClickedBlock();
+    }
 }
 
 - (void)hideMediaFrame {

@@ -17,6 +17,7 @@
 #import "INSTwitterPullToRefresh.h"
 #import "INSCircleInfiniteIndicator.h"
 #import "Reachability.h"
+#import "TWRLocationVC.h"
 
 static NSUInteger const kTweetsLoadingPortion = 20;
 
@@ -128,6 +129,7 @@ static NSUInteger const kTweetsLoadingPortion = 20;
     
     if (!isInternetActive) {
         [self showInfoAlertWithTitle:NSLocalizedString(@"Connection Failed", @"Connection Failed") text:NSLocalizedString(@"Please check your internet connection", @"Please check your internet connection")];
+        loadingCompletion([NSError new]);
     }
     else if (!isSessionLoginDone) {
         [[TWRTwitterAPIManager sharedInstance] reloginWithCompletion:^(NSError *error) {
@@ -250,8 +252,17 @@ static NSUInteger const kTweetsLoadingPortion = 20;
         [[UIApplication sharedApplication] openURL:url];
     };
     
-    if (tweet.medias.count) {
+    cell.locationBtnClickedBlock = ^() {
+        TWRTweet *tweet = [self.fetchedResultsController objectAtIndexPath:indexPath];
         
+        TWRLocationVC *locationVC = [self.storyboard instantiateViewControllerWithIdentifier:[TWRLocationVC identifier]];
+        locationVC.coordinates = CLLocationCoordinate2DMake(tweet.place.lattitude, tweet.place.longitude);
+        [self.navigationController pushViewController:locationVC animated:YES];
+    };
+    
+    [cell setLocationBtnVisible:(tweet.place) ? YES : NO];
+    
+    if (tweet.medias.count) {
             NSMutableArray *mediaUrlsArray = [NSMutableArray new];
             
             for (TWRMedia *media in tweet.medias) {

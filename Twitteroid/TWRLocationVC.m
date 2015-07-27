@@ -7,7 +7,9 @@
 //
 
 #import "TWRLocationVC.h"
-#import <MapKit/MapKit.h>
+#import "TWRPlaceAnnotation.h"
+
+static CGFloat kLocationRegionRadius = 500000.0;
 
 @interface TWRLocationVC ()
 
@@ -20,6 +22,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    if (CLLocationCoordinate2DIsValid(self.coordinates)) {
+        MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(self.coordinates, kLocationRegionRadius, kLocationRegionRadius);
+        MKCoordinateRegion userRegion = [self.mapView regionThatFits:viewRegion];
+        [self.mapView setRegion:userRegion animated:YES];
+        
+        TWRPlaceAnnotation *placeAnnotation = [[TWRPlaceAnnotation alloc] initWithTitle:NSLocalizedString(@"Tweet place", @"Tweet place annotation title") coordinates:self.coordinates];
+        
+        [self.mapView addAnnotation:placeAnnotation];
+    }
+}
+
++ (NSString *)identifier {
+    return @"TWRLocationVC";
 }
 
 @end

@@ -91,6 +91,7 @@
 		DE0B9C101B62713600CFC490 /* TWRMedia+TWRHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9C0F1B62713600CFC490 /* TWRMedia+TWRHelper.m */; };
 		DE0B9C141B6273B800CFC490 /* TWRFeedVC+TWRParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9C131B6273B800CFC490 /* TWRFeedVC+TWRParsing.m */; };
 		DE0B9C1D1B628D5300CFC490 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9C1C1B628D5300CFC490 /* Reachability.m */; };
+		DE0B9C201B6623B700CFC490 /* TWRPlaceAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9C1F1B6623B700CFC490 /* TWRPlaceAnnotation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -274,6 +275,8 @@
 		DE0B9C131B6273B800CFC490 /* TWRFeedVC+TWRParsing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TWRFeedVC+TWRParsing.m"; sourceTree = "<group>"; };
 		DE0B9C1B1B628D5300CFC490 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		DE0B9C1C1B628D5300CFC490 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		DE0B9C1E1B6623B700CFC490 /* TWRPlaceAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRPlaceAnnotation.h; sourceTree = "<group>"; };
+		DE0B9C1F1B6623B700CFC490 /* TWRPlaceAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRPlaceAnnotation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -589,6 +592,8 @@
 			children = (
 				04DEE65A1B656AF900AE0E4A /* TWRLocationVC.h */,
 				04DEE65B1B656AF900AE0E4A /* TWRLocationVC.m */,
+				DE0B9C1E1B6623B700CFC490 /* TWRPlaceAnnotation.h */,
+				DE0B9C1F1B6623B700CFC490 /* TWRPlaceAnnotation.m */,
 			);
 			name = LocationVC;
 			sourceTree = "<group>";
@@ -852,6 +857,7 @@
 				043AB9BC1B6411BC005F2BD5 /* UIColor+BHRUtils.m in Sources */,
 				04E391F51B6527CB00F9A9C5 /* SDWebImageCompat.m in Sources */,
 				04E391F61B6527CB00F9A9C5 /* SDWebImageDecoder.m in Sources */,
+				DE0B9C201B6623B700CFC490 /* TWRPlaceAnnotation.m in Sources */,
 				047B07291B615B6A0058316F /* TWRTwitterAPIManager+TWRFeed.m in Sources */,
 				04DF7FCC1B64CFC700907D1B /* RQShineLabel.m in Sources */,
 				04E391FD1B6527CB00F9A9C5 /* UIImage+MultiFormat.m in Sources */,
