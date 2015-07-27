@@ -62,16 +62,25 @@ static CGFloat const kMediaViewBottomSpace = 4.0;
 
 - (void)awakeFromNib {
     
+    __weak typeof(self)weakSelf = self;
+    
     [self.twitTextLabel setDetectionBlock:^(STTweetHotWord hotWordType, NSString *string, NSString *protocol, NSRange range) {
         switch (hotWordType) {
             case STTweetLink:
-                if (self.webLinkClickedBlock) {
-                    self.webLinkClickedBlock([NSURL URLWithString:string]);
+                if (weakSelf.webLinkClickedBlock) {
+                    weakSelf.webLinkClickedBlock([NSURL URLWithString:string]);
                 }
                 break;
                 
             default:
                 break;
+        }
+    }];
+    
+    
+    [self.mediaView setMediaClickedBlock:^(NSUInteger index) {
+        if (weakSelf.imageClickedBlock) {
+            weakSelf.imageClickedBlock(index);
         }
     }];
 }

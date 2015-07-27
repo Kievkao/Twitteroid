@@ -103,6 +103,20 @@
 		DEE2AB921B665C99001A28A6 /* NSDate+Escort.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AB911B665C99001A28A6 /* NSDate+Escort.m */; };
 		DEE2ABA01B667268001A28A6 /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AB9F1B667268001A28A6 /* YTPlayerView.m */; };
 		DEE2ABA21B66726E001A28A6 /* YTPlayerView-iframe-player.html in Resources */ = {isa = PBXBuildFile; fileRef = DEE2ABA11B66726E001A28A6 /* YTPlayerView-iframe-player.html */; };
+		DEE2AC511B668CD7001A28A6 /* EBCaptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AC2F1B668CD7001A28A6 /* EBCaptionView.m */; };
+		DEE2AC521B668CD7001A28A6 /* EBCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AC311B668CD7001A28A6 /* EBCommentCell.m */; };
+		DEE2AC531B668CD7001A28A6 /* EBCommentsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AC331B668CD7001A28A6 /* EBCommentsTableView.m */; };
+		DEE2AC541B668CD7001A28A6 /* EBCommentsView.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AC351B668CD7001A28A6 /* EBCommentsView.m */; };
+		DEE2AC551B668CD7001A28A6 /* EBPhotoPagesController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AC391B668CD7001A28A6 /* EBPhotoPagesController.m */; };
+		DEE2AC561B668CD7001A28A6 /* EBPhotoPagesFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AC3D1B668CD7001A28A6 /* EBPhotoPagesFactory.m */; };
+		DEE2AC571B668CD7001A28A6 /* EBPhotoPagesOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AC401B668CD7001A28A6 /* EBPhotoPagesOperation.m */; };
+		DEE2AC581B668CD7001A28A6 /* EBPhotoPagesState.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AC421B668CD7001A28A6 /* EBPhotoPagesState.m */; };
+		DEE2AC591B668CD7001A28A6 /* EBPhotoToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AC461B668CD7001A28A6 /* EBPhotoToolbar.m */; };
+		DEE2AC5A1B668CD7001A28A6 /* EBPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AC481B668CD7001A28A6 /* EBPhotoView.m */; };
+		DEE2AC5B1B668CD7001A28A6 /* EBPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AC4A1B668CD7001A28A6 /* EBPhotoViewController.m */; };
+		DEE2AC5C1B668CD7001A28A6 /* EBShadedView.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AC4D1B668CD7001A28A6 /* EBShadedView.m */; };
+		DEE2AC5D1B668CD7001A28A6 /* EBTagPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AC4F1B668CD7001A28A6 /* EBTagPopover.m */; };
+		DEE2AC631B668DAA001A28A6 /* TWRGalleryDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AC621B668DAA001A28A6 /* TWRGalleryDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -310,6 +324,43 @@
 		DEE2AB9E1B667268001A28A6 /* YTPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTPlayerView.h; sourceTree = "<group>"; };
 		DEE2AB9F1B667268001A28A6 /* YTPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTPlayerView.m; sourceTree = "<group>"; };
 		DEE2ABA11B66726E001A28A6 /* YTPlayerView-iframe-player.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "YTPlayerView-iframe-player.html"; sourceTree = "<group>"; };
+		DEE2AC2E1B668CD7001A28A6 /* EBCaptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBCaptionView.h; sourceTree = "<group>"; };
+		DEE2AC2F1B668CD7001A28A6 /* EBCaptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBCaptionView.m; sourceTree = "<group>"; };
+		DEE2AC301B668CD7001A28A6 /* EBCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBCommentCell.h; sourceTree = "<group>"; };
+		DEE2AC311B668CD7001A28A6 /* EBCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBCommentCell.m; sourceTree = "<group>"; };
+		DEE2AC321B668CD7001A28A6 /* EBCommentsTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBCommentsTableView.h; sourceTree = "<group>"; };
+		DEE2AC331B668CD7001A28A6 /* EBCommentsTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBCommentsTableView.m; sourceTree = "<group>"; };
+		DEE2AC341B668CD7001A28A6 /* EBCommentsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBCommentsView.h; sourceTree = "<group>"; };
+		DEE2AC351B668CD7001A28A6 /* EBCommentsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBCommentsView.m; sourceTree = "<group>"; };
+		DEE2AC361B668CD7001A28A6 /* EBCommentsViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBCommentsViewDelegate.h; sourceTree = "<group>"; };
+		DEE2AC371B668CD7001A28A6 /* EBPhotoCommentProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBPhotoCommentProtocol.h; sourceTree = "<group>"; };
+		DEE2AC381B668CD7001A28A6 /* EBPhotoPagesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBPhotoPagesController.h; sourceTree = "<group>"; };
+		DEE2AC391B668CD7001A28A6 /* EBPhotoPagesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBPhotoPagesController.m; sourceTree = "<group>"; };
+		DEE2AC3A1B668CD7001A28A6 /* EBPhotoPagesDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBPhotoPagesDataSource.h; sourceTree = "<group>"; };
+		DEE2AC3B1B668CD7001A28A6 /* EBPhotoPagesDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBPhotoPagesDelegate.h; sourceTree = "<group>"; };
+		DEE2AC3C1B668CD7001A28A6 /* EBPhotoPagesFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBPhotoPagesFactory.h; sourceTree = "<group>"; };
+		DEE2AC3D1B668CD7001A28A6 /* EBPhotoPagesFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBPhotoPagesFactory.m; sourceTree = "<group>"; };
+		DEE2AC3E1B668CD7001A28A6 /* EBPhotoPagesNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBPhotoPagesNotifications.h; sourceTree = "<group>"; };
+		DEE2AC3F1B668CD7001A28A6 /* EBPhotoPagesOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBPhotoPagesOperation.h; sourceTree = "<group>"; };
+		DEE2AC401B668CD7001A28A6 /* EBPhotoPagesOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBPhotoPagesOperation.m; sourceTree = "<group>"; };
+		DEE2AC411B668CD7001A28A6 /* EBPhotoPagesState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBPhotoPagesState.h; sourceTree = "<group>"; };
+		DEE2AC421B668CD7001A28A6 /* EBPhotoPagesState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBPhotoPagesState.m; sourceTree = "<group>"; };
+		DEE2AC431B668CD7001A28A6 /* EBPhotoPagesStateDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBPhotoPagesStateDelegate.h; sourceTree = "<group>"; };
+		DEE2AC441B668CD7001A28A6 /* EBPhotoTagProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBPhotoTagProtocol.h; sourceTree = "<group>"; };
+		DEE2AC451B668CD7001A28A6 /* EBPhotoToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBPhotoToolbar.h; sourceTree = "<group>"; };
+		DEE2AC461B668CD7001A28A6 /* EBPhotoToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBPhotoToolbar.m; sourceTree = "<group>"; };
+		DEE2AC471B668CD7001A28A6 /* EBPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBPhotoView.h; sourceTree = "<group>"; };
+		DEE2AC481B668CD7001A28A6 /* EBPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBPhotoView.m; sourceTree = "<group>"; };
+		DEE2AC491B668CD7001A28A6 /* EBPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBPhotoViewController.h; sourceTree = "<group>"; };
+		DEE2AC4A1B668CD7001A28A6 /* EBPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBPhotoViewController.m; sourceTree = "<group>"; };
+		DEE2AC4B1B668CD7001A28A6 /* EBPhotoViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBPhotoViewControllerDelegate.h; sourceTree = "<group>"; };
+		DEE2AC4C1B668CD7001A28A6 /* EBShadedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBShadedView.h; sourceTree = "<group>"; };
+		DEE2AC4D1B668CD7001A28A6 /* EBShadedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBShadedView.m; sourceTree = "<group>"; };
+		DEE2AC4E1B668CD7001A28A6 /* EBTagPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBTagPopover.h; sourceTree = "<group>"; };
+		DEE2AC4F1B668CD7001A28A6 /* EBTagPopover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBTagPopover.m; sourceTree = "<group>"; };
+		DEE2AC501B668CD7001A28A6 /* EBTagPopoverDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBTagPopoverDelegate.h; sourceTree = "<group>"; };
+		DEE2AC611B668DAA001A28A6 /* TWRGalleryDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRGalleryDelegate.h; sourceTree = "<group>"; };
+		DEE2AC621B668DAA001A28A6 /* TWRGalleryDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRGalleryDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -439,7 +490,7 @@
 			children = (
 				043AB9B61B641165005F2BD5 /* Reachability */,
 				DE0B9BF91B62694100CFC490 /* Categories */,
-				04AF02881B61046F002CEB65 /* Libraries */,
+				04AF02881B61046F002CEB65 /* ThirdPart */,
 				04AF02831B6103E4002CEB65 /* Frameworks */,
 				04AF02551B60FE49002CEB65 /* Info.plist */,
 				04AF02561B60FE49002CEB65 /* main.m */,
@@ -508,9 +559,10 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		04AF02881B61046F002CEB65 /* Libraries */ = {
+		04AF02881B61046F002CEB65 /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				DEE2AC2D1B668CCF001A28A6 /* EBPhotoPagesController */,
 				DEE2AB9D1B667261001A28A6 /* YTPlayerView */,
 				DEE2AB881B66481E001A28A6 /* BHRProfileImageView */,
 				DE0B9C211B6625E400CFC490 /* MMDrawerController */,
@@ -523,7 +575,7 @@
 				04AF02D21B611CD8002CEB65 /* SSKeychain */,
 				04AF02891B61048D002CEB65 /* STTwitter */,
 			);
-			name = Libraries;
+			name = ThirdPart;
 			sourceTree = "<group>";
 		};
 		04AF02891B61048D002CEB65 /* STTwitter */ = {
@@ -780,6 +832,8 @@
 				04AF02B81B61051C002CEB65 /* TWRFeedVC.m */,
 				DE0B9C121B6273B800CFC490 /* TWRFeedVC+TWRParsing.h */,
 				DE0B9C131B6273B800CFC490 /* TWRFeedVC+TWRParsing.m */,
+				DEE2AC611B668DAA001A28A6 /* TWRGalleryDelegate.h */,
+				DEE2AC621B668DAA001A28A6 /* TWRGalleryDelegate.m */,
 			);
 			name = Feed;
 			sourceTree = "<group>";
@@ -837,6 +891,48 @@
 				DEE2AB9F1B667268001A28A6 /* YTPlayerView.m */,
 			);
 			name = YTPlayerView;
+			sourceTree = "<group>";
+		};
+		DEE2AC2D1B668CCF001A28A6 /* EBPhotoPagesController */ = {
+			isa = PBXGroup;
+			children = (
+				DEE2AC2E1B668CD7001A28A6 /* EBCaptionView.h */,
+				DEE2AC2F1B668CD7001A28A6 /* EBCaptionView.m */,
+				DEE2AC301B668CD7001A28A6 /* EBCommentCell.h */,
+				DEE2AC311B668CD7001A28A6 /* EBCommentCell.m */,
+				DEE2AC321B668CD7001A28A6 /* EBCommentsTableView.h */,
+				DEE2AC331B668CD7001A28A6 /* EBCommentsTableView.m */,
+				DEE2AC341B668CD7001A28A6 /* EBCommentsView.h */,
+				DEE2AC351B668CD7001A28A6 /* EBCommentsView.m */,
+				DEE2AC361B668CD7001A28A6 /* EBCommentsViewDelegate.h */,
+				DEE2AC371B668CD7001A28A6 /* EBPhotoCommentProtocol.h */,
+				DEE2AC381B668CD7001A28A6 /* EBPhotoPagesController.h */,
+				DEE2AC391B668CD7001A28A6 /* EBPhotoPagesController.m */,
+				DEE2AC3A1B668CD7001A28A6 /* EBPhotoPagesDataSource.h */,
+				DEE2AC3B1B668CD7001A28A6 /* EBPhotoPagesDelegate.h */,
+				DEE2AC3C1B668CD7001A28A6 /* EBPhotoPagesFactory.h */,
+				DEE2AC3D1B668CD7001A28A6 /* EBPhotoPagesFactory.m */,
+				DEE2AC3E1B668CD7001A28A6 /* EBPhotoPagesNotifications.h */,
+				DEE2AC3F1B668CD7001A28A6 /* EBPhotoPagesOperation.h */,
+				DEE2AC401B668CD7001A28A6 /* EBPhotoPagesOperation.m */,
+				DEE2AC411B668CD7001A28A6 /* EBPhotoPagesState.h */,
+				DEE2AC421B668CD7001A28A6 /* EBPhotoPagesState.m */,
+				DEE2AC431B668CD7001A28A6 /* EBPhotoPagesStateDelegate.h */,
+				DEE2AC441B668CD7001A28A6 /* EBPhotoTagProtocol.h */,
+				DEE2AC451B668CD7001A28A6 /* EBPhotoToolbar.h */,
+				DEE2AC461B668CD7001A28A6 /* EBPhotoToolbar.m */,
+				DEE2AC471B668CD7001A28A6 /* EBPhotoView.h */,
+				DEE2AC481B668CD7001A28A6 /* EBPhotoView.m */,
+				DEE2AC491B668CD7001A28A6 /* EBPhotoViewController.h */,
+				DEE2AC4A1B668CD7001A28A6 /* EBPhotoViewController.m */,
+				DEE2AC4B1B668CD7001A28A6 /* EBPhotoViewControllerDelegate.h */,
+				DEE2AC4C1B668CD7001A28A6 /* EBShadedView.h */,
+				DEE2AC4D1B668CD7001A28A6 /* EBShadedView.m */,
+				DEE2AC4E1B668CD7001A28A6 /* EBTagPopover.h */,
+				DEE2AC4F1B668CD7001A28A6 /* EBTagPopover.m */,
+				DEE2AC501B668CD7001A28A6 /* EBTagPopoverDelegate.h */,
+			);
+			name = EBPhotoPagesController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -951,12 +1047,15 @@
 				04E391CA1B65107B00F9A9C5 /* ALView+PureLayout.m in Sources */,
 				04AF02A51B6104A5002CEB65 /* NSString+STTwitter.m in Sources */,
 				04AF02D11B6111F4002CEB65 /* TWRLoginWebVC.m in Sources */,
+				DEE2AC631B668DAA001A28A6 /* TWRGalleryDelegate.m in Sources */,
 				DEE2AB921B665C99001A28A6 /* NSDate+Escort.m in Sources */,
 				043AB9BC1B6411BC005F2BD5 /* UIColor+BHRUtils.m in Sources */,
 				04E391F51B6527CB00F9A9C5 /* SDWebImageCompat.m in Sources */,
 				04E391F61B6527CB00F9A9C5 /* SDWebImageDecoder.m in Sources */,
 				DE0B9C201B6623B700CFC490 /* TWRPlaceAnnotation.m in Sources */,
+				DEE2AC561B668CD7001A28A6 /* EBPhotoPagesFactory.m in Sources */,
 				047B07291B615B6A0058316F /* TWRTwitterAPIManager+TWRFeed.m in Sources */,
+				DEE2AC541B668CD7001A28A6 /* EBCommentsView.m in Sources */,
 				04DF7FCC1B64CFC700907D1B /* RQShineLabel.m in Sources */,
 				04E391FD1B6527CB00F9A9C5 /* UIImage+MultiFormat.m in Sources */,
 				DE0B9BDF1B62334900CFC490 /* INSPullToRefreshBackgroundView.m in Sources */,
@@ -965,18 +1064,25 @@
 				DE0B9C311B6626FB00CFC490 /* MMDrawerController+Storyboard.m in Sources */,
 				04E391CF1B6521D700F9A9C5 /* UIImage+TWRImages.m in Sources */,
 				04D9CD3D1B642ACF006B224D /* STTweetLabel.m in Sources */,
+				DEE2AC551B668CD7001A28A6 /* EBPhotoPagesController.m in Sources */,
+				DEE2AC521B668CD7001A28A6 /* EBCommentCell.m in Sources */,
 				04E392011B6527CB00F9A9C5 /* UIView+WebCacheOperation.m in Sources */,
+				DEE2AC5C1B668CD7001A28A6 /* EBShadedView.m in Sources */,
 				04E391F81B6527CB00F9A9C5 /* SDWebImageDownloaderOperation.m in Sources */,
 				04AF02A61B6104A5002CEB65 /* STHTTPRequest+STTwitter.m in Sources */,
 				04E391F71B6527CB00F9A9C5 /* SDWebImageDownloader.m in Sources */,
 				043AB9C21B6418ED005F2BD5 /* TWRCellMediaView.m in Sources */,
 				DE0B9C1D1B628D5300CFC490 /* Reachability.m in Sources */,
 				04E391F41B6527CB00F9A9C5 /* SDImageCache.m in Sources */,
+				DEE2AC581B668CD7001A28A6 /* EBPhotoPagesState.m in Sources */,
+				DEE2AC531B668CD7001A28A6 /* EBCommentsTableView.m in Sources */,
 				DE0B9C351B66277900CFC490 /* TWRMenuVC.m in Sources */,
 				04AF02B41B6104B0002CEB65 /* BAVPlistNode.m in Sources */,
+				DEE2AC571B668CD7001A28A6 /* EBPhotoPagesOperation.m in Sources */,
 				04E391F21B6527CB00F9A9C5 /* MKAnnotationView+WebCache.m in Sources */,
 				04AF02CA1B61098C002CEB65 /* TWRTwitterAPIManager.m in Sources */,
 				047B071B1B61520B0058316F /* TWRTwitterAPIManager+TWRLogin.m in Sources */,
+				DEE2AC591B668CD7001A28A6 /* EBPhotoToolbar.m in Sources */,
 				04E391FB1B6527CB00F9A9C5 /* UIButton+WebCache.m in Sources */,
 				047B07171B614FE40058316F /* MBProgressHUD.m in Sources */,
 				04AF02A41B6104A5002CEB65 /* NSError+STTwitter.m in Sources */,
@@ -991,6 +1097,8 @@
 				DE0B9C2E1B6625EA00CFC490 /* UIViewController+MMDrawerController.m in Sources */,
 				DEE2ABA01B667268001A28A6 /* YTPlayerView.m in Sources */,
 				04AF02A91B6104A5002CEB65 /* STTwitterHTML.m in Sources */,
+				DEE2AC5A1B668CD7001A28A6 /* EBPhotoView.m in Sources */,
+				DEE2AC511B668CD7001A28A6 /* EBCaptionView.m in Sources */,
 				043AB9B91B64117E005F2BD5 /* UIColor+TWRColors.m in Sources */,
 				047B07231B6159010058316F /* TWRBaseTableViewCell.m in Sources */,
 				DEE2AB8F1B66523E001A28A6 /* TWRBaseTableVC.m in Sources */,
@@ -1015,6 +1123,7 @@
 				DE0B9BFC1B626AD200CFC490 /* TWRTweet.m in Sources */,
 				04AF02DF1B612489002CEB65 /* SSKeychain.m in Sources */,
 				04E391F91B6527CB00F9A9C5 /* SDWebImageManager.m in Sources */,
+				DEE2AC5D1B668CD7001A28A6 /* EBTagPopover.m in Sources */,
 				04AF02571B60FE49002CEB65 /* main.m in Sources */,
 				047B07261B6159480058316F /* TWRTwitCell.m in Sources */,
 				04AF02AD1B6104A5002CEB65 /* STTwitterStreamParser.m in Sources */,
@@ -1022,6 +1131,7 @@
 				DE0B9C2C1B6625EA00CFC490 /* MMDrawerController.m in Sources */,
 				043AB9BF1B64124E005F2BD5 /* UIFont+TWRFonts.m in Sources */,
 				DE0B9BE01B62334900CFC490 /* UIScrollView+INSPullToRefresh.m in Sources */,
+				DEE2AC5B1B668CD7001A28A6 /* EBPhotoViewController.m in Sources */,
 				04DEE6561B65695B00AE0E4A /* TWRPlace+TWRHelper.m in Sources */,
 				04E391FA1B6527CB00F9A9C5 /* SDWebImagePrefetcher.m in Sources */,
 				04E391FE1B6527CB00F9A9C5 /* UIImage+WebP.m in Sources */,

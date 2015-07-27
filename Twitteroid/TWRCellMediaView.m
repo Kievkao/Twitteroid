@@ -92,12 +92,15 @@
 - (void)handleImageTapFrom:(UITapGestureRecognizer *)recognizer
 {
     UIImageView *tappedView = (UIImageView *)recognizer.view;
-    NSLog(@"Tapped UIImageView with tag: %ld", (long)tappedView.tag);
+    
+    if (self.mediaClickedBlock) {
+        self.mediaClickedBlock(tappedView.tag);
+    }
 }
 
 - (void)setupOneImage:(NSArray *)images {
     
-    UIImageView *imageView = [self createImageViewWithTag:1];
+    UIImageView *imageView = [self createImageViewWithTag:0];
     
     [imageView sd_setImageWithURL:[NSURL URLWithString:[images firstObject]] placeholderImage:[UIImage mediaImagePlaceholder]];
     [imageView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero];
@@ -105,8 +108,8 @@
 
 - (void)setupTwoImages:(NSArray *)images {
 
-    UIImageView *imageView1 = [self createImageViewWithTag:1];
-    UIImageView *imageView2 = [self createImageViewWithTag:2];
+    UIImageView *imageView1 = [self createImageViewWithTag:0];
+    UIImageView *imageView2 = [self createImageViewWithTag:1];
     
     [imageView1 sd_setImageWithURL:[NSURL URLWithString:[images firstObject]] placeholderImage:[UIImage mediaImagePlaceholder]];
     [imageView2 sd_setImageWithURL:[NSURL URLWithString:[images lastObject]] placeholderImage:[UIImage mediaImagePlaceholder]];
@@ -124,9 +127,9 @@
 
 - (void)setupThreeImages:(NSArray *)images {
     
-    UIImageView *imageView1 = [self createImageViewWithTag:1];
-    UIImageView *imageView2 = [self createImageViewWithTag:2];
-    UIImageView *imageView3 = [self createImageViewWithTag:3];
+    UIImageView *imageView1 = [self createImageViewWithTag:0];
+    UIImageView *imageView2 = [self createImageViewWithTag:1];
+    UIImageView *imageView3 = [self createImageViewWithTag:2];
     
     [imageView1 sd_setImageWithURL:[NSURL URLWithString:images[0]] placeholderImage:[UIImage mediaImagePlaceholder]];
     [imageView2 sd_setImageWithURL:[NSURL URLWithString:images[1]] placeholderImage:[UIImage mediaImagePlaceholder]];
@@ -150,10 +153,10 @@
 
 - (void)setupFourImages:(NSArray *)images {
     
-    UIImageView *imageView1 = [self createImageViewWithTag:1];
-    UIImageView *imageView2 = [self createImageViewWithTag:2];
-    UIImageView *imageView3 = [self createImageViewWithTag:3];
-    UIImageView *imageView4 = [self createImageViewWithTag:4];
+    UIImageView *imageView1 = [self createImageViewWithTag:0];
+    UIImageView *imageView2 = [self createImageViewWithTag:1];
+    UIImageView *imageView3 = [self createImageViewWithTag:2];
+    UIImageView *imageView4 = [self createImageViewWithTag:3];
     
     [imageView1 sd_setImageWithURL:[NSURL URLWithString:images[0]] placeholderImage:[UIImage mediaImagePlaceholder]];
     [imageView2 sd_setImageWithURL:[NSURL URLWithString:images[1]] placeholderImage:[UIImage mediaImagePlaceholder]];

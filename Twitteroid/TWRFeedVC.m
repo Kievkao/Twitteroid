@@ -20,6 +20,8 @@
 #import "TWRLocationVC.h"
 #import "MMDrawerBarButtonItem.h"
 #import "UIViewController+MMDrawerController.h"
+#import "EBPhotoPagesController.h"
+#import "TWRGalleryDelegate.h"
 
 static NSUInteger const kTweetsLoadingPortion = 20;
 
@@ -270,6 +272,23 @@ static NSUInteger const kTweetsLoadingPortion = 20;
         TWRLocationVC *locationVC = [self.storyboard instantiateViewControllerWithIdentifier:[TWRLocationVC identifier]];
         locationVC.coordinates = CLLocationCoordinate2DMake(tweet.place.lattitude, tweet.place.longitude);
         [self.navigationController pushViewController:locationVC animated:YES];
+    };
+    
+    cell.imageClickedBlock = ^(NSUInteger index) {
+        
+        NSMutableArray *imagesURLs = [NSMutableArray new];
+        
+        for (TWRMedia *media in tweet.medias) {
+            [imagesURLs addObject:media.mediaURL];
+        }
+        
+        [imagesURLs replaceObjectAtIndex:0 withObject:[imagesURLs objectAtIndex:index]];
+        
+        TWRGalleryDelegate *galleryDelegate = [[TWRGalleryDelegate alloc] initWithImagesURLs:imagesURLs];
+        
+        EBPhotoPagesController *photoPagesController = [[EBPhotoPagesController alloc] initWithDataSource:galleryDelegate delegate:galleryDelegate];
+        
+        [self presentViewController:photoPagesController animated:YES completion:nil];
     };
     
     [cell setLocationBtnVisible:(tweet.place) ? YES : NO];

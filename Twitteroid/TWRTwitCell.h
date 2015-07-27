@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) void (^webLinkClickedBlock)(NSURL *clickedUrl);
 @property (nonatomic, strong) void (^locationBtnClickedBlock)();
+@property (nonatomic, strong) void (^imageClickedBlock)(NSUInteger index);
 
 + (CGFloat)cellHeightForTableViewWidth:(CGFloat)tableViewWidth tweetText:(NSString *)text mediaPresent:(BOOL)isMediaPresent;
 

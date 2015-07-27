@@ -10,6 +10,8 @@
 
 @interface TWRCellMediaView : UIView
 
+@property (nonatomic, strong) void (^mediaClickedBlock)(NSUInteger index);
+
 - (void)setImages:(NSArray *)images;
 - (void)setLinks:(NSArray *)links;
 - (void)removeAllFrames;
