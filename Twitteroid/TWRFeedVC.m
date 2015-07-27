@@ -18,6 +18,8 @@
 #import "INSCircleInfiniteIndicator.h"
 #import "Reachability.h"
 #import "TWRLocationVC.h"
+#import "MMDrawerBarButtonItem.h"
+#import "UIViewController+MMDrawerController.h"
 
 static NSUInteger const kTweetsLoadingPortion = 20;
 
@@ -33,6 +35,7 @@ static NSUInteger const kTweetsLoadingPortion = 20;
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [self setupNavigationBar];
     [self pullToRefreshSetup];
     [self infinitiveScrollSetup];
     [self startFetching];
@@ -68,6 +71,15 @@ static NSUInteger const kTweetsLoadingPortion = 20;
     Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
     NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
     return !(networkStatus == NotReachable);
+}
+
+- (void)setupNavigationBar {
+    MMDrawerBarButtonItem *leftDrawerButton = [[MMDrawerBarButtonItem alloc] initWithTarget:self action:@selector(menuBtnClicked)];
+    [self.navigationItem setLeftBarButtonItem:leftDrawerButton animated:YES];
+}
+
+- (void)menuBtnClicked {
+    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
 }
 
 #pragma mark - NSFetchedResultsController stuff
