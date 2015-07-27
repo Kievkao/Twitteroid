@@ -24,4 +24,6 @@
 + (BOOL)isExistsTweetWithID:(NSString *)tweetID performInContext:(NSManagedObjectContext *)context;
 + (BOOL)isAnySavedTweets;
 
++ (void)deleteTweetsOlderThanDate:(NSDate *)date performInContext:(NSManagedObjectContext *)context;
+
 @end

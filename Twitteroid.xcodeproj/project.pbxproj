@@ -100,6 +100,7 @@
 		DE0B9C351B66277900CFC490 /* TWRMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9C341B66277900CFC490 /* TWRMenuVC.m */; };
 		DE0B9C391B662FD600CFC490 /* BHRProfileImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9C381B662FD600CFC490 /* BHRProfileImageView.m */; };
 		DEE2AB8C1B66483A001A28A6 /* KAOBorderedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AB8B1B66483A001A28A6 /* KAOBorderedButton.m */; };
+		DEE2AB8F1B66523E001A28A6 /* TWRBaseTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AB8E1B66523E001A28A6 /* TWRBaseTableVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -302,6 +303,8 @@
 		DE0B9C381B662FD600CFC490 /* BHRProfileImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHRProfileImageView.m; sourceTree = "<group>"; };
 		DEE2AB8A1B66483A001A28A6 /* KAOBorderedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAOBorderedButton.h; sourceTree = "<group>"; };
 		DEE2AB8B1B66483A001A28A6 /* KAOBorderedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KAOBorderedButton.m; sourceTree = "<group>"; };
+		DEE2AB8D1B66523E001A28A6 /* TWRBaseTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRBaseTableVC.h; sourceTree = "<group>"; };
+		DEE2AB8E1B66523E001A28A6 /* TWRBaseTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRBaseTableVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -352,6 +355,8 @@
 				047B07221B6159010058316F /* TWRBaseTableViewCell.m */,
 				047B071D1B6153690058316F /* TWRBaseVC.h */,
 				047B071E1B6153690058316F /* TWRBaseVC.m */,
+				DEE2AB8D1B66523E001A28A6 /* TWRBaseTableVC.h */,
+				DEE2AB8E1B66523E001A28A6 /* TWRBaseTableVC.m */,
 				047B073B1B6168540058316F /* TWRBaseSingletonNSObject.h */,
 				047B073C1B6168540058316F /* TWRBaseSingletonNSObject.m */,
 			);
@@ -969,6 +974,7 @@
 				04AF02A91B6104A5002CEB65 /* STTwitterHTML.m in Sources */,
 				043AB9B91B64117E005F2BD5 /* UIColor+TWRColors.m in Sources */,
 				047B07231B6159010058316F /* TWRBaseTableViewCell.m in Sources */,
+				DEE2AB8F1B66523E001A28A6 /* TWRBaseTableVC.m in Sources */,
 				DE0B9BE81B62417500CFC490 /* INSCircleInfiniteIndicator.m in Sources */,
 				04AF02BC1B61054F002CEB65 /* TWRLoginVC.m in Sources */,
 				DE0B9BEB1B6247F500CFC490 /* TWRTweet+TWRHelper.m in Sources */,

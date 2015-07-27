@@ -74,6 +74,22 @@
     return results.count;
 }
 
++ (void)deleteTweetsOlderThanDate:(NSDate *)date performInContext:(NSManagedObjectContext *)context {
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:[TWRTweet entityName]];
+    
+    request.predicate = [NSPredicate predicateWithFormat:@"createdAt < %@", date];
+    NSError *error = nil;
+    
+    NSArray *results = [context executeFetchRequest:request error:&error];
+    
+    for (TWRTweet *tweet in results) {
+        [context deleteObject:tweet];
+    }
+    
+    [self saveContext:context];
+}
+
 + (void)saveContext:(NSManagedObjectContext *)context {
 
     [context performBlockAndWait:^{
