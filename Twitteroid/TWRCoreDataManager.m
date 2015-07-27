@@ -93,6 +93,10 @@ static NSString *const kTweetsDeleteDateKey = @"TWRTweetsDeleteDateKey";
     return results.count;
 }
 
+- (NSDate *)savedAutomaticTweetsDeleteDate {
+    return self.dateForOlderDeleting;
+}
+
 - (void)saveAutomaticTweetsDeleteDate:(NSDate *)date {
     
     self.dateForOlderDeleting = date;

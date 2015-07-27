@@ -10,7 +10,7 @@
 #import "TWRCoreDataManager.h"
 #import "NSDate+Escort.h"
 
-static NSUInteger const kInitialWeekIndex = 4;
+static NSUInteger const kDefaultInitialWeekIndex = 4;
 static NSUInteger const kTotalWeeksAmount = 51;
 
 @interface TWRMenuVC () <UIPickerViewDataSource, UIPickerViewDelegate>
@@ -25,7 +25,17 @@ static NSUInteger const kTotalWeeksAmount = 51;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.weeksAutoDatePicker selectRow:kInitialWeekIndex inComponent:0 animated:NO];
+    NSDate *savedDateForAutoDeleting = [[TWRCoreDataManager sharedInstance] savedAutomaticTweetsDeleteDate];
+    
+    if (savedDateForAutoDeleting) {
+        NSInteger daysAfterSavedData = [[NSDate date] daysAfterDate:savedDateForAutoDeleting];
+        NSUInteger weeksNumber = daysAfterSavedData / 7;
+        
+        [self.weeksAutoDatePicker selectRow:((weeksNumber < 51) && weeksNumber > 0) ? (weeksNumber - 1) : kDefaultInitialWeekIndex inComponent:0 animated:NO];
+    }
+    else {
+        [self.weeksAutoDatePicker selectRow:kDefaultInitialWeekIndex inComponent:0 animated:NO];
+    }
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {

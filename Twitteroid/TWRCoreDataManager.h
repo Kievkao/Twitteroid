@@ -27,6 +27,7 @@
 + (void)deleteTweetsOlderThanDate:(NSDate *)date performInContext:(NSManagedObjectContext *)context;
 
 - (void)saveAutomaticTweetsDeleteDate:(NSDate *)date;
+- (NSDate *)savedAutomaticTweetsDeleteDate;
 - (BOOL)isTweetDateIsAllowed:(NSDate *)date;
 
 @end
