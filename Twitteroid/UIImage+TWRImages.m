@@ -18,5 +18,8 @@
     return [UIImage imageNamed:@"iconTwitter"];
 }
 
++ (UIImage *)videoPlaceholder {
+    return [UIImage imageNamed:@"videoPlaceholder"];
+}
 
 @end

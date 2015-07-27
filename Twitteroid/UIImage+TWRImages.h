@@ -12,5 +12,6 @@
 
 + (UIImage *)avatarPlaceholder;
 + (UIImage *)mediaImagePlaceholder;
++ (UIImage *)videoPlaceholder;
 
 @end

@@ -101,6 +101,8 @@
 		DEE2AB8C1B66483A001A28A6 /* KAOBorderedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AB8B1B66483A001A28A6 /* KAOBorderedButton.m */; };
 		DEE2AB8F1B66523E001A28A6 /* TWRBaseTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AB8E1B66523E001A28A6 /* TWRBaseTableVC.m */; };
 		DEE2AB921B665C99001A28A6 /* NSDate+Escort.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AB911B665C99001A28A6 /* NSDate+Escort.m */; };
+		DEE2ABA01B667268001A28A6 /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AB9F1B667268001A28A6 /* YTPlayerView.m */; };
+		DEE2ABA21B66726E001A28A6 /* YTPlayerView-iframe-player.html in Resources */ = {isa = PBXBuildFile; fileRef = DEE2ABA11B66726E001A28A6 /* YTPlayerView-iframe-player.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -305,6 +307,9 @@
 		DEE2AB8E1B66523E001A28A6 /* TWRBaseTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRBaseTableVC.m; sourceTree = "<group>"; };
 		DEE2AB901B665C99001A28A6 /* NSDate+Escort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Escort.h"; sourceTree = "<group>"; };
 		DEE2AB911B665C99001A28A6 /* NSDate+Escort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Escort.m"; sourceTree = "<group>"; };
+		DEE2AB9E1B667268001A28A6 /* YTPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTPlayerView.h; sourceTree = "<group>"; };
+		DEE2AB9F1B667268001A28A6 /* YTPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTPlayerView.m; sourceTree = "<group>"; };
+		DEE2ABA11B66726E001A28A6 /* YTPlayerView-iframe-player.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "YTPlayerView-iframe-player.html"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -506,6 +511,7 @@
 		04AF02881B61046F002CEB65 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				DEE2AB9D1B667261001A28A6 /* YTPlayerView */,
 				DEE2AB881B66481E001A28A6 /* BHRProfileImageView */,
 				DE0B9C211B6625E400CFC490 /* MMDrawerController */,
 				04E391D01B6527C100F9A9C5 /* SDWebImage */,
@@ -823,6 +829,16 @@
 			name = KAOBorderedButton;
 			sourceTree = "<group>";
 		};
+		DEE2AB9D1B667261001A28A6 /* YTPlayerView */ = {
+			isa = PBXGroup;
+			children = (
+				DEE2ABA11B66726E001A28A6 /* YTPlayerView-iframe-player.html */,
+				DEE2AB9E1B667268001A28A6 /* YTPlayerView.h */,
+				DEE2AB9F1B667268001A28A6 /* YTPlayerView.m */,
+			);
+			name = YTPlayerView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -906,6 +922,7 @@
 			files = (
 				04AF02631B60FE4A002CEB65 /* Main.storyboard in Resources */,
 				04AF02681B60FE4A002CEB65 /* LaunchScreen.xib in Resources */,
+				DEE2ABA21B66726E001A28A6 /* YTPlayerView-iframe-player.html in Resources */,
 				04AF02651B60FE4A002CEB65 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -972,6 +989,7 @@
 				DE0B9BF81B6267ED00CFC490 /* NSDateFormatter+LocaleAdditions.m in Sources */,
 				04AF02AA1B6104A5002CEB65 /* STTwitterOAuth.m in Sources */,
 				DE0B9C2E1B6625EA00CFC490 /* UIViewController+MMDrawerController.m in Sources */,
+				DEE2ABA01B667268001A28A6 /* YTPlayerView.m in Sources */,
 				04AF02A91B6104A5002CEB65 /* STTwitterHTML.m in Sources */,
 				043AB9B91B64117E005F2BD5 /* UIColor+TWRColors.m in Sources */,
 				047B07231B6159010058316F /* TWRBaseTableViewCell.m in Sources */,
