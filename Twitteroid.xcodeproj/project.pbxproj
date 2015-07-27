@@ -98,6 +98,8 @@
 		DE0B9C2E1B6625EA00CFC490 /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9C2A1B6625EA00CFC490 /* UIViewController+MMDrawerController.m */; };
 		DE0B9C311B6626FB00CFC490 /* MMDrawerController+Storyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9C301B6626FB00CFC490 /* MMDrawerController+Storyboard.m */; };
 		DE0B9C351B66277900CFC490 /* TWRMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9C341B66277900CFC490 /* TWRMenuVC.m */; };
+		DE0B9C391B662FD600CFC490 /* BHRProfileImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9C381B662FD600CFC490 /* BHRProfileImageView.m */; };
+		DEE2AB8C1B66483A001A28A6 /* KAOBorderedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AB8B1B66483A001A28A6 /* KAOBorderedButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -296,6 +298,10 @@
 		DE0B9C301B6626FB00CFC490 /* MMDrawerController+Storyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MMDrawerController+Storyboard.m"; sourceTree = "<group>"; };
 		DE0B9C331B66277900CFC490 /* TWRMenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRMenuVC.h; sourceTree = "<group>"; };
 		DE0B9C341B66277900CFC490 /* TWRMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRMenuVC.m; sourceTree = "<group>"; };
+		DE0B9C371B662FD600CFC490 /* BHRProfileImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHRProfileImageView.h; sourceTree = "<group>"; };
+		DE0B9C381B662FD600CFC490 /* BHRProfileImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHRProfileImageView.m; sourceTree = "<group>"; };
+		DEE2AB8A1B66483A001A28A6 /* KAOBorderedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAOBorderedButton.h; sourceTree = "<group>"; };
+		DEE2AB8B1B66483A001A28A6 /* KAOBorderedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KAOBorderedButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -466,6 +472,7 @@
 		04AF02851B6103FA002CEB65 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DEE2AB891B664825001A28A6 /* KAOBorderedButton */,
 				04DEE6511B6557B100AE0E4A /* TWRCellMediaView */,
 				047B07201B6158EC0058316F /* Cells */,
 				04AF02611B60FE4A002CEB65 /* Main.storyboard */,
@@ -496,6 +503,7 @@
 		04AF02881B61046F002CEB65 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				DEE2AB881B66481E001A28A6 /* BHRProfileImageView */,
 				DE0B9C211B6625E400CFC490 /* MMDrawerController */,
 				04E391D01B6527C100F9A9C5 /* SDWebImage */,
 				04E391C01B65106400F9A9C5 /* PureLayout */,
@@ -792,6 +800,24 @@
 			name = Menu;
 			sourceTree = "<group>";
 		};
+		DEE2AB881B66481E001A28A6 /* BHRProfileImageView */ = {
+			isa = PBXGroup;
+			children = (
+				DE0B9C371B662FD600CFC490 /* BHRProfileImageView.h */,
+				DE0B9C381B662FD600CFC490 /* BHRProfileImageView.m */,
+			);
+			name = BHRProfileImageView;
+			sourceTree = "<group>";
+		};
+		DEE2AB891B664825001A28A6 /* KAOBorderedButton */ = {
+			isa = PBXGroup;
+			children = (
+				DEE2AB8A1B66483A001A28A6 /* KAOBorderedButton.h */,
+				DEE2AB8B1B66483A001A28A6 /* KAOBorderedButton.m */,
+			);
+			name = KAOBorderedButton;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -897,6 +923,7 @@
 				DE0B9C0C1B626F0F00CFC490 /* TWRHashtag+TWRHelper.m in Sources */,
 				04DEE65C1B656AF900AE0E4A /* TWRLocationVC.m in Sources */,
 				04E391CC1B65107B00F9A9C5 /* NSLayoutConstraint+PureLayout.m in Sources */,
+				DEE2AB8C1B66483A001A28A6 /* KAOBorderedButton.m in Sources */,
 				DE0B9BE11B62334900CFC490 /* UIView+INSFirstReponder.m in Sources */,
 				04E391FF1B6527CB00F9A9C5 /* UIImageView+HighlightedWebCache.m in Sources */,
 				04E391CA1B65107B00F9A9C5 /* ALView+PureLayout.m in Sources */,
@@ -945,6 +972,7 @@
 				DE0B9BE81B62417500CFC490 /* INSCircleInfiniteIndicator.m in Sources */,
 				04AF02BC1B61054F002CEB65 /* TWRLoginVC.m in Sources */,
 				DE0B9BEB1B6247F500CFC490 /* TWRTweet+TWRHelper.m in Sources */,
+				DE0B9C391B662FD600CFC490 /* BHRProfileImageView.m in Sources */,
 				DE0B9C141B6273B800CFC490 /* TWRFeedVC+TWRParsing.m in Sources */,
 				DE0B9BE41B62403200CFC490 /* INSTwitterPullToRefresh.m in Sources */,
 				04AF025D1B60FE4A002CEB65 /* Twitteroid.xcdatamodeld in Sources */,
