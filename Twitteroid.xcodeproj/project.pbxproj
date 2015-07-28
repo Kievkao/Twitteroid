@@ -98,6 +98,7 @@
 		DE0B9C311B6626FB00CFC490 /* MMDrawerController+Storyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9C301B6626FB00CFC490 /* MMDrawerController+Storyboard.m */; };
 		DE0B9C351B66277900CFC490 /* TWRMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9C341B66277900CFC490 /* TWRMenuVC.m */; };
 		DE0B9C391B662FD600CFC490 /* BHRProfileImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9C381B662FD600CFC490 /* BHRProfileImageView.m */; };
+		DE3905841B676AE200EBA653 /* TWRHashTweetsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3905831B676AE200EBA653 /* TWRHashTweetsVC.m */; };
 		DEE2AB8C1B66483A001A28A6 /* KAOBorderedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AB8B1B66483A001A28A6 /* KAOBorderedButton.m */; };
 		DEE2AB8F1B66523E001A28A6 /* TWRBaseTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AB8E1B66523E001A28A6 /* TWRBaseTableVC.m */; };
 		DEE2AB921B665C99001A28A6 /* NSDate+Escort.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AB911B665C99001A28A6 /* NSDate+Escort.m */; };
@@ -315,6 +316,8 @@
 		DE0B9C341B66277900CFC490 /* TWRMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRMenuVC.m; sourceTree = "<group>"; };
 		DE0B9C371B662FD600CFC490 /* BHRProfileImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHRProfileImageView.h; sourceTree = "<group>"; };
 		DE0B9C381B662FD600CFC490 /* BHRProfileImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHRProfileImageView.m; sourceTree = "<group>"; };
+		DE3905821B676AE200EBA653 /* TWRHashTweetsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRHashTweetsVC.h; sourceTree = "<group>"; };
+		DE3905831B676AE200EBA653 /* TWRHashTweetsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRHashTweetsVC.m; sourceTree = "<group>"; };
 		DEE2AB8A1B66483A001A28A6 /* KAOBorderedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAOBorderedButton.h; sourceTree = "<group>"; };
 		DEE2AB8B1B66483A001A28A6 /* KAOBorderedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KAOBorderedButton.m; sourceTree = "<group>"; };
 		DEE2AB8D1B66523E001A28A6 /* TWRBaseTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRBaseTableVC.h; sourceTree = "<group>"; };
@@ -834,6 +837,8 @@
 				DE0B9C131B6273B800CFC490 /* TWRFeedVC+TWRParsing.m */,
 				DEE2AC611B668DAA001A28A6 /* TWRGalleryDelegate.h */,
 				DEE2AC621B668DAA001A28A6 /* TWRGalleryDelegate.m */,
+				DE3905821B676AE200EBA653 /* TWRHashTweetsVC.h */,
+				DE3905831B676AE200EBA653 /* TWRHashTweetsVC.m */,
 			);
 			name = Feed;
 			sourceTree = "<group>";
@@ -1072,6 +1077,7 @@
 				04AF02A61B6104A5002CEB65 /* STHTTPRequest+STTwitter.m in Sources */,
 				04E391F71B6527CB00F9A9C5 /* SDWebImageDownloader.m in Sources */,
 				043AB9C21B6418ED005F2BD5 /* TWRCellMediaView.m in Sources */,
+				DE3905841B676AE200EBA653 /* TWRHashTweetsVC.m in Sources */,
 				DE0B9C1D1B628D5300CFC490 /* Reachability.m in Sources */,
 				04E391F41B6527CB00F9A9C5 /* SDImageCache.m in Sources */,
 				DEE2AC581B668CD7001A28A6 /* EBPhotoPagesState.m in Sources */,

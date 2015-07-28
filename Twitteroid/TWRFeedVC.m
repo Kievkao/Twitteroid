@@ -22,8 +22,9 @@
 #import "UIViewController+MMDrawerController.h"
 #import "EBPhotoPagesController.h"
 #import "TWRGalleryDelegate.h"
+#import "TWRHashTweetsVC.h"
 
-static NSUInteger const kTweetsLoadingPortion = 20;
+NSUInteger const kTweetsLoadingPortion = 20;
 
 @interface TWRFeedVC () <NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -41,7 +42,10 @@ static NSUInteger const kTweetsLoadingPortion = 20;
     [self pullToRefreshSetup];
     [self infinitiveScrollSetup];
     [self startFetching];
-    
+    [self checkCoreDataEntities];    
+}
+
+- (void)checkCoreDataEntities {
     if (![TWRCoreDataManager isAnySavedTweets]) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         
@@ -66,6 +70,7 @@ static NSUInteger const kTweetsLoadingPortion = 20;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
 }
 
@@ -264,6 +269,12 @@ static NSUInteger const kTweetsLoadingPortion = 20;
     
     cell.webLinkClickedBlock = ^(NSURL *url) {
         [[UIApplication sharedApplication] openURL:url];
+    };
+    
+    cell.hashtagClickedBlock = ^(NSString *hashtag) {
+        TWRHashTweetsVC *hashVC = [self.storyboard instantiateViewControllerWithIdentifier:[TWRHashTweetsVC identifier]];
+        hashVC.hashTag = hashtag;
+        [self.navigationController pushViewController:hashVC animated:YES];
     };
     
     cell.locationBtnClickedBlock = ^() {

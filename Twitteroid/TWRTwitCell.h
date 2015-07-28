@@ -10,6 +10,7 @@
 
 @interface TWRTwitCell : TWRBaseTableViewCell
 
+@property (nonatomic, strong) void (^hashtagClickedBlock)(NSString *hashtag);
 @property (nonatomic, strong) void (^webLinkClickedBlock)(NSURL *clickedUrl);
 @property (nonatomic, strong) void (^locationBtnClickedBlock)();
 @property (nonatomic, strong) void (^imageClickedBlock)(NSUInteger index);

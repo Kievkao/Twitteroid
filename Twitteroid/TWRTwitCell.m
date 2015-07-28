@@ -72,6 +72,12 @@ static CGFloat const kMediaViewBottomSpace = 4.0;
                 }
                 break;
                 
+            case STTweetHashtag:
+                if (weakSelf.hashtagClickedBlock) {
+                    weakSelf.hashtagClickedBlock(string);
+                }
+                break;
+                
             default:
                 break;
         }

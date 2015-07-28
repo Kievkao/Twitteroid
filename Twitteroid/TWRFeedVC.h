@@ -13,6 +13,8 @@
 #import "TWRMedia.h"
 #import "TWRPlace.h"
 
+extern NSUInteger const kTweetsLoadingPortion;
+
 @interface TWRFeedVC : TWRBaseVC
 
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
