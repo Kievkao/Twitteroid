@@ -20,7 +20,7 @@
 @dynamic userAvatarURL;
 @dynamic userName;
 @dynamic userNickname;
-@dynamic isMainFeed;
+@dynamic hashtag;
 @dynamic hashtags;
 @dynamic medias;
 @dynamic place;

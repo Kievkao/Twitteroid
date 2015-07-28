@@ -22,4 +22,8 @@
     return @"tweetId";
 }
 
++ (NSString *)tweetHashtagParameter {
+    return @"hashtag";
+}
+
 @end

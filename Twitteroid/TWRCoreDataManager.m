@@ -36,9 +36,16 @@ static NSString *const kTweetsDeleteDateKey = @"TWRTweetsDeleteDateKey";
     return sharedInstance;
 }
 
-+ (NSFetchedResultsController *)fetchedResultsControllerForTweetsFeed {
++ (NSFetchedResultsController *)fetchedResultsControllerForTweetsHashtag:(NSString *)hashtag {
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:[TWRTweet entityName]];
+    
+    if (hashtag) {
+        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"%K = %@", [TWRTweet tweetHashtagParameter], hashtag];
+    }
+    else {
+        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"%K = nil", [TWRTweet tweetHashtagParameter]];
+    }
     
     [fetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:[TWRTweet defaultSortDescriptor] ascending:NO]]];
     
@@ -47,10 +54,17 @@ static NSString *const kTweetsDeleteDateKey = @"TWRTweetsDeleteDateKey";
     return fetchedResultsController;
 }
 
-+ (BOOL)isAnySavedTweets {
++ (BOOL)isAnySavedTweetsForHashtag:(NSString *)hashtag {
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:[TWRTweet entityName]];
     [fetchRequest setFetchLimit:1];
+    
+    if (hashtag) {
+        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"%K = %@", [TWRTweet tweetHashtagParameter], hashtag];
+    }
+    else {
+        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"%K = nil", [TWRTweet tweetHashtagParameter]];
+    }
     
     NSError *error = nil;
     NSArray *results = [MAIN_CONTEXT executeFetchRequest:fetchRequest error:&error];
@@ -82,9 +96,16 @@ static NSString *const kTweetsDeleteDateKey = @"TWRTweetsDeleteDateKey";
     return media;
 }
 
-+ (BOOL)isExistsTweetWithID:(NSString *)tweetID {
++ (BOOL)isExistsTweetWithID:(NSString *)tweetID forHashtag:(NSString *)hashtag {
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:[TWRTweet entityName]];
+    
+    if (hashtag) {
+        request.predicate = [NSPredicate predicateWithFormat:@"%K = %@", [TWRTweet tweetHashtagParameter], hashtag];
+    }
+    else {
+        request.predicate = [NSPredicate predicateWithFormat:@"%K = nil", [TWRTweet tweetHashtagParameter]];
+    }
     
     request.predicate = [NSPredicate predicateWithFormat:@"%K = %@", [TWRTweet tweetIDParameter], tweetID];
     NSError *error = nil;

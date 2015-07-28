@@ -7,6 +7,7 @@
 //
 
 #import "TWRHashTweetsVC.h"
+#import "TWRFeedVC+TWRParsing.h"
 #import "TWRTwitterAPIManager+TWRFeed.h"
 
 @interface TWRHashTweetsVC ()
@@ -21,10 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self checkEnvirAndLoadFromTweetID:nil withCompletion:^(NSError *error) {
-        
-    }];
+
     self.title = self.hashTag;
 }
 
@@ -32,7 +30,8 @@
     
     [[TWRTwitterAPIManager sharedInstance] getTweetsByHashtag:self.hashTag olderThatTwitID:tweetID count:kTweetsLoadingPortion completion:^(NSError *error, NSArray *items) {
         if (!error) {
-            
+            [self parseTweetsArray:items forHashtag:[self tweetsHashtag]];
+            [TWRCoreDataManager saveContext];
         }
         else {
             NSLog(@"Loading error");
@@ -42,8 +41,8 @@
     }];
 }
 
-- (void)checkCoreDataEntities {
-    
+- (NSString *)tweetsHashtag {
+    return self.hashTag;
 }
 
 - (void)setupNavigationBar {

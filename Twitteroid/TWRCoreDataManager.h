@@ -14,15 +14,15 @@
 + (instancetype)sharedInstance;
 + (NSManagedObjectContext *)mainContext;
 + (void)saveContext;
-+ (NSFetchedResultsController *)fetchedResultsControllerForTweetsFeed;
++ (NSFetchedResultsController *)fetchedResultsControllerForTweetsHashtag:(NSString *)hashtag;
 
 + (TWRTweet *)insertNewTweet;
 + (TWRHashtag *)insertNewHashtag;
 + (TWRMedia *)insertNewMedia;
 + (TWRPlace *)insertNewPlace;
 
-+ (BOOL)isExistsTweetWithID:(NSString *)tweetID;
-+ (BOOL)isAnySavedTweets;
++ (BOOL)isExistsTweetWithID:(NSString *)tweetID forHashtag:(NSString *)hashtag;
++ (BOOL)isAnySavedTweetsForHashtag:(NSString *)hashtag;
 
 + (void)deleteTweetsOlderThanDate:(NSDate *)date;
 

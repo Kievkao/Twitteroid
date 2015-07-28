@@ -10,6 +10,6 @@
 
 @interface TWRFeedVC (TWRParsing)
 
-- (void)parseTweetsArray:(NSArray *)items;
+- (void)parseTweetsArray:(NSArray *)items forHashtag:(NSString *)hashtag;
 
 @end

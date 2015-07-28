@@ -19,7 +19,7 @@
     </entity>
     <entity name="TWRTweet" representedClassName="TWRTweet" syncable="YES">
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="isMainFeed" optional="YES" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
+        <attribute name="hashtag" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tweetId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userAvatarURL" optional="YES" attributeType="String" syncable="YES"/>

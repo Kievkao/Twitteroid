@@ -19,7 +19,7 @@
 @property (nonatomic, retain) NSString * userAvatarURL;
 @property (nonatomic, retain) NSString * userName;
 @property (nonatomic, retain) NSString * userNickname;
-@property (nonatomic, retain) NSNumber * isMainFeed;
+@property (nonatomic, retain) NSString * hashtag;
 @property (nonatomic, retain) NSSet *hashtags;
 @property (nonatomic, retain) NSSet *medias;
 @property (nonatomic, retain) TWRPlace *place;

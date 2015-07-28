@@ -280,6 +280,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Huw-oy-xkG" id="Kab-T6-6eM"/>
+                                    <outlet property="delegate" destination="Huw-oy-xkG" id="JvX-zs-Wcw"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -297,6 +301,9 @@
                         </variation>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="HCW-M7-xiZ" id="ToE-xa-bHF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23S-4X-RVk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

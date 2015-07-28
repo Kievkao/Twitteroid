@@ -46,7 +46,7 @@ NSUInteger const kTweetsLoadingPortion = 20;
 }
 
 - (void)checkCoreDataEntities {
-    if (![TWRCoreDataManager isAnySavedTweets]) {
+    if (![TWRCoreDataManager isAnySavedTweetsForHashtag:[self tweetsHashtag]]) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         
         [self checkEnvirAndLoadFromTweetID:nil withCompletion:^(NSError *error) {
@@ -133,11 +133,15 @@ NSUInteger const kTweetsLoadingPortion = 20;
 - (NSFetchedResultsController *)fetchedResultsController {
     
     if (!_fetchedResultsController) {
-        _fetchedResultsController = [TWRCoreDataManager fetchedResultsControllerForTweetsFeed];
+        _fetchedResultsController = [TWRCoreDataManager fetchedResultsControllerForTweetsHashtag:[self tweetsHashtag]];
         _fetchedResultsController.delegate = self;
     }
     
     return _fetchedResultsController;
+}
+
+- (NSString *)tweetsHashtag {
+    return nil;
 }
 
 #pragma mark - Data loading
@@ -169,7 +173,7 @@ NSUInteger const kTweetsLoadingPortion = 20;
     
     [[TWRTwitterAPIManager sharedInstance] getFeedOlderThatTwitID:tweetID count:kTweetsLoadingPortion completion:^(NSError *error, NSArray *items) {
         if (!error) {
-            [self parseTweetsArray:items];
+            [self parseTweetsArray:items forHashtag:[self tweetsHashtag]];
             [TWRCoreDataManager saveContext];
         }
         else {

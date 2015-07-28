@@ -13,5 +13,6 @@
 + (NSString *)entityName;
 + (NSString *)defaultSortDescriptor;
 + (NSString *)tweetIDParameter;
++ (NSString *)tweetHashtagParameter;
 
 @end

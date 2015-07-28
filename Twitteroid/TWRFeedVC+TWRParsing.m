@@ -10,13 +10,13 @@
 
 @implementation TWRFeedVC (TWRParsing)
 
-- (void)parseTweetsArray:(NSArray *)items {
+- (void)parseTweetsArray:(NSArray *)items forHashtag:(NSString *)hashtag {
     
     for (NSDictionary *oneItem in items) {
         
         NSDate *tweetDate = [self.dateFormatter dateFromString:oneItem[@"created_at"]];
         
-        if ([TWRCoreDataManager isExistsTweetWithID:oneItem[@"id_str"]] ||
+        if ([TWRCoreDataManager isExistsTweetWithID:oneItem[@"id_str"] forHashtag:hashtag] ||
             ![[TWRCoreDataManager sharedInstance] isTweetDateIsAllowed:tweetDate]) {
             continue;
         }
@@ -24,6 +24,10 @@
         TWRTweet *tweet = [TWRCoreDataManager insertNewTweet];
         
         tweet.createdAt = tweetDate;
+        
+        if (hashtag) {
+            tweet.hashtag = hashtag;
+        }
         
         NSDictionary *userInfoDict = oneItem[@"user"];
         tweet.userAvatarURL = userInfoDict[@"profile_image_url"];
