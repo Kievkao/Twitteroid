@@ -13,18 +13,18 @@
 
 + (instancetype)sharedInstance;
 + (NSManagedObjectContext *)mainContext;
-+ (void)saveContext:(NSManagedObjectContext *)context;
++ (void)saveContext;
 + (NSFetchedResultsController *)fetchedResultsControllerForTweetsFeed;
 
-+ (TWRTweet *)insertNewTweetInContext:(NSManagedObjectContext *)context;
-+ (TWRHashtag *)insertNewHashtagInContext:(NSManagedObjectContext *)context;
-+ (TWRMedia *)insertNewMediaInContext:(NSManagedObjectContext *)context;
-+ (TWRPlace *)insertNewPlaceInContext:(NSManagedObjectContext *)context;
++ (TWRTweet *)insertNewTweet;
++ (TWRHashtag *)insertNewHashtag;
++ (TWRMedia *)insertNewMedia;
++ (TWRPlace *)insertNewPlace;
 
-+ (BOOL)isExistsTweetWithID:(NSString *)tweetID performInContext:(NSManagedObjectContext *)context;
++ (BOOL)isExistsTweetWithID:(NSString *)tweetID;
 + (BOOL)isAnySavedTweets;
 
-+ (void)deleteTweetsOlderThanDate:(NSDate *)date performInContext:(NSManagedObjectContext *)context;
++ (void)deleteTweetsOlderThanDate:(NSDate *)date;
 
 - (void)saveAutomaticTweetsDeleteDate:(NSDate *)date;
 - (NSDate *)savedAutomaticTweetsDeleteDate;

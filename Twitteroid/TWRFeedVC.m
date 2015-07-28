@@ -170,7 +170,7 @@ NSUInteger const kTweetsLoadingPortion = 20;
     [[TWRTwitterAPIManager sharedInstance] getFeedOlderThatTwitID:tweetID count:kTweetsLoadingPortion completion:^(NSError *error, NSArray *items) {
         if (!error) {
             [self parseTweetsArray:items];
-            [TWRCoreDataManager saveContext:[TWRCoreDataManager mainContext]];
+            [TWRCoreDataManager saveContext];
         }
         else {
             NSLog(@"Loading error");

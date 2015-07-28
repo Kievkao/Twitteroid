@@ -62,7 +62,7 @@ static NSUInteger const kTotalWeeksAmount = 51;
     [self showSureAlertWithTitle:NSLocalizedString(@"Confirmation", @"Confirmation alert title") text:NSLocalizedString(@"Are you sure to delete tweets older than selected date?", @"\"Are you sure\" text for tweets deleting, that are older than selected date") okCompletionBlock:^(UIAlertAction *action) {
         
         NSDate *selectedDate = self.manualDatePicker.date;
-        [TWRCoreDataManager deleteTweetsOlderThanDate:selectedDate performInContext:[TWRCoreDataManager mainContext]];
+        [TWRCoreDataManager deleteTweetsOlderThanDate:selectedDate];
         
         [self showInfoAlertWithTitle:NSLocalizedString(@"Done", @"Done alert text") text:NSLocalizedString(@"Filtered tweets have deleted", @"Filtered tweets have deleted")];
     }];
@@ -75,7 +75,7 @@ static NSUInteger const kTotalWeeksAmount = 51;
         NSUInteger selectedWeeksCellIndex = [self.weeksAutoDatePicker selectedRowInComponent:0];
         
         NSDate *selectedDate = [NSDate dateWithDaysBeforeNow:(selectedWeeksCellIndex + 1)*7];
-        [TWRCoreDataManager deleteTweetsOlderThanDate:selectedDate performInContext:[TWRCoreDataManager mainContext]];
+        [TWRCoreDataManager deleteTweetsOlderThanDate:selectedDate];
         [[TWRCoreDataManager sharedInstance] saveAutomaticTweetsDeleteDate:selectedDate];
         
         [self showInfoAlertWithTitle:NSLocalizedString(@"Done", @"Done alert text") text:NSLocalizedString(@"Filtered tweets have deleted", @"Filtered tweets have deleted")];
