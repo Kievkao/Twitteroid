@@ -11,5 +11,6 @@
 @interface TWRTwitterAPIManager (TWRFeed)
 
 - (void)getFeedOlderThatTwitID:(NSString *)twitID count:(NSUInteger)count completion:(void(^)(NSError *error, NSArray *items))completion;
+- (void)getTweetsByHashtag:(NSString *)hashtag olderThatTwitID:(NSString *)twitID count:(NSUInteger)count completion:(void(^)(NSError *error, NSArray *items))completion;
 
 @end

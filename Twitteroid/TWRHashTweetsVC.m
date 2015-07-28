@@ -20,12 +20,17 @@
 }
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    [self checkEnvirAndLoadFromTweetID:nil withCompletion:^(NSError *error) {
+        
+    }];
     self.title = self.hashTag;
 }
 
 - (void)loadFromTweetID:(NSString *)tweetID withCompletion:(void (^)(NSError *error))loadingCompletion {
     
-    [[TWRTwitterAPIManager sharedInstance] getFeedOlderThatTwitID:tweetID count:kTweetsLoadingPortion completion:^(NSError *error, NSArray *items) {
+    [[TWRTwitterAPIManager sharedInstance] getTweetsByHashtag:self.hashTag olderThatTwitID:tweetID count:kTweetsLoadingPortion completion:^(NSError *error, NSArray *items) {
         if (!error) {
             
         }
