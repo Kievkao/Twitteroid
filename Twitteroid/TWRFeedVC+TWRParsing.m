@@ -24,22 +24,41 @@
         TWRTweet *tweet = [TWRCoreDataManager insertNewTweet];
         
         tweet.createdAt = tweetDate;
+        tweet.tweetId = oneItem[@"id_str"];
         
         if (hashtag) {
             tweet.hashtag = hashtag;
         }
         
-        NSDictionary *userInfoDict = oneItem[@"user"];
-        tweet.userAvatarURL = userInfoDict[@"profile_image_url"];
-        tweet.userName = userInfoDict[@"name"];
-        tweet.userNickname = userInfoDict[@"screen_name"];
-        tweet.tweetId = oneItem[@"id_str"];
+        NSDictionary *bodyDict = nil;
         
-        NSDictionary *tweetTextContainer = (oneItem[@"retweeted_status"]) ? (oneItem[@"retweeted_status"]) : oneItem;
-        tweet.text = tweetTextContainer[@"text"];
+        if (oneItem[@"retweeted_status"]) {
+            
+            bodyDict = oneItem[@"retweeted_status"];
+            tweet.isRetwitted = @(YES);
+            
+            NSArray *mentions = oneItem[@"entities"][@"user_mentions"];
+            NSDictionary *userMention = [mentions firstObject];
+            tweet.userName = userMention[@"name"];
+            tweet.userNickname = userMention[@"screen_name"];
+            
+            NSDictionary *userInfoDict = oneItem[@"retweeted_status"][@"user"];
+            tweet.userAvatarURL = userInfoDict[@"profile_image_url"];
+            
+            NSDictionary *whoRetweeted = oneItem[@"user"];
+            tweet.retwittedBy = whoRetweeted[@"screen_name"];
+        }
+        else {
+            bodyDict = oneItem;
+            tweet.isRetwitted = @(NO);
+            NSDictionary *userInfoDict = oneItem[@"user"];
+            tweet.userAvatarURL = userInfoDict[@"profile_image_url"];
+            tweet.userName = userInfoDict[@"name"];
+            tweet.userNickname = userInfoDict[@"screen_name"];
+        }
         
-        if (![oneItem[@"place"] isKindOfClass:[NSNull class]]) {
-            NSDictionary *placeDict = oneItem[@"place"];
+        if (![bodyDict[@"place"] isKindOfClass:[NSNull class]]) {
+            NSDictionary *placeDict = bodyDict[@"place"];
             NSDictionary *boundingBoxDict = placeDict[@"bounding_box"];
             NSArray *coordinates = boundingBoxDict[@"coordinates"][0];
             
@@ -61,6 +80,8 @@
             
             tweet.place = place;
         }
+
+        tweet.text = bodyDict[@"text"];
         
         if (![oneItem[@"entities"] isKindOfClass:[NSNull class]]) {
             NSDictionary *entitiesDict = oneItem[@"entities"];

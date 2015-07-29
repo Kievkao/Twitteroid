@@ -11,11 +11,11 @@
 @implementation UIImage (TWRImages)
 
 + (UIImage *)avatarPlaceholder {
-    return [UIImage imageNamed:@"mozart"];
+    return [UIImage imageNamed:@"friendsIcon"];
 }
 
 + (UIImage *)mediaImagePlaceholder {
-    return [UIImage imageNamed:@"iconTwitter"];
+    return [UIImage imageNamed:@"imagePlaceholder"];
 }
 
 + (UIImage *)videoPlaceholder {

@@ -91,7 +91,7 @@
 		DE0B9C1D1B628D5300CFC490 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9C1C1B628D5300CFC490 /* Reachability.m */; };
 		DE0B9C201B6623B700CFC490 /* TWRPlaceAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9C1F1B6623B700CFC490 /* TWRPlaceAnnotation.m */; };
 		DE3905841B676AE200EBA653 /* TWRHashTweetsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3905831B676AE200EBA653 /* TWRHashTweetsVC.m */; };
-		DEC726A61B679C6D00155629 /* TWRTweet.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC726A51B679C6D00155629 /* TWRTweet.m */; };
+		DE4165021B690BF20086F47F /* TWRTweet.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4165011B690BF20086F47F /* TWRTweet.m */; };
 		DEC726A91B67BC0300155629 /* TWRSettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC726A81B67BC0300155629 /* TWRSettingsVC.m */; };
 		DEC726AF1B67C45000155629 /* BHRRoundedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC726AE1B67C45000155629 /* BHRRoundedImageView.m */; };
 		DEC726B21B67C8B600155629 /* TWRSettingsManualVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC726B11B67C8B600155629 /* TWRSettingsManualVC.m */; };
@@ -300,8 +300,8 @@
 		DE0B9C1F1B6623B700CFC490 /* TWRPlaceAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRPlaceAnnotation.m; sourceTree = "<group>"; };
 		DE3905821B676AE200EBA653 /* TWRHashTweetsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRHashTweetsVC.h; sourceTree = "<group>"; };
 		DE3905831B676AE200EBA653 /* TWRHashTweetsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRHashTweetsVC.m; sourceTree = "<group>"; };
-		DEC726A41B679C6D00155629 /* TWRTweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRTweet.h; sourceTree = "<group>"; };
-		DEC726A51B679C6D00155629 /* TWRTweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRTweet.m; sourceTree = "<group>"; };
+		DE4165001B690BF20086F47F /* TWRTweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRTweet.h; sourceTree = "<group>"; };
+		DE4165011B690BF20086F47F /* TWRTweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRTweet.m; sourceTree = "<group>"; };
 		DEC726A71B67BC0300155629 /* TWRSettingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRSettingsVC.h; sourceTree = "<group>"; };
 		DEC726A81B67BC0300155629 /* TWRSettingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRSettingsVC.m; sourceTree = "<group>"; };
 		DEC726AD1B67C45000155629 /* BHRRoundedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHRRoundedImageView.h; sourceTree = "<group>"; };
@@ -772,8 +772,8 @@
 			children = (
 				DE0B9BE91B6247F500CFC490 /* TWRTweet+TWRHelper.h */,
 				DE0B9BEA1B6247F500CFC490 /* TWRTweet+TWRHelper.m */,
-				DEC726A41B679C6D00155629 /* TWRTweet.h */,
-				DEC726A51B679C6D00155629 /* TWRTweet.m */,
+				DE4165001B690BF20086F47F /* TWRTweet.h */,
+				DE4165011B690BF20086F47F /* TWRTweet.m */,
 			);
 			name = TWRTweet;
 			sourceTree = "<group>";
@@ -1094,6 +1094,7 @@
 				04AF02B41B6104B0002CEB65 /* BAVPlistNode.m in Sources */,
 				DEE2AC571B668CD7001A28A6 /* EBPhotoPagesOperation.m in Sources */,
 				04E391F21B6527CB00F9A9C5 /* MKAnnotationView+WebCache.m in Sources */,
+				DE4165021B690BF20086F47F /* TWRTweet.m in Sources */,
 				04AF02CA1B61098C002CEB65 /* TWRTwitterAPIManager.m in Sources */,
 				047B071B1B61520B0058316F /* TWRTwitterAPIManager+TWRLogin.m in Sources */,
 				DEE2AC591B668CD7001A28A6 /* EBPhotoToolbar.m in Sources */,
@@ -1119,7 +1120,6 @@
 				04AF02BC1B61054F002CEB65 /* TWRLoginVC.m in Sources */,
 				DE0B9BEB1B6247F500CFC490 /* TWRTweet+TWRHelper.m in Sources */,
 				DE0B9C141B6273B800CFC490 /* TWRFeedVC+TWRParsing.m in Sources */,
-				DEC726A61B679C6D00155629 /* TWRTweet.m in Sources */,
 				DE0B9BE41B62403200CFC490 /* INSTwitterPullToRefresh.m in Sources */,
 				04AF025D1B60FE4A002CEB65 /* Twitteroid.xcdatamodeld in Sources */,
 				DEC726B21B67C8B600155629 /* TWRSettingsManualVC.m in Sources */,

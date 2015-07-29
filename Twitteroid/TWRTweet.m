@@ -2,7 +2,7 @@
 //  TWRTweet.m
 //  Twitteroid
 //
-//  Created by Andrey Kravchenko on 7/28/15.
+//  Created by Andrey Kravchenko on 7/29/15.
 //  Copyright (c) 2015 Kievkao. All rights reserved.
 //
 
@@ -15,12 +15,14 @@
 @implementation TWRTweet
 
 @dynamic createdAt;
+@dynamic hashtag;
 @dynamic text;
 @dynamic tweetId;
 @dynamic userAvatarURL;
 @dynamic userName;
 @dynamic userNickname;
-@dynamic hashtag;
+@dynamic isRetwitted;
+@dynamic retwittedBy;
 @dynamic hashtags;
 @dynamic medias;
 @dynamic place;
