@@ -22,6 +22,11 @@ static CGFloat kLocationRegionRadius = 500000.0;
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [self showPlace];
+}
+
+- (void)showPlace {
+    
     if (CLLocationCoordinate2DIsValid(self.coordinates)) {
         MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(self.coordinates, kLocationRegionRadius, kLocationRegionRadius);
         MKCoordinateRegion userRegion = [self.mapView regionThatFits:viewRegion];

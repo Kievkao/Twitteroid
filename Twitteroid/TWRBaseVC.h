@@ -12,5 +12,6 @@
 
 + (NSString *)identifier;
 - (void)showInfoAlertWithTitle:(NSString *)title text:(NSString *)text;
+- (void)showSureAlertWithTitle:(NSString *)title text:(NSString *)text okCompletionBlock:(void(^)(UIAlertAction *action))block;
 
 @end

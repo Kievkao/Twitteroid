@@ -18,13 +18,20 @@
 #import "INSCircleInfiniteIndicator.h"
 #import "Reachability.h"
 #import "TWRLocationVC.h"
-#import "MMDrawerBarButtonItem.h"
-#import "UIViewController+MMDrawerController.h"
 #import "EBPhotoPagesController.h"
 #import "TWRGalleryDelegate.h"
 #import "TWRHashTweetsVC.h"
+#import "TWRSettingsVC.h"
 
 NSUInteger const kTweetsLoadingPortion = 20;
+
+static CGFloat const kPullRefreshHeight = 60.0;
+static CGFloat const kPullRefreshIndicatorDiameter = 24.0;
+
+static CGFloat const kInfinitiveScrollHeight = 60.0;
+static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
+
+static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
 
 @interface TWRFeedVC () <NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -35,6 +42,7 @@ NSUInteger const kTweetsLoadingPortion = 20;
 
 @implementation TWRFeedVC
 
+#pragma mark - UIViewController lifecycle
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -43,6 +51,15 @@ NSUInteger const kTweetsLoadingPortion = 20;
     [self infinitiveScrollSetup];
     [self startFetching];
     [self checkCoreDataEntities];    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
+}
+
++ (NSString *)identifier {
+    return @"TWRFeedVC";
 }
 
 - (void)checkCoreDataEntities {
@@ -55,38 +72,29 @@ NSUInteger const kTweetsLoadingPortion = 20;
     }
 }
 
-+ (NSString *)identifier {
-    return @"TWRFeedVC";
-}
-
 - (NSDateFormatter *)dateFormatter {
     
     if (!_dateFormatter) {
         _dateFormatter = [[NSDateFormatter alloc] initWithSafeLocale];
-        [_dateFormatter setDateFormat:@"eee MMM dd HH:mm:ss Z yyyy"];
+        [_dateFormatter setDateFormat:kTweetsDateFormat];
     }
-    
     return _dateFormatter;
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = NO;
 }
 
 - (BOOL)isInternetActive {
     Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
     NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
+    
     return !(networkStatus == NotReachable);
 }
 
 - (void)setupNavigationBar {
-    MMDrawerBarButtonItem *leftDrawerButton = [[MMDrawerBarButtonItem alloc] initWithTarget:self action:@selector(menuBtnClicked)];
-    [self.navigationItem setLeftBarButtonItem:leftDrawerButton animated:YES];
+    UIBarButtonItem *settingsBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settingsIcon"] style:UIBarButtonItemStylePlain target:self action:@selector(settingsBtnClicked)];
+    [self.navigationItem setRightBarButtonItem:settingsBarItem animated:YES];
 }
 
-- (void)menuBtnClicked {
-    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+- (void)settingsBtnClicked {
+    [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:[TWRSettingsVC rootNavControllerIdentifier]] animated:YES completion:nil];
 }
 
 #pragma mark - NSFetchedResultsController stuff
@@ -187,7 +195,7 @@ NSUInteger const kTweetsLoadingPortion = 20;
 #pragma mark - Infinitive scroll && PullToRefresh
 - (void)pullToRefreshSetup {
     
-    [self.tableView ins_addPullToRefreshWithHeight:60.0 handler:^(UIScrollView *scrollView) {
+    [self.tableView ins_addPullToRefreshWithHeight:kPullRefreshHeight handler:^(UIScrollView *scrollView) {
         [self checkEnvirAndLoadFromTweetID:nil withCompletion:^(NSError *error) {
             [scrollView ins_endPullToRefresh];
         }];
@@ -199,7 +207,7 @@ NSUInteger const kTweetsLoadingPortion = 20;
 }
 
 - (void)infinitiveScrollSetup {
-    [self.tableView ins_addInfinityScrollWithHeight:60 handler:^(UIScrollView *scrollView) {
+    [self.tableView ins_addInfinityScrollWithHeight:kInfinitiveScrollHeight handler:^(UIScrollView *scrollView) {
         
         TWRTweet *lastTweet = [self.fetchedResultsController objectAtIndexPath:[[self.tableView indexPathsForVisibleRows] lastObject]];
         NSString *lastTweetID = lastTweet.tweetId;
@@ -218,11 +226,11 @@ NSUInteger const kTweetsLoadingPortion = 20;
 }
 
 - (UIView <INSAnimatable> *)infinityIndicatorViewFromCurrentStyle {
-    return [[INSCircleInfiniteIndicator alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
+    return [[INSCircleInfiniteIndicator alloc] initWithFrame:CGRectMake(0, 0, kInfinitiveScrollIndicatorDiameter, kInfinitiveScrollIndicatorDiameter)];
 }
 
 - (UIView <INSPullToRefreshBackgroundViewDelegate> *)pullToRefreshViewFromCurrentStyle {
-    return [[INSTwitterPullToRefresh alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
+    return [[INSTwitterPullToRefresh alloc] initWithFrame:CGRectMake(0, 0, kPullRefreshIndicatorDiameter, kPullRefreshIndicatorDiameter)];
 }
 
 #pragma mark - UITableView Datasource

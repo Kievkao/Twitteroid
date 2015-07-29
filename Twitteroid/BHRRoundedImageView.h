@@ -1,17 +1,16 @@
 //
-//  BHRProfileImageView.h
+//  BHRRoundedImageView.h
 //  Behere
 //
-//  Created by Andrey Kravchenko on 7/14/15.
+//  Created by Andrey Kravchenko on 7/1/15.
 //  Copyright (c) 2015 Behere. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
 IB_DESIGNABLE
-@interface BHRProfileImageView : UIImageView
+@interface BHRRoundedImageView : UIImageView
 
 @property (nonatomic) IBInspectable CGFloat cornerRadius;
-@property (nonatomic, copy) void (^clickProcessBlock)();
 
 @end

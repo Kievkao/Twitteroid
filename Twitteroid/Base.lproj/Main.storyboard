@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dHO-YX-zBn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="tNK-49-Yyn">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -38,12 +38,17 @@
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconTwitter" translatesAutoresizingMaskIntoConstraints="NO" id="AUP-w4-Npt">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconTwitter" translatesAutoresizingMaskIntoConstraints="NO" id="AUP-w4-Npt" customClass="BHRRoundedImageView">
                                                             <rect key="frame" x="8" y="8" width="43" height="43"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="43" id="7yT-XS-5rO"/>
                                                                 <constraint firstAttribute="height" constant="43" id="cKb-cc-tWm"/>
                                                             </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="21"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@author_nickname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7y-gx-fvY">
                                                             <rect key="frame" x="157" y="10" width="108" height="16"/>
@@ -191,12 +196,17 @@
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconTwitter" translatesAutoresizingMaskIntoConstraints="NO" id="zhp-35-80f">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconTwitter" translatesAutoresizingMaskIntoConstraints="NO" id="zhp-35-80f" customClass="BHRRoundedImageView">
                                                             <rect key="frame" x="8" y="8" width="43" height="43"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="43" id="YQO-r6-JO2"/>
                                                                 <constraint firstAttribute="width" constant="43" id="cbu-hU-rCp"/>
                                                             </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="21"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@author_nickname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dFv-3x-us3">
                                                             <rect key="frame" x="157" y="10" width="108" height="16"/>
@@ -309,27 +319,162 @@
             </objects>
             <point key="canvasLocation" x="1707" y="996"/>
         </scene>
-        <!--Drawer Controller-->
-        <scene sceneID="qy9-nt-SHs">
+        <!--Manual deleting-->
+        <scene sceneID="09G-w1-hkA">
             <objects>
-                <viewController id="dHO-YX-zBn" customClass="MMDrawerController" sceneMemberID="viewController">
+                <viewController title="Manual deleting" id="aPc-Sf-mX3" customClass="TWRSettingsManualVC" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="LaC-cz-pLi"/>
-                        <viewControllerLayoutGuide type="bottom" id="8oW-8p-ojt"/>
+                        <viewControllerLayoutGuide type="top" id="GgE-kG-ZZP"/>
+                        <viewControllerLayoutGuide type="bottom" id="LmV-2R-UC7"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="OjH-jj-mDf">
+                    <view key="view" contentMode="scaleToFill" id="hRt-gv-eew">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saved tweets before selected date will be deleted " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AA0-L7-uww">
+                                <rect key="frame" x="0.0" y="68" width="600" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zuC-J2-gHK" customClass="KAOBorderedButton">
+                                <rect key="frame" x="8" y="542" width="584" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="iZJ-Zy-5xl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <inset key="titleEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" title="Delete now">
+                                    <color key="titleColor" red="0.85043728350000003" green="0.21816034619999999" blue="0.15920260550000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.85043728350000003" green="0.21816034619999999" blue="0.15920260550000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="deleteNowClicked:" destination="aPc-Sf-mX3" eventType="touchUpInside" id="9MD-Dk-X4i"/>
+                                </connections>
+                            </button>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="fg3-vY-fGd">
+                                <rect key="frame" x="0.0" y="93" width="600" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="136" id="VBe-f7-hU9"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="459682197.72447997">
+                                    <!--2015-07-27 09:29:57 +0000-->
+                                </date>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="VBe-f7-hU9"/>
+                                    </mask>
+                                </variation>
+                            </datePicker>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="AA0-L7-uww" secondAttribute="trailing" id="030-LZ-hfe"/>
+                            <constraint firstItem="LmV-2R-UC7" firstAttribute="top" secondItem="zuC-J2-gHK" secondAttribute="bottom" constant="8" id="0Na-Z5-rgZ"/>
+                            <constraint firstAttribute="trailing" secondItem="fg3-vY-fGd" secondAttribute="trailing" id="9dv-jr-gJW"/>
+                            <constraint firstItem="zuC-J2-gHK" firstAttribute="leading" secondItem="hRt-gv-eew" secondAttribute="leading" constant="8" id="Hgg-LD-5ym"/>
+                            <constraint firstAttribute="trailing" secondItem="zuC-J2-gHK" secondAttribute="trailing" constant="8" id="XSo-ne-ttT"/>
+                            <constraint firstItem="AA0-L7-uww" firstAttribute="top" secondItem="GgE-kG-ZZP" secondAttribute="bottom" constant="4" id="ZtF-oF-DFk"/>
+                            <constraint firstItem="fg3-vY-fGd" firstAttribute="top" secondItem="AA0-L7-uww" secondAttribute="bottom" constant="2" id="cVF-ho-fAJ"/>
+                            <constraint firstItem="AA0-L7-uww" firstAttribute="leading" secondItem="hRt-gv-eew" secondAttribute="leading" id="dSo-s0-KsA"/>
+                            <constraint firstItem="fg3-vY-fGd" firstAttribute="leading" secondItem="hRt-gv-eew" secondAttribute="leading" id="qK0-s7-0qk"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <segue destination="tNK-49-Yyn" kind="custom" identifier="mm_center" customClass="MMDrawerControllerSegue" id="mcr-Vj-3uG"/>
-                        <segue destination="MyL-vS-a45" kind="custom" identifier="mm_left" customClass="MMDrawerControllerSegue" id="bdv-n7-BcA"/>
+                        <outlet property="manualDatePicker" destination="fg3-vY-fGd" id="gbM-ww-T0e"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dXa-ig-uQu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="763-za-asW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-288" y="263"/>
+            <point key="canvasLocation" x="2314" y="1724"/>
+        </scene>
+        <!--Settings AutoVC-->
+        <scene sceneID="wSK-O2-72C">
+            <objects>
+                <viewController id="v6u-kH-Wgt" customClass="TWRSettingsAutoVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sKy-Zd-e9G"/>
+                        <viewControllerLayoutGuide type="bottom" id="2cz-Ur-CBh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JOi-Ql-GR5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IyS-R1-2gw">
+                                <rect key="frame" x="0.0" y="93" width="600" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="qlj-zb-OLt"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="v6u-kH-Wgt" id="soq-Ax-gdR"/>
+                                    <outlet property="delegate" destination="v6u-kH-Wgt" id="etq-73-Jtb"/>
+                                </connections>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Automatically delete tweets that are older than selected period" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8TZ-E5-xZW">
+                                <rect key="frame" x="0.0" y="72" width="600" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1me-9a-VH1" customClass="KAOBorderedButton">
+                                <rect key="frame" x="8" y="542" width="584" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Bq2-IQ-lwj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <inset key="titleEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" title="Set delete rule">
+                                    <color key="titleColor" red="0.85043728350000003" green="0.21816034619999999" blue="0.15920260550000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.85043728350000003" green="0.21816034619999999" blue="0.15920260550000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="applyClicked:" destination="v6u-kH-Wgt" eventType="touchUpInside" id="iHc-Ao-WUY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="8TZ-E5-xZW" secondAttribute="trailing" id="11I-yJ-gQ4"/>
+                            <constraint firstAttribute="centerX" secondItem="8TZ-E5-xZW" secondAttribute="centerX" id="82z-w5-mtz"/>
+                            <constraint firstAttribute="trailing" secondItem="1me-9a-VH1" secondAttribute="trailing" constant="8" id="94X-Lg-W6M"/>
+                            <constraint firstItem="2cz-Ur-CBh" firstAttribute="top" secondItem="1me-9a-VH1" secondAttribute="bottom" constant="8" id="PmN-lE-F90"/>
+                            <constraint firstItem="8TZ-E5-xZW" firstAttribute="top" secondItem="sKy-Zd-e9G" secondAttribute="bottom" constant="8" id="Uha-O3-1Cw"/>
+                            <constraint firstItem="8TZ-E5-xZW" firstAttribute="leading" secondItem="JOi-Ql-GR5" secondAttribute="leading" id="YdE-iI-g1g"/>
+                            <constraint firstItem="1me-9a-VH1" firstAttribute="leading" secondItem="JOi-Ql-GR5" secondAttribute="leading" constant="8" id="eCE-Cu-hwP"/>
+                            <constraint firstAttribute="trailing" secondItem="IyS-R1-2gw" secondAttribute="trailing" id="sc2-8i-dmZ"/>
+                            <constraint firstItem="IyS-R1-2gw" firstAttribute="top" secondItem="8TZ-E5-xZW" secondAttribute="bottom" constant="-2" id="tVx-l0-Is4"/>
+                            <constraint firstItem="IyS-R1-2gw" firstAttribute="leading" secondItem="JOi-Ql-GR5" secondAttribute="leading" id="twY-w2-xVp"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="weeksAutoDatePicker" destination="IyS-R1-2gw" id="UVr-ft-g9x"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YrW-Qq-Bjk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2314" y="2387"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tB6-VR-ucm">
@@ -439,7 +584,136 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x9t-Xm-Y0U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="378" y="1663"/>
+            <point key="canvasLocation" x="170" y="1664"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="p6f-Uk-s1y">
+            <objects>
+                <navigationController storyboardIdentifier="SettingsNavC" id="9ac-gs-Vua" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YWa-pc-993">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="8L3-Ka-Ji5" kind="relationship" relationship="rootViewController" id="UIQ-6L-VoZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xxn-V0-aEY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="967" y="2050"/>
+        </scene>
+        <!--SettingsVC-->
+        <scene sceneID="llk-JH-vLf">
+            <objects>
+                <tableViewController storyboardIdentifier="TWRSettingsVC" id="8L3-Ka-Ji5" customClass="TWRSettingsVC" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Gf5-2p-qQ7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="zO2-96-STN">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="193"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="friendsIcon" translatesAutoresizingMaskIntoConstraints="NO" id="v5H-at-VYP" customClass="BHRRoundedImageView">
+                                    <rect key="frame" x="250" y="47" width="100" height="100"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="100" id="66h-u2-cY5"/>
+                                        <constraint firstAttribute="height" constant="100" id="Ld8-Oq-A18"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@ivanov" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dN7-Cf-1Xu">
+                                    <rect key="frame" x="274" y="172" width="53" height="18"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="15"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Smith" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KrF-nC-f96">
+                                    <rect key="frame" x="259" y="155" width="84" height="20"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="centerY" secondItem="v5H-at-VYP" secondAttribute="centerY" constant="-0.5" id="3WN-uV-Ia9"/>
+                                <constraint firstItem="dN7-Cf-1Xu" firstAttribute="top" secondItem="v5H-at-VYP" secondAttribute="bottom" constant="25" id="Hb2-YD-Zg6"/>
+                                <constraint firstAttribute="centerX" secondItem="v5H-at-VYP" secondAttribute="centerX" id="LcW-BH-OhY"/>
+                                <constraint firstAttribute="centerX" secondItem="dN7-Cf-1Xu" secondAttribute="centerX" id="R4P-2f-kE1"/>
+                                <constraint firstItem="KrF-nC-f96" firstAttribute="top" secondItem="v5H-at-VYP" secondAttribute="bottom" constant="8" id="aA8-1O-Zhn"/>
+                                <constraint firstAttribute="centerX" secondItem="KrF-nC-f96" secondAttribute="centerX" constant="-0.5" id="u0n-cy-0mk"/>
+                            </constraints>
+                        </view>
+                        <sections>
+                            <tableViewSection headerTitle="MANUAL TWEETS DELETING" id="6Zj-bI-EO8">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="cEs-Sv-wrX">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cEs-Sv-wrX" id="PCS-Ww-d7A">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete saved tweets manually" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IGZ-U2-bAl">
+                                                    <rect key="frame" x="8" y="19" width="559" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="IGZ-U2-bAl" firstAttribute="leading" secondItem="PCS-Ww-d7A" secondAttribute="leading" constant="8" id="APq-UK-Nxn"/>
+                                                <constraint firstAttribute="trailing" secondItem="IGZ-U2-bAl" secondAttribute="trailing" id="nfj-Je-VgH"/>
+                                                <constraint firstAttribute="centerY" secondItem="IGZ-U2-bAl" secondAttribute="centerY" id="ueU-dh-8wC"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="aPc-Sf-mX3" kind="show" id="cJD-yX-aYG"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="AUTOMATIC TWEETS DELETING" id="jlw-Uh-lL1">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="cTC-DV-wTH">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cTC-DV-wTH" id="Hdb-jo-MC7">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setup automatically saved tweets deleting" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNx-Hf-BUc">
+                                                    <rect key="frame" x="8" y="19" width="559" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="jNx-Hf-BUc" secondAttribute="trailing" id="Ecu-ZM-Sim"/>
+                                                <constraint firstItem="jNx-Hf-BUc" firstAttribute="leading" secondItem="Hdb-jo-MC7" secondAttribute="leading" constant="8" id="Zc0-TN-1R7"/>
+                                                <constraint firstAttribute="centerY" secondItem="jNx-Hf-BUc" secondAttribute="centerY" id="i3e-Zk-gl3"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="v6u-kH-Wgt" kind="show" id="Qmm-qw-Ygw"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="8L3-Ka-Ji5" id="Kkh-Su-AbY"/>
+                            <outlet property="delegate" destination="8L3-Ka-Ji5" id="FS5-lv-ctk"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="wLI-Bv-Ww4">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="Dnm-SW-Ikj">
+                            <connections>
+                                <action selector="doneClicked:" destination="8L3-Ka-Ji5" id="NxC-ZE-dxm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N6C-nP-6cX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1651" y="2050"/>
         </scene>
         <!--Location-->
         <scene sceneID="w8O-1I-PqL">
@@ -484,194 +758,9 @@
             </objects>
             <point key="canvasLocation" x="1051" y="307"/>
         </scene>
-        <!--Menu-->
-        <scene sceneID="dXI-1K-L4S">
-            <objects>
-                <tableViewController id="MyL-vS-a45" userLabel="Menu" customClass="TWRMenuVC" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="static" style="grouped" separatorStyle="none" rowHeight="192" sectionHeaderHeight="10" sectionFooterHeight="10" id="noF-Rf-V1x">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.33333333329999998" green="0.67450980390000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="9qY-Rh-kpr">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="193"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="twitterIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Qf8-1a-hlP" customClass="BHRProfileImageView">
-                                    <rect key="frame" x="250" y="36" width="113" height="92"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="GMB-Hb-Qzv"/>
-                                        <constraint firstAttribute="width" constant="113" id="HXS-ol-HsZ"/>
-                                        <constraint firstAttribute="height" constant="92" id="LdL-kf-jJa"/>
-                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="92" id="sTN-nG-jAz"/>
-                                    </constraints>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                            <real key="value" value="50"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Twitteroid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IqU-Zt-ZHd">
-                                    <rect key="frame" x="256" y="151" width="90" height="24"/>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                            <color key="backgroundColor" red="0.33333333329999998" green="0.67450980390000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="centerX" secondItem="IqU-Zt-ZHd" secondAttribute="centerX" constant="-0.5" id="3Vu-fS-Q1n"/>
-                                <constraint firstAttribute="centerX" secondItem="Qf8-1a-hlP" secondAttribute="centerX" constant="-6.5" id="l8b-yF-lJt"/>
-                                <constraint firstItem="Qf8-1a-hlP" firstAttribute="top" secondItem="9qY-Rh-kpr" secondAttribute="top" constant="36" id="qb0-1j-dZ2"/>
-                                <constraint firstItem="IqU-Zt-ZHd" firstAttribute="top" secondItem="Qf8-1a-hlP" secondAttribute="bottom" constant="23" id="sIg-Ao-AFK"/>
-                            </constraints>
-                        </view>
-                        <sections>
-                            <tableViewSection id="Yxq-5T-uiq">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="285" id="AFl-40-fgm">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AFl-40-fgm" id="cdT-t4-5qb">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete saved tweets older than:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UMa-mD-uv7">
-                                                    <rect key="frame" x="8" y="20" width="219" height="24"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="219" id="o97-I2-ErT"/>
-                                                        <constraint firstAttribute="height" constant="24" id="uoA-2a-BTz"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="OhA-WE-ySE">
-                                                    <rect key="frame" x="0.0" y="41" width="600" height="162"/>
-                                                    <date key="date" timeIntervalSinceReferenceDate="459682197.72447997">
-                                                        <!--2015-07-27 09:29:57 +0000-->
-                                                    </date>
-                                                </datePicker>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wYA-kw-W5M" customClass="KAOBorderedButton">
-                                                    <rect key="frame" x="8" y="203" width="584" height="41"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="41" id="JGE-Go-fTf"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                    <inset key="titleEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                                                    <state key="normal" title="Delete now">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="8"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                            <real key="value" value="2"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                            <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                    <connections>
-                                                        <action selector="deleteNowClicked:" destination="MyL-vS-a45" eventType="touchUpInside" id="2c5-ab-QI0"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <color key="backgroundColor" red="0.33333333329999998" green="0.67450980390000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="OhA-WE-ySE" secondAttribute="trailing" id="4W2-aT-uHA"/>
-                                                <constraint firstItem="UMa-mD-uv7" firstAttribute="top" secondItem="cdT-t4-5qb" secondAttribute="top" constant="20" id="4cG-jt-DZO"/>
-                                                <constraint firstItem="UMa-mD-uv7" firstAttribute="leading" secondItem="cdT-t4-5qb" secondAttribute="leading" constant="8" id="CNt-HH-Ghd"/>
-                                                <constraint firstItem="wYA-kw-W5M" firstAttribute="leading" secondItem="cdT-t4-5qb" secondAttribute="leading" constant="8" id="Krw-bw-fVG"/>
-                                                <constraint firstItem="OhA-WE-ySE" firstAttribute="top" secondItem="UMa-mD-uv7" secondAttribute="bottom" constant="-3" id="MAi-vN-kFb"/>
-                                                <constraint firstItem="OhA-WE-ySE" firstAttribute="leading" secondItem="cdT-t4-5qb" secondAttribute="leading" id="Rn6-xf-N61"/>
-                                                <constraint firstItem="wYA-kw-W5M" firstAttribute="top" secondItem="OhA-WE-ySE" secondAttribute="bottom" id="SU0-PN-ByT"/>
-                                                <constraint firstAttribute="trailing" secondItem="wYA-kw-W5M" secondAttribute="trailing" constant="8" id="t6j-hS-8ta"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection id="2H2-dd-PsV">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="289" id="kKn-ZX-RJ3">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kKn-ZX-RJ3" id="sBo-US-hfE">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Automatically delete tweets older than:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPV-w6-gp1">
-                                                    <rect key="frame" x="8" y="10" width="198" height="41"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="198" id="iBZ-jA-egx"/>
-                                                        <constraint firstAttribute="height" constant="41" id="xAO-7J-DlS"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ong-ct-nk2">
-                                                    <rect key="frame" x="0.0" y="41" width="600" height="162"/>
-                                                    <connections>
-                                                        <outlet property="dataSource" destination="MyL-vS-a45" id="c5k-tr-dXk"/>
-                                                        <outlet property="delegate" destination="MyL-vS-a45" id="6o0-Pd-yGA"/>
-                                                    </connections>
-                                                </pickerView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TfE-rW-oH1" customClass="KAOBorderedButton">
-                                                    <rect key="frame" x="8" y="203" width="584" height="41"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="41" id="byq-0e-8zl"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                    <inset key="titleEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                                                    <state key="normal" title="Apply">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="8"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                            <real key="value" value="2"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                            <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                    <connections>
-                                                        <action selector="applyClicked:" destination="MyL-vS-a45" eventType="touchUpInside" id="0tZ-pw-v8w"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <color key="backgroundColor" red="0.33333333329999998" green="0.67450980390000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
-                                            <constraints>
-                                                <constraint firstItem="HPV-w6-gp1" firstAttribute="leading" secondItem="sBo-US-hfE" secondAttribute="leading" constant="8" id="IkE-0a-cXT"/>
-                                                <constraint firstItem="HPV-w6-gp1" firstAttribute="top" secondItem="sBo-US-hfE" secondAttribute="top" constant="10" id="LZn-EB-1HE"/>
-                                                <constraint firstItem="ong-ct-nk2" firstAttribute="leading" secondItem="sBo-US-hfE" secondAttribute="leading" id="ODI-jQ-lwb"/>
-                                                <constraint firstAttribute="trailing" secondItem="ong-ct-nk2" secondAttribute="trailing" id="nT4-c4-7iV"/>
-                                                <constraint firstAttribute="trailing" secondItem="TfE-rW-oH1" secondAttribute="trailing" constant="8" id="pOx-jD-J4P"/>
-                                                <constraint firstItem="ong-ct-nk2" firstAttribute="top" secondItem="HPV-w6-gp1" secondAttribute="bottom" constant="-10" id="pUr-L5-VNr"/>
-                                                <constraint firstItem="TfE-rW-oH1" firstAttribute="leading" secondItem="sBo-US-hfE" secondAttribute="leading" constant="8" id="rAt-iB-n35"/>
-                                                <constraint firstItem="TfE-rW-oH1" firstAttribute="top" secondItem="ong-ct-nk2" secondAttribute="bottom" id="tad-l7-7CR"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Settings" id="Nik-T2-aGu"/>
-                    <navigationItem key="navigationItem" title="Settings" id="DXB-h3-Vb6"/>
-                    <connections>
-                        <outlet property="manualDatePicker" destination="OhA-WE-ySE" id="8lh-Li-BTf"/>
-                        <outlet property="weeksAutoDatePicker" destination="ong-ct-nk2" id="X2U-yM-19Z"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SIt-pW-o0p" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="438" y="263"/>
-        </scene>
     </scenes>
     <resources>
+        <image name="friendsIcon" width="50" height="50"/>
         <image name="iconTwitter" width="20" height="20"/>
         <image name="locationIcon" width="128" height="128"/>
         <image name="twitterIcon" width="569" height="463"/>
