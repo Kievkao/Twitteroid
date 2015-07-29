@@ -24,6 +24,7 @@
     [super viewDidLoad];
     
     if ([[TWRTwitterAPIManager sharedInstance] isUserAlreadyLogged]) {
+        [[TWRTwitterAPIManager sharedInstance] fillUserProfile];
         [self openFeedViewController];
     }
 }
@@ -60,6 +61,7 @@
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         
         if (!error) {
+            [[TWRTwitterAPIManager sharedInstance] fillUserProfile];
             [self openFeedViewController];
         }
         else {

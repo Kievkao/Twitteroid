@@ -7,8 +7,16 @@
 //
 
 #import "TWRSettingsVC.h"
+#import "TWRTwitterAPIManager.h"
+#import "TWRTwitterAPIManager+TWRLogin.h"
+#import "BHRRoundedImageView.h"
+#import "TWRUserProfile.h"
 
 @interface TWRSettingsVC ()
+
+@property (weak, nonatomic) IBOutlet BHRRoundedImageView *userAvatarImageView;
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *userNicknameLabel;
 
 @end
 
@@ -17,6 +25,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.userNameLabel.text = [[TWRUserProfile sharedInstance] userName];
+    self.userNicknameLabel.text = [NSString stringWithFormat:@"@%@",[[TWRUserProfile sharedInstance] userNickname]];
+    self.userAvatarImageView.image = [[TWRUserProfile sharedInstance] userAvatar];
 }
 
 + (NSString *)rootNavControllerIdentifier {

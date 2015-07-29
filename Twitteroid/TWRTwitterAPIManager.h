@@ -23,5 +23,6 @@ extern NSString *const kTwitterApiSecret;
 
 + (instancetype)sharedInstance;
 - (void)resetKeychain;
+- (void)fillUserProfile;
 
 @end

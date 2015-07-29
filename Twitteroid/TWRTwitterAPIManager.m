@@ -8,6 +8,7 @@
 
 #import "TWRTwitterAPIManager.h"
 #import "SSKeychain.h"
+#import "TWRUserProfile.h"
 
 static NSString *const kKeychainAccountKey = @"kievkao.Twitteroid";
 static NSString *const kKeychainTokenKey = @"TwitterToken";
@@ -36,6 +37,15 @@ NSString *const kTwitterApiSecret = @"FgJV89KXSGYf42opyMLFfZxk5J9fPIwITzYrKsZWG0
 - (void)resetKeychain {
     self.token = nil;
     self.tokenSecret = nil;
+}
+
+- (void)fillUserProfile {
+    [self.twitter getUserInformationFor:[[TWRUserProfile sharedInstance] userNickname] successBlock:^(NSDictionary *user) {
+        [[TWRUserProfile sharedInstance] setUserName:user[@"name"]];
+        [[TWRUserProfile sharedInstance] setUserAvatarByURL:[NSURL URLWithString:user[@"profile_image_url"]]];
+    } errorBlock:^(NSError *error) {
+        NSLog(@"Retrieving profile error");
+    }];
 }
 
 #pragma mark - Getters, setters

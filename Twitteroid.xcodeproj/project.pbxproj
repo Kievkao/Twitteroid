@@ -96,6 +96,7 @@
 		DEC726AF1B67C45000155629 /* BHRRoundedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC726AE1B67C45000155629 /* BHRRoundedImageView.m */; };
 		DEC726B21B67C8B600155629 /* TWRSettingsManualVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC726B11B67C8B600155629 /* TWRSettingsManualVC.m */; };
 		DEC726B51B67C8C900155629 /* TWRSettingsAutoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC726B41B67C8C900155629 /* TWRSettingsAutoVC.m */; };
+		DED833D11B68C66C00A7A9E3 /* TWRUserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = DED833D01B68C66C00A7A9E3 /* TWRUserProfile.m */; };
 		DEE2AB8C1B66483A001A28A6 /* KAOBorderedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AB8B1B66483A001A28A6 /* KAOBorderedButton.m */; };
 		DEE2AB8F1B66523E001A28A6 /* TWRBaseTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AB8E1B66523E001A28A6 /* TWRBaseTableVC.m */; };
 		DEE2AB921B665C99001A28A6 /* NSDate+Escort.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AB911B665C99001A28A6 /* NSDate+Escort.m */; };
@@ -308,6 +309,8 @@
 		DEC726B11B67C8B600155629 /* TWRSettingsManualVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRSettingsManualVC.m; sourceTree = "<group>"; };
 		DEC726B31B67C8C900155629 /* TWRSettingsAutoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRSettingsAutoVC.h; sourceTree = "<group>"; };
 		DEC726B41B67C8C900155629 /* TWRSettingsAutoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRSettingsAutoVC.m; sourceTree = "<group>"; };
+		DED833CF1B68C66C00A7A9E3 /* TWRUserProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRUserProfile.h; sourceTree = "<group>"; };
+		DED833D01B68C66C00A7A9E3 /* TWRUserProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRUserProfile.m; sourceTree = "<group>"; };
 		DEE2AB8A1B66483A001A28A6 /* KAOBorderedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAOBorderedButton.h; sourceTree = "<group>"; };
 		DEE2AB8B1B66483A001A28A6 /* KAOBorderedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KAOBorderedButton.m; sourceTree = "<group>"; };
 		DEE2AB8D1B66523E001A28A6 /* TWRBaseTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRBaseTableVC.h; sourceTree = "<group>"; };
@@ -422,11 +425,8 @@
 		047B072A1B615D830058316F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				04DEE6531B6567F200AE0E4A /* TWRPlace */,
-				DE0B9C0D1B62711A00CFC490 /* TWRMedia */,
-				DE0B9C001B626E0700CFC490 /* TWRHashtag */,
-				DE0B9BEC1B624EAB00CFC490 /* TWRTweet */,
-				04AF025B1B60FE4A002CEB65 /* Twitteroid.xcdatamodeld */,
+				DED833CE1B68C65400A7A9E3 /* CoreData */,
+				DED833CD1B68C64100A7A9E3 /* TWRUserProfile */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -524,6 +524,7 @@
 		04AF02851B6103FA002CEB65 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DED833CB1B68C23C00A7A9E3 /* BHRRoundedImageView */,
 				04DF7FC91B64CFBA00907D1B /* RQShineLabel */,
 				04D9CD3A1B642AC3006B224D /* STTweetLabel */,
 				DEE2AB9D1B667261001A28A6 /* YTPlayerView */,
@@ -611,8 +612,7 @@
 			isa = PBXGroup;
 			children = (
 				047B072B1B6161020058316F /* TWRTwitterAPIManager */,
-				047B07381B6168230058316F /* TWRCoreDataManager.h */,
-				047B07391B6168230058316F /* TWRCoreDataManager.m */,
+				DED833CC1B68C63600A7A9E3 /* TWRCoreDataManager */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -834,8 +834,6 @@
 		DE0B9C321B66276C00CFC490 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				DEC726AD1B67C45000155629 /* BHRRoundedImageView.h */,
-				DEC726AE1B67C45000155629 /* BHRRoundedImageView.m */,
 				DEC726A71B67BC0300155629 /* TWRSettingsVC.h */,
 				DEC726A81B67BC0300155629 /* TWRSettingsVC.m */,
 				DEC726B01B67C8B600155629 /* TWRSettingsManualVC.h */,
@@ -844,6 +842,45 @@
 				DEC726B41B67C8C900155629 /* TWRSettingsAutoVC.m */,
 			);
 			name = Settings;
+			sourceTree = "<group>";
+		};
+		DED833CB1B68C23C00A7A9E3 /* BHRRoundedImageView */ = {
+			isa = PBXGroup;
+			children = (
+				DEC726AD1B67C45000155629 /* BHRRoundedImageView.h */,
+				DEC726AE1B67C45000155629 /* BHRRoundedImageView.m */,
+			);
+			name = BHRRoundedImageView;
+			sourceTree = "<group>";
+		};
+		DED833CC1B68C63600A7A9E3 /* TWRCoreDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				047B07381B6168230058316F /* TWRCoreDataManager.h */,
+				047B07391B6168230058316F /* TWRCoreDataManager.m */,
+			);
+			name = TWRCoreDataManager;
+			sourceTree = "<group>";
+		};
+		DED833CD1B68C64100A7A9E3 /* TWRUserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				DED833CF1B68C66C00A7A9E3 /* TWRUserProfile.h */,
+				DED833D01B68C66C00A7A9E3 /* TWRUserProfile.m */,
+			);
+			name = TWRUserProfile;
+			sourceTree = "<group>";
+		};
+		DED833CE1B68C65400A7A9E3 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				04DEE6531B6567F200AE0E4A /* TWRPlace */,
+				DE0B9C0D1B62711A00CFC490 /* TWRMedia */,
+				DE0B9C001B626E0700CFC490 /* TWRHashtag */,
+				DE0B9BEC1B624EAB00CFC490 /* TWRTweet */,
+				04AF025B1B60FE4A002CEB65 /* Twitteroid.xcdatamodeld */,
+			);
+			name = CoreData;
 			sourceTree = "<group>";
 		};
 		DEE2AB891B664825001A28A6 /* KAOBorderedButton */ = {
@@ -1073,6 +1110,7 @@
 				047B07231B6159010058316F /* TWRBaseTableViewCell.m in Sources */,
 				DEE2AB8F1B66523E001A28A6 /* TWRBaseTableVC.m in Sources */,
 				DE0B9BE81B62417500CFC490 /* INSCircleInfiniteIndicator.m in Sources */,
+				DED833D11B68C66C00A7A9E3 /* TWRUserProfile.m in Sources */,
 				04AF02BC1B61054F002CEB65 /* TWRLoginVC.m in Sources */,
 				DE0B9BEB1B6247F500CFC490 /* TWRTweet+TWRHelper.m in Sources */,
 				DE0B9C141B6273B800CFC490 /* TWRFeedVC+TWRParsing.m in Sources */,

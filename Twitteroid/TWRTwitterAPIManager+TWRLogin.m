@@ -9,6 +9,7 @@
 #import "TWRTwitterAPIManager+TWRLogin.h"
 #import "TWRTwitterAPIManager.h"
 #import "STTwitter.h"
+#import "TWRUserProfile.h"
 
 @implementation TWRTwitterAPIManager (TWRLogin)
 
@@ -77,6 +78,10 @@
     __weak typeof(self) weakSelf = self;
     
     [self.twitter postAccessTokenRequestWithPIN:verifier successBlock:^(NSString *oauthToken, NSString *oauthTokenSecret, NSString *userID, NSString *screenName) {
+        
+        [[TWRUserProfile sharedInstance] setUserID:userID];
+        [[TWRUserProfile sharedInstance] setUserNickname:screenName];
+        
         weakSelf.token = oauthToken;
         weakSelf.tokenSecret = oauthTokenSecret;
         weakSelf.sessionLoginDone = YES;

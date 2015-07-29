@@ -620,6 +620,11 @@
                                         <constraint firstAttribute="width" constant="100" id="66h-u2-cY5"/>
                                         <constraint firstAttribute="height" constant="100" id="Ld8-Oq-A18"/>
                                     </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="50"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@ivanov" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dN7-Cf-1Xu">
                                     <rect key="frame" x="274" y="172" width="53" height="18"/>
@@ -710,6 +715,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="userAvatarImageView" destination="v5H-at-VYP" id="JHs-Zt-dc5"/>
+                        <outlet property="userNameLabel" destination="KrF-nC-f96" id="a5T-1m-2oa"/>
+                        <outlet property="userNicknameLabel" destination="dN7-Cf-1Xu" id="aE2-no-6UP"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N6C-nP-6cX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
