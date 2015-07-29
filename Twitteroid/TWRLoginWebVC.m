@@ -30,10 +30,10 @@
     NSLog(@"%@", request.URL.absoluteString);
     if ([request.URL.absoluteString containsString:@"myapp.here.com"]) {
         
-        NSDictionary *d = [self parametersDictionaryFromQueryString:[request.URL query]];
+        NSDictionary *oauthResponseDict = [self parametersDictionaryFromQueryString:[request.URL query]];
         
-        NSString *token = d[@"oauth_token"];
-        NSString *verifier = d[@"oauth_verifier"];
+        NSString *token = oauthResponseDict[@"oauth_token"];
+        NSString *verifier = oauthResponseDict[@"oauth_verifier"];
         [[TWRTwitterAPIManager sharedInstance] setOAuthToken:token oauthVerifier:verifier];
         
         return NO;

@@ -26,6 +26,8 @@
 
 NSUInteger const kTweetsLoadingPortion = 20;
 
+static CGFloat const kEstimatedCellHeight = 95.0;
+
 static CGFloat const kPullRefreshHeight = 60.0;
 static CGFloat const kPullRefreshIndicatorDiameter = 24.0;
 
@@ -59,11 +61,16 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
     self.navigationController.navigationBarHidden = NO;
 }
 
+- (void)settingsBtnClicked {
+    [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:[TWRSettingsVC rootNavControllerIdentifier]] animated:YES completion:nil];
+}
+#pragma mark - Helpers
 + (NSString *)identifier {
     return @"TWRFeedVC";
 }
 
 - (void)checkCoreDataEntities {
+    
     if (![TWRCoreDataManager isAnySavedTweetsForHashtag:[self tweetsHashtag]]) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         
@@ -94,11 +101,7 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
     [self.navigationItem setRightBarButtonItem:settingsBarItem animated:YES];
 }
 
-- (void)settingsBtnClicked {
-    [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:[TWRSettingsVC rootNavControllerIdentifier]] animated:YES completion:nil];
-}
-
-#pragma mark - NSFetchedResultsController stuff
+#pragma mark - NSFetchedResultsController
 - (void)startFetching {
     
     NSError *error = nil;
@@ -145,7 +148,6 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
         _fetchedResultsController = [TWRCoreDataManager fetchedResultsControllerForTweetsHashtag:[self tweetsHashtag]];
         _fetchedResultsController.delegate = self;
     }
-    
     return _fetchedResultsController;
 }
 
@@ -208,6 +210,7 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
 }
 
 - (void)infinitiveScrollSetup {
+    
     [self.tableView ins_addInfinityScrollWithHeight:kInfinitiveScrollHeight handler:^(UIScrollView *scrollView) {
         
         TWRTweet *lastTweet = [self.fetchedResultsController objectAtIndexPath:[[self.tableView indexPathsForVisibleRows] lastObject]];
@@ -240,7 +243,7 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 85;
+    return kEstimatedCellHeight;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -270,9 +273,7 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     TWRTwitCell* cell = [tableView dequeueReusableCellWithIdentifier:[TWRTwitCell identifier] forIndexPath:indexPath];
-    
     [self configureCell:cell forIndexPath:indexPath];
-    
     return cell;
 }
 
@@ -284,6 +285,14 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
     [cell setAuthorNickname:tweet.userNickname];
     [cell setTwitText:tweet.text];
     [cell setAuthorAvatarByURLStr:tweet.userAvatarURL];
+    [cell setLocationBtnVisible:(tweet.place) ? YES : NO];
+    
+    if (tweet.isRetwitted.boolValue) {
+        [cell setRetwittedViewVisible:YES withRetweetAuthor:tweet.retwittedBy];
+    }
+    else {
+        [cell setRetwittedViewVisible:NO withRetweetAuthor:nil];
+    }
     
     cell.webLinkClickedBlock = ^(NSURL *url) {
         [[UIApplication sharedApplication] openURL:url];
@@ -296,8 +305,6 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
     };
     
     cell.locationBtnClickedBlock = ^() {
-        TWRTweet *tweet = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        
         TWRLocationVC *locationVC = [self.storyboard instantiateViewControllerWithIdentifier:[TWRLocationVC identifier]];
         locationVC.coordinates = CLLocationCoordinate2DMake(tweet.place.lattitude, tweet.place.longitude);
         [self.navigationController pushViewController:locationVC animated:YES];
@@ -326,15 +333,6 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
         }
     };
     
-    [cell setLocationBtnVisible:(tweet.place) ? YES : NO];
-    
-    if (tweet.isRetwitted.boolValue) {
-        [cell setRetwittedViewVisible:YES withRetweetAuthor:tweet.retwittedBy];
-    }
-    else {
-        [cell setRetwittedViewVisible:NO withRetweetAuthor:nil];
-    }
-    
     if (tweet.medias.count) {
             NSMutableArray *mediaUrlsArray = [NSMutableArray new];
             
@@ -348,7 +346,6 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
                 [cell setImagesURLs:mediaUrlsArray];
             }
             else {
-                // for preventing big amount of unconvinient UIWebView, dsiplay preview only for the last link
                 [cell setVideoURLs:@[[mediaUrlsArray firstObject]]];
             }
     }

@@ -43,16 +43,18 @@ static NSUInteger const kTotalWeeksAmount = 51;
 
 - (IBAction)applyClicked:(id)sender {
     
+    __weak typeof(self)weakSelf = self;
     [self showSureAlertWithTitle:NSLocalizedString(@"Confirmation", @"Confirmation alert title") text:NSLocalizedString(@"Are you sure to confirm this time interval?", @"\"Are you sure\" text for applying automatic tweets delete interval") okCompletionBlock:^(UIAlertAction *action) {
         
-        NSUInteger selectedWeeksCellIndex = [self.weeksAutoDatePicker selectedRowInComponent:0];
+        __strong TWRSettingsAutoVC *strongSelf = weakSelf;
+        NSUInteger selectedWeeksCellIndex = [strongSelf.weeksAutoDatePicker selectedRowInComponent:0];
         
         NSDate *selectedDate = [NSDate dateWithDaysBeforeNow:(selectedWeeksCellIndex + 1)*7];
         [TWRCoreDataManager deleteTweetsOlderThanDate:selectedDate];
         [[TWRCoreDataManager sharedInstance] saveAutomaticTweetsDeleteDate:selectedDate];
-        [self.navigationController popToRootViewControllerAnimated:YES];
+        [strongSelf.navigationController popToRootViewControllerAnimated:YES];
         
-        [self showInfoAlertWithTitle:NSLocalizedString(@"Done", @"Done alert text") text:NSLocalizedString(@"Filtered tweets have deleted", @"Filtered tweets have deleted")];
+        [strongSelf showInfoAlertWithTitle:NSLocalizedString(@"Done", @"Done alert text") text:NSLocalizedString(@"Filtered tweets have deleted", @"Filtered tweets have deleted")];
     }];
 }
 
