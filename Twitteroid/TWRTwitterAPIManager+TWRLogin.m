@@ -32,6 +32,9 @@
     self.twitter = [STTwitterAPI twitterAPIWithOAuthConsumerKey:kTwitterApiKey consumerSecret:kTwitterApiSecret oauthToken:self.token oauthTokenSecret:self.tokenSecret];
     [self.twitter verifyCredentialsWithUserSuccessBlock:^(NSString *username, NSString *userID) {
         self.sessionLoginDone = YES;
+        [[TWRUserProfile sharedInstance] setUserID:userID];
+        [[TWRUserProfile sharedInstance] setUserNickname:username];
+        [[TWRTwitterAPIManager sharedInstance] fillUserProfile];
         completion(nil);
 
     } errorBlock:^(NSError *error) {

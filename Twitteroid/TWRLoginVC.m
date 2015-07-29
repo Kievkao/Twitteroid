@@ -25,8 +25,8 @@
     
     if ([[TWRTwitterAPIManager sharedInstance] isUserAlreadyLogged]) {
         [[TWRTwitterAPIManager sharedInstance] reloginWithCompletion:^(NSError *error) {
-            if (!error) {
-                [[TWRTwitterAPIManager sharedInstance] fillUserProfile];        
+            if (error) {
+                NSLog(@"Relogin failed");
             }
         }];
         
