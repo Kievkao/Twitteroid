@@ -40,12 +40,18 @@ NSString *const kTwitterApiSecret = @"FgJV89KXSGYf42opyMLFfZxk5J9fPIwITzYrKsZWG0
 }
 
 - (void)fillUserProfile {
-    [self.twitter getUserInformationFor:[[TWRUserProfile sharedInstance] userNickname] successBlock:^(NSDictionary *user) {
-        [[TWRUserProfile sharedInstance] setUserName:user[@"name"]];
-        [[TWRUserProfile sharedInstance] setUserAvatarByURL:[NSURL URLWithString:user[@"profile_image_url"]]];
-    } errorBlock:^(NSError *error) {
-        NSLog(@"Retrieving profile error");
-    }];
+
+    if ([[TWRUserProfile sharedInstance] userNickname]) {
+        [self.twitter getUserInformationFor:[[TWRUserProfile sharedInstance] userNickname] successBlock:^(NSDictionary *user) {
+            [[TWRUserProfile sharedInstance] setUserName:user[@"name"]];
+            [[TWRUserProfile sharedInstance] setUserAvatarByURL:[NSURL URLWithString:user[@"profile_image_url"]]];
+        } errorBlock:^(NSError *error) {
+            NSLog(@"Retrieving profile error");
+        }];
+    }
+    else {
+        NSLog(@"User nickname is empty");
+    }
 }
 
 #pragma mark - Getters, setters

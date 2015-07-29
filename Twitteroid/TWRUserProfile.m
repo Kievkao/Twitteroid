@@ -93,7 +93,7 @@ static NSString *const kUserAvatarKey = @"TWRUserAvatarKey";
 - (UIImage *)userAvatar {
     
     if (!_userAvatar) {
-        NSData *imageData = [[NSUserDefaults standardUserDefaults] objectForKey:kUserIDKey];
+        NSData *imageData = [[NSUserDefaults standardUserDefaults] objectForKey:kUserAvatarKey];
         _userAvatar = [UIImage imageWithData:imageData];
     }
     

@@ -13,7 +13,7 @@
 
 @interface TWRMedia : NSManagedObject
 
-@property (nonatomic, retain) NSString * mediaURL;
+@property (nonatomic, retain) NSString *mediaURL;
 @property (nonatomic) BOOL isPhoto;
 @property (nonatomic, retain) TWRTweet *tweet;
 

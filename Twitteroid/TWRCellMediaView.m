@@ -8,7 +8,6 @@
 
 #import "TWRCellMediaView.h"
 #import "UIImageView+WebCache.h"
-#import "YTPlayerView.h"
 
 @interface TWRCellMediaView()
 
@@ -18,35 +17,23 @@
 
 @implementation TWRCellMediaView
 
-- (void)setImages:(NSArray *)images {
-    
-    switch (images.count) {
-        case 1:
-            [self setupOneImage:images];
-            break;
-            
-        case 2:
-            [self setupTwoImages:images];
-            break;
-            
-        case 3:
-            [self setupThreeImages:images];
-            break;
-            
-        case 4:
-            [self setupFourImages:images];
-            break;
-            
-        default:
-            break;
-    }
-}
-
-- (void)setLinks:(NSArray *)links {
+- (void)setLinksToMedia:(NSArray *)links isForVideo:(BOOL)isForVideo {
     
     switch (links.count) {
         case 1:
-            [self setupYoutubeWebView:links];
+            [self setupOneMedia:links isForVideo:isForVideo];
+            break;
+            
+        case 2:
+            [self setupTwoMedias:links isForVideo:isForVideo];
+            break;
+            
+        case 3:
+            [self setupThreeMedias:links isForVideo:isForVideo];
+            break;
+            
+        case 4:
+            [self setupFourMedias:links isForVideo:isForVideo];
             break;
             
         default:
@@ -54,16 +41,6 @@
     }
 }
 
-- (void)setupYoutubeWebView:(NSArray *)links {
-    
-    YTPlayerView *playerView = [[YTPlayerView alloc] initForAutoLayout];
-    NSString *lastPath = [[links firstObject] lastPathComponent];
-    [self addSubview:playerView];
-    [self.mediaFrames addObject:playerView];
-    [playerView loadWithVideoId:lastPath];
-    
-    [playerView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero];
-}
 - (void)removeAllFrames {
     
     for (UIView *view in self.mediaFrames) {
@@ -73,14 +50,14 @@
     [self.mediaFrames removeAllObjects];
 }
 
-- (UIImageView *)createImageViewWithTag:(NSUInteger)tag {
+- (UIImageView *)createImageViewWithTag:(NSUInteger)tag isForVideo:(BOOL)isForVideo {
     
     UIImageView *imageView = [[UIImageView alloc] initForAutoLayout];
     imageView.contentMode = UIViewContentModeScaleAspectFill;
     imageView.clipsToBounds = YES;
     imageView.userInteractionEnabled = YES;
     imageView.tag = tag;
-    UITapGestureRecognizer *gestureRec = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleImageTapFrom:)];
+    UITapGestureRecognizer *gestureRec = [[UITapGestureRecognizer alloc] initWithTarget:self action:(isForVideo) ? @selector(handleVideoTapFrom:) : @selector(handleImageTapFrom:)];
     [imageView addGestureRecognizer:gestureRec];
     
     [self addSubview:imageView];
@@ -94,25 +71,46 @@
     UIImageView *tappedView = (UIImageView *)recognizer.view;
     
     if (self.mediaClickedBlock) {
-        self.mediaClickedBlock(tappedView.tag);
+        self.mediaClickedBlock(NO, tappedView.tag);
     }
 }
 
-- (void)setupOneImage:(NSArray *)images {
+- (void)handleVideoTapFrom:(UITapGestureRecognizer *)recognizer
+{
+    UIImageView *tappedView = (UIImageView *)recognizer.view;
     
-    UIImageView *imageView = [self createImageViewWithTag:0];
+    if (self.mediaClickedBlock) {
+        self.mediaClickedBlock(YES, tappedView.tag);
+    }
+}
+
+- (void)setupOneMedia:(NSArray *)images isForVideo:(BOOL)isForVideo {
     
-    [imageView sd_setImageWithURL:[NSURL URLWithString:[images firstObject]] placeholderImage:[UIImage mediaImagePlaceholder]];
+    UIImageView *imageView = [self createImageViewWithTag:0 isForVideo:isForVideo];
+    
+    if (isForVideo) {
+        [imageView setImage:[UIImage videoPlaceholder]];
+    }
+    else {
+        [imageView sd_setImageWithURL:[NSURL URLWithString:[images firstObject]] placeholderImage:[UIImage mediaImagePlaceholder]];
+    }
+    
     [imageView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero];
 }
 
-- (void)setupTwoImages:(NSArray *)images {
+- (void)setupTwoMedias:(NSArray *)links isForVideo:(BOOL)isForVideo {
 
-    UIImageView *imageView1 = [self createImageViewWithTag:0];
-    UIImageView *imageView2 = [self createImageViewWithTag:1];
+    UIImageView *imageView1 = [self createImageViewWithTag:0 isForVideo:isForVideo];
+    UIImageView *imageView2 = [self createImageViewWithTag:1 isForVideo:isForVideo];
     
-    [imageView1 sd_setImageWithURL:[NSURL URLWithString:[images firstObject]] placeholderImage:[UIImage mediaImagePlaceholder]];
-    [imageView2 sd_setImageWithURL:[NSURL URLWithString:[images lastObject]] placeholderImage:[UIImage mediaImagePlaceholder]];
+    if (isForVideo) {
+        [imageView1 setImage:[UIImage videoPlaceholder]];
+        [imageView2 setImage:[UIImage videoPlaceholder]];
+    }
+    else {
+        [imageView1 sd_setImageWithURL:[NSURL URLWithString:[links firstObject]] placeholderImage:[UIImage mediaImagePlaceholder]];
+        [imageView2 sd_setImageWithURL:[NSURL URLWithString:[links lastObject]] placeholderImage:[UIImage mediaImagePlaceholder]];
+    }
     
     [imageView1 autoPinEdgeToSuperviewEdge:ALEdgeTop];
     [imageView1 autoPinEdgeToSuperviewEdge:ALEdgeLeft];
@@ -125,15 +123,22 @@
     [imageView2 autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:imageView1];
 }
 
-- (void)setupThreeImages:(NSArray *)images {
+- (void)setupThreeMedias:(NSArray *)links isForVideo:(BOOL)isForVideo {
     
-    UIImageView *imageView1 = [self createImageViewWithTag:0];
-    UIImageView *imageView2 = [self createImageViewWithTag:1];
-    UIImageView *imageView3 = [self createImageViewWithTag:2];
+    UIImageView *imageView1 = [self createImageViewWithTag:0 isForVideo:isForVideo];
+    UIImageView *imageView2 = [self createImageViewWithTag:1 isForVideo:isForVideo];
+    UIImageView *imageView3 = [self createImageViewWithTag:2 isForVideo:isForVideo];
     
-    [imageView1 sd_setImageWithURL:[NSURL URLWithString:images[0]] placeholderImage:[UIImage mediaImagePlaceholder]];
-    [imageView2 sd_setImageWithURL:[NSURL URLWithString:images[1]] placeholderImage:[UIImage mediaImagePlaceholder]];
-    [imageView3 sd_setImageWithURL:[NSURL URLWithString:images[2]] placeholderImage:[UIImage mediaImagePlaceholder]];
+    if (isForVideo) {
+        [imageView1 setImage:[UIImage videoPlaceholder]];
+        [imageView2 setImage:[UIImage videoPlaceholder]];
+        [imageView3 setImage:[UIImage videoPlaceholder]];
+    }
+    else {
+        [imageView1 sd_setImageWithURL:[NSURL URLWithString:links[0]] placeholderImage:[UIImage mediaImagePlaceholder]];
+        [imageView2 sd_setImageWithURL:[NSURL URLWithString:links[1]] placeholderImage:[UIImage mediaImagePlaceholder]];
+        [imageView3 sd_setImageWithURL:[NSURL URLWithString:links[2]] placeholderImage:[UIImage mediaImagePlaceholder]];
+    }
     
     [imageView1 autoPinEdgeToSuperviewEdge:ALEdgeTop];
     [imageView1 autoPinEdgeToSuperviewEdge:ALEdgeLeft];
@@ -151,17 +156,25 @@
     [imageView3 autoMatchDimension:ALDimensionHeight toDimension:ALDimensionHeight ofView:imageView1 withMultiplier:0.5];
 }
 
-- (void)setupFourImages:(NSArray *)images {
+- (void)setupFourMedias:(NSArray *)links isForVideo:(BOOL)isForVideo {
     
-    UIImageView *imageView1 = [self createImageViewWithTag:0];
-    UIImageView *imageView2 = [self createImageViewWithTag:1];
-    UIImageView *imageView3 = [self createImageViewWithTag:2];
-    UIImageView *imageView4 = [self createImageViewWithTag:3];
+    UIImageView *imageView1 = [self createImageViewWithTag:0 isForVideo:isForVideo];
+    UIImageView *imageView2 = [self createImageViewWithTag:1 isForVideo:isForVideo];
+    UIImageView *imageView3 = [self createImageViewWithTag:2 isForVideo:isForVideo];
+    UIImageView *imageView4 = [self createImageViewWithTag:3 isForVideo:isForVideo];
     
-    [imageView1 sd_setImageWithURL:[NSURL URLWithString:images[0]] placeholderImage:[UIImage mediaImagePlaceholder]];
-    [imageView2 sd_setImageWithURL:[NSURL URLWithString:images[1]] placeholderImage:[UIImage mediaImagePlaceholder]];
-    [imageView3 sd_setImageWithURL:[NSURL URLWithString:images[2]] placeholderImage:[UIImage mediaImagePlaceholder]];
-    [imageView4 sd_setImageWithURL:[NSURL URLWithString:images[3]] placeholderImage:[UIImage mediaImagePlaceholder]];
+    if (isForVideo) {
+        [imageView1 setImage:[UIImage videoPlaceholder]];
+        [imageView2 setImage:[UIImage videoPlaceholder]];
+        [imageView3 setImage:[UIImage videoPlaceholder]];
+        [imageView4 setImage:[UIImage videoPlaceholder]];
+    }
+    else {
+        [imageView1 sd_setImageWithURL:[NSURL URLWithString:links[0]] placeholderImage:[UIImage mediaImagePlaceholder]];
+        [imageView2 sd_setImageWithURL:[NSURL URLWithString:links[1]] placeholderImage:[UIImage mediaImagePlaceholder]];
+        [imageView3 sd_setImageWithURL:[NSURL URLWithString:links[2]] placeholderImage:[UIImage mediaImagePlaceholder]];
+        [imageView4 sd_setImageWithURL:[NSURL URLWithString:links[3]] placeholderImage:[UIImage mediaImagePlaceholder]];
+    }
     
     [imageView1 autoPinEdgeToSuperviewEdge:ALEdgeTop];
     [imageView1 autoPinEdgeToSuperviewEdge:ALEdgeLeft];

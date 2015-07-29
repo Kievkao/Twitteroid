@@ -584,7 +584,64 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x9t-Xm-Y0U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="170" y="1664"/>
+            <point key="canvasLocation" x="57" y="1664"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ZZ1-fq-lRT">
+            <objects>
+                <navigationController storyboardIdentifier="TWRYoutubeRootNavC" id="hbA-rh-dq7" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Edc-22-ekH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="JWz-fM-N52" kind="relationship" relationship="rootViewController" id="tkC-qo-0Dl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mYg-It-tYn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-473" y="2353"/>
+        </scene>
+        <!--Youtube VideoVC-->
+        <scene sceneID="VBT-Vr-pwN">
+            <objects>
+                <viewController storyboardIdentifier="TWRYoutubeVideoVC" id="JWz-fM-N52" customClass="TWRYoutubeVideoVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NXd-mQ-QvK"/>
+                        <viewControllerLayoutGuide type="bottom" id="zGj-t9-aPU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0uA-qJ-woa">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nX3-cr-DCq" customClass="YTPlayerView">
+                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nX3-cr-DCq" firstAttribute="leading" secondItem="0uA-qJ-woa" secondAttribute="leading" id="6xh-PG-GbD"/>
+                            <constraint firstAttribute="trailing" secondItem="nX3-cr-DCq" secondAttribute="trailing" id="EZb-0I-3bd"/>
+                            <constraint firstItem="nX3-cr-DCq" firstAttribute="top" secondItem="NXd-mQ-QvK" secondAttribute="bottom" id="cex-D3-2wQ"/>
+                            <constraint firstItem="zGj-t9-aPU" firstAttribute="top" secondItem="nX3-cr-DCq" secondAttribute="bottom" id="rff-Ix-EIf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="i02-0V-IAO">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="02F-Vx-zs7">
+                            <connections>
+                                <action selector="doneClicked:" destination="JWz-fM-N52" id="QcA-4d-Jn2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="playerView" destination="nX3-cr-DCq" id="qhJ-rG-h2c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TPf-Vc-5pJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="250" y="2353"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="p6f-Uk-s1y">

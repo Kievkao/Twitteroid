@@ -84,9 +84,9 @@ static CGFloat const kMediaViewBottomSpace = 4.0;
     }];
     
     
-    [self.mediaView setMediaClickedBlock:^(NSUInteger index) {
-        if (weakSelf.imageClickedBlock) {
-            weakSelf.imageClickedBlock(index);
+    [self.mediaView setMediaClickedBlock:^(BOOL isVideo, NSUInteger index) {
+        if (weakSelf.mediaClickedBlock) {
+            weakSelf.mediaClickedBlock(isVideo, index);
         }
     }];
 }
@@ -110,12 +110,12 @@ static CGFloat const kMediaViewBottomSpace = 4.0;
 
 - (void)setImagesURLs:(NSArray *)imagesURLs {
     self.mediaViewHeight.constant = IS_IPHONE ? kIPhoneMediaHeight : kIPadMediaHeight;
-    [self.mediaView setImages:imagesURLs];
+    [self.mediaView setLinksToMedia:imagesURLs isForVideo:NO];
 }
 
-- (void)setLinksURLs:(NSArray *)linksURLs {
+- (void)setVideoURLs:(NSArray *)linksURLs {
     self.mediaViewHeight.constant = IS_IPHONE ? kIPhoneMediaHeight : kIPadMediaHeight;
-    [self.mediaView setLinks:linksURLs];
+    [self.mediaView setLinksToMedia:linksURLs isForVideo:YES];
 }
 
 - (void)setAuthorName:(NSString *)name {

@@ -97,6 +97,7 @@
 		DEC726B21B67C8B600155629 /* TWRSettingsManualVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC726B11B67C8B600155629 /* TWRSettingsManualVC.m */; };
 		DEC726B51B67C8C900155629 /* TWRSettingsAutoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC726B41B67C8C900155629 /* TWRSettingsAutoVC.m */; };
 		DED833D11B68C66C00A7A9E3 /* TWRUserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = DED833D01B68C66C00A7A9E3 /* TWRUserProfile.m */; };
+		DED833D71B68F19E00A7A9E3 /* TWRYoutubeVideoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DED833D61B68F19E00A7A9E3 /* TWRYoutubeVideoVC.m */; };
 		DEE2AB8C1B66483A001A28A6 /* KAOBorderedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AB8B1B66483A001A28A6 /* KAOBorderedButton.m */; };
 		DEE2AB8F1B66523E001A28A6 /* TWRBaseTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AB8E1B66523E001A28A6 /* TWRBaseTableVC.m */; };
 		DEE2AB921B665C99001A28A6 /* NSDate+Escort.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AB911B665C99001A28A6 /* NSDate+Escort.m */; };
@@ -311,6 +312,8 @@
 		DEC726B41B67C8C900155629 /* TWRSettingsAutoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRSettingsAutoVC.m; sourceTree = "<group>"; };
 		DED833CF1B68C66C00A7A9E3 /* TWRUserProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRUserProfile.h; sourceTree = "<group>"; };
 		DED833D01B68C66C00A7A9E3 /* TWRUserProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRUserProfile.m; sourceTree = "<group>"; };
+		DED833D51B68F19E00A7A9E3 /* TWRYoutubeVideoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRYoutubeVideoVC.h; sourceTree = "<group>"; };
+		DED833D61B68F19E00A7A9E3 /* TWRYoutubeVideoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRYoutubeVideoVC.m; sourceTree = "<group>"; };
 		DEE2AB8A1B66483A001A28A6 /* KAOBorderedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAOBorderedButton.h; sourceTree = "<group>"; };
 		DEE2AB8B1B66483A001A28A6 /* KAOBorderedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KAOBorderedButton.m; sourceTree = "<group>"; };
 		DEE2AB8D1B66523E001A28A6 /* TWRBaseTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRBaseTableVC.h; sourceTree = "<group>"; };
@@ -827,6 +830,8 @@
 				DEE2AC621B668DAA001A28A6 /* TWRGalleryDelegate.m */,
 				DE3905821B676AE200EBA653 /* TWRHashTweetsVC.h */,
 				DE3905831B676AE200EBA653 /* TWRHashTweetsVC.m */,
+				DED833D51B68F19E00A7A9E3 /* TWRYoutubeVideoVC.h */,
+				DED833D61B68F19E00A7A9E3 /* TWRYoutubeVideoVC.m */,
 			);
 			name = Feed;
 			sourceTree = "<group>";
@@ -1118,6 +1123,7 @@
 				DE0B9BE41B62403200CFC490 /* INSTwitterPullToRefresh.m in Sources */,
 				04AF025D1B60FE4A002CEB65 /* Twitteroid.xcdatamodeld in Sources */,
 				DEC726B21B67C8B600155629 /* TWRSettingsManualVC.m in Sources */,
+				DED833D71B68F19E00A7A9E3 /* TWRYoutubeVideoVC.m in Sources */,
 				04DEE6501B65563C00AE0E4A /* TWRMedia.m in Sources */,
 				04AF02B61B6104B0002CEB65 /* STHTTPRequest.m in Sources */,
 				04E392001B6527CB00F9A9C5 /* UIImageView+WebCache.m in Sources */,

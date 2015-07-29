@@ -22,6 +22,7 @@
 #import "TWRGalleryDelegate.h"
 #import "TWRHashTweetsVC.h"
 #import "TWRSettingsVC.h"
+#import "TWRYoutubeVideoVC.h"
 
 NSUInteger const kTweetsLoadingPortion = 20;
 
@@ -297,21 +298,27 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
         [self.navigationController pushViewController:locationVC animated:YES];
     };
     
-    cell.imageClickedBlock = ^(NSUInteger index) {
+    cell.mediaClickedBlock = ^(BOOL isVideo, NSUInteger index) {
         
-        NSMutableArray *imagesURLs = [NSMutableArray new];
+        NSMutableArray *mediasURLs = [NSMutableArray new];
         
         for (TWRMedia *media in tweet.medias) {
-            [imagesURLs addObject:media.mediaURL];
+            [mediasURLs addObject:media.mediaURL];
         }
         
-        [imagesURLs replaceObjectAtIndex:0 withObject:[imagesURLs objectAtIndex:index]];
-        
-        TWRGalleryDelegate *galleryDelegate = [[TWRGalleryDelegate alloc] initWithImagesURLs:imagesURLs];
-        
-        EBPhotoPagesController *photoPagesController = [[EBPhotoPagesController alloc] initWithDataSource:galleryDelegate delegate:galleryDelegate];
-        
-        [self presentViewController:photoPagesController animated:YES completion:nil];
+        if (isVideo) {
+            UINavigationController *videoRootNavC = [self.storyboard instantiateViewControllerWithIdentifier:[TWRYoutubeVideoVC rootNavigationIdentifier]];
+            TWRYoutubeVideoVC *videoVC = [[videoRootNavC childViewControllers] firstObject];
+            videoVC.youtubeLinkStr = mediasURLs[index];
+            [self presentViewController:videoRootNavC animated:YES completion:nil];
+        }
+        else {
+            [mediasURLs replaceObjectAtIndex:0 withObject:[mediasURLs objectAtIndex:index]];
+
+            TWRGalleryDelegate *galleryDelegate = [[TWRGalleryDelegate alloc] initWithImagesURLs:mediasURLs];
+            EBPhotoPagesController *photoPagesController = [[EBPhotoPagesController alloc] initWithDataSource:galleryDelegate delegate:galleryDelegate];
+            [self presentViewController:photoPagesController animated:YES completion:nil];
+        }
     };
     
     [cell setLocationBtnVisible:(tweet.place) ? YES : NO];
@@ -330,7 +337,7 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
             }
             else {
                 // for preventing big amount of unconvinient UIWebView, dsiplay preview only for the last link
-                [cell setLinksURLs:@[[mediaUrlsArray firstObject]]];
+                [cell setVideoURLs:@[[mediaUrlsArray firstObject]]];
             }
     }
     else {

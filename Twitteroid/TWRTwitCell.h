@@ -13,7 +13,7 @@
 @property (nonatomic, strong) void (^hashtagClickedBlock)(NSString *hashtag);
 @property (nonatomic, strong) void (^webLinkClickedBlock)(NSURL *clickedUrl);
 @property (nonatomic, strong) void (^locationBtnClickedBlock)();
-@property (nonatomic, strong) void (^imageClickedBlock)(NSUInteger index);
+@property (nonatomic, strong) void (^mediaClickedBlock)(BOOL isVideo, NSUInteger index);
 
 + (CGFloat)cellHeightForTableViewWidth:(CGFloat)tableViewWidth tweetText:(NSString *)text mediaPresent:(BOOL)isMediaPresent;
 
@@ -23,7 +23,7 @@
 - (void)setAuthorAvatarByURLStr:(NSString *)avatarUrl;
 
 - (void)setImagesURLs:(NSArray *)imagesURLs;
-- (void)setLinksURLs:(NSArray *)linksURLs;
+- (void)setVideoURLs:(NSArray *)linksURLs;
 - (void)hideMediaFrame;
 - (void)setLocationBtnVisible:(BOOL)visible;
 

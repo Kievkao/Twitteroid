@@ -24,7 +24,12 @@
     [super viewDidLoad];
     
     if ([[TWRTwitterAPIManager sharedInstance] isUserAlreadyLogged]) {
-        [[TWRTwitterAPIManager sharedInstance] fillUserProfile];
+        [[TWRTwitterAPIManager sharedInstance] reloginWithCompletion:^(NSError *error) {
+            if (!error) {
+                [[TWRTwitterAPIManager sharedInstance] fillUserProfile];        
+            }
+        }];
+        
         [self openFeedViewController];
     }
 }
