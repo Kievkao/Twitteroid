@@ -15,7 +15,10 @@
 @property (nonatomic, strong) void (^locationBtnClickedBlock)();
 @property (nonatomic, strong) void (^mediaClickedBlock)(BOOL isVideo, NSUInteger index);
 
-+ (CGFloat)cellHeightForTableViewWidth:(CGFloat)tableViewWidth tweetText:(NSString *)text mediaPresent:(BOOL)isMediaPresent;
++ (CGFloat)cellHeightForTableViewWidth:(CGFloat)tableViewWidth
+                             tweetText:(NSString *)text
+                          mediaPresent:(BOOL)isMediaPresent
+                             retwitted:(BOOL)isRetwitted;
 
 - (void)setTwitText:(NSString *)text;
 - (void)setAuthorName:(NSString *)name;
@@ -26,5 +29,6 @@
 - (void)setVideoURLs:(NSArray *)linksURLs;
 - (void)hideMediaFrame;
 - (void)setLocationBtnVisible:(BOOL)visible;
+- (void)setRetwittedViewVisible:(BOOL)visible withRetweetAuthor:(NSString *)author;
 
 @end

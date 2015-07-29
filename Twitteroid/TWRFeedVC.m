@@ -252,7 +252,12 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
         isMedia = YES;
     }
     
-    return [TWRTwitCell cellHeightForTableViewWidth:CGRectGetWidth(tableView.frame) tweetText:tweet.text mediaPresent:isMedia];
+    BOOL isRetwitted = NO;
+    if (tweet.isRetwitted.boolValue) {
+        isRetwitted = YES;
+    }
+    
+    return [TWRTwitCell cellHeightForTableViewWidth:CGRectGetWidth(tableView.frame) tweetText:tweet.text mediaPresent:isMedia retwitted:isRetwitted];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -322,6 +327,13 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
     };
     
     [cell setLocationBtnVisible:(tweet.place) ? YES : NO];
+    
+    if (tweet.isRetwitted.boolValue) {
+        [cell setRetwittedViewVisible:YES withRetweetAuthor:tweet.retwittedBy];
+    }
+    else {
+        [cell setRetwittedViewVisible:NO withRetweetAuthor:nil];
+    }
     
     if (tweet.medias.count) {
             NSMutableArray *mediaUrlsArray = [NSMutableArray new];

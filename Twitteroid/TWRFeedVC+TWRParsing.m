@@ -92,7 +92,6 @@
                 NSMutableSet *hashtags = [NSMutableSet set];
                 
                 for (NSDictionary *hash in hastagsArray) {
-                    
                     NSArray *indicies = hash[@"indicies"];
                     TWRHashtag *hashtag = [TWRCoreDataManager insertNewHashtag];
                     hashtag.startIndex = [[indicies firstObject] intValue];
@@ -102,11 +101,11 @@
                     
                     [hashtags addObject:hashtag];
                 }
-                
                 tweet.hashtags = hashtags;
             }
             
         }
+        
         if (oneItem[@"extended_entities"]) {
             NSDictionary *extEntities = oneItem[@"extended_entities"];
             NSArray *mediaArray = extEntities[@"media"];
