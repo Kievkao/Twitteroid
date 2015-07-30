@@ -9,6 +9,8 @@
 #import "TWRCellMediaView.h"
 #import "UIImageView+WebCache.h"
 
+static CGFloat const kMediaFrameDistanceMultiplier = 0.49;
+
 @interface TWRCellMediaView()
 
 @property (nonatomic, strong) NSMutableArray *mediaFrames;
@@ -115,7 +117,7 @@
     [imageView1 autoPinEdgeToSuperviewEdge:ALEdgeTop];
     [imageView1 autoPinEdgeToSuperviewEdge:ALEdgeLeft];
     [imageView1 autoPinEdgeToSuperviewEdge:ALEdgeBottom];
-    [imageView1 autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self withMultiplier:0.5];
+    [imageView1 autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self withMultiplier:kMediaFrameDistanceMultiplier];
     
     [imageView2 autoPinEdgeToSuperviewEdge:ALEdgeTop];
     [imageView2 autoPinEdgeToSuperviewEdge:ALEdgeRight];
@@ -143,17 +145,17 @@
     [imageView1 autoPinEdgeToSuperviewEdge:ALEdgeTop];
     [imageView1 autoPinEdgeToSuperviewEdge:ALEdgeLeft];
     [imageView1 autoPinEdgeToSuperviewEdge:ALEdgeBottom];
-    [imageView1 autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self withMultiplier:0.5];
+    [imageView1 autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self withMultiplier:kMediaFrameDistanceMultiplier];
     
     [imageView2 autoPinEdgeToSuperviewEdge:ALEdgeTop];
     [imageView2 autoPinEdgeToSuperviewEdge:ALEdgeRight];
     [imageView2 autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:imageView1];
-    [imageView2 autoMatchDimension:ALDimensionHeight toDimension:ALDimensionHeight ofView:imageView1 withMultiplier:0.5];
+    [imageView2 autoMatchDimension:ALDimensionHeight toDimension:ALDimensionHeight ofView:imageView1 withMultiplier:kMediaFrameDistanceMultiplier];
     
     [imageView3 autoPinEdgeToSuperviewEdge:ALEdgeBottom];
     [imageView3 autoPinEdgeToSuperviewEdge:ALEdgeRight];
     [imageView3 autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:imageView1];
-    [imageView3 autoMatchDimension:ALDimensionHeight toDimension:ALDimensionHeight ofView:imageView1 withMultiplier:0.5];
+    [imageView3 autoMatchDimension:ALDimensionHeight toDimension:ALDimensionHeight ofView:imageView1 withMultiplier:kMediaFrameDistanceMultiplier];
 }
 
 - (void)setupFourMedias:(NSArray *)links isForVideo:(BOOL)isForVideo {
@@ -178,23 +180,23 @@
     
     [imageView1 autoPinEdgeToSuperviewEdge:ALEdgeTop];
     [imageView1 autoPinEdgeToSuperviewEdge:ALEdgeLeft];
-    [imageView1 autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self withMultiplier:0.5];
-    [imageView1 autoMatchDimension:ALDimensionHeight toDimension:ALDimensionHeight ofView:self withMultiplier:0.5];
+    [imageView1 autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self withMultiplier:kMediaFrameDistanceMultiplier];
+    [imageView1 autoMatchDimension:ALDimensionHeight toDimension:ALDimensionHeight ofView:self withMultiplier:kMediaFrameDistanceMultiplier];
     
     [imageView2 autoPinEdgeToSuperviewEdge:ALEdgeBottom];
     [imageView2 autoPinEdgeToSuperviewEdge:ALEdgeLeft];
-    [imageView2 autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self withMultiplier:0.5];
-    [imageView2 autoMatchDimension:ALDimensionHeight toDimension:ALDimensionHeight ofView:self withMultiplier:0.5];
+    [imageView2 autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self withMultiplier:kMediaFrameDistanceMultiplier];
+    [imageView2 autoMatchDimension:ALDimensionHeight toDimension:ALDimensionHeight ofView:self withMultiplier:kMediaFrameDistanceMultiplier];
 
     [imageView3 autoPinEdgeToSuperviewEdge:ALEdgeTop];
     [imageView3 autoPinEdgeToSuperviewEdge:ALEdgeRight];
-    [imageView3 autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self withMultiplier:0.5];
-    [imageView3 autoMatchDimension:ALDimensionHeight toDimension:ALDimensionHeight ofView:self withMultiplier:0.5];
+    [imageView3 autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self withMultiplier:kMediaFrameDistanceMultiplier];
+    [imageView3 autoMatchDimension:ALDimensionHeight toDimension:ALDimensionHeight ofView:self withMultiplier:kMediaFrameDistanceMultiplier];
 
     [imageView4 autoPinEdgeToSuperviewEdge:ALEdgeBottom];
     [imageView4 autoPinEdgeToSuperviewEdge:ALEdgeRight];
-    [imageView4 autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self withMultiplier:0.5];
-    [imageView4 autoMatchDimension:ALDimensionHeight toDimension:ALDimensionHeight ofView:self withMultiplier:0.5];
+    [imageView4 autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self withMultiplier:kMediaFrameDistanceMultiplier];
+    [imageView4 autoMatchDimension:ALDimensionHeight toDimension:ALDimensionHeight ofView:self withMultiplier:kMediaFrameDistanceMultiplier];
 
 }
 

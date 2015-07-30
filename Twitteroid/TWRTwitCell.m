@@ -128,6 +128,7 @@ static CGFloat const kRetweetViewFullHeight = 25.0;
 }
 
 - (void)setImagesURLs:(NSArray *)imagesURLs {
+    [self.mediaView removeAllFrames];
     self.mediaViewHeight.constant = IS_IPHONE ? kIPhoneMediaHeight : kIPadMediaHeight;
     [self.mediaView setLinksToMedia:imagesURLs isForVideo:NO];
 }
