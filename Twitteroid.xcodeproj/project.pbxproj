@@ -487,9 +487,8 @@
 		04AF02541B60FE49002CEB65 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				043AB9B61B641165005F2BD5 /* Reachability */,
 				DE0B9BF91B62694100CFC490 /* Categories */,
-				04AF02881B61046F002CEB65 /* Libraries */,
+				04AF02881B61046F002CEB65 /* Vendors */,
 				04AF02831B6103E4002CEB65 /* Frameworks */,
 				04AF02551B60FE49002CEB65 /* Info.plist */,
 				04AF02561B60FE49002CEB65 /* main.m */,
@@ -531,9 +530,6 @@
 			isa = PBXGroup;
 			children = (
 				DED833CB1B68C23C00A7A9E3 /* BHRRoundedImageView */,
-				04DF7FC91B64CFBA00907D1B /* RQShineLabel */,
-				04D9CD3A1B642AC3006B224D /* STTweetLabel */,
-				DEE2AB9D1B667261001A28A6 /* YTPlayerView */,
 				DEE2AB891B664825001A28A6 /* KAOBorderedButton */,
 				04DEE6511B6557B100AE0E4A /* TWRCellMediaView */,
 				047B07201B6158EC0058316F /* Cells */,
@@ -554,7 +550,6 @@
 		04AF02871B61042F002CEB65 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				DEE2AC2D1B668CCF001A28A6 /* EBPhotoPagesController */,
 				DE0B9C321B66276C00CFC490 /* Settings */,
 				04DEE6591B656AE500AE0E4A /* LocationVC */,
 				DE0B9C111B6273A800CFC490 /* Feed */,
@@ -563,9 +558,14 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		04AF02881B61046F002CEB65 /* Libraries */ = {
+		04AF02881B61046F002CEB65 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				043AB9B61B641165005F2BD5 /* Reachability */,
+				DEE2AC2D1B668CCF001A28A6 /* EBPhotoPagesController */,
+				04DF7FC91B64CFBA00907D1B /* RQShineLabel */,
+				04D9CD3A1B642AC3006B224D /* STTweetLabel */,
+				DEE2AB9D1B667261001A28A6 /* YTPlayerView */,
 				04E391D01B6527C100F9A9C5 /* SDWebImage */,
 				04E391C01B65106400F9A9C5 /* PureLayout */,
 				DE0B9BD51B62333C00CFC490 /* INSPullToRefresh */,
@@ -573,7 +573,7 @@
 				04AF02D21B611CD8002CEB65 /* SSKeychain */,
 				04AF02891B61048D002CEB65 /* STTwitter */,
 			);
-			name = Libraries;
+			name = Vendors;
 			sourceTree = "<group>";
 		};
 		04AF02891B61048D002CEB65 /* STTwitter */ = {
