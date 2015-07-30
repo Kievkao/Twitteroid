@@ -96,6 +96,7 @@
 		DEC726AF1B67C45000155629 /* BHRRoundedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC726AE1B67C45000155629 /* BHRRoundedImageView.m */; };
 		DEC726B21B67C8B600155629 /* TWRSettingsManualVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC726B11B67C8B600155629 /* TWRSettingsManualVC.m */; };
 		DEC726B51B67C8C900155629 /* TWRSettingsAutoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC726B41B67C8C900155629 /* TWRSettingsAutoVC.m */; };
+		DED500211B6A46AB008921F0 /* NSDate+NVTimeAgo.m in Sources */ = {isa = PBXBuildFile; fileRef = DED500201B6A46AB008921F0 /* NSDate+NVTimeAgo.m */; };
 		DED833D11B68C66C00A7A9E3 /* TWRUserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = DED833D01B68C66C00A7A9E3 /* TWRUserProfile.m */; };
 		DED833D71B68F19E00A7A9E3 /* TWRYoutubeVideoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DED833D61B68F19E00A7A9E3 /* TWRYoutubeVideoVC.m */; };
 		DEE2AB8C1B66483A001A28A6 /* KAOBorderedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AB8B1B66483A001A28A6 /* KAOBorderedButton.m */; };
@@ -310,6 +311,8 @@
 		DEC726B11B67C8B600155629 /* TWRSettingsManualVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRSettingsManualVC.m; sourceTree = "<group>"; };
 		DEC726B31B67C8C900155629 /* TWRSettingsAutoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRSettingsAutoVC.h; sourceTree = "<group>"; };
 		DEC726B41B67C8C900155629 /* TWRSettingsAutoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRSettingsAutoVC.m; sourceTree = "<group>"; };
+		DED5001F1B6A46AB008921F0 /* NSDate+NVTimeAgo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+NVTimeAgo.h"; sourceTree = "<group>"; };
+		DED500201B6A46AB008921F0 /* NSDate+NVTimeAgo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+NVTimeAgo.m"; sourceTree = "<group>"; };
 		DED833CF1B68C66C00A7A9E3 /* TWRUserProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRUserProfile.h; sourceTree = "<group>"; };
 		DED833D01B68C66C00A7A9E3 /* TWRUserProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRUserProfile.m; sourceTree = "<group>"; };
 		DED833D51B68F19E00A7A9E3 /* TWRYoutubeVideoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRYoutubeVideoVC.h; sourceTree = "<group>"; };
@@ -781,6 +784,8 @@
 		DE0B9BF91B62694100CFC490 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				DED5001F1B6A46AB008921F0 /* NSDate+NVTimeAgo.h */,
+				DED500201B6A46AB008921F0 /* NSDate+NVTimeAgo.m */,
 				DEE2AB901B665C99001A28A6 /* NSDate+Escort.h */,
 				DEE2AB911B665C99001A28A6 /* NSDate+Escort.m */,
 				043AB9B71B64117E005F2BD5 /* UIColor+TWRColors.h */,
@@ -1114,6 +1119,7 @@
 				DEE2AC511B668CD7001A28A6 /* EBCaptionView.m in Sources */,
 				043AB9B91B64117E005F2BD5 /* UIColor+TWRColors.m in Sources */,
 				047B07231B6159010058316F /* TWRBaseTableViewCell.m in Sources */,
+				DED500211B6A46AB008921F0 /* NSDate+NVTimeAgo.m in Sources */,
 				DEE2AB8F1B66523E001A28A6 /* TWRBaseTableVC.m in Sources */,
 				DE0B9BE81B62417500CFC490 /* INSCircleInfiniteIndicator.m in Sources */,
 				DED833D11B68C66C00A7A9E3 /* TWRUserProfile.m in Sources */,

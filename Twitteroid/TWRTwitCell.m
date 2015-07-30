@@ -17,7 +17,7 @@ static CGFloat const kIPadMediaHeight = 300.0;
 static CGFloat const kMinimumCellHeight = 75.0;
 
 static CGFloat const kCellSideSpace = 8.0;
-static CGFloat const kTweetTextTopToBackViewSpace = 32.0;
+static CGFloat const kTweetTextTopToBackViewSpace = 40.0;
 static CGFloat const kAuthorAvatarImageViewWidth = 43.0;
 
 static CGFloat const kCellBottomSpace = 4.0;
@@ -35,6 +35,7 @@ static CGFloat const kRetweetViewFullHeight = 25.0;
 @property (weak, nonatomic) IBOutlet UIButton *locationBtn;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *retwitViewHeight;
 @property (weak, nonatomic) IBOutlet UILabel *retweetAuthorLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
 @end
 
@@ -136,6 +137,10 @@ static CGFloat const kRetweetViewFullHeight = 25.0;
 - (void)setVideoURLs:(NSArray *)linksURLs {
     self.mediaViewHeight.constant = IS_IPHONE ? kIPhoneMediaHeight : kIPadMediaHeight;
     [self.mediaView setLinksToMedia:linksURLs isForVideo:YES];
+}
+
+- (void)setTweetTime:(NSString *)timeStr {
+    self.timeLabel.text = [NSString stringWithFormat:@"- %@", timeStr];
 }
 
 - (void)setAuthorName:(NSString *)name {

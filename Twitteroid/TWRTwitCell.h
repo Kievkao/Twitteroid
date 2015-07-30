@@ -30,5 +30,6 @@
 - (void)hideMediaFrame;
 - (void)setLocationBtnVisible:(BOOL)visible;
 - (void)setRetwittedViewVisible:(BOOL)visible withRetweetAuthor:(NSString *)author;
+- (void)setTweetTime:(NSString *)timeStr;
 
 @end

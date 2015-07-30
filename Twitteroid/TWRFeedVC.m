@@ -23,6 +23,7 @@
 #import "TWRHashTweetsVC.h"
 #import "TWRSettingsVC.h"
 #import "TWRYoutubeVideoVC.h"
+#import "NSDate+NVTimeAgo.h"
 
 NSUInteger const kTweetsLoadingPortion = 20;
 
@@ -286,6 +287,7 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
     [cell setTwitText:tweet.text];
     [cell setAuthorAvatarByURLStr:tweet.userAvatarURL];
     [cell setLocationBtnVisible:(tweet.place) ? YES : NO];
+    [cell setTweetTime:[tweet.createdAt formattedAsTimeAgo]];
     
     if (tweet.isRetwitted.boolValue) {
         [cell setRetwittedViewVisible:YES withRetweetAuthor:tweet.retwittedBy];
