@@ -27,7 +27,6 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-    NSLog(@"%@", request.URL.absoluteString);
     if ([request.URL.absoluteString containsString:@"myapp.here.com"]) {
         
         NSDictionary *oauthResponseDict = [self parametersDictionaryFromQueryString:[request.URL query]];
@@ -64,6 +63,10 @@
     }
     
     return md;
+}
+
+- (IBAction)cancelClicked:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

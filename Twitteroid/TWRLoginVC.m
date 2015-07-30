@@ -40,6 +40,14 @@
     [self.welcomeShineLabel shine];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    if (self.navigationController.presentedViewController) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    }
+}
+
 - (IBAction)loginBtnClicked:(id)sender {
     [self peformLogin];
 }
