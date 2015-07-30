@@ -17,7 +17,7 @@ static CGFloat const kIPadMediaHeight = 300.0;
 static CGFloat const kMinimumCellHeight = 75.0;
 
 static CGFloat const kCellSideSpace = 8.0;
-static CGFloat const kTweetTextTopToBackViewSpace = 40.0;
+static CGFloat const kTweetTextTopToBackViewSpace = 45.0;
 static CGFloat const kAuthorAvatarImageViewWidth = 43.0;
 
 static CGFloat const kCellBottomSpace = 4.0;
@@ -60,7 +60,7 @@ static CGFloat const kRetweetViewFullHeight = 25.0;
         fixedSpaces += kRetweetViewFullHeight;
     }
     
-    CGFloat tweetTextLabelWidth = tableViewWidth - kCellBottomSpace*5 - kAuthorAvatarImageViewWidth;
+    CGFloat tweetTextLabelWidth = tableViewWidth - kCellSideSpace*4 - kAuthorAvatarImageViewWidth;
     CGSize maxTweetTextLabelSize = CGSizeMake(tweetTextLabelWidth, MAXFLOAT);
     
     CGRect rectForTweetText = [text boundingRectWithSize:maxTweetTextLabelSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont tweetTextFont]} context:nil];
@@ -140,7 +140,7 @@ static CGFloat const kRetweetViewFullHeight = 25.0;
 }
 
 - (void)setTweetTime:(NSString *)timeStr {
-    self.timeLabel.text = [NSString stringWithFormat:@"- %@", timeStr];
+    self.timeLabel.text = timeStr;
 }
 
 - (void)setAuthorName:(NSString *)name {

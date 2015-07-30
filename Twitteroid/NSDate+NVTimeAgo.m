@@ -191,9 +191,9 @@
     
     //Handle Plural
     if(minutesSince == 1)
-        return @"1m";
+        return @"1 minute ago";
     else
-        return [NSString stringWithFormat:@"%dm", minutesSince];
+        return [NSString stringWithFormat:@"%d minutes ago", minutesSince];
 }
 
 
@@ -205,16 +205,21 @@
     
     //Handle Plural
     if(hoursSince == 1)
-        return @"1h";
+        return @"1 hour ago";
     else
-        return [NSString stringWithFormat:@"%dh", hoursSince];
+        return [NSString stringWithFormat:@"%d hours ago", hoursSince];
 }
 
 
 // Yesterday = "Yesterday at 1:28 PM"
 - (NSString *)formatAsYesterday
 {
-    return @"Yesterday";
+    //Create date formatter
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    
+    //Format
+    [dateFormatter setDateFormat:@"h:mm a"];
+    return [NSString stringWithFormat:@"Yesterday at %@", [dateFormatter stringFromDate:self]];
 }
 
 
@@ -225,7 +230,7 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 
     //Format
-    [dateFormatter setDateFormat:@"EEEE"];
+    [dateFormatter setDateFormat:@"EEEE 'at' h:mm a"];
     return [dateFormatter stringFromDate:self];
 }
 
@@ -237,7 +242,7 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     
     //Format
-    [dateFormatter setDateFormat:@"MMM d"];
+    [dateFormatter setDateFormat:@"MMMM d 'at' h:mm a"];
     return [dateFormatter stringFromDate:self];
 }
 
@@ -249,7 +254,7 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     
     //Format
-    [dateFormatter setDateFormat:@"MMM d"];
+    [dateFormatter setDateFormat:@"MMMM d"];
     return [dateFormatter stringFromDate:self];
 }
 
@@ -261,7 +266,7 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     
     //Format
-    [dateFormatter setDateFormat:@"LLL d, yyyy"];
+    [dateFormatter setDateFormat:@"LLLL d, yyyy"];
     return [dateFormatter stringFromDate:self];
 }
 
