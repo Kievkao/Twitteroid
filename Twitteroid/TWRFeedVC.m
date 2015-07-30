@@ -296,20 +296,21 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
         [cell setRetwittedViewVisible:NO withRetweetAuthor:nil];
     }
     
+    __weak typeof(self)weakSelf = self;
     cell.webLinkClickedBlock = ^(NSURL *url) {
         [[UIApplication sharedApplication] openURL:url];
     };
     
     cell.hashtagClickedBlock = ^(NSString *hashtag) {
-        TWRHashTweetsVC *hashVC = [self.storyboard instantiateViewControllerWithIdentifier:[TWRHashTweetsVC identifier]];
+        TWRHashTweetsVC *hashVC = [weakSelf.storyboard instantiateViewControllerWithIdentifier:[TWRHashTweetsVC identifier]];
         hashVC.hashTag = hashtag;
-        [self.navigationController pushViewController:hashVC animated:YES];
+        [weakSelf.navigationController pushViewController:hashVC animated:YES];
     };
     
     cell.locationBtnClickedBlock = ^() {
-        TWRLocationVC *locationVC = [self.storyboard instantiateViewControllerWithIdentifier:[TWRLocationVC identifier]];
+        TWRLocationVC *locationVC = [weakSelf.storyboard instantiateViewControllerWithIdentifier:[TWRLocationVC identifier]];
         locationVC.coordinates = CLLocationCoordinate2DMake(tweet.place.lattitude, tweet.place.longitude);
-        [self.navigationController pushViewController:locationVC animated:YES];
+        [weakSelf.navigationController pushViewController:locationVC animated:YES];
     };
     
     cell.mediaClickedBlock = ^(BOOL isVideo, NSUInteger index) {
@@ -321,17 +322,17 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
         }
         
         if (isVideo) {
-            UINavigationController *videoRootNavC = [self.storyboard instantiateViewControllerWithIdentifier:[TWRYoutubeVideoVC rootNavigationIdentifier]];
+            UINavigationController *videoRootNavC = [weakSelf.storyboard instantiateViewControllerWithIdentifier:[TWRYoutubeVideoVC rootNavigationIdentifier]];
             TWRYoutubeVideoVC *videoVC = [[videoRootNavC childViewControllers] firstObject];
             videoVC.youtubeLinkStr = mediasURLs[index];
-            [self presentViewController:videoRootNavC animated:YES completion:nil];
+            [weakSelf presentViewController:videoRootNavC animated:YES completion:nil];
         }
         else {
             [mediasURLs replaceObjectAtIndex:0 withObject:[mediasURLs objectAtIndex:index]];
 
             TWRGalleryDelegate *galleryDelegate = [[TWRGalleryDelegate alloc] initWithImagesURLs:mediasURLs];
             EBPhotoPagesController *photoPagesController = [[EBPhotoPagesController alloc] initWithDataSource:galleryDelegate delegate:galleryDelegate];
-            [self presentViewController:photoPagesController animated:YES completion:nil];
+            [weakSelf presentViewController:photoPagesController animated:YES completion:nil];
         }
     };
     
