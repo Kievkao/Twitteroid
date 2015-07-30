@@ -214,12 +214,7 @@
 // Yesterday = "Yesterday at 1:28 PM"
 - (NSString *)formatAsYesterday
 {
-    //Create date formatter
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    
-    //Format
-    [dateFormatter setDateFormat:@"h:mm a"];
-    return [NSString stringWithFormat:@"Yesterday at %@", [dateFormatter stringFromDate:self]];
+    return @"Yesterday";
 }
 
 
@@ -230,7 +225,7 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 
     //Format
-    [dateFormatter setDateFormat:@"EEEE 'at' h:mm a"];
+    [dateFormatter setDateFormat:@"EEEE"];
     return [dateFormatter stringFromDate:self];
 }
 
@@ -242,7 +237,7 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     
     //Format
-    [dateFormatter setDateFormat:@"MMMM d 'at' h:mm a"];
+    [dateFormatter setDateFormat:@"MMM d"];
     return [dateFormatter stringFromDate:self];
 }
 
@@ -254,7 +249,7 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     
     //Format
-    [dateFormatter setDateFormat:@"MMMM d"];
+    [dateFormatter setDateFormat:@"MMM d"];
     return [dateFormatter stringFromDate:self];
 }
 
@@ -266,7 +261,7 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     
     //Format
-    [dateFormatter setDateFormat:@"LLLL d, yyyy"];
+    [dateFormatter setDateFormat:@"LLL d, yyyy"];
     return [dateFormatter stringFromDate:self];
 }
 
