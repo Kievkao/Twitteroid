@@ -13,7 +13,7 @@
 #import "UIImageView+WebCache.h"
 
 static CGFloat const kIPhoneMediaHeight = 200.0;
-static CGFloat const kIPadMediaHeight = 300.0;
+static CGFloat const kIPadMediaHeight = 350.0;
 static CGFloat const kMinimumCellHeight = 75.0;
 
 static CGFloat const kCellSideSpace = 8.0;
