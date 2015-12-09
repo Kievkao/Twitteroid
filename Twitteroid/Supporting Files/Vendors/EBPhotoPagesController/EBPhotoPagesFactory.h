@@ -61,12 +61,14 @@
 - (UIBarButtonItem *)tagBarButtonItemForPhotoPagesController:(EBPhotoPagesController *)controller;
 - (UIBarButtonItem *)doneTaggingBarButtonItemForPhotoPagesController:(EBPhotoPagesController *)controller;
 
-
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 - (UIActionSheet *)photoPagesController:(EBPhotoPagesController *)controller
                actionSheetForTagPopover:(EBTagPopover *)tagPopover
                          inPhotoAtIndex:(NSInteger)index;
 - (UIActionSheet *)photoPagesController:(EBPhotoPagesController *)controller
              actionSheetForPhotoAtIndex:(NSInteger)index;
+#pragma GCC diagnostic pop
 - (NSInteger)tagIdForTagActionSheet;
 - (NSInteger)tagIdForPhotoActionSheet;
 - (NSString *)actionSheetReportButtonTitle;

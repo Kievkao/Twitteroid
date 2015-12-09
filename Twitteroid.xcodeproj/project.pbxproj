@@ -38,7 +38,7 @@
 		04AF02A91B6104A5002CEB65 /* STTwitterHTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AF02981B6104A5002CEB65 /* STTwitterHTML.m */; };
 		04AF02AA1B6104A5002CEB65 /* STTwitterOAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AF029A1B6104A5002CEB65 /* STTwitterOAuth.m */; };
 		04AF02AB1B6104A5002CEB65 /* STTwitterOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AF029C1B6104A5002CEB65 /* STTwitterOS.m */; };
-		04AF02AC1B6104A5002CEB65 /* STTwitterOSRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AF029E1B6104A5002CEB65 /* STTwitterOSRequest.m */; };
+		04AF02AC1B6104A5002CEB65 /* STTwitterOSRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AF029E1B6104A5002CEB65 /* STTwitterOSRequest.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		04AF02AD1B6104A5002CEB65 /* STTwitterStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AF02A21B6104A5002CEB65 /* STTwitterStreamParser.m */; };
 		04AF02B41B6104B0002CEB65 /* BAVPlistNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AF02AF1B6104B0002CEB65 /* BAVPlistNode.m */; };
 		04AF02B51B6104B0002CEB65 /* JSONSyntaxHighlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AF02B11B6104B0002CEB65 /* JSONSyntaxHighlight.m */; };
@@ -108,8 +108,8 @@
 		DEE2AC521B668CD7001A28A6 /* EBCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AC311B668CD7001A28A6 /* EBCommentCell.m */; };
 		DEE2AC531B668CD7001A28A6 /* EBCommentsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AC331B668CD7001A28A6 /* EBCommentsTableView.m */; };
 		DEE2AC541B668CD7001A28A6 /* EBCommentsView.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AC351B668CD7001A28A6 /* EBCommentsView.m */; };
-		DEE2AC551B668CD7001A28A6 /* EBPhotoPagesController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AC391B668CD7001A28A6 /* EBPhotoPagesController.m */; };
-		DEE2AC561B668CD7001A28A6 /* EBPhotoPagesFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AC3D1B668CD7001A28A6 /* EBPhotoPagesFactory.m */; };
+		DEE2AC551B668CD7001A28A6 /* EBPhotoPagesController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AC391B668CD7001A28A6 /* EBPhotoPagesController.m */; settings = {COMPILER_FLAGS = "-w"; }; };
+		DEE2AC561B668CD7001A28A6 /* EBPhotoPagesFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AC3D1B668CD7001A28A6 /* EBPhotoPagesFactory.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		DEE2AC571B668CD7001A28A6 /* EBPhotoPagesOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AC401B668CD7001A28A6 /* EBPhotoPagesOperation.m */; };
 		DEE2AC581B668CD7001A28A6 /* EBPhotoPagesState.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AC421B668CD7001A28A6 /* EBPhotoPagesState.m */; };
 		DEE2AC591B668CD7001A28A6 /* EBPhotoToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AC461B668CD7001A28A6 /* EBPhotoToolbar.m */; };
@@ -394,7 +394,7 @@
 				DE0B9C1B1B628D5300CFC490 /* Reachability.h */,
 				DE0B9C1C1B628D5300CFC490 /* Reachability.m */,
 			);
-			name = Reachability;
+			path = Reachability;
 			sourceTree = "<group>";
 		};
 		047B07141B614FD20058316F /* MBProgressHUD */ = {
@@ -403,20 +403,20 @@
 				047B07151B614FE40058316F /* MBProgressHUD.h */,
 				047B07161B614FE40058316F /* MBProgressHUD.m */,
 			);
-			name = MBProgressHUD;
+			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		047B071C1B6153570058316F /* BaseClasses */ = {
 			isa = PBXGroup;
 			children = (
+				DEE2AB8D1B66523E001A28A6 /* TWRBaseTableVC.h */,
+				DEE2AB8E1B66523E001A28A6 /* TWRBaseTableVC.m */,
 				047B07211B6159010058316F /* TWRBaseTableViewCell.h */,
 				047B07221B6159010058316F /* TWRBaseTableViewCell.m */,
 				047B071D1B6153690058316F /* TWRBaseVC.h */,
 				047B071E1B6153690058316F /* TWRBaseVC.m */,
-				DEE2AB8D1B66523E001A28A6 /* TWRBaseTableVC.h */,
-				DEE2AB8E1B66523E001A28A6 /* TWRBaseTableVC.m */,
 			);
-			name = BaseClasses;
+			path = BaseClasses;
 			sourceTree = "<group>";
 		};
 		047B07201B6158EC0058316F /* Cells */ = {
@@ -425,7 +425,7 @@
 				047B07241B6159480058316F /* TWRTwitCell.h */,
 				047B07251B6159480058316F /* TWRTwitCell.m */,
 			);
-			name = Cells;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		047B072A1B615D830058316F /* Model */ = {
@@ -434,28 +434,28 @@
 				DED833CE1B68C65400A7A9E3 /* CoreData */,
 				DED833CD1B68C64100A7A9E3 /* TWRUserProfile */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		047B072B1B6161020058316F /* TWRTwitterAPIManager */ = {
 			isa = PBXGroup;
 			children = (
-				04AF02C81B61098C002CEB65 /* TWRTwitterAPIManager.h */,
-				04AF02C91B61098C002CEB65 /* TWRTwitterAPIManager.m */,
-				047B07191B61520B0058316F /* TWRTwitterAPIManager+TWRLogin.h */,
-				047B071A1B61520B0058316F /* TWRTwitterAPIManager+TWRLogin.m */,
 				047B07271B615B6A0058316F /* TWRTwitterAPIManager+TWRFeed.h */,
 				047B07281B615B6A0058316F /* TWRTwitterAPIManager+TWRFeed.m */,
+				047B07191B61520B0058316F /* TWRTwitterAPIManager+TWRLogin.h */,
+				047B071A1B61520B0058316F /* TWRTwitterAPIManager+TWRLogin.m */,
+				04AF02C81B61098C002CEB65 /* TWRTwitterAPIManager.h */,
+				04AF02C91B61098C002CEB65 /* TWRTwitterAPIManager.m */,
 			);
-			name = TWRTwitterAPIManager;
+			path = TWRTwitterAPIManager;
 			sourceTree = "<group>";
 		};
 		04AF02481B60FE49002CEB65 = {
 			isa = PBXGroup;
 			children = (
+				04AF02521B60FE49002CEB65 /* Products */,
 				04AF02531B60FE49002CEB65 /* Twitteroid */,
 				04AF02701B60FE4A002CEB65 /* TwitteroidTests */,
-				04AF02521B60FE49002CEB65 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -471,15 +471,15 @@
 		04AF02531B60FE49002CEB65 /* Twitteroid */ = {
 			isa = PBXGroup;
 			children = (
-				047B072A1B615D830058316F /* Model */,
-				04AF02851B6103FA002CEB65 /* Views */,
+				047B071C1B6153570058316F /* BaseClasses */,
 				04AF02871B61042F002CEB65 /* Controllers */,
 				04AF02C71B61097D002CEB65 /* Managers */,
-				04AF02581B60FE49002CEB65 /* AppDelegate.h */,
-				04AF02591B60FE4A002CEB65 /* AppDelegate.m */,
-				047B071C1B6153570058316F /* BaseClasses */,
+				047B072A1B615D830058316F /* Model */,
 				04AF02861B61040D002CEB65 /* Resources */,
 				04AF02541B60FE49002CEB65 /* Supporting Files */,
+				04AF02851B6103FA002CEB65 /* Views */,
+				04AF02581B60FE49002CEB65 /* AppDelegate.h */,
+				04AF02591B60FE4A002CEB65 /* AppDelegate.m */,
 			);
 			path = Twitteroid;
 			sourceTree = "<group>";
@@ -488,20 +488,20 @@
 			isa = PBXGroup;
 			children = (
 				DE0B9BF91B62694100CFC490 /* Categories */,
-				04AF02881B61046F002CEB65 /* Vendors */,
 				04AF02831B6103E4002CEB65 /* Frameworks */,
+				04AF02881B61046F002CEB65 /* Vendors */,
 				04AF02551B60FE49002CEB65 /* Info.plist */,
-				04AF02561B60FE49002CEB65 /* main.m */,
 				047B07181B6150240058316F /* PrefixHeader.pch */,
+				04AF02561B60FE49002CEB65 /* main.m */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		04AF02701B60FE4A002CEB65 /* TwitteroidTests */ = {
 			isa = PBXGroup;
 			children = (
-				04AF02731B60FE4A002CEB65 /* TwitteroidTests.m */,
 				04AF02711B60FE4A002CEB65 /* Supporting Files */,
+				04AF02731B60FE4A002CEB65 /* TwitteroidTests.m */,
 			);
 			path = TwitteroidTests;
 			sourceTree = "<group>";
@@ -511,32 +511,32 @@
 			children = (
 				04AF02721B60FE4A002CEB65 /* Info.plist */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		04AF02831B6103E4002CEB65 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04AF027D1B6103CF002CEB65 /* Accounts.framework */,
 				04DEE6571B656AB000AE0E4A /* MapKit.framework */,
 				04AF02D91B61244A002CEB65 /* Security.framework */,
-				04AF02811B6103DC002CEB65 /* Twitter.framework */,
 				04AF027F1B6103D5002CEB65 /* Social.framework */,
-				04AF027D1B6103CF002CEB65 /* Accounts.framework */,
+				04AF02811B6103DC002CEB65 /* Twitter.framework */,
 			);
-			name = Frameworks;
+			path = Frameworks;
 			sourceTree = "<group>";
 		};
 		04AF02851B6103FA002CEB65 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				DED833CB1B68C23C00A7A9E3 /* BHRRoundedImageView */,
+				047B07201B6158EC0058316F /* Cells */,
 				DEE2AB891B664825001A28A6 /* KAOBorderedButton */,
 				04DEE6511B6557B100AE0E4A /* TWRCellMediaView */,
-				047B07201B6158EC0058316F /* Cells */,
-				04AF02611B60FE4A002CEB65 /* Main.storyboard */,
 				04AF02661B60FE4A002CEB65 /* LaunchScreen.xib */,
+				04AF02611B60FE4A002CEB65 /* Main.storyboard */,
 			);
-			name = Views;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		04AF02861B61040D002CEB65 /* Resources */ = {
@@ -544,36 +544,36 @@
 			children = (
 				04AF02641B60FE4A002CEB65 /* Images.xcassets */,
 			);
-			name = Resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		04AF02871B61042F002CEB65 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				DE0B9C321B66276C00CFC490 /* Settings */,
-				04DEE6591B656AE500AE0E4A /* LocationVC */,
 				DE0B9C111B6273A800CFC490 /* Feed */,
+				04DEE6591B656AE500AE0E4A /* LocationVC */,
 				04AF02CB1B611020002CEB65 /* Login */,
+				DE0B9C321B66276C00CFC490 /* Settings */,
 			);
-			name = Controllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		04AF02881B61046F002CEB65 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
-				043AB9B61B641165005F2BD5 /* Reachability */,
 				DEE2AC2D1B668CCF001A28A6 /* EBPhotoPagesController */,
-				04DF7FC91B64CFBA00907D1B /* RQShineLabel */,
-				04D9CD3A1B642AC3006B224D /* STTweetLabel */,
-				DEE2AB9D1B667261001A28A6 /* YTPlayerView */,
-				04E391D01B6527C100F9A9C5 /* SDWebImage */,
-				04E391C01B65106400F9A9C5 /* PureLayout */,
 				DE0B9BD51B62333C00CFC490 /* INSPullToRefresh */,
 				047B07141B614FD20058316F /* MBProgressHUD */,
+				04E391C01B65106400F9A9C5 /* PureLayout */,
+				04DF7FC91B64CFBA00907D1B /* RQShineLabel */,
+				043AB9B61B641165005F2BD5 /* Reachability */,
+				04E391D01B6527C100F9A9C5 /* SDWebImage */,
 				04AF02D21B611CD8002CEB65 /* SSKeychain */,
+				04D9CD3A1B642AC3006B224D /* STTweetLabel */,
 				04AF02891B61048D002CEB65 /* STTwitter */,
+				DEE2AB9D1B667261001A28A6 /* YTPlayerView */,
 			);
-			name = Vendors;
+			path = Vendors;
 			sourceTree = "<group>";
 		};
 		04AF02891B61048D002CEB65 /* STTwitter */ = {
@@ -583,8 +583,6 @@
 				04AF02AF1B6104B0002CEB65 /* BAVPlistNode.m */,
 				04AF02B01B6104B0002CEB65 /* JSONSyntaxHighlight.h */,
 				04AF02B11B6104B0002CEB65 /* JSONSyntaxHighlight.m */,
-				04AF02B21B6104B0002CEB65 /* STHTTPRequest.h */,
-				04AF02B31B6104B0002CEB65 /* STHTTPRequest.m */,
 				04AF028A1B6104A5002CEB65 /* NSDateFormatter+STTwitter.h */,
 				04AF028B1B6104A5002CEB65 /* NSDateFormatter+STTwitter.m */,
 				04AF028C1B6104A5002CEB65 /* NSError+STTwitter.h */,
@@ -593,6 +591,8 @@
 				04AF028F1B6104A5002CEB65 /* NSString+STTwitter.m */,
 				04AF02901B6104A5002CEB65 /* STHTTPRequest+STTwitter.h */,
 				04AF02911B6104A5002CEB65 /* STHTTPRequest+STTwitter.m */,
+				04AF02B21B6104B0002CEB65 /* STHTTPRequest.h */,
+				04AF02B31B6104B0002CEB65 /* STHTTPRequest.m */,
 				04AF02921B6104A5002CEB65 /* STTwitter.h */,
 				04AF02931B6104A5002CEB65 /* STTwitterAPI.h */,
 				04AF02941B6104A5002CEB65 /* STTwitterAPI.m */,
@@ -611,16 +611,16 @@
 				04AF02A11B6104A5002CEB65 /* STTwitterStreamParser.h */,
 				04AF02A21B6104A5002CEB65 /* STTwitterStreamParser.m */,
 			);
-			name = STTwitter;
+			path = STTwitter;
 			sourceTree = "<group>";
 		};
 		04AF02C71B61097D002CEB65 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				047B072B1B6161020058316F /* TWRTwitterAPIManager */,
 				DED833CC1B68C63600A7A9E3 /* TWRCoreDataManager */,
+				047B072B1B6161020058316F /* TWRTwitterAPIManager */,
 			);
-			name = Managers;
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		04AF02CB1B611020002CEB65 /* Login */ = {
@@ -631,7 +631,7 @@
 				04AF02CF1B6111F4002CEB65 /* TWRLoginWebVC.h */,
 				04AF02D01B6111F4002CEB65 /* TWRLoginWebVC.m */,
 			);
-			name = Login;
+			path = Login;
 			sourceTree = "<group>";
 		};
 		04AF02D21B611CD8002CEB65 /* SSKeychain */ = {
@@ -642,7 +642,7 @@
 				04AF02DD1B612489002CEB65 /* SSKeychainQuery.h */,
 				04AF02DE1B612489002CEB65 /* SSKeychainQuery.m */,
 			);
-			name = SSKeychain;
+			path = SSKeychain;
 			sourceTree = "<group>";
 		};
 		04D9CD3A1B642AC3006B224D /* STTweetLabel */ = {
@@ -651,7 +651,7 @@
 				04D9CD3B1B642ACF006B224D /* STTweetLabel.h */,
 				04D9CD3C1B642ACF006B224D /* STTweetLabel.m */,
 			);
-			name = STTweetLabel;
+			path = STTweetLabel;
 			sourceTree = "<group>";
 		};
 		04DEE6511B6557B100AE0E4A /* TWRCellMediaView */ = {
@@ -660,18 +660,18 @@
 				043AB9C01B6418ED005F2BD5 /* TWRCellMediaView.h */,
 				043AB9C11B6418ED005F2BD5 /* TWRCellMediaView.m */,
 			);
-			name = TWRCellMediaView;
+			path = TWRCellMediaView;
 			sourceTree = "<group>";
 		};
 		04DEE6531B6567F200AE0E4A /* TWRPlace */ = {
 			isa = PBXGroup;
 			children = (
-				047B072C1B6167E70058316F /* TWRPlace.h */,
-				047B072D1B6167E70058316F /* TWRPlace.m */,
 				04DEE6541B65695B00AE0E4A /* TWRPlace+TWRHelper.h */,
 				04DEE6551B65695B00AE0E4A /* TWRPlace+TWRHelper.m */,
+				047B072C1B6167E70058316F /* TWRPlace.h */,
+				047B072D1B6167E70058316F /* TWRPlace.m */,
 			);
-			name = TWRPlace;
+			path = TWRPlace;
 			sourceTree = "<group>";
 		};
 		04DEE6591B656AE500AE0E4A /* LocationVC */ = {
@@ -682,7 +682,7 @@
 				DE0B9C1E1B6623B700CFC490 /* TWRPlaceAnnotation.h */,
 				DE0B9C1F1B6623B700CFC490 /* TWRPlaceAnnotation.m */,
 			);
-			name = LocationVC;
+			path = LocationVC;
 			sourceTree = "<group>";
 		};
 		04DF7FC91B64CFBA00907D1B /* RQShineLabel */ = {
@@ -691,7 +691,7 @@
 				04DF7FCA1B64CFC700907D1B /* RQShineLabel.h */,
 				04DF7FCB1B64CFC700907D1B /* RQShineLabel.m */,
 			);
-			name = RQShineLabel;
+			path = RQShineLabel;
 			sourceTree = "<group>";
 		};
 		04E391C01B65106400F9A9C5 /* PureLayout */ = {
@@ -703,11 +703,11 @@
 				04E391C41B65107B00F9A9C5 /* NSArray+PureLayout.m */,
 				04E391C51B65107B00F9A9C5 /* NSLayoutConstraint+PureLayout.h */,
 				04E391C61B65107B00F9A9C5 /* NSLayoutConstraint+PureLayout.m */,
-				04E391C71B65107B00F9A9C5 /* PureLayout.h */,
 				04E391C81B65107B00F9A9C5 /* PureLayout+Internal.h */,
+				04E391C71B65107B00F9A9C5 /* PureLayout.h */,
 				04E391C91B65107B00F9A9C5 /* PureLayoutDefines.h */,
 			);
-			name = PureLayout;
+			path = PureLayout;
 			sourceTree = "<group>";
 		};
 		04E391D01B6527C100F9A9C5 /* SDWebImage */ = {
@@ -747,27 +747,27 @@
 				04E391F01B6527CB00F9A9C5 /* UIView+WebCacheOperation.h */,
 				04E391F11B6527CB00F9A9C5 /* UIView+WebCacheOperation.m */,
 			);
-			name = SDWebImage;
+			path = SDWebImage;
 			sourceTree = "<group>";
 		};
 		DE0B9BD51B62333C00CFC490 /* INSPullToRefresh */ = {
 			isa = PBXGroup;
 			children = (
+				DE0B9BE51B62404F00CFC490 /* INSAnimatable.h */,
 				DE0B9BE61B62417500CFC490 /* INSCircleInfiniteIndicator.h */,
 				DE0B9BE71B62417500CFC490 /* INSCircleInfiniteIndicator.m */,
-				DE0B9BE51B62404F00CFC490 /* INSAnimatable.h */,
-				DE0B9BE21B62403200CFC490 /* INSTwitterPullToRefresh.h */,
-				DE0B9BE31B62403200CFC490 /* INSTwitterPullToRefresh.m */,
 				DE0B9BD61B62334900CFC490 /* INSInfiniteScrollBackgroundView.h */,
 				DE0B9BD71B62334900CFC490 /* INSInfiniteScrollBackgroundView.m */,
 				DE0B9BD81B62334900CFC490 /* INSPullToRefreshBackgroundView.h */,
 				DE0B9BD91B62334900CFC490 /* INSPullToRefreshBackgroundView.m */,
+				DE0B9BE21B62403200CFC490 /* INSTwitterPullToRefresh.h */,
+				DE0B9BE31B62403200CFC490 /* INSTwitterPullToRefresh.m */,
 				DE0B9BDA1B62334900CFC490 /* UIScrollView+INSPullToRefresh.h */,
 				DE0B9BDB1B62334900CFC490 /* UIScrollView+INSPullToRefresh.m */,
 				DE0B9BDC1B62334900CFC490 /* UIView+INSFirstReponder.h */,
 				DE0B9BDD1B62334900CFC490 /* UIView+INSFirstReponder.m */,
 			);
-			name = INSPullToRefresh;
+			path = INSPullToRefresh;
 			sourceTree = "<group>";
 		};
 		DE0B9BEC1B624EAB00CFC490 /* TWRTweet */ = {
@@ -778,39 +778,39 @@
 				DE4165001B690BF20086F47F /* TWRTweet.h */,
 				DE4165011B690BF20086F47F /* TWRTweet.m */,
 			);
-			name = TWRTweet;
+			path = TWRTweet;
 			sourceTree = "<group>";
 		};
 		DE0B9BF91B62694100CFC490 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				DED5001F1B6A46AB008921F0 /* NSDate+NVTimeAgo.h */,
-				DED500201B6A46AB008921F0 /* NSDate+NVTimeAgo.m */,
 				DEE2AB901B665C99001A28A6 /* NSDate+Escort.h */,
 				DEE2AB911B665C99001A28A6 /* NSDate+Escort.m */,
+				DED5001F1B6A46AB008921F0 /* NSDate+NVTimeAgo.h */,
+				DED500201B6A46AB008921F0 /* NSDate+NVTimeAgo.m */,
+				DE0B9BF61B6267ED00CFC490 /* NSDateFormatter+LocaleAdditions.h */,
+				DE0B9BF71B6267ED00CFC490 /* NSDateFormatter+LocaleAdditions.m */,
+				043AB9BA1B6411BC005F2BD5 /* UIColor+BHRUtils.h */,
+				043AB9BB1B6411BC005F2BD5 /* UIColor+BHRUtils.m */,
 				043AB9B71B64117E005F2BD5 /* UIColor+TWRColors.h */,
 				043AB9B81B64117E005F2BD5 /* UIColor+TWRColors.m */,
 				043AB9BD1B64124E005F2BD5 /* UIFont+TWRFonts.h */,
 				043AB9BE1B64124E005F2BD5 /* UIFont+TWRFonts.m */,
-				043AB9BA1B6411BC005F2BD5 /* UIColor+BHRUtils.h */,
-				043AB9BB1B6411BC005F2BD5 /* UIColor+BHRUtils.m */,
-				DE0B9BF61B6267ED00CFC490 /* NSDateFormatter+LocaleAdditions.h */,
-				DE0B9BF71B6267ED00CFC490 /* NSDateFormatter+LocaleAdditions.m */,
 				04E391CD1B6521D700F9A9C5 /* UIImage+TWRImages.h */,
 				04E391CE1B6521D700F9A9C5 /* UIImage+TWRImages.m */,
 			);
-			name = Categories;
+			path = Categories;
 			sourceTree = "<group>";
 		};
 		DE0B9C001B626E0700CFC490 /* TWRHashtag */ = {
 			isa = PBXGroup;
 			children = (
-				DE0B9C071B626EFF00CFC490 /* TWRHashtag.h */,
-				DE0B9C081B626EFF00CFC490 /* TWRHashtag.m */,
 				DE0B9C0A1B626F0F00CFC490 /* TWRHashtag+TWRHelper.h */,
 				DE0B9C0B1B626F0F00CFC490 /* TWRHashtag+TWRHelper.m */,
+				DE0B9C071B626EFF00CFC490 /* TWRHashtag.h */,
+				DE0B9C081B626EFF00CFC490 /* TWRHashtag.m */,
 			);
-			name = TWRHashtag;
+			path = TWRHashtag;
 			sourceTree = "<group>";
 		};
 		DE0B9C0D1B62711A00CFC490 /* TWRMedia */ = {
@@ -821,16 +821,16 @@
 				04DEE64E1B65563C00AE0E4A /* TWRMedia.h */,
 				04DEE64F1B65563C00AE0E4A /* TWRMedia.m */,
 			);
-			name = TWRMedia;
+			path = TWRMedia;
 			sourceTree = "<group>";
 		};
 		DE0B9C111B6273A800CFC490 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
-				04AF02B71B61051C002CEB65 /* TWRFeedVC.h */,
-				04AF02B81B61051C002CEB65 /* TWRFeedVC.m */,
 				DE0B9C121B6273B800CFC490 /* TWRFeedVC+TWRParsing.h */,
 				DE0B9C131B6273B800CFC490 /* TWRFeedVC+TWRParsing.m */,
+				04AF02B71B61051C002CEB65 /* TWRFeedVC.h */,
+				04AF02B81B61051C002CEB65 /* TWRFeedVC.m */,
 				DEE2AC611B668DAA001A28A6 /* TWRGalleryDelegate.h */,
 				DEE2AC621B668DAA001A28A6 /* TWRGalleryDelegate.m */,
 				DE3905821B676AE200EBA653 /* TWRHashTweetsVC.h */,
@@ -838,20 +838,20 @@
 				DED833D51B68F19E00A7A9E3 /* TWRYoutubeVideoVC.h */,
 				DED833D61B68F19E00A7A9E3 /* TWRYoutubeVideoVC.m */,
 			);
-			name = Feed;
+			path = Feed;
 			sourceTree = "<group>";
 		};
 		DE0B9C321B66276C00CFC490 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				DEC726A71B67BC0300155629 /* TWRSettingsVC.h */,
-				DEC726A81B67BC0300155629 /* TWRSettingsVC.m */,
-				DEC726B01B67C8B600155629 /* TWRSettingsManualVC.h */,
-				DEC726B11B67C8B600155629 /* TWRSettingsManualVC.m */,
 				DEC726B31B67C8C900155629 /* TWRSettingsAutoVC.h */,
 				DEC726B41B67C8C900155629 /* TWRSettingsAutoVC.m */,
+				DEC726B01B67C8B600155629 /* TWRSettingsManualVC.h */,
+				DEC726B11B67C8B600155629 /* TWRSettingsManualVC.m */,
+				DEC726A71B67BC0300155629 /* TWRSettingsVC.h */,
+				DEC726A81B67BC0300155629 /* TWRSettingsVC.m */,
 			);
-			name = Settings;
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		DED833CB1B68C23C00A7A9E3 /* BHRRoundedImageView */ = {
@@ -860,7 +860,7 @@
 				DEC726AD1B67C45000155629 /* BHRRoundedImageView.h */,
 				DEC726AE1B67C45000155629 /* BHRRoundedImageView.m */,
 			);
-			name = BHRRoundedImageView;
+			path = BHRRoundedImageView;
 			sourceTree = "<group>";
 		};
 		DED833CC1B68C63600A7A9E3 /* TWRCoreDataManager */ = {
@@ -869,7 +869,7 @@
 				047B07381B6168230058316F /* TWRCoreDataManager.h */,
 				047B07391B6168230058316F /* TWRCoreDataManager.m */,
 			);
-			name = TWRCoreDataManager;
+			path = TWRCoreDataManager;
 			sourceTree = "<group>";
 		};
 		DED833CD1B68C64100A7A9E3 /* TWRUserProfile */ = {
@@ -878,19 +878,19 @@
 				DED833CF1B68C66C00A7A9E3 /* TWRUserProfile.h */,
 				DED833D01B68C66C00A7A9E3 /* TWRUserProfile.m */,
 			);
-			name = TWRUserProfile;
+			path = TWRUserProfile;
 			sourceTree = "<group>";
 		};
 		DED833CE1B68C65400A7A9E3 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				04DEE6531B6567F200AE0E4A /* TWRPlace */,
-				DE0B9C0D1B62711A00CFC490 /* TWRMedia */,
 				DE0B9C001B626E0700CFC490 /* TWRHashtag */,
+				DE0B9C0D1B62711A00CFC490 /* TWRMedia */,
+				04DEE6531B6567F200AE0E4A /* TWRPlace */,
 				DE0B9BEC1B624EAB00CFC490 /* TWRTweet */,
 				04AF025B1B60FE4A002CEB65 /* Twitteroid.xcdatamodeld */,
 			);
-			name = CoreData;
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		DEE2AB891B664825001A28A6 /* KAOBorderedButton */ = {
@@ -899,7 +899,7 @@
 				DEE2AB8A1B66483A001A28A6 /* KAOBorderedButton.h */,
 				DEE2AB8B1B66483A001A28A6 /* KAOBorderedButton.m */,
 			);
-			name = KAOBorderedButton;
+			path = KAOBorderedButton;
 			sourceTree = "<group>";
 		};
 		DEE2AB9D1B667261001A28A6 /* YTPlayerView */ = {
@@ -909,7 +909,7 @@
 				DEE2AB9E1B667268001A28A6 /* YTPlayerView.h */,
 				DEE2AB9F1B667268001A28A6 /* YTPlayerView.m */,
 			);
-			name = YTPlayerView;
+			path = YTPlayerView;
 			sourceTree = "<group>";
 		};
 		DEE2AC2D1B668CCF001A28A6 /* EBPhotoPagesController */ = {
@@ -951,7 +951,7 @@
 				DEE2AC4F1B668CD7001A28A6 /* EBTagPopover.m */,
 				DEE2AC501B668CD7001A28A6 /* EBTagPopoverDelegate.h */,
 			);
-			name = EBPhotoPagesController;
+			path = EBPhotoPagesController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -999,7 +999,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = TWR;
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Kievkao;
 				TargetAttributes = {
 					04AF02501B60FE49002CEB65 = {
@@ -1185,6 +1185,7 @@
 				04AF02621B60FE4A002CEB65 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		04AF02661B60FE4A002CEB65 /* LaunchScreen.xib */ = {
@@ -1193,6 +1194,7 @@
 				04AF02671B60FE4A002CEB65 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1219,6 +1221,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1285,9 +1288,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Twitteroid/PrefixHeader.pch;
-				INFOPLIST_FILE = Twitteroid/Info.plist;
+				GCC_PREFIX_HEADER = "Twitteroid/Supporting Files/PrefixHeader.pch";
+				INFOPLIST_FILE = "Twitteroid/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "kievkao.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1297,9 +1301,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Twitteroid/PrefixHeader.pch;
-				INFOPLIST_FILE = Twitteroid/Info.plist;
+				GCC_PREFIX_HEADER = "Twitteroid/Supporting Files/PrefixHeader.pch";
+				INFOPLIST_FILE = "Twitteroid/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "kievkao.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -1316,8 +1321,9 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = TwitteroidTests/Info.plist;
+				INFOPLIST_FILE = "TwitteroidTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "kievkao.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Twitteroid.app/Twitteroid";
 			};
@@ -1331,8 +1337,9 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = TwitteroidTests/Info.plist;
+				INFOPLIST_FILE = "TwitteroidTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "kievkao.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Twitteroid.app/Twitteroid";
 			};
