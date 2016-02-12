@@ -17,8 +17,7 @@
 
 @implementation TWRGalleryDelegate
 
-- (instancetype)initWithImagesURLs:(NSArray *)images
-{
+- (instancetype)initWithImagesURLs:(NSArray *)images {
     self = [super init];
     if (self) {
         _images = images;

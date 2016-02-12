@@ -10,10 +10,6 @@
 
 @implementation UIViewController (TWRUtils)
 
-+ (NSString *)identifier {
-    return nil;
-}
-
 - (void)showInfoAlertWithTitle:(NSString *)title text:(NSString *)text {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:text preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];

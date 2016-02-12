@@ -13,7 +13,6 @@
 		043AB9C21B6418ED005F2BD5 /* TWRCellMediaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 043AB9C11B6418ED005F2BD5 /* TWRCellMediaView.m */; };
 		047B07171B614FE40058316F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B07161B614FE40058316F /* MBProgressHUD.m */; };
 		047B071B1B61520B0058316F /* TWRTwitterAPIManager+TWRLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B071A1B61520B0058316F /* TWRTwitterAPIManager+TWRLogin.m */; };
-		047B07231B6159010058316F /* TWRBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B07221B6159010058316F /* TWRBaseTableViewCell.m */; };
 		047B07261B6159480058316F /* TWRTwitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B07251B6159480058316F /* TWRTwitCell.m */; };
 		047B07291B615B6A0058316F /* TWRTwitterAPIManager+TWRFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B07281B615B6A0058316F /* TWRTwitterAPIManager+TWRFeed.m */; };
 		047B072E1B6167E70058316F /* TWRPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B072D1B6167E70058316F /* TWRPlace.m */; };
@@ -143,8 +142,6 @@
 		047B07181B6150240058316F /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		047B07191B61520B0058316F /* TWRTwitterAPIManager+TWRLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TWRTwitterAPIManager+TWRLogin.h"; sourceTree = "<group>"; };
 		047B071A1B61520B0058316F /* TWRTwitterAPIManager+TWRLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TWRTwitterAPIManager+TWRLogin.m"; sourceTree = "<group>"; };
-		047B07211B6159010058316F /* TWRBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRBaseTableViewCell.h; sourceTree = "<group>"; };
-		047B07221B6159010058316F /* TWRBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRBaseTableViewCell.m; sourceTree = "<group>"; };
 		047B07241B6159480058316F /* TWRTwitCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRTwitCell.h; sourceTree = "<group>"; };
 		047B07251B6159480058316F /* TWRTwitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRTwitCell.m; sourceTree = "<group>"; };
 		047B07271B615B6A0058316F /* TWRTwitterAPIManager+TWRFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TWRTwitterAPIManager+TWRFeed.h"; sourceTree = "<group>"; };
@@ -269,6 +266,8 @@
 		04E391F11B6527CB00F9A9C5 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		C576F2B11C6E3A5400A91B68 /* UIViewController+TWRUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TWRUtils.h"; sourceTree = "<group>"; };
 		C576F2B21C6E3A5400A91B68 /* UIViewController+TWRUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TWRUtils.m"; sourceTree = "<group>"; };
+		C576F2B41C6E3B6D00A91B68 /* TWRCellIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRCellIdentifier.h; sourceTree = "<group>"; };
+		C576F2B51C6E3D4400A91B68 /* TWRViewControllerIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRViewControllerIdentifier.h; sourceTree = "<group>"; };
 		DE0B9BD61B62334900CFC490 /* INSInfiniteScrollBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSInfiniteScrollBackgroundView.h; sourceTree = "<group>"; };
 		DE0B9BD71B62334900CFC490 /* INSInfiniteScrollBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSInfiniteScrollBackgroundView.m; sourceTree = "<group>"; };
 		DE0B9BD81B62334900CFC490 /* INSPullToRefreshBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSPullToRefreshBackgroundView.h; sourceTree = "<group>"; };
@@ -403,12 +402,13 @@
 			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
-		047B071C1B6153570058316F /* BaseClasses */ = {
+		047B071C1B6153570058316F /* Protolocs */ = {
 			isa = PBXGroup;
 			children = (
-				047B07211B6159010058316F /* TWRBaseTableViewCell.h */,
-				047B07221B6159010058316F /* TWRBaseTableViewCell.m */,
+				C576F2B41C6E3B6D00A91B68 /* TWRCellIdentifier.h */,
+				C576F2B51C6E3D4400A91B68 /* TWRViewControllerIdentifier.h */,
 			);
+			name = Protolocs;
 			path = BaseClasses;
 			sourceTree = "<group>";
 		};
@@ -464,7 +464,7 @@
 		04AF02531B60FE49002CEB65 /* Twitteroid */ = {
 			isa = PBXGroup;
 			children = (
-				047B071C1B6153570058316F /* BaseClasses */,
+				047B071C1B6153570058316F /* Protolocs */,
 				04AF02871B61042F002CEB65 /* Controllers */,
 				04AF02C71B61097D002CEB65 /* Managers */,
 				047B072A1B615D830058316F /* Model */,
@@ -1114,7 +1114,6 @@
 				DEE2AC5A1B668CD7001A28A6 /* EBPhotoView.m in Sources */,
 				DEE2AC511B668CD7001A28A6 /* EBCaptionView.m in Sources */,
 				043AB9B91B64117E005F2BD5 /* UIColor+TWRColors.m in Sources */,
-				047B07231B6159010058316F /* TWRBaseTableViewCell.m in Sources */,
 				DED500211B6A46AB008921F0 /* NSDate+NVTimeAgo.m in Sources */,
 				DE0B9BE81B62417500CFC490 /* INSCircleInfiniteIndicator.m in Sources */,
 				DED833D11B68C66C00A7A9E3 /* TWRUserProfile.m in Sources */,

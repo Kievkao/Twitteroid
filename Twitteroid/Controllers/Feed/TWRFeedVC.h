@@ -14,7 +14,7 @@
 
 extern NSUInteger const kTweetsLoadingPortion;
 
-@interface TWRFeedVC : UIViewController
+@interface TWRFeedVC : UIViewController <TWRViewControllerIdentifier>
 
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
 

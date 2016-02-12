@@ -65,6 +65,7 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
 - (void)settingsBtnClicked {
     [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:[TWRSettingsVC rootNavControllerIdentifier]] animated:YES completion:nil];
 }
+
 #pragma mark - Helpers
 + (NSString *)identifier {
     return @"TWRFeedVC";
@@ -82,7 +83,6 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
 }
 
 - (NSDateFormatter *)dateFormatter {
-    
     if (!_dateFormatter) {
         _dateFormatter = [[NSDateFormatter alloc] initWithSafeLocale];
         [_dateFormatter setDateFormat:kTweetsDateFormat];
@@ -104,7 +104,7 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
 
 #pragma mark - NSFetchedResultsController
 - (void)startFetching {
-    
+
     NSError *error = nil;
     [self.fetchedResultsController performFetch:&error];
     
@@ -157,7 +157,7 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
 }
 
 #pragma mark - Data loading
-- (void)checkEnvirAndLoadFromTweetID:(NSString *)tweetID withCompletion:(void (^)(NSError *error))loadingCompletion {
+- (void)checkEnvironmentAndLoadFromTweetID:(NSString *)tweetID withCompletion:(void (^)(NSError *error))loadingCompletion {
     
     BOOL isSessionLoginDone = [[TWRTwitterAPIManager sharedInstance] isSessionLoginDone];
     BOOL isInternetActive = [self isInternetActive];
@@ -198,7 +198,6 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
 
 #pragma mark - Infinitive scroll && PullToRefresh
 - (void)pullToRefreshSetup {
-    
     [self.tableView ins_addPullToRefreshWithHeight:kPullRefreshHeight handler:^(UIScrollView *scrollView) {
         [self checkEnvirAndLoadFromTweetID:nil withCompletion:^(NSError *error) {
             [scrollView ins_endPullToRefresh];
@@ -211,9 +210,7 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
 }
 
 - (void)infinitiveScrollSetup {
-    
     [self.tableView ins_addInfinityScrollWithHeight:kInfinitiveScrollHeight handler:^(UIScrollView *scrollView) {
-        
         TWRTweet *lastTweet = [self.fetchedResultsController objectAtIndexPath:[[self.tableView indexPathsForVisibleRows] lastObject]];
         NSString *lastTweetID = lastTweet.tweetId;
         
@@ -272,14 +269,12 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
     TWRTwitCell* cell = [tableView dequeueReusableCellWithIdentifier:[TWRTwitCell identifier] forIndexPath:indexPath];
     [self configureCell:cell forIndexPath:indexPath];
     return cell;
 }
 
 - (void)configureCell:(TWRTwitCell *)cell forIndexPath:(NSIndexPath *)indexPath {
-    
     TWRTweet *tweet = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     [cell setAuthorName:tweet.userName];

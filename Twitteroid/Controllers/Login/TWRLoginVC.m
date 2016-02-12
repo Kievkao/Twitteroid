@@ -49,18 +49,17 @@
 }
 
 - (IBAction)loginBtnClicked:(id)sender {
-    [self peformLogin];
+    [self performLogin];
 }
 
-- (void)peformLogin {
-    
+- (void)performLogin {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     __block TWRLoginWebVC *webVC = nil;
     
     [[TWRTwitterAPIManager sharedInstance] loginWithOpenRequestBlock:^(NSURLRequest *request) {
-        
         webVC = [self.storyboard instantiateViewControllerWithIdentifier:[TWRLoginWebVC identifier]];
+        
         [self presentViewController:webVC animated:YES completion:^{
             [webVC.webView loadRequest:request];
         }];

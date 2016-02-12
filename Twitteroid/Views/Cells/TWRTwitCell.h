@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Kievkao. All rights reserved.
 //
 
-#import "TWRBaseTableViewCell.h"
+#import <UIKit/UIKit.h>
 
-@interface TWRTwitCell : TWRBaseTableViewCell
+@interface TWRTwitCell : UITableViewCell<TWRCellIdentifier>
 
 @property (nonatomic, strong) void (^hashtagClickedBlock)(NSString *hashtag);
 @property (nonatomic, strong) void (^webLinkClickedBlock)(NSURL *clickedUrl);

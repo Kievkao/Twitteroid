@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@interface TWRLocationVC : UIViewController
+@interface TWRLocationVC : UIViewController <TWRViewControllerIdentifier>
 
 @property (nonatomic) CLLocationCoordinate2D coordinates;
 

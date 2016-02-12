@@ -25,8 +25,7 @@
     return @"TWRLoginWebVC";
 }
 
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
-{
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     if ([request.URL.absoluteString containsString:@"myapp.here.com"]) {
         
         NSDictionary *oauthResponseDict = [self parametersDictionaryFromQueryString:[request.URL query]];

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TWRLoginWebVC : UIViewController
+@interface TWRLoginWebVC : UIViewController <TWRViewControllerIdentifier>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 

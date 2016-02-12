@@ -44,6 +44,7 @@ static NSUInteger const kTotalWeeksAmount = 51;
 - (IBAction)applyClicked:(id)sender {
     
     __weak typeof(self)weakSelf = self;
+    
     [self showSureAlertWithTitle:NSLocalizedString(@"Confirmation", @"Confirmation alert title") text:NSLocalizedString(@"Are you sure to confirm this time interval?", @"\"Are you sure\" text for applying automatic tweets delete interval") okCompletionBlock:^(UIAlertAction *action) {
         
         __strong TWRSettingsAutoVC *strongSelf = weakSelf;
@@ -68,7 +69,6 @@ static NSUInteger const kTotalWeeksAmount = 51;
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    
     switch (row) {
         case 0:
             return [NSString stringWithFormat:@"%ld week", (long)row + 1];

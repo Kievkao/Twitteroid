@@ -23,8 +23,7 @@
     if (self.youtubeLinkStr) {
         NSString *lastPath = [self.youtubeLinkStr lastPathComponent];
         [self.playerView loadWithVideoId:lastPath];
-    }
-    
+    }    
 }
 
 + (NSString *)rootNavigationIdentifier {
