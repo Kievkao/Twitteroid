@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Kievkao. All rights reserved.
 //
 
-#import "TWRBaseVC.h"
+#import <UIKit/UIKit.h>
 
-@interface TWRYoutubeVideoVC : TWRBaseVC
+@interface TWRYoutubeVideoVC : UIViewController
 
 @property (nonatomic, strong) NSString *youtubeLinkStr;
 

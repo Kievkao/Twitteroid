@@ -7,7 +7,6 @@
 //
 
 #import "TWRCoreDataManager.h"
-#import "TWRBaseVC.h"
 #import "TWRTweet.h"
 #import "TWRHashtag.h"
 #import "TWRMedia.h"
@@ -15,7 +14,7 @@
 
 extern NSUInteger const kTweetsLoadingPortion;
 
-@interface TWRFeedVC : TWRBaseVC
+@interface TWRFeedVC : UIViewController
 
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
 

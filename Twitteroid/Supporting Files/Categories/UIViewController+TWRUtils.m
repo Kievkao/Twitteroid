@@ -1,18 +1,14 @@
 //
-//  TWRBaseVC.m
+//  UIViewController+TWRUtils.m
 //  Twitteroid
 //
-//  Created by Mac on 23/07/15.
-//  Copyright (c) 2015 Kievkao. All rights reserved.
+//  Created by Andrii Kravchenko on 2/12/16.
+//  Copyright © 2016 Kievkao. All rights reserved.
 //
 
-#import "TWRBaseVC.h"
+#import "UIViewController+TWRUtils.h"
 
-@interface TWRBaseVC ()
-
-@end
-
-@implementation TWRBaseVC
+@implementation UIViewController (TWRUtils)
 
 + (NSString *)identifier {
     return nil;
@@ -25,7 +21,6 @@
 }
 
 - (void)showSureAlertWithTitle:(NSString *)title text:(NSString *)text okCompletionBlock:(void(^)(UIAlertAction *action))block {
-    
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:text preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDestructive handler:block]];
     [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];

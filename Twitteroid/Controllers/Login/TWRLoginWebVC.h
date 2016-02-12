@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Kievkao. All rights reserved.
 //
 
-#import "TWRBaseVC.h"
+#import <UIKit/UIKit.h>
 
-@interface TWRLoginWebVC : TWRBaseVC
+@interface TWRLoginWebVC : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 

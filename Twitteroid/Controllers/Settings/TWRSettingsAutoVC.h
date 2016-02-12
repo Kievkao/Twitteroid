@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Kievkao. All rights reserved.
 //
 
-#import "TWRBaseVC.h"
+#import <UIKit/UIKit.h>
 
-@interface TWRSettingsAutoVC : TWRBaseVC
+@interface TWRSettingsAutoVC : UIViewController
 
 @end

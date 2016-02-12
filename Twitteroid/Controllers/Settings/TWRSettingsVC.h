@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Kievkao. All rights reserved.
 //
 
-#import "TWRBaseTableVC.h"
+#import <UIKit/UIKit.h>
 
 @interface TWRSettingsVC : UITableViewController
 

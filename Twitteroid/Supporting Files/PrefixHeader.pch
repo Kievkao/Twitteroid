@@ -17,5 +17,6 @@
 #import "UIColor+TWRColors.h"
 #import "UIFont+TWRFonts.h"
 #import "UIImage+TWRImages.h"
+#import "UIViewController+TWRUtils.h"
 
 #endif

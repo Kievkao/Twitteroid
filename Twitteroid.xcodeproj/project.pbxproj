@@ -13,7 +13,6 @@
 		043AB9C21B6418ED005F2BD5 /* TWRCellMediaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 043AB9C11B6418ED005F2BD5 /* TWRCellMediaView.m */; };
 		047B07171B614FE40058316F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B07161B614FE40058316F /* MBProgressHUD.m */; };
 		047B071B1B61520B0058316F /* TWRTwitterAPIManager+TWRLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B071A1B61520B0058316F /* TWRTwitterAPIManager+TWRLogin.m */; };
-		047B071F1B6153690058316F /* TWRBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B071E1B6153690058316F /* TWRBaseVC.m */; };
 		047B07231B6159010058316F /* TWRBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B07221B6159010058316F /* TWRBaseTableViewCell.m */; };
 		047B07261B6159480058316F /* TWRTwitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B07251B6159480058316F /* TWRTwitCell.m */; };
 		047B07291B615B6A0058316F /* TWRTwitterAPIManager+TWRFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B07281B615B6A0058316F /* TWRTwitterAPIManager+TWRFeed.m */; };
@@ -76,6 +75,7 @@
 		04E391FF1B6527CB00F9A9C5 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E391ED1B6527CB00F9A9C5 /* UIImageView+HighlightedWebCache.m */; };
 		04E392001B6527CB00F9A9C5 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E391EF1B6527CB00F9A9C5 /* UIImageView+WebCache.m */; };
 		04E392011B6527CB00F9A9C5 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E391F11B6527CB00F9A9C5 /* UIView+WebCacheOperation.m */; };
+		C576F2B31C6E3A5400A91B68 /* UIViewController+TWRUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C576F2B21C6E3A5400A91B68 /* UIViewController+TWRUtils.m */; };
 		DE0B9BDE1B62334900CFC490 /* INSInfiniteScrollBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9BD71B62334900CFC490 /* INSInfiniteScrollBackgroundView.m */; };
 		DE0B9BDF1B62334900CFC490 /* INSPullToRefreshBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9BD91B62334900CFC490 /* INSPullToRefreshBackgroundView.m */; };
 		DE0B9BE01B62334900CFC490 /* UIScrollView+INSPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9BDB1B62334900CFC490 /* UIScrollView+INSPullToRefresh.m */; };
@@ -100,7 +100,6 @@
 		DED833D11B68C66C00A7A9E3 /* TWRUserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = DED833D01B68C66C00A7A9E3 /* TWRUserProfile.m */; };
 		DED833D71B68F19E00A7A9E3 /* TWRYoutubeVideoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DED833D61B68F19E00A7A9E3 /* TWRYoutubeVideoVC.m */; };
 		DEE2AB8C1B66483A001A28A6 /* KAOBorderedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AB8B1B66483A001A28A6 /* KAOBorderedButton.m */; };
-		DEE2AB8F1B66523E001A28A6 /* TWRBaseTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AB8E1B66523E001A28A6 /* TWRBaseTableVC.m */; };
 		DEE2AB921B665C99001A28A6 /* NSDate+Escort.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AB911B665C99001A28A6 /* NSDate+Escort.m */; };
 		DEE2ABA01B667268001A28A6 /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AB9F1B667268001A28A6 /* YTPlayerView.m */; };
 		DEE2ABA21B66726E001A28A6 /* YTPlayerView-iframe-player.html in Resources */ = {isa = PBXBuildFile; fileRef = DEE2ABA11B66726E001A28A6 /* YTPlayerView-iframe-player.html */; };
@@ -144,8 +143,6 @@
 		047B07181B6150240058316F /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		047B07191B61520B0058316F /* TWRTwitterAPIManager+TWRLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TWRTwitterAPIManager+TWRLogin.h"; sourceTree = "<group>"; };
 		047B071A1B61520B0058316F /* TWRTwitterAPIManager+TWRLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TWRTwitterAPIManager+TWRLogin.m"; sourceTree = "<group>"; };
-		047B071D1B6153690058316F /* TWRBaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRBaseVC.h; sourceTree = "<group>"; };
-		047B071E1B6153690058316F /* TWRBaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRBaseVC.m; sourceTree = "<group>"; };
 		047B07211B6159010058316F /* TWRBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRBaseTableViewCell.h; sourceTree = "<group>"; };
 		047B07221B6159010058316F /* TWRBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRBaseTableViewCell.m; sourceTree = "<group>"; };
 		047B07241B6159480058316F /* TWRTwitCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRTwitCell.h; sourceTree = "<group>"; };
@@ -270,6 +267,8 @@
 		04E391EF1B6527CB00F9A9C5 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		04E391F01B6527CB00F9A9C5 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		04E391F11B6527CB00F9A9C5 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		C576F2B11C6E3A5400A91B68 /* UIViewController+TWRUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TWRUtils.h"; sourceTree = "<group>"; };
+		C576F2B21C6E3A5400A91B68 /* UIViewController+TWRUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TWRUtils.m"; sourceTree = "<group>"; };
 		DE0B9BD61B62334900CFC490 /* INSInfiniteScrollBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSInfiniteScrollBackgroundView.h; sourceTree = "<group>"; };
 		DE0B9BD71B62334900CFC490 /* INSInfiniteScrollBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSInfiniteScrollBackgroundView.m; sourceTree = "<group>"; };
 		DE0B9BD81B62334900CFC490 /* INSPullToRefreshBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSPullToRefreshBackgroundView.h; sourceTree = "<group>"; };
@@ -319,8 +318,6 @@
 		DED833D61B68F19E00A7A9E3 /* TWRYoutubeVideoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRYoutubeVideoVC.m; sourceTree = "<group>"; };
 		DEE2AB8A1B66483A001A28A6 /* KAOBorderedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAOBorderedButton.h; sourceTree = "<group>"; };
 		DEE2AB8B1B66483A001A28A6 /* KAOBorderedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KAOBorderedButton.m; sourceTree = "<group>"; };
-		DEE2AB8D1B66523E001A28A6 /* TWRBaseTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRBaseTableVC.h; sourceTree = "<group>"; };
-		DEE2AB8E1B66523E001A28A6 /* TWRBaseTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRBaseTableVC.m; sourceTree = "<group>"; };
 		DEE2AB901B665C99001A28A6 /* NSDate+Escort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Escort.h"; sourceTree = "<group>"; };
 		DEE2AB911B665C99001A28A6 /* NSDate+Escort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Escort.m"; sourceTree = "<group>"; };
 		DEE2AB9E1B667268001A28A6 /* YTPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTPlayerView.h; sourceTree = "<group>"; };
@@ -409,12 +406,8 @@
 		047B071C1B6153570058316F /* BaseClasses */ = {
 			isa = PBXGroup;
 			children = (
-				DEE2AB8D1B66523E001A28A6 /* TWRBaseTableVC.h */,
-				DEE2AB8E1B66523E001A28A6 /* TWRBaseTableVC.m */,
 				047B07211B6159010058316F /* TWRBaseTableViewCell.h */,
 				047B07221B6159010058316F /* TWRBaseTableViewCell.m */,
-				047B071D1B6153690058316F /* TWRBaseVC.h */,
-				047B071E1B6153690058316F /* TWRBaseVC.m */,
 			);
 			path = BaseClasses;
 			sourceTree = "<group>";
@@ -798,6 +791,8 @@
 				043AB9BE1B64124E005F2BD5 /* UIFont+TWRFonts.m */,
 				04E391CD1B6521D700F9A9C5 /* UIImage+TWRImages.h */,
 				04E391CE1B6521D700F9A9C5 /* UIImage+TWRImages.m */,
+				C576F2B11C6E3A5400A91B68 /* UIViewController+TWRUtils.h */,
+				C576F2B21C6E3A5400A91B68 /* UIViewController+TWRUtils.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -1112,6 +1107,7 @@
 				04AF02AC1B6104A5002CEB65 /* STTwitterOSRequest.m in Sources */,
 				04AF025A1B60FE4A002CEB65 /* AppDelegate.m in Sources */,
 				DE0B9BF81B6267ED00CFC490 /* NSDateFormatter+LocaleAdditions.m in Sources */,
+				C576F2B31C6E3A5400A91B68 /* UIViewController+TWRUtils.m in Sources */,
 				04AF02AA1B6104A5002CEB65 /* STTwitterOAuth.m in Sources */,
 				DEE2ABA01B667268001A28A6 /* YTPlayerView.m in Sources */,
 				04AF02A91B6104A5002CEB65 /* STTwitterHTML.m in Sources */,
@@ -1120,7 +1116,6 @@
 				043AB9B91B64117E005F2BD5 /* UIColor+TWRColors.m in Sources */,
 				047B07231B6159010058316F /* TWRBaseTableViewCell.m in Sources */,
 				DED500211B6A46AB008921F0 /* NSDate+NVTimeAgo.m in Sources */,
-				DEE2AB8F1B66523E001A28A6 /* TWRBaseTableVC.m in Sources */,
 				DE0B9BE81B62417500CFC490 /* INSCircleInfiniteIndicator.m in Sources */,
 				DED833D11B68C66C00A7A9E3 /* TWRUserProfile.m in Sources */,
 				04AF02BC1B61054F002CEB65 /* TWRLoginVC.m in Sources */,
@@ -1136,7 +1131,6 @@
 				DEC726A91B67BC0300155629 /* TWRSettingsVC.m in Sources */,
 				04AF02A31B6104A5002CEB65 /* NSDateFormatter+STTwitter.m in Sources */,
 				04E391FC1B6527CB00F9A9C5 /* UIImage+GIF.m in Sources */,
-				047B071F1B6153690058316F /* TWRBaseVC.m in Sources */,
 				04AF02B51B6104B0002CEB65 /* JSONSyntaxHighlight.m in Sources */,
 				047B072E1B6167E70058316F /* TWRPlace.m in Sources */,
 				04AF02B91B61051C002CEB65 /* TWRFeedVC.m in Sources */,
