@@ -41,11 +41,9 @@ static NSString *const kUserAvatarKey = @"TWRUserAvatarKey";
 }
 
 - (NSString *)userNickname {
-    
     if (!_userNickname) {
         _userNickname = [[NSUserDefaults standardUserDefaults] objectForKey:kUserNicknameKey];
     }
-    
     return _userNickname;
 }
 
@@ -56,11 +54,9 @@ static NSString *const kUserAvatarKey = @"TWRUserAvatarKey";
 }
 
 - (NSString *)userName {
-    
     if (!_userName) {
         _userName = [[NSUserDefaults standardUserDefaults] objectForKey:kUserNameKey];
     }
-    
     return _userName;
 }
 
@@ -71,11 +67,9 @@ static NSString *const kUserAvatarKey = @"TWRUserAvatarKey";
 }
 
 - (NSString *)userID {
-    
     if (!_userID) {
         _userID = [[NSUserDefaults standardUserDefaults] objectForKey:kUserIDKey];
     }
-    
     return _userID;
 }
 
@@ -91,12 +85,10 @@ static NSString *const kUserAvatarKey = @"TWRUserAvatarKey";
 }
 
 - (UIImage *)userAvatar {
-    
     if (!_userAvatar) {
         NSData *imageData = [[NSUserDefaults standardUserDefaults] objectForKey:kUserAvatarKey];
         _userAvatar = [UIImage imageWithData:imageData];
     }
-    
     return _userAvatar;
 }
 

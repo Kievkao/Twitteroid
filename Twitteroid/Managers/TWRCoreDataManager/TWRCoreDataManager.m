@@ -44,10 +44,38 @@ static NSString *const kTweetsDeleteDateKey = @"TWRTweetsDeleteDateKey";
     return self;
 }
 
+// TODO: add child private context
 - (void)setupStack {
     
+    NSManagedObjectModel *model = [[NSManagedObjectModel alloc] initWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"Twitteroid" withExtension:@"momd"]];
+    if (!model) {
+        abort();
+    }
+    
+    NSPersistentStoreCoordinator *persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
+    if (!persistentStoreCoordinator) {
+        abort();
+    }
+    
+    self.mainContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+    self.mainContext.persistentStoreCoordinator = persistentStoreCoordinator;
+    
+    NSURL *documentsURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] firstObject];
+    if (!documentsURL) {
+        abort();
+    }
+    
+    NSURL *storeURL = [documentsURL URLByAppendingPathComponent:@"Twitteroid.sqlite"];
+    NSDictionary *options = @{NSMigratePersistentStoresAutomaticallyOption : @YES, NSInferMappingModelAutomaticallyOption : @YES, NSSQLitePragmasOption : @{@"journal_mode": @"DELETE"}};
+    
+    NSError *error = nil;
+    [persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error];
+    if (error) {
+        abort();
+    }
 }
 
+// TODO: rework to generics
 - (NSFetchedResultsController *)fetchedResultsControllerForTweetsHashtag:(NSString *)hashtag {
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:[TWRTweet entityName]];
@@ -66,6 +94,7 @@ static NSString *const kTweetsDeleteDateKey = @"TWRTweetsDeleteDateKey";
     return fetchedResultsController;
 }
 
+// TODO: replace fetch to getting only count of elements
 - (BOOL)isAnySavedTweetsForHashtag:(NSString *)hashtag {
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:[TWRTweet entityName]];
@@ -84,6 +113,7 @@ static NSString *const kTweetsDeleteDateKey = @"TWRTweetsDeleteDateKey";
     return (results.count > 0);
 }
 
+// TODO: rework to some similar to objc-CoreData methodic or to generics
 - (TWRTweet *)insertNewTweet {
     TWRTweet *tweet = [NSEntityDescription insertNewObjectForEntityForName:[TWRTweet entityName] inManagedObjectContext:[self mainContext]];
     return tweet;
@@ -104,6 +134,7 @@ static NSString *const kTweetsDeleteDateKey = @"TWRTweetsDeleteDateKey";
     return media;
 }
 
+// TODO: replace fetch to getting only count of elements
 - (BOOL)isExistsTweetWithID:(NSString *)tweetID forHashtag:(NSString *)hashtag {
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:[TWRTweet entityName]];

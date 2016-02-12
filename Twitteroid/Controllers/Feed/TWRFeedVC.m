@@ -66,42 +66,6 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
     [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:[TWRSettingsVC rootNavControllerIdentifier]] animated:YES completion:nil];
 }
 
-#pragma mark - Helpers
-+ (NSString *)identifier {
-    return @"TWRFeedVC";
-}
-
-- (void)checkCoreDataEntities {
-    
-    if (![[TWRCoreDataManager sharedInstance] isAnySavedTweetsForHashtag:[self tweetsHashtag]]) {
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        
-        [self checkEnvironmentAndLoadFromTweetID:nil withCompletion:^(NSError *error) {
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
-        }];
-    }
-}
-
-- (NSDateFormatter *)dateFormatter {
-    if (!_dateFormatter) {
-        _dateFormatter = [[NSDateFormatter alloc] initWithSafeLocale];
-        [_dateFormatter setDateFormat:kTweetsDateFormat];
-    }
-    return _dateFormatter;
-}
-
-- (BOOL)isInternetActive {
-    Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
-    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
-    
-    return !(networkStatus == NotReachable);
-}
-
-- (void)setupNavigationBar {
-    UIBarButtonItem *settingsBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settingsIcon"] style:UIBarButtonItemStylePlain target:self action:@selector(settingsBtnClicked)];
-    [self.navigationItem setRightBarButtonItem:settingsBarItem animated:YES];
-}
-
 #pragma mark - NSFetchedResultsController
 - (void)startFetching {
 
@@ -350,6 +314,43 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
     else {
         [cell hideMediaFrame];
     }
+}
+
+
+#pragma mark - Helpers
++ (NSString *)identifier {
+    return @"TWRFeedVC";
+}
+
+- (void)checkCoreDataEntities {
+    
+    if (![[TWRCoreDataManager sharedInstance] isAnySavedTweetsForHashtag:[self tweetsHashtag]]) {
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        
+        [self checkEnvironmentAndLoadFromTweetID:nil withCompletion:^(NSError *error) {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        }];
+    }
+}
+
+- (NSDateFormatter *)dateFormatter {
+    if (!_dateFormatter) {
+        _dateFormatter = [[NSDateFormatter alloc] initWithSafeLocale];
+        [_dateFormatter setDateFormat:kTweetsDateFormat];
+    }
+    return _dateFormatter;
+}
+
+- (BOOL)isInternetActive {
+    Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
+    
+    return !(networkStatus == NotReachable);
+}
+
+- (void)setupNavigationBar {
+    UIBarButtonItem *settingsBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settingsIcon"] style:UIBarButtonItemStylePlain target:self action:@selector(settingsBtnClicked)];
+    [self.navigationItem setRightBarButtonItem:settingsBarItem animated:YES];
 }
 
 @end

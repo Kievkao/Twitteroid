@@ -9,7 +9,7 @@
 #import "TWRHashtag.h"
 #import "TWRTweet.h"
 
-
+// TODO: rework to category/protocol with identifier method
 @implementation TWRHashtag
 
 @dynamic endIndex;
