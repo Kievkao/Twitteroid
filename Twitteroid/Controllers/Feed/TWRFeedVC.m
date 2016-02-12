@@ -73,10 +73,10 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
 
 - (void)checkCoreDataEntities {
     
-    if (![TWRCoreDataManager isAnySavedTweetsForHashtag:[self tweetsHashtag]]) {
+    if (![[TWRCoreDataManager sharedInstance] isAnySavedTweetsForHashtag:[self tweetsHashtag]]) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         
-        [self checkEnvirAndLoadFromTweetID:nil withCompletion:^(NSError *error) {
+        [self checkEnvironmentAndLoadFromTweetID:nil withCompletion:^(NSError *error) {
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         }];
     }
@@ -146,7 +146,7 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
 - (NSFetchedResultsController *)fetchedResultsController {
     
     if (!_fetchedResultsController) {
-        _fetchedResultsController = [TWRCoreDataManager fetchedResultsControllerForTweetsHashtag:[self tweetsHashtag]];
+        _fetchedResultsController = [[TWRCoreDataManager sharedInstance] fetchedResultsControllerForTweetsHashtag:[self tweetsHashtag]];
         _fetchedResultsController.delegate = self;
     }
     return _fetchedResultsController;
@@ -186,7 +186,7 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
     [[TWRTwitterAPIManager sharedInstance] getFeedOlderThatTwitID:tweetID count:kTweetsLoadingPortion completion:^(NSError *error, NSArray *items) {
         if (!error) {
             [self parseTweetsArray:items forHashtag:[self tweetsHashtag]];
-            [TWRCoreDataManager saveContext];
+            [[TWRCoreDataManager sharedInstance] saveContext];
         }
         else {
             NSLog(@"Loading error");
@@ -199,7 +199,7 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
 #pragma mark - Infinitive scroll && PullToRefresh
 - (void)pullToRefreshSetup {
     [self.tableView ins_addPullToRefreshWithHeight:kPullRefreshHeight handler:^(UIScrollView *scrollView) {
-        [self checkEnvirAndLoadFromTweetID:nil withCompletion:^(NSError *error) {
+        [self checkEnvironmentAndLoadFromTweetID:nil withCompletion:^(NSError *error) {
             [scrollView ins_endPullToRefresh];
         }];
     }];
@@ -214,7 +214,7 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
         TWRTweet *lastTweet = [self.fetchedResultsController objectAtIndexPath:[[self.tableView indexPathsForVisibleRows] lastObject]];
         NSString *lastTweetID = lastTweet.tweetId;
         
-        [self checkEnvirAndLoadFromTweetID:lastTweetID withCompletion:^(NSError *error) {
+        [self checkEnvironmentAndLoadFromTweetID:lastTweetID withCompletion:^(NSError *error) {
             if (error) {
                 NSLog(@"Loading error");
             }

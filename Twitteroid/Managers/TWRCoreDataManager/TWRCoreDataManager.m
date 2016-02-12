@@ -16,11 +16,10 @@
 
 static NSString *const kTweetsDeleteDateKey = @"TWRTweetsDeleteDateKey";
 
-#define MAIN_CONTEXT [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]
-
 @interface TWRCoreDataManager()
 
 @property (nonatomic, strong) NSDate *dateForOlderDeleting;
+@property (nonatomic, strong) NSManagedObjectContext *mainContext;
 
 @end
 
@@ -36,7 +35,20 @@ static NSString *const kTweetsDeleteDateKey = @"TWRTweetsDeleteDateKey";
     return sharedInstance;
 }
 
-+ (NSFetchedResultsController *)fetchedResultsControllerForTweetsHashtag:(NSString *)hashtag {
+- (instancetype)init {
+    self = [super init];
+    
+    if (self) {
+        [self setupStack];
+    }
+    return self;
+}
+
+- (void)setupStack {
+    
+}
+
+- (NSFetchedResultsController *)fetchedResultsControllerForTweetsHashtag:(NSString *)hashtag {
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:[TWRTweet entityName]];
     
@@ -49,12 +61,12 @@ static NSString *const kTweetsDeleteDateKey = @"TWRTweetsDeleteDateKey";
     
     [fetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:[TWRTweet defaultSortDescriptor] ascending:NO]]];
     
-    NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:MAIN_CONTEXT sectionNameKeyPath:nil cacheName:nil];
+    NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.mainContext sectionNameKeyPath:nil cacheName:nil];
     
     return fetchedResultsController;
 }
 
-+ (BOOL)isAnySavedTweetsForHashtag:(NSString *)hashtag {
+- (BOOL)isAnySavedTweetsForHashtag:(NSString *)hashtag {
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:[TWRTweet entityName]];
     [fetchRequest setFetchLimit:1];
@@ -67,36 +79,32 @@ static NSString *const kTweetsDeleteDateKey = @"TWRTweetsDeleteDateKey";
     }
     
     NSError *error = nil;
-    NSArray *results = [MAIN_CONTEXT executeFetchRequest:fetchRequest error:&error];
+    NSArray *results = [self.mainContext executeFetchRequest:fetchRequest error:&error];
     
     return (results.count > 0);
 }
 
-+ (NSManagedObjectContext *)mainContext {
-    return MAIN_CONTEXT;
-}
-
-+ (TWRTweet *)insertNewTweet {
+- (TWRTweet *)insertNewTweet {
     TWRTweet *tweet = [NSEntityDescription insertNewObjectForEntityForName:[TWRTweet entityName] inManagedObjectContext:[self mainContext]];
     return tweet;
 }
 
-+ (TWRHashtag *)insertNewHashtag {
+- (TWRHashtag *)insertNewHashtag {
     TWRHashtag *hashtag = [NSEntityDescription insertNewObjectForEntityForName:[TWRHashtag entityName] inManagedObjectContext:[self mainContext]];
     return hashtag;
 }
 
-+ (TWRPlace *)insertNewPlace {
+- (TWRPlace *)insertNewPlace {
     TWRPlace *place = [NSEntityDescription insertNewObjectForEntityForName:[TWRPlace entityName] inManagedObjectContext:[self mainContext]];
     return place;
 }
 
-+ (TWRMedia *)insertNewMedia {
+- (TWRMedia *)insertNewMedia {
     TWRMedia *media = [NSEntityDescription insertNewObjectForEntityForName:[TWRMedia entityName] inManagedObjectContext:[self mainContext]];
     return media;
 }
 
-+ (BOOL)isExistsTweetWithID:(NSString *)tweetID forHashtag:(NSString *)hashtag {
+- (BOOL)isExistsTweetWithID:(NSString *)tweetID forHashtag:(NSString *)hashtag {
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:[TWRTweet entityName]];
     
@@ -135,7 +143,7 @@ static NSString *const kTweetsDeleteDateKey = @"TWRTweetsDeleteDateKey";
     }
 }
 
-+ (void)deleteTweetsOlderThanDate:(NSDate *)date {
+- (void)deleteTweetsOlderThanDate:(NSDate *)date {
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:[TWRTweet entityName]];
     
@@ -151,7 +159,7 @@ static NSString *const kTweetsDeleteDateKey = @"TWRTweetsDeleteDateKey";
     [self saveContext];
 }
 
-+ (void)saveContext {
+- (void)saveContext {
 
     NSError *error = nil;
     [[self mainContext] save:&error];

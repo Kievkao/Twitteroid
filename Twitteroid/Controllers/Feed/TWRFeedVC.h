@@ -18,6 +18,6 @@ extern NSUInteger const kTweetsLoadingPortion;
 
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
 
-- (void)checkEnvirAndLoadFromTweetID:(NSString *)tweetID withCompletion:(void (^)(NSError *error))loadingCompletion;
+- (void)checkEnvironmentAndLoadFromTweetID:(NSString *)tweetID withCompletion:(void (^)(NSError *error))loadingCompletion;
 
 @end

@@ -16,12 +16,12 @@
         
         NSDate *tweetDate = [self.dateFormatter dateFromString:oneItem[@"created_at"]];
         
-        if ([TWRCoreDataManager isExistsTweetWithID:oneItem[@"id_str"] forHashtag:hashtag] ||
+        if ([[TWRCoreDataManager sharedInstance] isExistsTweetWithID:oneItem[@"id_str"] forHashtag:hashtag] ||
             ![[TWRCoreDataManager sharedInstance] isTweetDateIsAllowed:tweetDate]) {
             continue;
         }
         
-        TWRTweet *tweet = [TWRCoreDataManager insertNewTweet];
+        TWRTweet *tweet = [[TWRCoreDataManager sharedInstance] insertNewTweet];
         
         tweet.createdAt = tweetDate;
         tweet.tweetId = oneItem[@"id_str"];
@@ -73,7 +73,7 @@
             lattitude /= coordinates.count;
             longitude /= coordinates.count;
             
-            TWRPlace *place  = [TWRCoreDataManager insertNewPlace];
+            TWRPlace *place  = [[TWRCoreDataManager sharedInstance] insertNewPlace];
             place.lattitude = lattitude;
             place.longitude = longitude;
             place.tweet = tweet;
@@ -93,7 +93,7 @@
                 
                 for (NSDictionary *hash in hastagsArray) {
                     NSArray *indicies = hash[@"indicies"];
-                    TWRHashtag *hashtag = [TWRCoreDataManager insertNewHashtag];
+                    TWRHashtag *hashtag = [[TWRCoreDataManager sharedInstance] insertNewHashtag];
                     hashtag.startIndex = [[indicies firstObject] intValue];
                     hashtag.endIndex = [[indicies lastObject] intValue];
                     hashtag.text = hash[@"text"];
@@ -112,7 +112,7 @@
             NSMutableSet *tweetMedias = [NSMutableSet new];
             
             for (NSDictionary *mediaDict in mediaArray) {
-                TWRMedia *media = [TWRCoreDataManager insertNewMedia];
+                TWRMedia *media = [[TWRCoreDataManager sharedInstance] insertNewMedia];
                 media.mediaURL = mediaDict[@"media_url"];
                 media.tweet = tweet;
                 media.isPhoto = YES;
@@ -130,7 +130,7 @@
             if (![urls isKindOfClass:[NSNull class]]) {
                 for (NSDictionary *urlDict in urls) {
                     if ([self isYoutubeLink:urlDict[@"expanded_url"]]) {
-                        TWRMedia *media = [TWRCoreDataManager insertNewMedia];
+                        TWRMedia *media = [[TWRCoreDataManager sharedInstance] insertNewMedia];
                         media.mediaURL = urlDict[@"expanded_url"];
                         media.tweet = tweet;
                         media.isPhoto = NO;

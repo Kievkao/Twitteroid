@@ -31,7 +31,7 @@
     [[TWRTwitterAPIManager sharedInstance] getTweetsByHashtag:self.hashTag olderThatTwitID:tweetID count:kTweetsLoadingPortion completion:^(NSError *error, NSArray *items) {
         if (!error) {
             [self parseTweetsArray:items forHashtag:[self tweetsHashtag]];
-            [TWRCoreDataManager saveContext];
+            [[TWRCoreDataManager sharedInstance] saveContext];
         }
         else {
             NSLog(@"Loading error");

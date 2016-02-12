@@ -24,7 +24,7 @@
     [self showSureAlertWithTitle:NSLocalizedString(@"Confirmation", @"Confirmation alert title") text:NSLocalizedString(@"Are you sure to delete tweets older than selected date?", @"\"Are you sure\" text for tweets deleting, that are older than selected date") okCompletionBlock:^(UIAlertAction *action) {
         
         NSDate *selectedDate = weakSelf.manualDatePicker.date;
-        [TWRCoreDataManager deleteTweetsOlderThanDate:selectedDate];
+        [[TWRCoreDataManager sharedInstance] deleteTweetsOlderThanDate:selectedDate];
         [weakSelf.navigationController popToRootViewControllerAnimated:YES];
         
         [weakSelf showInfoAlertWithTitle:NSLocalizedString(@"Done", @"Done alert text") text:NSLocalizedString(@"Filtered tweets have deleted", @"Filtered tweets have deleted")];

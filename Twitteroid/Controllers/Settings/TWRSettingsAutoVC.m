@@ -51,7 +51,7 @@ static NSUInteger const kTotalWeeksAmount = 51;
         NSUInteger selectedWeeksCellIndex = [strongSelf.weeksAutoDatePicker selectedRowInComponent:0];
         
         NSDate *selectedDate = [NSDate dateWithDaysBeforeNow:(selectedWeeksCellIndex + 1)*7];
-        [TWRCoreDataManager deleteTweetsOlderThanDate:selectedDate];
+        [[TWRCoreDataManager sharedInstance] deleteTweetsOlderThanDate:selectedDate];
         [[TWRCoreDataManager sharedInstance] saveAutomaticTweetsDeleteDate:selectedDate];
         [strongSelf.navigationController popToRootViewControllerAnimated:YES];
         

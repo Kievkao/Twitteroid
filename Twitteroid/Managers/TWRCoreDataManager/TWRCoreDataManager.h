@@ -12,19 +12,18 @@
 @interface TWRCoreDataManager : NSObject
 
 + (instancetype)sharedInstance;
-+ (NSManagedObjectContext *)mainContext;
-+ (void)saveContext;
-+ (NSFetchedResultsController *)fetchedResultsControllerForTweetsHashtag:(NSString *)hashtag;
+- (void)saveContext;
+- (NSFetchedResultsController *)fetchedResultsControllerForTweetsHashtag:(NSString *)hashtag;
 
-+ (TWRTweet *)insertNewTweet;
-+ (TWRHashtag *)insertNewHashtag;
-+ (TWRMedia *)insertNewMedia;
-+ (TWRPlace *)insertNewPlace;
+- (TWRTweet *)insertNewTweet;
+- (TWRHashtag *)insertNewHashtag;
+- (TWRMedia *)insertNewMedia;
+- (TWRPlace *)insertNewPlace;
 
-+ (BOOL)isExistsTweetWithID:(NSString *)tweetID forHashtag:(NSString *)hashtag;
-+ (BOOL)isAnySavedTweetsForHashtag:(NSString *)hashtag;
+- (BOOL)isExistsTweetWithID:(NSString *)tweetID forHashtag:(NSString *)hashtag;
+- (BOOL)isAnySavedTweetsForHashtag:(NSString *)hashtag;
 
-+ (void)deleteTweetsOlderThanDate:(NSDate *)date;
+- (void)deleteTweetsOlderThanDate:(NSDate *)date;
 
 - (void)saveAutomaticTweetsDeleteDate:(NSDate *)date;
 - (NSDate *)savedAutomaticTweetsDeleteDate;
