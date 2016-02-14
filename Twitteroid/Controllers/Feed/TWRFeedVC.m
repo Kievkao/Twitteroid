@@ -29,10 +29,9 @@ static CGFloat const kPullRefreshIndicatorDiameter = 24.0;
 static CGFloat const kInfinitiveScrollHeight = 60.0;
 static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
 
-@interface TWRFeedVC () <NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface TWRFeedVC () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) TWRFeedViewModel *viewModel;
 
 @end
@@ -48,7 +47,7 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
     [self setupNavigationBar];
     [self pullToRefreshSetup];
     [self infinitiveScrollSetup];
-    [self startFetching];
+    [self.viewModel startFetching];
     [self checkCoreDataEntities];    
 }
 
@@ -59,56 +58,6 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
 
 - (void)settingsBtnClicked {
     [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:[TWRSettingsVC rootNavControllerIdentifier]] animated:YES completion:nil];
-}
-
-#pragma mark - NSFetchedResultsController
-- (void)startFetching {
-
-    NSError *error = nil;
-    [self.fetchedResultsController performFetch:&error];
-    
-    if (error) {
-        [self showInfoAlertWithTitle:NSLocalizedString(@"Error", @"Error title") text:error.localizedDescription];
-    }
-}
-
-- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
-    [self.tableView beginUpdates];
-}
-
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    [self.tableView endUpdates];
-}
-
-- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
-    switch (type) {
-        case NSFetchedResultsChangeInsert: {
-            [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-        }
-        case NSFetchedResultsChangeDelete: {
-            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-        }
-        case NSFetchedResultsChangeUpdate: {
-            [self configureCell:(TWRTwitCell *)[self.tableView cellForRowAtIndexPath:indexPath] forIndexPath:indexPath];
-            break;
-        }
-        case NSFetchedResultsChangeMove: {
-            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-        }
-    }
-}
-
-- (NSFetchedResultsController *)fetchedResultsController {
-    
-    if (!_fetchedResultsController) {
-        _fetchedResultsController = [[TWRCoreDataManager sharedInstance] fetchedResultsControllerForTweetsHashtag:[self tweetsHashtag]];
-        _fetchedResultsController.delegate = self;
-    }
-    return _fetchedResultsController;
 }
 
 - (NSString *)tweetsHashtag {
@@ -132,7 +81,7 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
 
 - (void)infinitiveScrollSetup {
     [self.tableView ins_addInfinityScrollWithHeight:kInfinitiveScrollHeight handler:^(UIScrollView *scrollView) {
-        TWRTweet *lastTweet = [self.fetchedResultsController objectAtIndexPath:[[self.tableView indexPathsForVisibleRows] lastObject]];
+        TWRTweet *lastTweet = [self.viewModel dataObjectAtIndexPath:[[self.tableView indexPathsForVisibleRows] lastObject]];
         NSString *lastTweetID = lastTweet.tweetId;
         
         [self.viewModel checkEnvironmentAndLoadFromTweetID:lastTweetID withCompletion:^(NSError *error) {
@@ -158,7 +107,7 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
 
 #pragma mark - UITableView Datasource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [[self.fetchedResultsController sections] count];
+    return [self.viewModel numberOfDataSections];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -167,7 +116,7 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    TWRTweet *tweet = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    TWRTweet *tweet = [self.viewModel dataObjectAtIndexPath:indexPath];
     
     BOOL isMedia = NO;
     if (tweet.medias.count) {
@@ -183,10 +132,7 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSArray *sections = [self.fetchedResultsController sections];
-    id<NSFetchedResultsSectionInfo> sectionInfo = [sections objectAtIndex:section];
-    
-    return [sectionInfo numberOfObjects];
+    return [self.viewModel numberOfObjectsInSection:section];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -196,7 +142,7 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
 }
 
 - (void)configureCell:(TWRTwitCell *)cell forIndexPath:(NSIndexPath *)indexPath {
-    TWRTweet *tweet = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    TWRTweet *tweet = [self.viewModel dataObjectAtIndexPath:indexPath];
     
     [cell setAuthorName:tweet.userName];
     [cell setAuthorNickname:tweet.userNickname];

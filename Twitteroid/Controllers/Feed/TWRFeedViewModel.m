@@ -21,11 +21,11 @@
 static NSUInteger const kTweetsLoadingPortion = 20;
 static NSString *const kAppErrorDomain = @"com.kievkao.Twitteroid";
 
-
-@interface TWRFeedViewModel()
+@interface TWRFeedViewModel() <NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
 @property (nonatomic, strong) NSString *hashTag;
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @end
 
@@ -38,6 +38,78 @@ static NSString *const kAppErrorDomain = @"com.kievkao.Twitteroid";
     }
     return self;
 }
+
+- (NSUInteger)numberOfDataSections {
+    return [[self.fetchedResultsController sections] count];
+}
+
+- (NSUInteger)numberOfObjectsInSection:(NSUInteger)section {
+    NSArray *sections = [self.fetchedResultsController sections];
+    id<NSFetchedResultsSectionInfo> sectionInfo = [sections objectAtIndex:section];
+
+    return [sectionInfo numberOfObjects];
+}
+
+- (id)dataObjectAtIndexPath:(NSIndexPath *)indexPath {
+    return [self.fetchedResultsController objectAtIndexPath:indexPath];
+}
+
+#pragma mark - NSFetchedResultsController
+- (void)startFetching {
+    
+    NSError *error = nil;
+    [self.fetchedResultsController performFetch:&error];
+    
+    if (error) {
+        //[self showInfoAlertWithTitle:NSLocalizedString(@"Error", @"Error title") text:error.localizedDescription];
+    }
+}
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    [self.delegate viewModelWillChangeContent];
+//    [self.tableView beginUpdates];
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.delegate viewModelDidChangeContent];
+//    [self.tableView endUpdates];
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+    switch (type) {
+        case NSFetchedResultsChangeInsert: {
+            [self.delegate rowNeedToBeInserted:newIndexPath];
+            //[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        }
+        case NSFetchedResultsChangeDelete: {
+            [self.delegate rowNeedToBeDeleted:newIndexPath];
+            //[self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        }
+        case NSFetchedResultsChangeUpdate: {
+            [self.delegate rowNeedToBeUpdated:indexPath];
+            //[self configureCell:(TWRTwitCell *)[self.tableView cellForRowAtIndexPath:indexPath] forIndexPath:indexPath];
+            break;
+        }
+        case NSFetchedResultsChangeMove: {
+            [self.delegate rowNeedToBeMoved:indexPath newIndexPath:newIndexPath];
+//            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//            [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        }
+    }
+}
+
+- (NSFetchedResultsController *)fetchedResultsController {
+    
+    if (!_fetchedResultsController) {
+        _fetchedResultsController = [[TWRCoreDataManager sharedInstance] fetchedResultsControllerForTweetsHashtag:self.hashTag];
+        _fetchedResultsController.delegate = self;
+    }
+    return _fetchedResultsController;
+}
+
 
 - (void)checkEnvironmentAndLoadFromTweetID:(NSString *)tweetID withCompletion:(void (^)(NSError *error))loadingCompletion {
     
