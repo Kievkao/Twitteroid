@@ -1,15 +1,85 @@
 //
-//  TWRFeedVC+TWRParsing.m
+//  TWRFeedViewModel.m
 //  Twitteroid
 //
-//  Created by Andrey Kravchenko on 7/24/15.
-//  Copyright (c) 2015 Kievkao. All rights reserved.
+//  Created by Andrii Kravchenko on 2/14/16.
+//  Copyright © 2016 Kievkao. All rights reserved.
 //
 
-#import "TWRFeedVC+TWRParsing.h"
+#import <CoreData/CoreData.h>
+#import "TWRCoreDataManager.h"
+#import "TWRFeedViewModel.h"
+#import "Reachability.h"
+#import "TWRTwitterAPIManager+TWRFeed.h"
+#import "TWRTwitterAPIManager+TWRLogin.h"
+#import "TWRTweet.h"
+#import "TWRHashtag.h"
+#import "TWRMedia.h"
+#import "TWRPlace.h"
+#import "NSDateFormatter+LocaleAdditions.h"
 
-@implementation TWRFeedVC (TWRParsing)
+static NSUInteger const kTweetsLoadingPortion = 20;
+static NSString *const kAppErrorDomain = @"com.kievkao.Twitteroid";
 
+
+@interface TWRFeedViewModel()
+
+@property (strong, nonatomic) NSDateFormatter *dateFormatter;
+@property (nonatomic, strong) NSString *hashTag;
+
+@end
+
+@implementation TWRFeedViewModel
+
+- (instancetype)initWithHashtag:(NSString *)hashtag {
+    self = [super init];
+    if (self) {
+        _hashTag = hashtag;
+    }
+    return self;
+}
+
+- (void)checkEnvironmentAndLoadFromTweetID:(NSString *)tweetID withCompletion:(void (^)(NSError *error))loadingCompletion {
+    
+    BOOL isSessionLoginDone = [[TWRTwitterAPIManager sharedInstance] isSessionLoginDone];
+    BOOL isInternetActive = [self isInternetActive];
+    
+    if (!isInternetActive) {
+        
+//        [self showInfoAlertWithTitle:NSLocalizedString(@"Connection Failed", @"Connection Failed") text:NSLocalizedString(@"Please check your internet connection", @"Please check your internet connection")];
+        loadingCompletion([NSError new]);
+    }
+    else if (!isSessionLoginDone) {
+        [[TWRTwitterAPIManager sharedInstance] reloginWithCompletion:^(NSError *error) {
+            if (!error) {
+                [self loadFromTweetID:tweetID withCompletion:loadingCompletion];
+            }
+            else {
+//                [self showInfoAlertWithTitle:NSLocalizedString(@"Error", @"Error title") text:error.localizedDescription];
+            }
+        }];
+    }
+    else {
+        [self loadFromTweetID:tweetID withCompletion:loadingCompletion];
+    }
+}
+
+- (void)loadFromTweetID:(NSString *)tweetID withCompletion:(void (^)(NSError *error))loadingCompletion {
+    
+    [[TWRTwitterAPIManager sharedInstance] getFeedOlderThatTwitID:tweetID count:kTweetsLoadingPortion completion:^(NSError *error, NSArray *items) {
+        if (!error) {
+            [self parseTweetsArray:items forHashtag:self.hashTag];
+            [[TWRCoreDataManager sharedInstance] saveContext];
+        }
+        else {
+            NSLog(@"Loading error");
+        }
+        
+        loadingCompletion(error);
+    }];
+}
+
+#pragma mark - CoreData
 - (void)parseTweetsArray:(NSArray *)items forHashtag:(NSString *)hashtag {
     
     for (NSDictionary *oneItem in items) {
@@ -80,7 +150,7 @@
             
             tweet.place = place;
         }
-
+        
         tweet.text = bodyDict[@"text"];
         
         if (![oneItem[@"entities"] isKindOfClass:[NSNull class]]) {
@@ -126,7 +196,7 @@
             NSDictionary *entitiesDict = oneItem[@"entities"];
             NSArray *urls = entitiesDict[@"urls"];
             NSMutableSet *tweetUrls = [NSMutableSet new];
-
+            
             if (![urls isKindOfClass:[NSNull class]]) {
                 for (NSDictionary *urlDict in urls) {
                     if ([self isYoutubeLink:urlDict[@"expanded_url"]]) {
@@ -134,7 +204,7 @@
                         media.mediaURL = urlDict[@"expanded_url"];
                         media.tweet = tweet;
                         media.isPhoto = NO;
-                    
+                        
                         [tweetUrls addObject:media];
                     }
                 }
@@ -146,11 +216,17 @@
 }
 
 - (BOOL)isYoutubeLink:(NSString *)urlStr {
-//@"www.youtube.com"
-//@"youtu.be"
-//@"m.youtube.com"
+    //@"www.youtube.com"
+    //@"youtu.be"
+    //@"m.youtube.com"
     return [urlStr containsString:@"youtu"];
 }
 
+- (BOOL)isInternetActive {
+    Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
+    
+    return !(networkStatus == NotReachable);
+}
 
 @end

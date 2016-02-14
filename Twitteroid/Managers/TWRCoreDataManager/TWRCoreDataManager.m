@@ -26,8 +26,7 @@ static NSString *const kTweetsDeleteDateKey = @"TWRTweetsDeleteDateKey";
 
 @implementation TWRCoreDataManager
 
-+ (instancetype)sharedInstance
-{
++ (instancetype)sharedInstance {
     static dispatch_once_t once;
     static id sharedInstance;
     dispatch_once(&once, ^{
@@ -79,8 +78,7 @@ static NSString *const kTweetsDeleteDateKey = @"TWRTweetsDeleteDateKey";
     }
 }
 
-// TODO: rework to generics
-- (NSFetchedResultsController *)fetchedResultsControllerForTweetsHashtag:(NSString *)hashtag {
+- (nullable NSFetchedResultsController *)fetchedResultsControllerForTweetsHashtag:(nullable NSString *)hashtag {
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:[TWRTweet entityName]];
     
@@ -98,8 +96,7 @@ static NSString *const kTweetsDeleteDateKey = @"TWRTweetsDeleteDateKey";
     return fetchedResultsController;
 }
 
-// TODO: replace fetch to getting only count of elements
-- (BOOL)isAnySavedTweetsForHashtag:(NSString *)hashtag {
+- (BOOL)isAnySavedTweetsForHashtag:(nullable NSString *)hashtag {
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:[TWRTweet entityName]];
     [fetchRequest setFetchLimit:1];
@@ -131,8 +128,7 @@ static NSString *const kTweetsDeleteDateKey = @"TWRTweetsDeleteDateKey";
     }
 }
 
-// TODO: replace fetch to getting only count of elements
-- (BOOL)isExistsTweetWithID:(NSString *)tweetID forHashtag:(nullable NSString *)hashtag {
+- (BOOL)isExistsTweetWithID:(nonnull NSString *)tweetID forHashtag:(nullable NSString *)hashtag {
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:[TWRTweet entityName]];
     
@@ -150,14 +146,14 @@ static NSString *const kTweetsDeleteDateKey = @"TWRTweetsDeleteDateKey";
     return count;
 }
 
-- (void)saveAutomaticTweetsDeleteDate:(NSDate *)date {
+- (void)saveAutomaticTweetsDeleteDate:(nonnull NSDate *)date {
     
     self.dateForOlderDeleting = date;
     [[NSUserDefaults standardUserDefaults] setObject:date forKey:kTweetsDeleteDateKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-- (BOOL)isTweetDateIsAllowed:(NSDate *)date {
+- (BOOL)isTweetDateIsAllowed:(nonnull NSDate *)date {
     
     if (self.dateForOlderDeleting && [date isEarlierThanDate:self.dateForOlderDeleting]) {
         return NO;
@@ -167,7 +163,7 @@ static NSString *const kTweetsDeleteDateKey = @"TWRTweetsDeleteDateKey";
     }
 }
 
-- (void)deleteTweetsOlderThanDate:(NSDate *)date {
+- (void)deleteTweetsOlderThanDate:(nonnull NSDate *)date {
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:[TWRTweet entityName]];
     request.predicate = [NSPredicate predicateWithFormat:@"createdAt < %@", date];
@@ -186,7 +182,7 @@ static NSString *const kTweetsDeleteDateKey = @"TWRTweetsDeleteDateKey";
     }];
 }
 
-- (NSDate *)savedAutomaticTweetsDeleteDate {
+- (nullable NSDate *)savedAutomaticTweetsDeleteDate {
     return self.dateForOlderDeleting;
 }
 

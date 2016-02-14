@@ -6,17 +6,11 @@
 //  Copyright (c) 2015 Kievkao. All rights reserved.
 //
 
-#import <CoreData/CoreData.h>
 #import "TWRFeedVC.h"
 #import "TWRTwitCell.h"
-#import "TWRTwitterAPIManager+TWRFeed.h"
-#import "TWRTwitterAPIManager+TWRLogin.h"
-#import "NSDateFormatter+LocaleAdditions.h"
-#import "TWRFeedVC+TWRParsing.h"
 #import "UIScrollView+INSPullToRefresh.h"
 #import "INSTwitterPullToRefresh.h"
 #import "INSCircleInfiniteIndicator.h"
-#import "Reachability.h"
 #import "TWRLocationVC.h"
 #import "EBPhotoPagesController.h"
 #import "TWRGalleryDelegate.h"
@@ -24,8 +18,8 @@
 #import "TWRSettingsVC.h"
 #import "TWRYoutubeVideoVC.h"
 #import "NSDate+NVTimeAgo.h"
-
-NSUInteger const kTweetsLoadingPortion = 20;
+#import "TWRCoreDataManager.h"
+#import "TWRFeedViewModel.h"
 
 static CGFloat const kEstimatedCellHeight = 95.0;
 
@@ -35,12 +29,11 @@ static CGFloat const kPullRefreshIndicatorDiameter = 24.0;
 static CGFloat const kInfinitiveScrollHeight = 60.0;
 static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
 
-static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
-
 @interface TWRFeedVC () <NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) TWRFeedViewModel *viewModel;
 
 @end
 
@@ -51,6 +44,7 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.viewModel = [[TWRFeedViewModel alloc] initWithHashtag:nil];
     [self setupNavigationBar];
     [self pullToRefreshSetup];
     [self infinitiveScrollSetup];
@@ -122,49 +116,11 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
 }
 
 #pragma mark - Data loading
-- (void)checkEnvironmentAndLoadFromTweetID:(NSString *)tweetID withCompletion:(void (^)(NSError *error))loadingCompletion {
-    
-    BOOL isSessionLoginDone = [[TWRTwitterAPIManager sharedInstance] isSessionLoginDone];
-    BOOL isInternetActive = [self isInternetActive];
-    
-    if (!isInternetActive) {
-        [self showInfoAlertWithTitle:NSLocalizedString(@"Connection Failed", @"Connection Failed") text:NSLocalizedString(@"Please check your internet connection", @"Please check your internet connection")];
-        loadingCompletion([NSError new]);
-    }
-    else if (!isSessionLoginDone) {
-        [[TWRTwitterAPIManager sharedInstance] reloginWithCompletion:^(NSError *error) {
-            if (!error) {
-                [self loadFromTweetID:tweetID withCompletion:loadingCompletion];
-            }
-            else {
-                [self showInfoAlertWithTitle:NSLocalizedString(@"Error", @"Error title") text:error.localizedDescription];
-            }
-        }];
-    }
-    else {
-        [self loadFromTweetID:tweetID withCompletion:loadingCompletion];
-    }
-}
-
-- (void)loadFromTweetID:(NSString *)tweetID withCompletion:(void (^)(NSError *error))loadingCompletion {
-    
-    [[TWRTwitterAPIManager sharedInstance] getFeedOlderThatTwitID:tweetID count:kTweetsLoadingPortion completion:^(NSError *error, NSArray *items) {
-        if (!error) {
-            [self parseTweetsArray:items forHashtag:[self tweetsHashtag]];
-            [[TWRCoreDataManager sharedInstance] saveContext];
-        }
-        else {
-            NSLog(@"Loading error");
-        }
-        
-        loadingCompletion(error);
-    }];
-}
 
 #pragma mark - Infinitive scroll && PullToRefresh
 - (void)pullToRefreshSetup {
     [self.tableView ins_addPullToRefreshWithHeight:kPullRefreshHeight handler:^(UIScrollView *scrollView) {
-        [self checkEnvironmentAndLoadFromTweetID:nil withCompletion:^(NSError *error) {
+        [self.viewModel checkEnvironmentAndLoadFromTweetID:nil withCompletion:^(NSError *error) {
             [scrollView ins_endPullToRefresh];
         }];
     }];
@@ -179,7 +135,7 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
         TWRTweet *lastTweet = [self.fetchedResultsController objectAtIndexPath:[[self.tableView indexPathsForVisibleRows] lastObject]];
         NSString *lastTweetID = lastTweet.tweetId;
         
-        [self checkEnvironmentAndLoadFromTweetID:lastTweetID withCompletion:^(NSError *error) {
+        [self.viewModel checkEnvironmentAndLoadFromTweetID:lastTweetID withCompletion:^(NSError *error) {
             if (error) {
                 NSLog(@"Loading error");
             }
@@ -328,30 +284,24 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
     if (![[TWRCoreDataManager sharedInstance] isAnySavedTweetsForHashtag:[self tweetsHashtag]]) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         
-        [self checkEnvironmentAndLoadFromTweetID:nil withCompletion:^(NSError *error) {
+        [self.viewModel checkEnvironmentAndLoadFromTweetID:nil withCompletion:^(NSError *error) {
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         }];
     }
 }
 
-- (NSDateFormatter *)dateFormatter {
-    if (!_dateFormatter) {
-        _dateFormatter = [[NSDateFormatter alloc] initWithSafeLocale];
-        [_dateFormatter setDateFormat:kTweetsDateFormat];
-    }
-    return _dateFormatter;
-}
-
-- (BOOL)isInternetActive {
-    Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
-    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
-    
-    return !(networkStatus == NotReachable);
-}
 
 - (void)setupNavigationBar {
     UIBarButtonItem *settingsBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settingsIcon"] style:UIBarButtonItemStylePlain target:self action:@selector(settingsBtnClicked)];
     [self.navigationItem setRightBarButtonItem:settingsBarItem animated:YES];
 }
+
+- (BOOL)isYoutubeLink:(NSString *)urlStr {
+    //@"www.youtube.com"
+    //@"youtu.be"
+    //@"m.youtube.com"
+    return [urlStr containsString:@"youtu"];
+}
+
 
 @end

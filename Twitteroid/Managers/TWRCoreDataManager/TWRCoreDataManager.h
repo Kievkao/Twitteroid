@@ -11,6 +11,8 @@
 
 @interface TWRCoreDataManager : NSObject
 
+- (nullable instancetype)init __attribute__((unavailable("Must use 'sharedInstance' instead.")));
+
 + (nullable instancetype)sharedInstance;
 - (void)saveContext;
 - (nullable NSFetchedResultsController *)fetchedResultsControllerForTweetsHashtag:(nullable NSString *)hashtag;
@@ -23,7 +25,7 @@
 - (void)deleteTweetsOlderThanDate:(nonnull NSDate *)date;
 
 - (void)saveAutomaticTweetsDeleteDate:(nonnull NSDate *)date;
-- (nonnull NSDate *)savedAutomaticTweetsDeleteDate;
+- (nullable NSDate *)savedAutomaticTweetsDeleteDate;
 - (BOOL)isTweetDateIsAllowed:(nonnull NSDate *)date;
 
 @end
