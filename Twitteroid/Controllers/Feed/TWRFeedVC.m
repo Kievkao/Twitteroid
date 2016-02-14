@@ -48,7 +48,6 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
     [self pullToRefreshSetup];
     [self infinitiveScrollSetup];
     [self.viewModel startFetching];
-    [self checkCoreDataEntities];    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -219,35 +218,14 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
     }
 }
 
-
 #pragma mark - Helpers
 + (NSString *)identifier {
     return @"TWRFeedVC";
 }
 
-- (void)checkCoreDataEntities {
-    
-    if (![[TWRCoreDataManager sharedInstance] isAnySavedTweetsForHashtag:[self tweetsHashtag]]) {
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        
-        [self.viewModel checkEnvironmentAndLoadFromTweetID:nil withCompletion:^(NSError *error) {
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
-        }];
-    }
-}
-
-
 - (void)setupNavigationBar {
     UIBarButtonItem *settingsBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settingsIcon"] style:UIBarButtonItemStylePlain target:self action:@selector(settingsBtnClicked)];
     [self.navigationItem setRightBarButtonItem:settingsBarItem animated:YES];
 }
-
-- (BOOL)isYoutubeLink:(NSString *)urlStr {
-    //@"www.youtube.com"
-    //@"youtu.be"
-    //@"m.youtube.com"
-    return [urlStr containsString:@"youtu"];
-}
-
 
 @end

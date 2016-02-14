@@ -17,6 +17,8 @@
 
 @implementation TWRSettingsManualVC
 
+
+// TODO: Make a category for UIAlertController with fixed titles (getAlertForSmth methods)
 - (IBAction)deleteNowClicked:(id)sender {
     
     __weak typeof(self)weakSelf = self;

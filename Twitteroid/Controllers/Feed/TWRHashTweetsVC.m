@@ -13,6 +13,8 @@
 
 @end
 
+
+// TODO: leave ONLY TWRFeedVC!!! Remove this one
 @implementation TWRHashTweetsVC
 
 + (NSString *)identifier {

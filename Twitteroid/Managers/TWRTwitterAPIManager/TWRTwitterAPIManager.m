@@ -25,8 +25,7 @@ NSString *const kTwitterApiSecret = @"FgJV89KXSGYf42opyMLFfZxk5J9fPIwITzYrKsZWG0
 @synthesize token = _token, tokenSecret = _tokenSecret;
 
 // TODO: embed parsing and separate class
-+ (instancetype)sharedInstance
-{
++ (instancetype)sharedInstance {
     static dispatch_once_t once;
     static id sharedInstance;
     dispatch_once(&once, ^{
@@ -57,7 +56,6 @@ NSString *const kTwitterApiSecret = @"FgJV89KXSGYf42opyMLFfZxk5J9fPIwITzYrKsZWG0
 
 #pragma mark - Getters, setters
 - (NSString *)token {
-    
     if (!_token) {
         _token = [SSKeychain passwordForService:kKeychainTokenKey account:kKeychainAccountKey];
     }
@@ -65,7 +63,6 @@ NSString *const kTwitterApiSecret = @"FgJV89KXSGYf42opyMLFfZxk5J9fPIwITzYrKsZWG0
 }
 
 - (void)setToken:(NSString *)token {
-    
     _token = token;
     
     if (token) {
@@ -77,16 +74,13 @@ NSString *const kTwitterApiSecret = @"FgJV89KXSGYf42opyMLFfZxk5J9fPIwITzYrKsZWG0
 }
 
 - (NSString *)tokenSecret {
-    
     if (!_tokenSecret) {
         _tokenSecret = [SSKeychain passwordForService:kKeychainTokenSecretKey account:kKeychainAccountKey];
     }
-    
     return _tokenSecret;
 }
 
 - (void)setTokenSecret:(NSString *)tokenSecret {
-    
     _tokenSecret = tokenSecret;
     
     if (tokenSecret) {
