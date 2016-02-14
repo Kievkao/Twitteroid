@@ -20,6 +20,7 @@ static NSString *const kTweetsDeleteDateKey = @"TWRTweetsDeleteDateKey";
 
 @property (nonatomic, strong) NSDate *dateForOlderDeleting;
 @property (nonatomic, strong) NSManagedObjectContext *mainContext;
+@property (nonatomic, strong) NSManagedObjectContext *privateContext;
 
 @end
 
@@ -57,8 +58,11 @@ static NSString *const kTweetsDeleteDateKey = @"TWRTweetsDeleteDateKey";
         abort();
     }
     
+    self.privateContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+    self.privateContext.persistentStoreCoordinator = persistentStoreCoordinator;
+    
     self.mainContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-    self.mainContext.persistentStoreCoordinator = persistentStoreCoordinator;
+    self.mainContext.parentContext = self.privateContext;
     
     NSURL *documentsURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] firstObject];
     if (!documentsURL) {
@@ -107,54 +111,43 @@ static NSString *const kTweetsDeleteDateKey = @"TWRTweetsDeleteDateKey";
         fetchRequest.predicate = [NSPredicate predicateWithFormat:@"%K = nil", [TWRTweet tweetHashtagParameter]];
     }
     
-    NSError *error = nil;
-    NSArray *results = [self.mainContext executeFetchRequest:fetchRequest error:&error];
+    __block NSUInteger count = 0;
     
-    return (results.count > 0);
+    [self.mainContext performBlockAndWait:^{
+        count = [self.mainContext countForFetchRequest:fetchRequest error:nil];
+    }];
+    
+    return count > 0;
 }
 
-// TODO: rework to some similar to objc-CoreData methodic or to generics
-- (TWRTweet *)insertNewTweet {
-    TWRTweet *tweet = [NSEntityDescription insertNewObjectForEntityForName:[TWRTweet entityName] inManagedObjectContext:[self mainContext]];
-    return tweet;
-}
-
-- (TWRHashtag *)insertNewHashtag {
-    TWRHashtag *hashtag = [NSEntityDescription insertNewObjectForEntityForName:[TWRHashtag entityName] inManagedObjectContext:[self mainContext]];
-    return hashtag;
-}
-
-- (TWRPlace *)insertNewPlace {
-    TWRPlace *place = [NSEntityDescription insertNewObjectForEntityForName:[TWRPlace entityName] inManagedObjectContext:[self mainContext]];
-    return place;
-}
-
-- (TWRMedia *)insertNewMedia {
-    TWRMedia *media = [NSEntityDescription insertNewObjectForEntityForName:[TWRMedia entityName] inManagedObjectContext:[self mainContext]];
-    return media;
+- (nullable NSManagedObject *)insertNewEntity:(nonnull Class)entityClass {
+    
+    if ([entityClass isSubclassOfClass:[NSManagedObject class]]) {
+        NSString *entityName = [entityClass entityName];
+        return [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:self.mainContext];
+    }
+    else {
+        return nil;
+    }
 }
 
 // TODO: replace fetch to getting only count of elements
-- (BOOL)isExistsTweetWithID:(NSString *)tweetID forHashtag:(NSString *)hashtag {
+- (BOOL)isExistsTweetWithID:(NSString *)tweetID forHashtag:(nullable NSString *)hashtag {
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:[TWRTweet entityName]];
     
-    if (hashtag) {
-        request.predicate = [NSPredicate predicateWithFormat:@"%K = %@", [TWRTweet tweetHashtagParameter], hashtag];
-    }
-    else {
-        request.predicate = [NSPredicate predicateWithFormat:@"%K = nil", [TWRTweet tweetHashtagParameter]];
-    }
+    NSPredicate *tweetIdPredicate = [NSPredicate predicateWithFormat:@"%K = %@", [TWRTweet tweetIDParameter], tweetID];
+    NSPredicate *hashtagPredicate = (hashtag) ? [NSPredicate predicateWithFormat:@"%K = %@", [TWRTweet tweetHashtagParameter], hashtag] : [NSPredicate predicateWithFormat:@"%K = nil", [TWRTweet tweetHashtagParameter]];
     
-    request.predicate = [NSPredicate predicateWithFormat:@"%K = %@", [TWRTweet tweetIDParameter], tweetID];
-    NSError *error = nil;
+    request.predicate = [[NSCompoundPredicate alloc] initWithType:NSAndPredicateType subpredicates:@[hashtagPredicate, tweetIdPredicate]];
     
-    NSArray *results = [[self mainContext] executeFetchRequest:request error:&error];
-    return results.count;
-}
-
-- (NSDate *)savedAutomaticTweetsDeleteDate {
-    return self.dateForOlderDeleting;
+    __block NSUInteger count = 0;
+    
+    [self.mainContext performBlockAndWait:^{
+        count = [self.mainContext countForFetchRequest:request error:nil];
+    }];
+    
+    return count;
 }
 
 - (void)saveAutomaticTweetsDeleteDate:(NSDate *)date {
@@ -177,34 +170,30 @@ static NSString *const kTweetsDeleteDateKey = @"TWRTweetsDeleteDateKey";
 - (void)deleteTweetsOlderThanDate:(NSDate *)date {
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:[TWRTweet entityName]];
-    
     request.predicate = [NSPredicate predicateWithFormat:@"createdAt < %@", date];
-    NSError *error = nil;
     
-    NSArray *results = [[self mainContext] executeFetchRequest:request error:&error];
+    NSBatchDeleteRequest *deleteRequest = [[NSBatchDeleteRequest alloc] initWithFetchRequest:request];
     
-    for (TWRTweet *tweet in results) {
-        [[self mainContext] deleteObject:tweet];
-    }
-    
-    [self saveContext];
+    [self.mainContext performBlock:^{
+        [self.mainContext executeRequest:deleteRequest error:nil];
+        [self.mainContext save:nil];
+    }];    
 }
 
 - (void)saveContext {
+    [self.mainContext performBlock:^{
+        [self.mainContext save:nil];
+    }];
+}
 
-    NSError *error = nil;
-    [[self mainContext] save:&error];
-    if (error) {
-        NSLog(@"Context saving error");
-    }
+- (NSDate *)savedAutomaticTweetsDeleteDate {
+    return self.dateForOlderDeleting;
 }
 
 - (NSDate *)dateForOlderDeleting {
-    
     if (!_dateForOlderDeleting) {
         _dateForOlderDeleting = [[NSUserDefaults standardUserDefaults] objectForKey:kTweetsDeleteDateKey];
     }
-    
     return _dateForOlderDeleting;
 }
 

@@ -44,11 +44,9 @@ static CGFloat const kMediaFrameDistanceMultiplier = 0.49;
 }
 
 - (void)removeAllFrames {
-    
     for (UIView *view in self.mediaFrames) {
         [view removeFromSuperview];
     }
-    
     [self.mediaFrames removeAllObjects];
 }
 
@@ -68,8 +66,7 @@ static CGFloat const kMediaFrameDistanceMultiplier = 0.49;
     return imageView;
 }
 
-- (void)handleImageTapFrom:(UITapGestureRecognizer *)recognizer
-{
+- (void)handleImageTapFrom:(UITapGestureRecognizer *)recognizer {
     UIImageView *tappedView = (UIImageView *)recognizer.view;
     
     if (self.mediaClickedBlock) {
@@ -77,8 +74,7 @@ static CGFloat const kMediaFrameDistanceMultiplier = 0.49;
     }
 }
 
-- (void)handleVideoTapFrom:(UITapGestureRecognizer *)recognizer
-{
+- (void)handleVideoTapFrom:(UITapGestureRecognizer *)recognizer {
     UIImageView *tappedView = (UIImageView *)recognizer.view;
     
     if (self.mediaClickedBlock) {

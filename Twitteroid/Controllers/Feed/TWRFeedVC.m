@@ -44,6 +44,7 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
 
 @end
 
+// TODO: rework to MVMC
 @implementation TWRFeedVC
 
 #pragma mark - UIViewController lifecycle

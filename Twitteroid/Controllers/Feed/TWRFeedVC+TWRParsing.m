@@ -21,7 +21,7 @@
             continue;
         }
         
-        TWRTweet *tweet = [[TWRCoreDataManager sharedInstance] insertNewTweet];
+        TWRTweet *tweet = (TWRTweet *)[[TWRCoreDataManager sharedInstance] insertNewEntity:[TWRTweet class]];
         
         tweet.createdAt = tweetDate;
         tweet.tweetId = oneItem[@"id_str"];
@@ -73,7 +73,7 @@
             lattitude /= coordinates.count;
             longitude /= coordinates.count;
             
-            TWRPlace *place  = [[TWRCoreDataManager sharedInstance] insertNewPlace];
+            TWRPlace *place = (TWRPlace *)[[TWRCoreDataManager sharedInstance] insertNewEntity:[TWRPlace class]];
             place.lattitude = lattitude;
             place.longitude = longitude;
             place.tweet = tweet;
@@ -93,7 +93,7 @@
                 
                 for (NSDictionary *hash in hastagsArray) {
                     NSArray *indicies = hash[@"indicies"];
-                    TWRHashtag *hashtag = [[TWRCoreDataManager sharedInstance] insertNewHashtag];
+                    TWRHashtag *hashtag = (TWRHashtag *)[[TWRCoreDataManager sharedInstance] insertNewEntity:[TWRHashtag class]];
                     hashtag.startIndex = [[indicies firstObject] intValue];
                     hashtag.endIndex = [[indicies lastObject] intValue];
                     hashtag.text = hash[@"text"];
@@ -112,7 +112,7 @@
             NSMutableSet *tweetMedias = [NSMutableSet new];
             
             for (NSDictionary *mediaDict in mediaArray) {
-                TWRMedia *media = [[TWRCoreDataManager sharedInstance] insertNewMedia];
+                TWRMedia *media = (TWRMedia *)[[TWRCoreDataManager sharedInstance] insertNewEntity:[TWRMedia class]];
                 media.mediaURL = mediaDict[@"media_url"];
                 media.tweet = tweet;
                 media.isPhoto = YES;
@@ -130,7 +130,7 @@
             if (![urls isKindOfClass:[NSNull class]]) {
                 for (NSDictionary *urlDict in urls) {
                     if ([self isYoutubeLink:urlDict[@"expanded_url"]]) {
-                        TWRMedia *media = [[TWRCoreDataManager sharedInstance] insertNewMedia];
+                        TWRMedia *media = (TWRMedia *)[[TWRCoreDataManager sharedInstance] insertNewEntity:[TWRMedia class]];
                         media.mediaURL = urlDict[@"expanded_url"];
                         media.tweet = tweet;
                         media.isPhoto = NO;

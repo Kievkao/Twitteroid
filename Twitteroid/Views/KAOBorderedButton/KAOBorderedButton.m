@@ -10,6 +10,7 @@
 
 @implementation KAOBorderedButton
 
+// TODO: maybe it would be good to move masksToBounds into some general method?
 - (void)setCornerRadius:(CGFloat)cornerRadius {
     _cornerRadius = cornerRadius;
     self.layer.masksToBounds = YES;

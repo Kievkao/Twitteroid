@@ -11,22 +11,19 @@
 
 @interface TWRCoreDataManager : NSObject
 
-+ (instancetype)sharedInstance;
++ (nullable instancetype)sharedInstance;
 - (void)saveContext;
-- (NSFetchedResultsController *)fetchedResultsControllerForTweetsHashtag:(NSString *)hashtag;
+- (nullable NSFetchedResultsController *)fetchedResultsControllerForTweetsHashtag:(nullable NSString *)hashtag;
 
-- (TWRTweet *)insertNewTweet;
-- (TWRHashtag *)insertNewHashtag;
-- (TWRMedia *)insertNewMedia;
-- (TWRPlace *)insertNewPlace;
+- (nullable NSManagedObject *)insertNewEntity:(nonnull Class)entityClass;
 
-- (BOOL)isExistsTweetWithID:(NSString *)tweetID forHashtag:(NSString *)hashtag;
-- (BOOL)isAnySavedTweetsForHashtag:(NSString *)hashtag;
+- (BOOL)isExistsTweetWithID:(nonnull NSString *)tweetID forHashtag:(nullable NSString *)hashtag;
+- (BOOL)isAnySavedTweetsForHashtag:(nullable NSString *)hashtag;
 
-- (void)deleteTweetsOlderThanDate:(NSDate *)date;
+- (void)deleteTweetsOlderThanDate:(nonnull NSDate *)date;
 
-- (void)saveAutomaticTweetsDeleteDate:(NSDate *)date;
-- (NSDate *)savedAutomaticTweetsDeleteDate;
-- (BOOL)isTweetDateIsAllowed:(NSDate *)date;
+- (void)saveAutomaticTweetsDeleteDate:(nonnull NSDate *)date;
+- (nonnull NSDate *)savedAutomaticTweetsDeleteDate;
+- (BOOL)isTweetDateIsAllowed:(nonnull NSDate *)date;
 
 @end
