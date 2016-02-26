@@ -29,30 +29,38 @@ static CGFloat const kPullRefreshIndicatorDiameter = 24.0;
 static CGFloat const kInfinitiveScrollHeight = 60.0;
 static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
 
-@interface TWRFeedVC () <UITableViewDataSource, UITableViewDelegate>
+@interface TWRFeedVC () <TWRFeedViewModelDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) TWRFeedViewModel *viewModel;
 
 @end
 
-// TODO: rework to MVMC
 @implementation TWRFeedVC
 
 #pragma mark - UIViewController lifecycle
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.viewModel = [[TWRFeedViewModel alloc] initWithHashtag:nil];
+    [self setupUI];
+    
+    self.viewModel = [[TWRFeedViewModel alloc] initWithHashtag:[self tweetsHashtag] delegate:self];
+    [self.viewModel startFetching];
+}
+
+- (void)setupUI {
     [self setupNavigationBar];
     [self pullToRefreshSetup];
     [self infinitiveScrollSetup];
-    [self.viewModel startFetching];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
+}
+
+- (void)needToReloadData {
+    [self.tableView reloadData];
 }
 
 - (void)settingsBtnClicked {
@@ -63,7 +71,34 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
     return nil;
 }
 
-#pragma mark - Data loading
+- (void)viewModelWillChangeContent {
+    [self.tableView beginUpdates];    
+}
+
+- (void)viewModelDidChangeContent {
+    [self.tableView endUpdates];    
+}
+
+- (void)rowNeedToBeInserted:(NSIndexPath *)indexPath {
+    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];    
+}
+
+- (void)rowNeedToBeDeleted:(NSIndexPath *)indexPath {
+    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];    
+}
+
+- (void)rowNeedToBeUpdated:(NSIndexPath *)indexPath {
+    [self configureCell:(TWRTwitCell *)[self.tableView cellForRowAtIndexPath:indexPath] forIndexPath:indexPath];
+}
+
+- (void)rowNeedToBeMoved:(NSIndexPath *)oldIndexPath newIndexPath:(NSIndexPath *)newIndexPath {
+    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:oldIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+}
+
+- (void)showAlertWithTitle:(NSString *)title text:(NSString *)text {
+    [self showInfoAlertWithTitle:title text:text];
+}
 
 #pragma mark - Infinitive scroll && PullToRefresh
 - (void)pullToRefreshSetup {
@@ -114,18 +149,10 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     TWRTweet *tweet = [self.viewModel dataObjectAtIndexPath:indexPath];
     
-    BOOL isMedia = NO;
-    if (tweet.medias.count) {
-        isMedia = YES;
-    }
-    
-    BOOL isRetwitted = NO;
-    if (tweet.isRetwitted.boolValue) {
-        isRetwitted = YES;
-    }
+    BOOL isMedia = tweet.medias.count > 0;
+    BOOL isRetwitted = tweet.isRetwitted.boolValue;
     
     return [TWRTwitCell cellHeightForTableViewWidth:CGRectGetWidth(tableView.frame) tweetText:tweet.text mediaPresent:isMedia retwitted:isRetwitted];
 }
@@ -135,8 +162,10 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TWRTwitCell* cell = [tableView dequeueReusableCellWithIdentifier:[TWRTwitCell identifier] forIndexPath:indexPath];
+    TWRTwitCell *cell = [tableView dequeueReusableCellWithIdentifier:[TWRTwitCell identifier] forIndexPath:indexPath];
+    
     [self configureCell:cell forIndexPath:indexPath];
+    
     return cell;
 }
 

@@ -31,10 +31,11 @@ static NSString *const kAppErrorDomain = @"com.kievkao.Twitteroid";
 
 @implementation TWRFeedViewModel
 
-- (instancetype)initWithHashtag:(NSString *)hashtag {
+- (instancetype)initWithHashtag:(NSString *)hashtag delegate:(UIViewController<TWRFeedViewModelDelegate> *)delegate {
     self = [super init];
     if (self) {
         _hashTag = hashtag;
+        _delegate = delegate;
     }
     return self;
 }
@@ -57,52 +58,50 @@ static NSString *const kAppErrorDomain = @"com.kievkao.Twitteroid";
 #pragma mark - NSFetchedResultsController
 - (void)startFetching {
     
+    [self checkEnvironmentAndLoadFromTweetID:nil withCompletion:^(NSError *error) {
+        if (!error) {
+            [self.delegate needToReloadData];
+        }
+    }];
+    
     NSError *error = nil;
     [self.fetchedResultsController performFetch:&error];
     
     if (error) {
-        //[self showInfoAlertWithTitle:NSLocalizedString(@"Error", @"Error title") text:error.localizedDescription];
+        [self.delegate showAlertWithTitle:NSLocalizedString(@"Error", @"Error title") text:error.localizedDescription];
     }
 }
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
     [self.delegate viewModelWillChangeContent];
-//    [self.tableView beginUpdates];
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     [self.delegate viewModelDidChangeContent];
-//    [self.tableView endUpdates];
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
     switch (type) {
         case NSFetchedResultsChangeInsert: {
             [self.delegate rowNeedToBeInserted:newIndexPath];
-            //[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
         }
         case NSFetchedResultsChangeDelete: {
             [self.delegate rowNeedToBeDeleted:newIndexPath];
-            //[self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
         }
         case NSFetchedResultsChangeUpdate: {
             [self.delegate rowNeedToBeUpdated:indexPath];
-            //[self configureCell:(TWRTwitCell *)[self.tableView cellForRowAtIndexPath:indexPath] forIndexPath:indexPath];
             break;
         }
         case NSFetchedResultsChangeMove: {
             [self.delegate rowNeedToBeMoved:indexPath newIndexPath:newIndexPath];
-//            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-//            [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
         }
     }
 }
 
 - (NSFetchedResultsController *)fetchedResultsController {
-    
     if (!_fetchedResultsController) {
         _fetchedResultsController = [[TWRCoreDataManager sharedInstance] fetchedResultsControllerForTweetsHashtag:self.hashTag];
         _fetchedResultsController.delegate = self;
@@ -117,8 +116,7 @@ static NSString *const kAppErrorDomain = @"com.kievkao.Twitteroid";
     BOOL isInternetActive = [self isInternetActive];
     
     if (!isInternetActive) {
-        
-//        [self showInfoAlertWithTitle:NSLocalizedString(@"Connection Failed", @"Connection Failed") text:NSLocalizedString(@"Please check your internet connection", @"Please check your internet connection")];
+        [self.delegate showAlertWithTitle:NSLocalizedString(@"Connection Failed", @"Connection Failed") text:NSLocalizedString(@"Please check your internet connection", @"Please check your internet connection")];
         loadingCompletion([NSError new]);
     }
     else if (!isSessionLoginDone) {
@@ -127,7 +125,7 @@ static NSString *const kAppErrorDomain = @"com.kievkao.Twitteroid";
                 [self loadFromTweetID:tweetID withCompletion:loadingCompletion];
             }
             else {
-//                [self showInfoAlertWithTitle:NSLocalizedString(@"Error", @"Error title") text:error.localizedDescription];
+                [self.delegate showAlertWithTitle:NSLocalizedString(@"Error", @"Error title") text:error.localizedDescription];
             }
         }];
     }
@@ -155,7 +153,6 @@ static NSString *const kAppErrorDomain = @"com.kievkao.Twitteroid";
 - (void)parseTweetsArray:(NSArray *)items forHashtag:(NSString *)hashtag {
     
     for (NSDictionary *oneItem in items) {
-        
         NSDate *tweetDate = [self.dateFormatter dateFromString:oneItem[@"created_at"]];
         
         if ([[TWRCoreDataManager sharedInstance] isExistsTweetWithID:oneItem[@"id_str"] forHashtag:hashtag] ||

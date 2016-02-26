@@ -26,11 +26,12 @@
     if ([[TWRTwitterAPIManager sharedInstance] isUserAlreadyLogged]) {
         [[TWRTwitterAPIManager sharedInstance] reloginWithCompletion:^(NSError *error) {
             if (error) {
-                NSLog(@"Relogin failed");
+                [self showInfoAlertWithTitle:NSLocalizedString(@"Login Error", @"Error title") text:error.localizedDescription];
+            }
+            else {
+                [self openFeedViewController];
             }
         }];
-        
-        [self openFeedViewController];
     }
 }
 

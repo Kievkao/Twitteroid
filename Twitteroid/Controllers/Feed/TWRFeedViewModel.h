@@ -16,17 +16,18 @@
 - (void)rowNeedToBeDeleted:(NSIndexPath *)indexPath;
 - (void)rowNeedToBeUpdated:(NSIndexPath *)indexPath;
 - (void)rowNeedToBeMoved:(NSIndexPath *)oldIndexPath newIndexPath:(NSIndexPath *)newIndexPath;
-
+- (void)needToReloadData;
+- (void)showAlertWithTitle:(NSString *)title text:(NSString *)text;
 @end
 
 
 @interface TWRFeedViewModel : NSObject
 
-- (instancetype)initWithHashtag:(NSString *)hashtag;
+- (instancetype)initWithHashtag:(NSString *)hashtag delegate:(UIViewController<TWRFeedViewModelDelegate> *)delegate;
 - (void)checkEnvironmentAndLoadFromTweetID:(NSString *)tweetID withCompletion:(void (^)(NSError *error))loadingCompletion;
 - (void)loadFromTweetID:(NSString *)tweetID withCompletion:(void (^)(NSError *error))loadingCompletion;
 - (void)parseTweetsArray:(NSArray *)items forHashtag:(NSString *)hashtag;
-// TODO: make more general method
+
 - (void)startFetching;
 
 - (id)dataObjectAtIndexPath:(NSIndexPath *)indexPath;
