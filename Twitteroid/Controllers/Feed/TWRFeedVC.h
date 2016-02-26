@@ -14,5 +14,6 @@
 @interface TWRFeedVC : UIViewController <TWRViewControllerIdentifier>
 
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
+@property (nonatomic, strong) NSString *hashTag;
 
 @end

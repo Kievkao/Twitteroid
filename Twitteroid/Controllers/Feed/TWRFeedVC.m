@@ -14,7 +14,6 @@
 #import "TWRLocationVC.h"
 #import "EBPhotoPagesController.h"
 #import "TWRGalleryDelegate.h"
-#import "TWRHashTweetsVC.h"
 #import "TWRSettingsVC.h"
 #import "TWRYoutubeVideoVC.h"
 #import "NSDate+NVTimeAgo.h"
@@ -44,7 +43,7 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
 
     [self setupUI];
     
-    self.viewModel = [[TWRFeedViewModel alloc] initWithHashtag:[self tweetsHashtag] delegate:self];
+    self.viewModel = [[TWRFeedViewModel alloc] initWithHashtag:self.hashTag delegate:self];
     [self.viewModel startFetching];
 }
 
@@ -65,10 +64,6 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
 
 - (void)settingsBtnClicked {
     [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:[TWRSettingsVC rootNavControllerIdentifier]] animated:YES completion:nil];
-}
-
-- (NSString *)tweetsHashtag {
-    return nil;
 }
 
 - (void)viewModelWillChangeContent {
@@ -192,9 +187,9 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
     };
     
     cell.hashtagClickedBlock = ^(NSString *hashtag) {
-        TWRHashTweetsVC *hashVC = [weakSelf.storyboard instantiateViewControllerWithIdentifier:[TWRHashTweetsVC identifier]];
-        hashVC.hashTag = hashtag;
-        [weakSelf.navigationController pushViewController:hashVC animated:YES];
+        TWRFeedVC *feedVC = [weakSelf.storyboard instantiateViewControllerWithIdentifier:[TWRFeedVC identifier]];
+        feedVC.hashTag = hashtag;
+        [weakSelf.navigationController pushViewController:feedVC animated:YES];
     };
     
     cell.locationBtnClickedBlock = ^() {
@@ -255,6 +250,7 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
 - (void)setupNavigationBar {
     UIBarButtonItem *settingsBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settingsIcon"] style:UIBarButtonItemStylePlain target:self action:@selector(settingsBtnClicked)];
     [self.navigationItem setRightBarButtonItem:settingsBarItem animated:YES];
+    self.title = self.hashTag ? self.hashTag : @"Feed";
 }
 
 @end

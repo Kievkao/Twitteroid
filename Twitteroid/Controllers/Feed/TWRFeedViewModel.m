@@ -136,17 +136,33 @@ static NSString *const kAppErrorDomain = @"com.kievkao.Twitteroid";
 
 - (void)loadFromTweetID:(NSString *)tweetID withCompletion:(void (^)(NSError *error))loadingCompletion {
     
-    [[TWRTwitterAPIManager sharedInstance] getFeedOlderThatTwitID:tweetID count:kTweetsLoadingPortion completion:^(NSError *error, NSArray *items) {
-        if (!error) {
-            [self parseTweetsArray:items forHashtag:self.hashTag];
-            [[TWRCoreDataManager sharedInstance] saveContext];
-        }
-        else {
-            NSLog(@"Loading error");
-        }
-        
-        loadingCompletion(error);
-    }];
+    // TODO make single method for loading
+    if (self.hashTag) {
+        [[TWRTwitterAPIManager sharedInstance] getTweetsByHashtag:self.hashTag olderThatTwitID:tweetID count:kTweetsLoadingPortion completion:^(NSError *error, NSArray *items) {
+            if (!error) {
+                [self parseTweetsArray:items forHashtag:self.hashTag];
+                [[TWRCoreDataManager sharedInstance] saveContext];
+            }
+            else {
+                NSLog(@"Loading error");
+            }
+            
+            loadingCompletion(error);
+        }];
+    }
+    else {
+        [[TWRTwitterAPIManager sharedInstance] getFeedOlderThatTwitID:tweetID count:kTweetsLoadingPortion completion:^(NSError *error, NSArray *items) {
+            if (!error) {
+                [self parseTweetsArray:items forHashtag:self.hashTag];
+                [[TWRCoreDataManager sharedInstance] saveContext];
+            }
+            else {
+                NSLog(@"Loading error");
+            }
+            
+            loadingCompletion(error);
+        }];
+    }
 }
 
 #pragma mark - CoreData
