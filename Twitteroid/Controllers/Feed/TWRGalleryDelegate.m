@@ -30,7 +30,7 @@
 }
 
 - (void)photoPagesController:(EBPhotoPagesController *)controller imageAtIndex:(NSInteger)index completionHandler:(void(^)(UIImage *image))handler {
-    
+
     [SDWebImageDownloader.sharedDownloader downloadImageWithURL:[NSURL URLWithString:self.images[index]] options:0 progress:nil completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
         if (image && finished) {
              handler(image);

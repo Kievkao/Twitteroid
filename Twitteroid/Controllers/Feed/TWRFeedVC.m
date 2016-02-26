@@ -37,6 +37,10 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
 
 @implementation TWRFeedVC
 
++ (NSString *)identifier {
+    return @"TWRFeedVC";
+}
+
 #pragma mark - UIViewController lifecycle
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -53,6 +57,12 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
     [self infinitiveScrollSetup];
 }
 
+- (void)setupNavigationBar {
+    UIBarButtonItem *settingsBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settingsIcon"] style:UIBarButtonItemStylePlain target:self action:@selector(settingsBtnClicked)];
+    [self.navigationItem setRightBarButtonItem:settingsBarItem animated:YES];
+    self.title = self.hashTag ? self.hashTag : @"Feed";
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
@@ -66,6 +76,7 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
     [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:[TWRSettingsVC rootNavControllerIdentifier]] animated:YES completion:nil];
 }
 
+#pragma mark - View model delegate
 - (void)viewModelWillChangeContent {
     [self.tableView beginUpdates];    
 }
@@ -183,19 +194,15 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
     
     __weak typeof(self)weakSelf = self;
     cell.webLinkClickedBlock = ^(NSURL *url) {
-        [[UIApplication sharedApplication] openURL:url];
+        [weakSelf tweet:tweet clickedURL:url];
     };
     
     cell.hashtagClickedBlock = ^(NSString *hashtag) {
-        TWRFeedVC *feedVC = [weakSelf.storyboard instantiateViewControllerWithIdentifier:[TWRFeedVC identifier]];
-        feedVC.hashTag = hashtag;
-        [weakSelf.navigationController pushViewController:feedVC animated:YES];
+        [weakSelf tweet:tweet clickedHashtag:hashtag];
     };
     
     cell.locationBtnClickedBlock = ^() {
-        TWRLocationVC *locationVC = [weakSelf.storyboard instantiateViewControllerWithIdentifier:[TWRLocationVC identifier]];
-        locationVC.coordinates = CLLocationCoordinate2DMake(tweet.place.lattitude, tweet.place.longitude);
-        [weakSelf.navigationController pushViewController:locationVC animated:YES];
+        [weakSelf tweet:tweet clickedLocation:CLLocationCoordinate2DMake(tweet.place.lattitude, tweet.place.longitude)];
     };
     
     cell.mediaClickedBlock = ^(BOOL isVideo, NSUInteger index) {
@@ -207,17 +214,11 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
         }
         
         if (isVideo) {
-            UINavigationController *videoRootNavC = [weakSelf.storyboard instantiateViewControllerWithIdentifier:[TWRYoutubeVideoVC rootNavigationIdentifier]];
-            TWRYoutubeVideoVC *videoVC = [[videoRootNavC childViewControllers] firstObject];
-            videoVC.youtubeLinkStr = mediasURLs[index];
-            [weakSelf presentViewController:videoRootNavC animated:YES completion:nil];
+            [weakSelf tweet:tweet clickedYoutubeVideoPath:mediasURLs[index]];
         }
         else {
             [mediasURLs replaceObjectAtIndex:0 withObject:[mediasURLs objectAtIndex:index]];
-
-            TWRGalleryDelegate *galleryDelegate = [[TWRGalleryDelegate alloc] initWithImagesURLs:mediasURLs];
-            EBPhotoPagesController *photoPagesController = [[EBPhotoPagesController alloc] initWithDataSource:galleryDelegate delegate:galleryDelegate];
-            [weakSelf presentViewController:photoPagesController animated:YES completion:nil];
+            [weakSelf tweet:tweet clickedImages:mediasURLs];
         }
     };
     
@@ -242,15 +243,34 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
     }
 }
 
-#pragma mark - Helpers
-+ (NSString *)identifier {
-    return @"TWRFeedVC";
+#pragma mark - Tweet cell actions
+- (void)tweet:(TWRTweet *)tweet clickedURL:(NSURL *)url {
+    [[UIApplication sharedApplication] openURL:url];
 }
 
-- (void)setupNavigationBar {
-    UIBarButtonItem *settingsBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settingsIcon"] style:UIBarButtonItemStylePlain target:self action:@selector(settingsBtnClicked)];
-    [self.navigationItem setRightBarButtonItem:settingsBarItem animated:YES];
-    self.title = self.hashTag ? self.hashTag : @"Feed";
+- (void)tweet:(nullable TWRTweet *)tweet clickedHashtag:(NSString *)hashtag {
+    TWRFeedVC *feedVC = [self.storyboard instantiateViewControllerWithIdentifier:[TWRFeedVC identifier]];
+    feedVC.hashTag = hashtag;
+    [self.navigationController pushViewController:feedVC animated:YES];
+}
+
+- (void)tweet:(TWRTweet *)tweet clickedLocation:(CLLocationCoordinate2D)location {
+    TWRLocationVC *locationVC = [self.storyboard instantiateViewControllerWithIdentifier:[TWRLocationVC identifier]];
+    locationVC.coordinates = location;
+    [self.navigationController pushViewController:locationVC animated:YES];
+}
+
+- (void)tweet:(TWRTweet *)tweet clickedYoutubeVideoPath:(NSString *)videoPath {
+    UINavigationController *videoRootNavC = [self.storyboard instantiateViewControllerWithIdentifier:[TWRYoutubeVideoVC rootNavigationIdentifier]];
+    TWRYoutubeVideoVC *videoVC = [[videoRootNavC childViewControllers] firstObject];
+    videoVC.youtubeLinkStr = videoPath;
+    [self presentViewController:videoRootNavC animated:YES completion:nil];
+}
+
+- (void)tweet:(TWRTweet *)tweet clickedImages:(NSArray *)imagesURLs {
+    TWRGalleryDelegate *galleryDelegate = [[TWRGalleryDelegate alloc] initWithImagesURLs:imagesURLs];
+    EBPhotoPagesController *photoPagesController = [[EBPhotoPagesController alloc] initWithDataSource:galleryDelegate delegate:galleryDelegate];
+    [self presentViewController:photoPagesController animated:YES completion:nil];
 }
 
 @end

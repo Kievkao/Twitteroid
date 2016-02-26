@@ -109,7 +109,6 @@ static NSString *const kAppErrorDomain = @"com.kievkao.Twitteroid";
     return _fetchedResultsController;
 }
 
-
 - (void)checkEnvironmentAndLoadFromTweetID:(NSString *)tweetID withCompletion:(void (^)(NSError *error))loadingCompletion {
     
     BOOL isSessionLoginDone = [[TWRTwitterAPIManager sharedInstance] isSessionLoginDone];
