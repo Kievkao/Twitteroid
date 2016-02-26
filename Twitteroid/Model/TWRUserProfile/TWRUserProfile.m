@@ -24,8 +24,7 @@ static NSString *const kUserAvatarKey = @"TWRUserAvatarKey";
 @synthesize userID = _userID;
 @synthesize userAvatar = _userAvatar;
 
-+ (instancetype)sharedInstance
-{
++ (instancetype)sharedInstance {
     static dispatch_once_t once;
     static id sharedInstance;
     dispatch_once(&once, ^{
@@ -75,7 +74,6 @@ static NSString *const kUserAvatarKey = @"TWRUserAvatarKey";
 
 #pragma mark - User Avatar
 - (void)setUserAvatarByURL:(NSURL *)url {
-    
     [SDWebImageDownloader.sharedDownloader downloadImageWithURL:url options:0 progress:nil completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
         if (image && finished) {
             _userAvatar = image;

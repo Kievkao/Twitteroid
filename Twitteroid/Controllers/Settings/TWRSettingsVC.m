@@ -22,16 +22,16 @@
 
 @implementation TWRSettingsVC
 
++ (NSString *)rootNavControllerIdentifier {
+    return @"SettingsNavC";
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.userNameLabel.text = [[TWRUserProfile sharedInstance] userName];
     self.userNicknameLabel.text = [NSString stringWithFormat:@"@%@",[[TWRUserProfile sharedInstance] userNickname]];
     self.userAvatarImageView.image = [[TWRUserProfile sharedInstance] userAvatar];
-}
-
-+ (NSString *)rootNavControllerIdentifier {
-    return @"SettingsNavC";
 }
 
 - (IBAction)doneClicked:(id)sender {

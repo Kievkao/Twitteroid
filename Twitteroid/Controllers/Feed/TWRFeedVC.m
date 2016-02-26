@@ -146,8 +146,13 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
 }
 
 #pragma mark - UITableView Datasource
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return [self.viewModel numberOfDataSections];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.viewModel numberOfObjectsInSection:section];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -163,10 +168,6 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
     return [TWRTwitCell cellHeightForTableViewWidth:CGRectGetWidth(tableView.frame) tweetText:tweet.text mediaPresent:isMedia retwitted:isRetwitted];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.viewModel numberOfObjectsInSection:section];
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TWRTwitCell *cell = [tableView dequeueReusableCellWithIdentifier:[TWRTwitCell identifier] forIndexPath:indexPath];
     
@@ -174,6 +175,8 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
     
     return cell;
 }
+
+#pragma mark - Cells configuring
 
 - (void)configureCell:(TWRTwitCell *)cell forIndexPath:(NSIndexPath *)indexPath {
     TWRTweet *tweet = [self.viewModel dataObjectAtIndexPath:indexPath];
@@ -192,7 +195,12 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
         [cell setRetwittedViewVisible:NO withRetweetAuthor:nil];
     }
     
+    [self setActionsHandlersForCell:cell tweet:tweet];
+}
+
+- (void)setActionsHandlersForCell:(TWRTwitCell *)cell tweet:(TWRTweet *)tweet {
     __weak typeof(self)weakSelf = self;
+    
     cell.webLinkClickedBlock = ^(NSURL *url) {
         [weakSelf tweet:tweet clickedURL:url];
     };
@@ -206,7 +214,6 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
     };
     
     cell.mediaClickedBlock = ^(BOOL isVideo, NSUInteger index) {
-        
         NSMutableArray *mediasURLs = [NSMutableArray new];
         
         for (TWRMedia *media in tweet.medias) {
@@ -223,20 +230,20 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
     };
     
     if (tweet.medias.count) {
-            NSMutableArray *mediaUrlsArray = [NSMutableArray new];
-            
-            for (TWRMedia *media in tweet.medias) {
-                [mediaUrlsArray addObject:media.mediaURL];
-            }
-            
-            TWRMedia *media = [tweet.medias anyObject];
+        NSMutableArray *mediaUrlsArray = [NSMutableArray new];
         
-            if (media.isPhoto) {
-                [cell setImagesURLs:mediaUrlsArray];
-            }
-            else {
-                [cell setVideoURLs:@[[mediaUrlsArray firstObject]]];
-            }
+        for (TWRMedia *media in tweet.medias) {
+            [mediaUrlsArray addObject:media.mediaURL];
+        }
+        
+        TWRMedia *media = [tweet.medias anyObject];
+        
+        if (media.isPhoto) {
+            [cell setImagesURLs:mediaUrlsArray];
+        }
+        else {
+            [cell setVideoURLs:@[[mediaUrlsArray firstObject]]];
+        }
     }
     else {
         [cell hideMediaFrame];

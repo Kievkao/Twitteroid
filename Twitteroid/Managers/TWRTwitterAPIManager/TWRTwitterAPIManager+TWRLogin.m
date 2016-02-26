@@ -30,6 +30,7 @@
 - (void)reloginWithCompletion:(void (^)(NSError *error))completion {
     
     self.twitter = [STTwitterAPI twitterAPIWithOAuthConsumerKey:kTwitterApiKey consumerSecret:kTwitterApiSecret oauthToken:self.token oauthTokenSecret:self.tokenSecret];
+    
     [self.twitter verifyCredentialsWithUserSuccessBlock:^(NSString *username, NSString *userID) {
         self.sessionLoginDone = YES;
         [[TWRUserProfile sharedInstance] setUserID:userID];
@@ -65,7 +66,6 @@
 - (void)initialLoginWithOpenRequestBlock:(void (^)(NSURLRequest *request))requestBlock completion:(void (^)(NSError *error))completion {
     
     self.twitter = [STTwitterAPI twitterAPIWithOAuthConsumerKey:kTwitterApiKey consumerSecret:kTwitterApiSecret];
-    
     self.loginCompletion = completion;
     
     [self.twitter postTokenRequest:^(NSURL *url, NSString *oauthToken) {

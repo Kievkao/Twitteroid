@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TWRSettingsVC : UITableViewController
+@interface TWRSettingsVC : UITableViewController <TWRViewControllerIdentifier>
 
 + (NSString *)rootNavControllerIdentifier;
 

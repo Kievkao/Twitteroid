@@ -15,14 +15,14 @@
 
 @implementation TWRLoginWebVC
 
++ (NSString *)identifier {
+    return @"TWRLoginWebVC";
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-}
-
-+ (NSString *)identifier {
-    return @"TWRLoginWebVC";
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
@@ -46,9 +46,7 @@
 }
 
 - (NSDictionary *)parametersDictionaryFromQueryString:(NSString *)queryString {
-    
     NSMutableDictionary *md = [NSMutableDictionary dictionary];
-    
     NSArray *queryComponents = [queryString componentsSeparatedByString:@"&"];
     
     for(NSString *s in queryComponents) {

@@ -418,12 +418,13 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		047B072A1B615D830058316F /* Model */ = {
+		047B072A1B615D830058316F /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				DED833CE1B68C65400A7A9E3 /* CoreData */,
 				DED833CD1B68C64100A7A9E3 /* TWRUserProfile */,
 			);
+			name = Models;
 			path = Model;
 			sourceTree = "<group>";
 		};
@@ -461,13 +462,13 @@
 		04AF02531B60FE49002CEB65 /* Twitteroid */ = {
 			isa = PBXGroup;
 			children = (
-				047B071C1B6153570058316F /* Protolocs */,
+				047B072A1B615D830058316F /* Models */,
+				04AF02851B6103FA002CEB65 /* Views */,
 				04AF02871B61042F002CEB65 /* Controllers */,
 				04AF02C71B61097D002CEB65 /* Managers */,
-				047B072A1B615D830058316F /* Model */,
+				047B071C1B6153570058316F /* Protolocs */,
 				04AF02861B61040D002CEB65 /* Resources */,
 				04AF02541B60FE49002CEB65 /* Supporting Files */,
-				04AF02851B6103FA002CEB65 /* Views */,
 				04AF02581B60FE49002CEB65 /* AppDelegate.h */,
 				04AF02591B60FE4A002CEB65 /* AppDelegate.m */,
 			);
