@@ -10,22 +10,23 @@
 
 @implementation KAOBorderedButton
 
-// TODO: maybe it would be good to move masksToBounds into some general method?
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    self.layer.masksToBounds = YES;
+}
+
 - (void)setCornerRadius:(CGFloat)cornerRadius {
     _cornerRadius = cornerRadius;
-    self.layer.masksToBounds = YES;
     self.layer.cornerRadius = cornerRadius;
 }
 
 - (void)setBorderColor:(UIColor *)borderColor {
     _borderColor = borderColor;
-    self.layer.masksToBounds = YES;
     self.layer.borderColor = borderColor.CGColor;
 }
 
 - (void)setBorderWidth:(CGFloat)borderWidth {
     _borderWidth = borderWidth;
-    self.layer.masksToBounds = YES;
     self.layer.borderWidth = borderWidth;
 }
 

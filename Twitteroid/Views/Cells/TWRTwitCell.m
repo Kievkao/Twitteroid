@@ -50,7 +50,7 @@ static CGFloat const kRetweetViewFullHeight = 25.0;
                           mediaPresent:(BOOL)isMediaPresent
                              retwitted:(BOOL)isRetwitted {
     
-    CGFloat fixedSpaces = kCellSideSpace*2 + kTweetTextTopToBackViewSpace + kCellBottomSpace*2;
+    CGFloat fixedSpaces = kCellSideSpace * 2 + kTweetTextTopToBackViewSpace + kCellBottomSpace * 2;
     
     if (isMediaPresent) {
         fixedSpaces += IS_IPHONE ? kIPhoneMediaHeight : kIPadMediaHeight;
@@ -60,7 +60,7 @@ static CGFloat const kRetweetViewFullHeight = 25.0;
         fixedSpaces += kRetweetViewFullHeight;
     }
     
-    CGFloat tweetTextLabelWidth = tableViewWidth - kCellSideSpace*4 - kAuthorAvatarImageViewWidth;
+    CGFloat tweetTextLabelWidth = tableViewWidth - kCellSideSpace * 4 - kAuthorAvatarImageViewWidth;
     CGSize maxTweetTextLabelSize = CGSizeMake(tweetTextLabelWidth, MAXFLOAT);
     
     CGRect rectForTweetText = [text boundingRectWithSize:maxTweetTextLabelSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont tweetTextFont]} context:nil];
@@ -93,7 +93,6 @@ static CGFloat const kRetweetViewFullHeight = 25.0;
         }
     }];
     
-    
     [self.mediaView setMediaClickedBlock:^(BOOL isVideo, NSUInteger index) {
         if (weakSelf.mediaClickedBlock) {
             weakSelf.mediaClickedBlock(isVideo, index);
@@ -106,7 +105,6 @@ static CGFloat const kRetweetViewFullHeight = 25.0;
 }
 
 - (IBAction)locationBtnClicked:(id)sender {
-    
     if (self.locationBtnClickedBlock) {
         self.locationBtnClickedBlock();
     }
@@ -118,7 +116,6 @@ static CGFloat const kRetweetViewFullHeight = 25.0;
 }
 
 - (void)setRetwittedViewVisible:(BOOL)visible withRetweetAuthor:(NSString *)author {
-    
     if (visible) {
         self.retwitViewHeight.constant = kRetweetViewFullHeight;
         self.retweetAuthorLabel.text = [NSString stringWithFormat:@"@%@ retweeted", author];
@@ -128,6 +125,7 @@ static CGFloat const kRetweetViewFullHeight = 25.0;
     }    
 }
 
+#pragma mark - Set data for views
 - (void)setImagesURLs:(NSArray *)imagesURLs {
     [self.mediaView removeAllFrames];
     self.mediaViewHeight.constant = IS_IPHONE ? kIPhoneMediaHeight : kIPadMediaHeight;

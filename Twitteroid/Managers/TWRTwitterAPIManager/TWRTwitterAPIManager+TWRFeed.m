@@ -12,26 +12,24 @@
 @implementation TWRTwitterAPIManager (TWRFeed)
 
 - (void)getFeedOlderThatTwitID:(NSString *)twitID
+                    forHashtag:(NSString *)hashtag
                          count:(NSUInteger)count
                     completion:(void(^)(NSError *error, NSArray *items))completion {
     
-    [self.twitter getStatusesHomeTimelineWithCount:[NSString stringWithFormat:@"%lu", (unsigned long)count] sinceID:nil maxID:twitID trimUser:nil excludeReplies:nil contributorDetails:nil includeEntities:nil successBlock:^(NSArray *statuses) {
-        completion(nil, statuses);
-    } errorBlock:^(NSError *error) {
-        completion(error, nil);
-    }];
-}
-
-- (void)getTweetsByHashtag:(NSString *)hashtag
-           olderThatTwitID:(NSString *)twitID
-                     count:(NSUInteger)count
-                completion:(void(^)(NSError *error, NSArray *items))completion {
-
-    [self.twitter getSearchTweetsWithQuery:hashtag successBlock:^(NSDictionary *searchMetadata, NSArray *statuses) {
-        completion(nil, statuses);
-    } errorBlock:^(NSError *error) {
-        completion(error, nil);
-    }];
+    if (hashtag) {
+        [self.twitter getSearchTweetsWithQuery:hashtag successBlock:^(NSDictionary *searchMetadata, NSArray *statuses) {
+            completion(nil, statuses);
+        } errorBlock:^(NSError *error) {
+            completion(error, nil);
+        }];
+    }
+    else {
+        [self.twitter getStatusesHomeTimelineWithCount:[NSString stringWithFormat:@"%lu", (unsigned long)count] sinceID:nil maxID:twitID trimUser:nil excludeReplies:nil contributorDetails:nil includeEntities:nil successBlock:^(NSArray *statuses) {
+            completion(nil, statuses);
+        } errorBlock:^(NSError *error) {
+            completion(error, nil);
+        }];
+    }
 }
 
 @end

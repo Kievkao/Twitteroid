@@ -57,6 +57,7 @@ static CGFloat const kMediaFrameDistanceMultiplier = 0.49;
     imageView.clipsToBounds = YES;
     imageView.userInteractionEnabled = YES;
     imageView.tag = tag;
+    
     UITapGestureRecognizer *gestureRec = [[UITapGestureRecognizer alloc] initWithTarget:self action:(isForVideo) ? @selector(handleVideoTapFrom:) : @selector(handleImageTapFrom:)];
     [imageView addGestureRecognizer:gestureRec];
     
@@ -197,11 +198,9 @@ static CGFloat const kMediaFrameDistanceMultiplier = 0.49;
 }
 
 - (NSMutableArray *)mediaFrames {
-    
     if (!_mediaFrames) {
         _mediaFrames = [NSMutableArray new];
     }
-    
     return _mediaFrames;
 }
 

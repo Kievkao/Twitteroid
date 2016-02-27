@@ -10,6 +10,11 @@
 
 @implementation BHRRoundedImageView
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    self.clipsToBounds = YES;
+}
+
 - (void)setCornerRadius:(CGFloat)cornerRadius {
     _cornerRadius = cornerRadius;
     self.layer.cornerRadius = cornerRadius;
