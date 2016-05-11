@@ -1,0 +1,20 @@
+PODS:
+  - INSPullToRefresh (1.1.5)
+  - SDWebImage (3.7.6):
+    - SDWebImage/Core (= 3.7.6)
+  - SDWebImage/Core (3.7.6)
+  - STTwitter (0.2.4)
+
+DEPENDENCIES:
+  - INSPullToRefresh
+  - SDWebImage (~> 3.7)
+  - STTwitter
+
+SPEC CHECKSUMS:
+  INSPullToRefresh: 112ae2c295d2b3a76daa9dff86e7ef40ed002c47
+  SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
+  STTwitter: a82de278afbd4191d0a07f4f3ffd8f1fb8404da0
+
+PODFILE CHECKSUM: 56eff63bbfce4597d5a177445f234a96feffb510
+
+COCOAPODS: 1.0.0

@@ -9,6 +9,16 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>TwitteroidTests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>TwitteroidUITests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -18,6 +28,11 @@
 			<true/>
 		</dict>
 		<key>04AF026C1B60FE4A002CEB65</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C532AE941CD13DE200A56F80</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -9,8 +9,8 @@
 #import "TWRFeedVC.h"
 #import "TWRTwitCell.h"
 #import "UIScrollView+INSPullToRefresh.h"
-#import "INSTwitterPullToRefresh.h"
-#import "INSCircleInfiniteIndicator.h"
+#import "INSDefaultPullToRefresh.h"
+#import "INSDefaultInfiniteIndicator.h"
 #import "TWRLocationVC.h"
 #import "EBPhotoPagesController.h"
 #import "TWRGalleryDelegate.h"
@@ -115,6 +115,7 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
     }];
     
     UIView <INSPullToRefreshBackgroundViewDelegate> *pullToRefresh = [self pullToRefreshViewFromCurrentStyle];
+    self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.ins_pullToRefreshBackgroundView.delegate = pullToRefresh;
     [self.tableView.ins_pullToRefreshBackgroundView addSubview:pullToRefresh];
 }
@@ -138,11 +139,11 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
 }
 
 - (UIView <INSAnimatable> *)infinityIndicatorViewFromCurrentStyle {
-    return [[INSCircleInfiniteIndicator alloc] initWithFrame:CGRectMake(0, 0, kInfinitiveScrollIndicatorDiameter, kInfinitiveScrollIndicatorDiameter)];
+    return [[INSDefaultInfiniteIndicator alloc] initWithFrame:CGRectMake(0, 0, kInfinitiveScrollIndicatorDiameter, kInfinitiveScrollIndicatorDiameter)];
 }
 
 - (UIView <INSPullToRefreshBackgroundViewDelegate> *)pullToRefreshViewFromCurrentStyle {
-    return [[INSTwitterPullToRefresh alloc] initWithFrame:CGRectMake(0, 0, kPullRefreshIndicatorDiameter, kPullRefreshIndicatorDiameter)];
+    return [[INSDefaultPullToRefresh alloc] initWithFrame:CGRectMake(0, 0, kPullRefreshIndicatorDiameter, kPullRefreshIndicatorDiameter) backImage:[UIImage imageNamed:@"circleLight"] frontImage:[UIImage imageNamed:@"circleDark"]];
 }
 
 #pragma mark - UITableView Datasource

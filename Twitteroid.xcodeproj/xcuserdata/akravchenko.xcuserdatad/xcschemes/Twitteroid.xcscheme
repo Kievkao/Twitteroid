@@ -38,6 +38,16 @@
                ReferencedContainer = "container:Twitteroid.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C532AE941CD13DE200A56F80"
+               BuildableName = "TwitteroidUITests.xctest"
+               BlueprintName = "TwitteroidUITests"
+               ReferencedContainer = "container:Twitteroid.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

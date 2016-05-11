@@ -71,6 +71,7 @@ static CGFloat const kRetweetViewFullHeight = 25.0;
 }
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     
     __weak typeof(self)weakSelf = self;
     
