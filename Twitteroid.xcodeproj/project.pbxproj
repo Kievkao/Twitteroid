@@ -31,9 +31,6 @@
 		04AF02CA1B61098C002CEB65 /* TWRTwitterAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AF02C91B61098C002CEB65 /* TWRTwitterAPIManager.m */; };
 		04AF02D11B6111F4002CEB65 /* TWRLoginWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AF02D01B6111F4002CEB65 /* TWRLoginWebVC.m */; };
 		04AF02DA1B61244A002CEB65 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AF02D91B61244A002CEB65 /* Security.framework */; };
-		04AF02DF1B612489002CEB65 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AF02DC1B612489002CEB65 /* SSKeychain.m */; };
-		04AF02E01B612489002CEB65 /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AF02DE1B612489002CEB65 /* SSKeychainQuery.m */; };
-		04D9CD3D1B642ACF006B224D /* STTweetLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D9CD3C1B642ACF006B224D /* STTweetLabel.m */; };
 		04DEE6501B65563C00AE0E4A /* TWRMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DEE64F1B65563C00AE0E4A /* TWRMedia.m */; };
 		04DEE6561B65695B00AE0E4A /* TWRPlace+TWRHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DEE6551B65695B00AE0E4A /* TWRPlace+TWRHelper.m */; };
 		04DEE6581B656AB000AE0E4A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DEE6571B656AB000AE0E4A /* MapKit.framework */; };
@@ -62,8 +59,6 @@
 		DED833D71B68F19E00A7A9E3 /* TWRYoutubeVideoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DED833D61B68F19E00A7A9E3 /* TWRYoutubeVideoVC.m */; };
 		DEE2AB8C1B66483A001A28A6 /* KAOBorderedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AB8B1B66483A001A28A6 /* KAOBorderedButton.m */; };
 		DEE2AB921B665C99001A28A6 /* NSDate+Escort.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AB911B665C99001A28A6 /* NSDate+Escort.m */; };
-		DEE2ABA01B667268001A28A6 /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AB9F1B667268001A28A6 /* YTPlayerView.m */; };
-		DEE2ABA21B66726E001A28A6 /* YTPlayerView-iframe-player.html in Resources */ = {isa = PBXBuildFile; fileRef = DEE2ABA11B66726E001A28A6 /* YTPlayerView-iframe-player.html */; };
 		DEE2AC511B668CD7001A28A6 /* EBCaptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AC2F1B668CD7001A28A6 /* EBCaptionView.m */; };
 		DEE2AC521B668CD7001A28A6 /* EBCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AC311B668CD7001A28A6 /* EBCommentCell.m */; };
 		DEE2AC531B668CD7001A28A6 /* EBCommentsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AC331B668CD7001A28A6 /* EBCommentsTableView.m */; };
@@ -141,12 +136,6 @@
 		04AF02CF1B6111F4002CEB65 /* TWRLoginWebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRLoginWebVC.h; sourceTree = "<group>"; };
 		04AF02D01B6111F4002CEB65 /* TWRLoginWebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRLoginWebVC.m; sourceTree = "<group>"; };
 		04AF02D91B61244A002CEB65 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		04AF02DB1B612489002CEB65 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
-		04AF02DC1B612489002CEB65 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
-		04AF02DD1B612489002CEB65 /* SSKeychainQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychainQuery.h; sourceTree = "<group>"; };
-		04AF02DE1B612489002CEB65 /* SSKeychainQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychainQuery.m; sourceTree = "<group>"; };
-		04D9CD3B1B642ACF006B224D /* STTweetLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTweetLabel.h; sourceTree = "<group>"; };
-		04D9CD3C1B642ACF006B224D /* STTweetLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTweetLabel.m; sourceTree = "<group>"; };
 		04DEE64E1B65563C00AE0E4A /* TWRMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRMedia.h; sourceTree = "<group>"; };
 		04DEE64F1B65563C00AE0E4A /* TWRMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRMedia.m; sourceTree = "<group>"; };
 		04DEE6541B65695B00AE0E4A /* TWRPlace+TWRHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TWRPlace+TWRHelper.h"; sourceTree = "<group>"; };
@@ -208,9 +197,6 @@
 		DEE2AB8B1B66483A001A28A6 /* KAOBorderedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KAOBorderedButton.m; sourceTree = "<group>"; };
 		DEE2AB901B665C99001A28A6 /* NSDate+Escort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Escort.h"; sourceTree = "<group>"; };
 		DEE2AB911B665C99001A28A6 /* NSDate+Escort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Escort.m"; sourceTree = "<group>"; };
-		DEE2AB9E1B667268001A28A6 /* YTPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTPlayerView.h; sourceTree = "<group>"; };
-		DEE2AB9F1B667268001A28A6 /* YTPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTPlayerView.m; sourceTree = "<group>"; };
-		DEE2ABA11B66726E001A28A6 /* YTPlayerView-iframe-player.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "YTPlayerView-iframe-player.html"; sourceTree = "<group>"; };
 		DEE2AC2E1B668CD7001A28A6 /* EBCaptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBCaptionView.h; sourceTree = "<group>"; };
 		DEE2AC2F1B668CD7001A28A6 /* EBCaptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBCaptionView.m; sourceTree = "<group>"; };
 		DEE2AC301B668CD7001A28A6 /* EBCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBCommentCell.h; sourceTree = "<group>"; };
@@ -451,9 +437,6 @@
 			children = (
 				DEE2AC2D1B668CCF001A28A6 /* EBPhotoPagesController */,
 				043AB9B61B641165005F2BD5 /* Reachability */,
-				04AF02D21B611CD8002CEB65 /* SSKeychain */,
-				04D9CD3A1B642AC3006B224D /* STTweetLabel */,
-				DEE2AB9D1B667261001A28A6 /* YTPlayerView */,
 			);
 			path = Vendors;
 			sourceTree = "<group>";
@@ -476,26 +459,6 @@
 				04AF02D01B6111F4002CEB65 /* TWRLoginWebVC.m */,
 			);
 			path = Login;
-			sourceTree = "<group>";
-		};
-		04AF02D21B611CD8002CEB65 /* SSKeychain */ = {
-			isa = PBXGroup;
-			children = (
-				04AF02DB1B612489002CEB65 /* SSKeychain.h */,
-				04AF02DC1B612489002CEB65 /* SSKeychain.m */,
-				04AF02DD1B612489002CEB65 /* SSKeychainQuery.h */,
-				04AF02DE1B612489002CEB65 /* SSKeychainQuery.m */,
-			);
-			path = SSKeychain;
-			sourceTree = "<group>";
-		};
-		04D9CD3A1B642AC3006B224D /* STTweetLabel */ = {
-			isa = PBXGroup;
-			children = (
-				04D9CD3B1B642ACF006B224D /* STTweetLabel.h */,
-				04D9CD3C1B642ACF006B224D /* STTweetLabel.m */,
-			);
-			path = STTweetLabel;
 			sourceTree = "<group>";
 		};
 		04DEE6511B6557B100AE0E4A /* TWRCellMediaView */ = {
@@ -691,16 +654,6 @@
 			path = KAOBorderedButton;
 			sourceTree = "<group>";
 		};
-		DEE2AB9D1B667261001A28A6 /* YTPlayerView */ = {
-			isa = PBXGroup;
-			children = (
-				DEE2ABA11B66726E001A28A6 /* YTPlayerView-iframe-player.html */,
-				DEE2AB9E1B667268001A28A6 /* YTPlayerView.h */,
-				DEE2AB9F1B667268001A28A6 /* YTPlayerView.m */,
-			);
-			path = YTPlayerView;
-			sourceTree = "<group>";
-		};
 		DEE2AC2D1B668CCF001A28A6 /* EBPhotoPagesController */ = {
 			isa = PBXGroup;
 			children = (
@@ -867,7 +820,6 @@
 			files = (
 				04AF02631B60FE4A002CEB65 /* Main.storyboard in Resources */,
 				04AF02681B60FE4A002CEB65 /* LaunchScreen.xib in Resources */,
-				DEE2ABA21B66726E001A28A6 /* YTPlayerView-iframe-player.html in Resources */,
 				04AF02651B60FE4A002CEB65 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1029,7 +981,6 @@
 				047B07291B615B6A0058316F /* TWRTwitterAPIManager+TWRFeed.m in Sources */,
 				DEE2AC541B668CD7001A28A6 /* EBCommentsView.m in Sources */,
 				04E391CF1B6521D700F9A9C5 /* UIImage+TWRImages.m in Sources */,
-				04D9CD3D1B642ACF006B224D /* STTweetLabel.m in Sources */,
 				DEE2AC551B668CD7001A28A6 /* EBPhotoPagesController.m in Sources */,
 				DEE2AC521B668CD7001A28A6 /* EBCommentCell.m in Sources */,
 				DEE2AC5C1B668CD7001A28A6 /* EBShadedView.m in Sources */,
@@ -1046,7 +997,6 @@
 				04AF025A1B60FE4A002CEB65 /* AppDelegate.m in Sources */,
 				DE0B9BF81B6267ED00CFC490 /* NSDateFormatter+LocaleAdditions.m in Sources */,
 				C576F2B31C6E3A5400A91B68 /* UIViewController+TWRUtils.m in Sources */,
-				DEE2ABA01B667268001A28A6 /* YTPlayerView.m in Sources */,
 				DEE2AC5A1B668CD7001A28A6 /* EBPhotoView.m in Sources */,
 				DEE2AC511B668CD7001A28A6 /* EBCaptionView.m in Sources */,
 				043AB9B91B64117E005F2BD5 /* UIColor+TWRColors.m in Sources */,
@@ -1063,7 +1013,6 @@
 				04AF02B91B61051C002CEB65 /* TWRFeedVC.m in Sources */,
 				DEC726B51B67C8C900155629 /* TWRSettingsAutoVC.m in Sources */,
 				DE0B9C091B626EFF00CFC490 /* TWRHashtag.m in Sources */,
-				04AF02DF1B612489002CEB65 /* SSKeychain.m in Sources */,
 				DEE2AC5D1B668CD7001A28A6 /* EBTagPopover.m in Sources */,
 				04AF02571B60FE49002CEB65 /* main.m in Sources */,
 				047B07261B6159480058316F /* TWRTwitCell.m in Sources */,
@@ -1071,7 +1020,6 @@
 				DEE2AC5B1B668CD7001A28A6 /* EBPhotoViewController.m in Sources */,
 				C5AC6A7A1C70F59F0066A574 /* TWRFeedViewModel.m in Sources */,
 				04DEE6561B65695B00AE0E4A /* TWRPlace+TWRHelper.m in Sources */,
-				04AF02E01B612489002CEB65 /* SSKeychainQuery.m in Sources */,
 				DE0B9C101B62713600CFC490 /* TWRMedia+TWRHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

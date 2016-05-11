@@ -6,12 +6,22 @@
 //  Copyright (c) 2013-2014 Sam Soffes. All rights reserved.
 //
 
-@import Foundation;
-@import Security;
+#if __has_feature(modules)
+	@import Foundation;
+	@import Security;
+#else
+	#import <Foundation/Foundation.h>
+	#import <Security/Security.h>
+#endif
 
 #if __IPHONE_7_0 || __MAC_10_9
 	// Keychain synchronization available at compile time
 	#define SSKEYCHAIN_SYNCHRONIZATION_AVAILABLE 1
+#endif
+
+#if __IPHONE_3_0 || __MAC_10_9
+	// Keychain access group available at compile time
+	#define SSKEYCHAIN_ACCESS_GROUP_AVAILABLE 1
 #endif
 
 #ifdef SSKEYCHAIN_SYNCHRONIZATION_AVAILABLE
@@ -36,7 +46,7 @@ typedef NS_ENUM(NSUInteger, SSKeychainQuerySynchronizationMode) {
 /** kSecAttrLabel */
 @property (nonatomic, copy) NSString *label;
 
-#if __IPHONE_3_0 && TARGET_OS_IPHONE
+#ifdef SSKEYCHAIN_ACCESS_GROUP_AVAILABLE
 /** kSecAttrAccessGroup (only used on iOS) */
 @property (nonatomic, copy) NSString *accessGroup;
 #endif
@@ -100,7 +110,7 @@ typedef NS_ENUM(NSUInteger, SSKeychainQuerySynchronizationMode) {
  `nil` should an error occur.
  The order of the items is not determined.
  */
-- (NSArray *)fetchAll:(NSError **)error;
+- (NSArray<NSDictionary<NSString *, id> *> *)fetchAll:(NSError **)error;
 
 /**
  Fetch the keychain item that matches the given account, service, and access

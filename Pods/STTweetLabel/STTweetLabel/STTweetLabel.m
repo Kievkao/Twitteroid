@@ -173,7 +173,6 @@
                 hotWord = STTweetHashtag;
                 break;
             default:
-                hotWord = STTweetLink;
                 break;
         }
 
@@ -338,7 +337,7 @@
     _textView.textAlignment = textAlignment;
 }
 
-- (void)setDetectionBlock:(void (^)(STTweetHotWord hotWordType, NSString *string, NSString *protocol, NSRange range))detectionBlock {
+- (void)setDetectionBlock:(void (^)(STTweetHotWord, NSString *, NSString *, NSRange))detectionBlock {
     if (detectionBlock) {
         _detectionBlock = [detectionBlock copy];
         self.userInteractionEnabled = YES;

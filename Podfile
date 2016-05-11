@@ -10,6 +10,9 @@ pod 'INSPullToRefresh'
 pod 'MBProgressHUD', '~> 0.9.2'
 pod 'PureLayout'
 pod 'RQShineLabel'
+pod 'STTweetLabel'
+pod 'youtube-ios-player-helper', '~> 0.1.4'
+pod 'SSKeychain'
 end
 
 target 'TwitteroidTests' do

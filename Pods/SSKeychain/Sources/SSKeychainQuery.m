@@ -16,7 +16,7 @@
 @synthesize label = _label;
 @synthesize passwordData = _passwordData;
 
-#if __IPHONE_3_0 && TARGET_OS_IPHONE
+#ifdef SSKEYCHAIN_ACCESS_GROUP_AVAILABLE
 @synthesize accessGroup = _accessGroup;
 #endif
 
@@ -40,6 +40,12 @@
 	if (status == errSecSuccess) {//item already exists, update it!
 		query = [[NSMutableDictionary alloc]init];
 		[query setObject:self.passwordData forKey:(__bridge id)kSecValueData];
+#if __IPHONE_4_0 && TARGET_OS_IPHONE
+		CFTypeRef accessibilityType = [SSKeychain accessibilityType];
+		if (accessibilityType) {
+			[query setObject:(__bridge id)accessibilityType forKey:(__bridge id)kSecAttrAccessible];
+		}
+#endif
 		status = SecItemUpdate((__bridge CFDictionaryRef)(searchQuery), (__bridge CFDictionaryRef)(query));
 	}else if(status == errSecItemNotFound){//item not found, create it!
 		query = [self query];
@@ -92,7 +98,6 @@
 
 
 - (NSArray *)fetchAll:(NSError *__autoreleasing *)error {
-	OSStatus status = SSKeychainErrorBadArguments;
 	NSMutableDictionary *query = [self query];
 	[query setObject:@YES forKey:(__bridge id)kSecReturnAttributes];
 	[query setObject:(__bridge id)kSecMatchLimitAll forKey:(__bridge id)kSecMatchLimit];
@@ -104,7 +109,7 @@
 #endif
 
 	CFTypeRef result = NULL;
-	status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &result);
+	OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &result);
 	if (status != errSecSuccess && error != NULL) {
 		*error = [[self class] errorWithCode:status];
 		return nil;
@@ -198,10 +203,12 @@
 		[dictionary setObject:self.account forKey:(__bridge id)kSecAttrAccount];
 	}
 
-#if __IPHONE_3_0 && TARGET_OS_IPHONE && !TARGET_IPHONE_SIMULATOR
+#ifdef SSKEYCHAIN_ACCESS_GROUP_AVAILABLE
+#if !TARGET_IPHONE_SIMULATOR
 	if (self.accessGroup) {
 		[dictionary setObject:self.accessGroup forKey:(__bridge id)kSecAttrAccessGroup];
 	}
+#endif
 #endif
 
 #ifdef SSKEYCHAIN_SYNCHRONIZATION_AVAILABLE
