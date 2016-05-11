@@ -1,8 +1,8 @@
 //
-//  NSLayoutConstraint+PureLayout.h
-//  https://github.com/smileyborg/PureLayout
+//  PureLayout.h
+//  https://github.com/PureLayout/PureLayout
 //
-//  Copyright (c) 2013-2015 Tyler Fox
+//  Copyright (c) 2014-2015 Tyler Fox
 //
 //  This code is distributed under the terms and conditions of the MIT license.
 //
@@ -25,33 +25,19 @@
 //  IN THE SOFTWARE.
 //
 
-#import "PureLayoutDefines.h"
+#ifndef PureLayout_h
+#define PureLayout_h
 
+#import <Foundation/Foundation.h>
 
-#pragma mark - NSLayoutConstraint+PureLayout
+//! Project version number for PureLayout.
+FOUNDATION_EXPORT double PureLayoutVersionNumber;
 
-/**
- A category on NSLayoutConstraint that allows constraints to be easily installed & removed.
- */
-@interface NSLayoutConstraint (PureLayout)
+//! Project version string for PureLayout.
+FOUNDATION_EXPORT const unsigned char PureLayoutVersionString[];
 
+#import "ALView+PureLayout.h"
+#import "NSArray+PureLayout.h"
+#import "NSLayoutConstraint+PureLayout.h"
 
-#pragma mark Install & Remove Constraints
-
-/** Activates the the constraint. */
-- (void)autoInstall;
-
-/** Deactivates the constraint. */
-- (void)autoRemove;
-
-
-#pragma mark Identify Constraints
-
-#if __PureLayout_MinBaseSDK_iOS_8_0 || __PureLayout_MinBaseSDK_OSX_10_10
-
-/** Sets the string as the identifier for this constraint. Available in iOS 7.0 and OS X 10.9 and later. */
-- (instancetype)autoIdentify:(NSString *)identifier;
-
-#endif /* __PureLayout_MinBaseSDK_iOS_8_0 || __PureLayout_MinBaseSDK_OSX_10_10 */
-
-@end
+#endif /* PureLayout_h */

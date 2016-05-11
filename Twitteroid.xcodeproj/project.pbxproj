@@ -11,7 +11,6 @@
 		043AB9BC1B6411BC005F2BD5 /* UIColor+BHRUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 043AB9BB1B6411BC005F2BD5 /* UIColor+BHRUtils.m */; };
 		043AB9BF1B64124E005F2BD5 /* UIFont+TWRFonts.m in Sources */ = {isa = PBXBuildFile; fileRef = 043AB9BE1B64124E005F2BD5 /* UIFont+TWRFonts.m */; };
 		043AB9C21B6418ED005F2BD5 /* TWRCellMediaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 043AB9C11B6418ED005F2BD5 /* TWRCellMediaView.m */; };
-		047B07171B614FE40058316F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B07161B614FE40058316F /* MBProgressHUD.m */; };
 		047B071B1B61520B0058316F /* TWRTwitterAPIManager+TWRLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B071A1B61520B0058316F /* TWRTwitterAPIManager+TWRLogin.m */; };
 		047B07261B6159480058316F /* TWRTwitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B07251B6159480058316F /* TWRTwitCell.m */; };
 		047B07291B615B6A0058316F /* TWRTwitterAPIManager+TWRFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B07281B615B6A0058316F /* TWRTwitterAPIManager+TWRFeed.m */; };
@@ -39,10 +38,6 @@
 		04DEE6561B65695B00AE0E4A /* TWRPlace+TWRHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DEE6551B65695B00AE0E4A /* TWRPlace+TWRHelper.m */; };
 		04DEE6581B656AB000AE0E4A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DEE6571B656AB000AE0E4A /* MapKit.framework */; };
 		04DEE65C1B656AF900AE0E4A /* TWRLocationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DEE65B1B656AF900AE0E4A /* TWRLocationVC.m */; };
-		04DF7FCC1B64CFC700907D1B /* RQShineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DF7FCB1B64CFC700907D1B /* RQShineLabel.m */; };
-		04E391CA1B65107B00F9A9C5 /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E391C21B65107B00F9A9C5 /* ALView+PureLayout.m */; };
-		04E391CB1B65107B00F9A9C5 /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E391C41B65107B00F9A9C5 /* NSArray+PureLayout.m */; };
-		04E391CC1B65107B00F9A9C5 /* NSLayoutConstraint+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E391C61B65107B00F9A9C5 /* NSLayoutConstraint+PureLayout.m */; };
 		04E391CF1B6521D700F9A9C5 /* UIImage+TWRImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E391CE1B6521D700F9A9C5 /* UIImage+TWRImages.m */; };
 		6EA585B71CAEE27F4B95ABEF /* libPods-TwitteroidUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A773F52E416298A68453260 /* libPods-TwitteroidUITests.a */; };
 		87A6460CE42813BB4FE8A2A0 /* libPods-Twitteroid.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC75D2D8D8D5EC211100AE45 /* libPods-Twitteroid.a */; };
@@ -111,8 +106,6 @@
 		043AB9BE1B64124E005F2BD5 /* UIFont+TWRFonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+TWRFonts.m"; sourceTree = "<group>"; };
 		043AB9C01B6418ED005F2BD5 /* TWRCellMediaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRCellMediaView.h; sourceTree = "<group>"; };
 		043AB9C11B6418ED005F2BD5 /* TWRCellMediaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRCellMediaView.m; sourceTree = "<group>"; };
-		047B07151B614FE40058316F /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		047B07161B614FE40058316F /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		047B07181B6150240058316F /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		047B07191B61520B0058316F /* TWRTwitterAPIManager+TWRLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TWRTwitterAPIManager+TWRLogin.h"; sourceTree = "<group>"; };
 		047B071A1B61520B0058316F /* TWRTwitterAPIManager+TWRLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TWRTwitterAPIManager+TWRLogin.m"; sourceTree = "<group>"; };
@@ -161,17 +154,6 @@
 		04DEE6571B656AB000AE0E4A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		04DEE65A1B656AF900AE0E4A /* TWRLocationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRLocationVC.h; sourceTree = "<group>"; };
 		04DEE65B1B656AF900AE0E4A /* TWRLocationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRLocationVC.m; sourceTree = "<group>"; };
-		04DF7FCA1B64CFC700907D1B /* RQShineLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RQShineLabel.h; sourceTree = "<group>"; };
-		04DF7FCB1B64CFC700907D1B /* RQShineLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RQShineLabel.m; sourceTree = "<group>"; };
-		04E391C11B65107B00F9A9C5 /* ALView+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALView+PureLayout.h"; sourceTree = "<group>"; };
-		04E391C21B65107B00F9A9C5 /* ALView+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALView+PureLayout.m"; sourceTree = "<group>"; };
-		04E391C31B65107B00F9A9C5 /* NSArray+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+PureLayout.h"; sourceTree = "<group>"; };
-		04E391C41B65107B00F9A9C5 /* NSArray+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+PureLayout.m"; sourceTree = "<group>"; };
-		04E391C51B65107B00F9A9C5 /* NSLayoutConstraint+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+PureLayout.h"; sourceTree = "<group>"; };
-		04E391C61B65107B00F9A9C5 /* NSLayoutConstraint+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+PureLayout.m"; sourceTree = "<group>"; };
-		04E391C71B65107B00F9A9C5 /* PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureLayout.h; sourceTree = "<group>"; };
-		04E391C81B65107B00F9A9C5 /* PureLayout+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PureLayout+Internal.h"; sourceTree = "<group>"; };
-		04E391C91B65107B00F9A9C5 /* PureLayoutDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureLayoutDefines.h; sourceTree = "<group>"; };
 		04E391CD1B6521D700F9A9C5 /* UIImage+TWRImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+TWRImages.h"; sourceTree = "<group>"; };
 		04E391CE1B6521D700F9A9C5 /* UIImage+TWRImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TWRImages.m"; sourceTree = "<group>"; };
 		0FB5AA8DB33D14217CB53028 /* libPods-TwitteroidTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TwitteroidTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -308,15 +290,6 @@
 				DE0B9C1C1B628D5300CFC490 /* Reachability.m */,
 			);
 			path = Reachability;
-			sourceTree = "<group>";
-		};
-		047B07141B614FD20058316F /* MBProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				047B07151B614FE40058316F /* MBProgressHUD.h */,
-				047B07161B614FE40058316F /* MBProgressHUD.m */,
-			);
-			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		047B071C1B6153570058316F /* Protolocs */ = {
@@ -477,9 +450,6 @@
 			isa = PBXGroup;
 			children = (
 				DEE2AC2D1B668CCF001A28A6 /* EBPhotoPagesController */,
-				047B07141B614FD20058316F /* MBProgressHUD */,
-				04E391C01B65106400F9A9C5 /* PureLayout */,
-				04DF7FC91B64CFBA00907D1B /* RQShineLabel */,
 				043AB9B61B641165005F2BD5 /* Reachability */,
 				04AF02D21B611CD8002CEB65 /* SSKeychain */,
 				04D9CD3A1B642AC3006B224D /* STTweetLabel */,
@@ -557,31 +527,6 @@
 				DE0B9C1F1B6623B700CFC490 /* TWRPlaceAnnotation.m */,
 			);
 			path = LocationVC;
-			sourceTree = "<group>";
-		};
-		04DF7FC91B64CFBA00907D1B /* RQShineLabel */ = {
-			isa = PBXGroup;
-			children = (
-				04DF7FCA1B64CFC700907D1B /* RQShineLabel.h */,
-				04DF7FCB1B64CFC700907D1B /* RQShineLabel.m */,
-			);
-			path = RQShineLabel;
-			sourceTree = "<group>";
-		};
-		04E391C01B65106400F9A9C5 /* PureLayout */ = {
-			isa = PBXGroup;
-			children = (
-				04E391C11B65107B00F9A9C5 /* ALView+PureLayout.h */,
-				04E391C21B65107B00F9A9C5 /* ALView+PureLayout.m */,
-				04E391C31B65107B00F9A9C5 /* NSArray+PureLayout.h */,
-				04E391C41B65107B00F9A9C5 /* NSArray+PureLayout.m */,
-				04E391C51B65107B00F9A9C5 /* NSLayoutConstraint+PureLayout.h */,
-				04E391C61B65107B00F9A9C5 /* NSLayoutConstraint+PureLayout.m */,
-				04E391C81B65107B00F9A9C5 /* PureLayout+Internal.h */,
-				04E391C71B65107B00F9A9C5 /* PureLayout.h */,
-				04E391C91B65107B00F9A9C5 /* PureLayoutDefines.h */,
-			);
-			path = PureLayout;
 			sourceTree = "<group>";
 		};
 		175115BAF17D615D07C5A0B3 /* Pods */ = {
@@ -1073,9 +1018,7 @@
 			files = (
 				DE0B9C0C1B626F0F00CFC490 /* TWRHashtag+TWRHelper.m in Sources */,
 				04DEE65C1B656AF900AE0E4A /* TWRLocationVC.m in Sources */,
-				04E391CC1B65107B00F9A9C5 /* NSLayoutConstraint+PureLayout.m in Sources */,
 				DEE2AB8C1B66483A001A28A6 /* KAOBorderedButton.m in Sources */,
-				04E391CA1B65107B00F9A9C5 /* ALView+PureLayout.m in Sources */,
 				DEC726AF1B67C45000155629 /* BHRRoundedImageView.m in Sources */,
 				04AF02D11B6111F4002CEB65 /* TWRLoginWebVC.m in Sources */,
 				DEE2AC631B668DAA001A28A6 /* TWRGalleryDelegate.m in Sources */,
@@ -1085,7 +1028,6 @@
 				DEE2AC561B668CD7001A28A6 /* EBPhotoPagesFactory.m in Sources */,
 				047B07291B615B6A0058316F /* TWRTwitterAPIManager+TWRFeed.m in Sources */,
 				DEE2AC541B668CD7001A28A6 /* EBCommentsView.m in Sources */,
-				04DF7FCC1B64CFC700907D1B /* RQShineLabel.m in Sources */,
 				04E391CF1B6521D700F9A9C5 /* UIImage+TWRImages.m in Sources */,
 				04D9CD3D1B642ACF006B224D /* STTweetLabel.m in Sources */,
 				DEE2AC551B668CD7001A28A6 /* EBPhotoPagesController.m in Sources */,
@@ -1100,7 +1042,6 @@
 				04AF02CA1B61098C002CEB65 /* TWRTwitterAPIManager.m in Sources */,
 				047B071B1B61520B0058316F /* TWRTwitterAPIManager+TWRLogin.m in Sources */,
 				DEE2AC591B668CD7001A28A6 /* EBPhotoToolbar.m in Sources */,
-				047B07171B614FE40058316F /* MBProgressHUD.m in Sources */,
 				047B073A1B6168230058316F /* TWRCoreDataManager.m in Sources */,
 				04AF025A1B60FE4A002CEB65 /* AppDelegate.m in Sources */,
 				DE0B9BF81B6267ED00CFC490 /* NSDateFormatter+LocaleAdditions.m in Sources */,
@@ -1120,7 +1061,6 @@
 				DEC726A91B67BC0300155629 /* TWRSettingsVC.m in Sources */,
 				047B072E1B6167E70058316F /* TWRPlace.m in Sources */,
 				04AF02B91B61051C002CEB65 /* TWRFeedVC.m in Sources */,
-				04E391CB1B65107B00F9A9C5 /* NSArray+PureLayout.m in Sources */,
 				DEC726B51B67C8C900155629 /* TWRSettingsAutoVC.m in Sources */,
 				DE0B9C091B626EFF00CFC490 /* TWRHashtag.m in Sources */,
 				04AF02DF1B612489002CEB65 /* SSKeychain.m in Sources */,

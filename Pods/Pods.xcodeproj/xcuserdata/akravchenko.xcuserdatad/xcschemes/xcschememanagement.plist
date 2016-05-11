@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MBProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Twitteroid.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -20,6 +25,16 @@
 			<false/>
 		</dict>
 		<key>Pods-TwitteroidUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>PureLayout.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RQShineLabel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -37,7 +52,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>14AAF3DCA004B588E00B585202A7A8BB</key>
+		<key>1423ED24B665F33129A62F8629827B05</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -47,22 +62,37 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>37239932782F282FF3242135E04F22AC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5F00E49EA9FFE93F36DF4715E47A2919</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>697D19C34E8FC34BD0F6DE32F7D7438D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>73568A548306AF8E83A8DF796A7F5621</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8F12D243217352B19ACBA2E92A9DEBD8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>943EE466F55006BD1B96C7AE204575A7</key>
+		<key>DAEA0EB6FBC790B6009D8F5015E01909</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>FC03E5D42DD2EEEF728E7F7DDEA89ADD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FE2F1D7B9D9FCEA148517E4657B243F4</key>
 		<dict>
 			<key>primary</key>
 			<true/>

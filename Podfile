@@ -7,6 +7,9 @@ target 'Twitteroid' do
 pod 'STTwitter'
 pod 'SDWebImage', '~>3.7'
 pod 'INSPullToRefresh'
+pod 'MBProgressHUD', '~> 0.9.2'
+pod 'PureLayout'
+pod 'RQShineLabel'
 end
 
 target 'TwitteroidTests' do

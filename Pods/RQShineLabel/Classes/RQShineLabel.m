@@ -15,7 +15,6 @@
 @property (nonatomic, strong) NSMutableArray *characterAnimationDelays;
 @property (strong, nonatomic) CADisplayLink *displaylink;
 @property (assign, nonatomic) CFTimeInterval beginTime;
-@property (assign, nonatomic) CFTimeInterval endTime;
 @property (assign, nonatomic, getter = isFadedOut) BOOL fadedOut;
 @property (nonatomic, copy) void (^completion)();
 
@@ -55,8 +54,6 @@
   }
   
   [self commonInit];
-  
-  [self setText:self.text];
   
   return self;
 }
@@ -112,7 +109,7 @@
   if (!self.isShining && self.isFadedOut) {
     self.completion = completion;
     self.fadedOut = NO;
-    [self startAnimationWithDuration:self.shineDuration];
+    [self startAnimation];
   }
 }
 
@@ -126,7 +123,7 @@
   if (!self.isShining && !self.isFadedOut) {
     self.completion = completion;
     self.fadedOut = YES;
-    [self startAnimationWithDuration:self.fadeoutDuration];
+    [self startAnimation];
   }
 }
 
@@ -143,10 +140,9 @@
 
 #pragma mark - Private methods
 
-- (void)startAnimationWithDuration:(CFTimeInterval)duration
+- (void)startAnimation
 {
   self.beginTime = CACurrentMediaTime();
-  self.endTime = self.beginTime + self.shineDuration;
   self.displaylink.paused = NO;
 }
 
@@ -175,7 +171,7 @@
                                    }];
   }
   [super setAttributedText:self.attributedString];
-  if (now > self.endTime) {
+  if (now > self.beginTime + self.shineDuration) {
     self.displaylink.paused = YES;
     if (self.completion) {
       self.completion();
