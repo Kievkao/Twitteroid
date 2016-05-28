@@ -9,13 +9,14 @@
 #import "TWRLoginVC.h"
 #import "TWRLoginWebVC.h"
 #import "TWRFeedVC.h"
+#import "TWRLoginViewModel.h"
 #import "RQShineLabel.h"
-#import "TWRTwitterAPIManager+TWRLogin.h"
 
 @interface TWRLoginVC ()
 
 @property (weak, nonatomic) IBOutlet RQShineLabel *welcomeShineLabel;
 
+@property (strong, nonatomic) TWRLoginViewModel *loginViewModel;
 @end
 
 @implementation TWRLoginVC
@@ -23,16 +24,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    if ([[TWRTwitterAPIManager sharedInstance] isUserAlreadyLogged]) {
-        [[TWRTwitterAPIManager sharedInstance] reloginWithCompletion:^(NSError *error) {
+    self.loginViewModel = [TWRLoginViewModel new];
+    [self tryToRelogin];
+}
+
+- (void)tryToRelogin {
+    [self.loginViewModel reloginWithCompletion:^(BOOL userWasLoggedPreviously, NSError *error) {
+        if (userWasLoggedPreviously) {
             if (error) {
                 [self showInfoAlertWithTitle:NSLocalizedString(@"Login Error", @"Error title") text:error.localizedDescription];
             }
             else {
                 [self openFeedViewController];
             }
-        }];
-    }
+        }
+    }];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -56,24 +62,21 @@
 - (void)performLogin {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
-    __block TWRLoginWebVC *webVC = nil;
-    
-    [[TWRTwitterAPIManager sharedInstance] loginWithOpenRequestBlock:^(NSURLRequest *request) {
-        webVC = [self.storyboard instantiateViewControllerWithIdentifier:[TWRLoginWebVC identifier]];
-        
-        [self presentViewController:webVC animated:YES completion:^{
+    TWRLoginWebVC *webVC = [self.storyboard instantiateViewControllerWithIdentifier:[TWRLoginWebVC identifier]];
+
+    __typeof(self) __weak weakSelf = self;
+    [self.loginViewModel loginWithWebRequestHandler:^(NSURLRequest *request) {
+        [weakSelf presentViewController:webVC animated:YES completion:^{
             [webVC.webView loadRequest:request];
         }];
-        
     } completion:^(NSError *error) {
         if (webVC) {
             [webVC dismissViewControllerAnimated:YES completion:nil];
         }
-        
+
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        
+
         if (!error) {
-            [[TWRTwitterAPIManager sharedInstance] fillUserProfile];
             [self openFeedViewController];
         }
         else {
