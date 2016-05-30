@@ -22,5 +22,6 @@
 #import "UIViewController+TWRUtils.h"
 #import "TWRCellIdentifier.h"
 #import "TWRViewControllerIdentifier.h"
+#import "UIStoryboard+TWRUtils.h"
 
 #endif

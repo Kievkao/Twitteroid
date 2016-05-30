@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "SSKeychain.h"
 #import "TWRCoreDataManager.h"
+#import "TWRLoginWireframe.h"
 
 @interface AppDelegate ()
 
@@ -21,6 +22,13 @@
     
     [self setupKeychain];
     [self setupAppearance];
+
+    TWRLoginWireframe *loginWireframe = [TWRLoginWireframe new];
+
+    UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:[loginWireframe createLoginViewController]];
+    navigationController.navigationBarHidden = YES;
+
+    self.window.rootViewController = navigationController;
     
     return YES;
 }

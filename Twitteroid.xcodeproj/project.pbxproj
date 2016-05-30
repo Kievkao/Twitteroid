@@ -26,22 +26,34 @@
 		04AF027E1B6103CF002CEB65 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AF027D1B6103CF002CEB65 /* Accounts.framework */; };
 		04AF02801B6103D5002CEB65 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AF027F1B6103D5002CEB65 /* Social.framework */; };
 		04AF02821B6103DC002CEB65 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AF02811B6103DC002CEB65 /* Twitter.framework */; };
-		04AF02B91B61051C002CEB65 /* TWRFeedVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AF02B81B61051C002CEB65 /* TWRFeedVC.m */; };
-		04AF02BC1B61054F002CEB65 /* TWRLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AF02BB1B61054F002CEB65 /* TWRLoginVC.m */; };
 		04AF02CA1B61098C002CEB65 /* TWRTwitterAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AF02C91B61098C002CEB65 /* TWRTwitterAPIManager.m */; };
-		04AF02D11B6111F4002CEB65 /* TWRLoginWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AF02D01B6111F4002CEB65 /* TWRLoginWebVC.m */; };
 		04AF02DA1B61244A002CEB65 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AF02D91B61244A002CEB65 /* Security.framework */; };
 		04DEE6501B65563C00AE0E4A /* TWRMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DEE64F1B65563C00AE0E4A /* TWRMedia.m */; };
 		04DEE6561B65695B00AE0E4A /* TWRPlace+TWRHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DEE6551B65695B00AE0E4A /* TWRPlace+TWRHelper.m */; };
 		04DEE6581B656AB000AE0E4A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DEE6571B656AB000AE0E4A /* MapKit.framework */; };
-		04DEE65C1B656AF900AE0E4A /* TWRLocationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DEE65B1B656AF900AE0E4A /* TWRLocationVC.m */; };
 		04E391CF1B6521D700F9A9C5 /* UIImage+TWRImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E391CE1B6521D700F9A9C5 /* UIImage+TWRImages.m */; };
 		6EA585B71CAEE27F4B95ABEF /* libPods-TwitteroidUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A773F52E416298A68453260 /* libPods-TwitteroidUITests.a */; };
 		87A6460CE42813BB4FE8A2A0 /* libPods-Twitteroid.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC75D2D8D8D5EC211100AE45 /* libPods-Twitteroid.a */; };
+		C52EE3E41CF9AA2F00CC6BC0 /* TWRFeedVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C52EE3B71CF9AA2F00CC6BC0 /* TWRFeedVC.m */; };
+		C52EE3E51CF9AA2F00CC6BC0 /* TWRFeedViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C52EE3B91CF9AA2F00CC6BC0 /* TWRFeedViewModel.m */; };
+		C52EE3E61CF9AA2F00CC6BC0 /* TWRGalleryDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C52EE3BB1CF9AA2F00CC6BC0 /* TWRGalleryDelegate.m */; };
+		C52EE3E71CF9AA2F00CC6BC0 /* TWRYoutubeVideoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C52EE3BD1CF9AA2F00CC6BC0 /* TWRYoutubeVideoVC.m */; };
+		C52EE3E81CF9AA2F00CC6BC0 /* TWRLocationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C52EE3C41CF9AA2F00CC6BC0 /* TWRLocationVC.m */; };
+		C52EE3E91CF9AA2F00CC6BC0 /* TWRPlaceAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = C52EE3C61CF9AA2F00CC6BC0 /* TWRPlaceAnnotation.m */; };
+		C52EE3EA1CF9AA2F00CC6BC0 /* TWRLoginWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C52EE3D01CF9AA2F00CC6BC0 /* TWRLoginWebViewController.m */; };
+		C52EE3EC1CF9AA2F00CC6BC0 /* TWRLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C52EE3D71CF9AA2F00CC6BC0 /* TWRLoginViewController.m */; };
+		C52EE3ED1CF9AA2F00CC6BC0 /* TWRSettingsAutoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C52EE3DD1CF9AA2F00CC6BC0 /* TWRSettingsAutoVC.m */; };
+		C52EE3EE1CF9AA2F00CC6BC0 /* TWRSettingsManualVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C52EE3DF1CF9AA2F00CC6BC0 /* TWRSettingsManualVC.m */; };
+		C52EE3EF1CF9AA2F00CC6BC0 /* TWRSettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C52EE3E11CF9AA2F00CC6BC0 /* TWRSettingsVC.m */; };
+		C52EE3F21CF9AA6400CC6BC0 /* TWRLoginPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = C52EE3F11CF9AA6400CC6BC0 /* TWRLoginPresenter.m */; };
+		C52EE3F71CF9AABA00CC6BC0 /* TWRLoginInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = C52EE3F61CF9AABA00CC6BC0 /* TWRLoginInteractor.m */; };
+		C52EE3FC1CF9AF5E00CC6BC0 /* TWRLoginWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = C52EE3FB1CF9AF5E00CC6BC0 /* TWRLoginWireframe.m */; };
+		C52EE4011CF9B17E00CC6BC0 /* UIStoryboard+TWRUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C52EE4001CF9B17E00CC6BC0 /* UIStoryboard+TWRUtils.m */; };
 		C532AE981CD13DE200A56F80 /* TwitteroidUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C532AE971CD13DE200A56F80 /* TwitteroidUITests.m */; };
-		C57093201CF8A95F00B0489D /* TWRLoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C570931F1CF8A95F00B0489D /* TWRLoginViewModel.m */; };
 		C576F2B31C6E3A5400A91B68 /* UIViewController+TWRUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C576F2B21C6E3A5400A91B68 /* UIViewController+TWRUtils.m */; };
-		C5AC6A7A1C70F59F0066A574 /* TWRFeedViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AC6A791C70F59F0066A574 /* TWRFeedViewModel.m */; };
+		C5B5FC901CFC32D3000DE884 /* TWRLoginWebWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B5FC8F1CFC32D3000DE884 /* TWRLoginWebWireframe.m */; };
+		C5B5FC951CFC3308000DE884 /* TWRLoginWebPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B5FC941CFC3308000DE884 /* TWRLoginWebPresenter.m */; };
+		C5B5FC9A1CFC34AE000DE884 /* TWRLoginWebInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B5FC991CFC34AE000DE884 /* TWRLoginWebInteractor.m */; };
 		CB0C714305926C6A3E05754A /* libPods-TwitteroidTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FB5AA8DB33D14217CB53028 /* libPods-TwitteroidTests.a */; };
 		DE0B9BEB1B6247F500CFC490 /* TWRTweet+TWRHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9BEA1B6247F500CFC490 /* TWRTweet+TWRHelper.m */; };
 		DE0B9BF81B6267ED00CFC490 /* NSDateFormatter+LocaleAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9BF71B6267ED00CFC490 /* NSDateFormatter+LocaleAdditions.m */; };
@@ -49,15 +61,10 @@
 		DE0B9C0C1B626F0F00CFC490 /* TWRHashtag+TWRHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9C0B1B626F0F00CFC490 /* TWRHashtag+TWRHelper.m */; };
 		DE0B9C101B62713600CFC490 /* TWRMedia+TWRHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9C0F1B62713600CFC490 /* TWRMedia+TWRHelper.m */; };
 		DE0B9C1D1B628D5300CFC490 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9C1C1B628D5300CFC490 /* Reachability.m */; };
-		DE0B9C201B6623B700CFC490 /* TWRPlaceAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0B9C1F1B6623B700CFC490 /* TWRPlaceAnnotation.m */; };
 		DE4165021B690BF20086F47F /* TWRTweet.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4165011B690BF20086F47F /* TWRTweet.m */; };
-		DEC726A91B67BC0300155629 /* TWRSettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC726A81B67BC0300155629 /* TWRSettingsVC.m */; };
 		DEC726AF1B67C45000155629 /* BHRRoundedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC726AE1B67C45000155629 /* BHRRoundedImageView.m */; };
-		DEC726B21B67C8B600155629 /* TWRSettingsManualVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC726B11B67C8B600155629 /* TWRSettingsManualVC.m */; };
-		DEC726B51B67C8C900155629 /* TWRSettingsAutoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC726B41B67C8C900155629 /* TWRSettingsAutoVC.m */; };
 		DED500211B6A46AB008921F0 /* NSDate+NVTimeAgo.m in Sources */ = {isa = PBXBuildFile; fileRef = DED500201B6A46AB008921F0 /* NSDate+NVTimeAgo.m */; };
 		DED833D11B68C66C00A7A9E3 /* TWRUserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = DED833D01B68C66C00A7A9E3 /* TWRUserProfile.m */; };
-		DED833D71B68F19E00A7A9E3 /* TWRYoutubeVideoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DED833D61B68F19E00A7A9E3 /* TWRYoutubeVideoVC.m */; };
 		DEE2AB8C1B66483A001A28A6 /* KAOBorderedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AB8B1B66483A001A28A6 /* KAOBorderedButton.m */; };
 		DEE2AB921B665C99001A28A6 /* NSDate+Escort.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AB911B665C99001A28A6 /* NSDate+Escort.m */; };
 		DEE2AC511B668CD7001A28A6 /* EBCaptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AC2F1B668CD7001A28A6 /* EBCaptionView.m */; };
@@ -73,7 +80,6 @@
 		DEE2AC5B1B668CD7001A28A6 /* EBPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AC4A1B668CD7001A28A6 /* EBPhotoViewController.m */; };
 		DEE2AC5C1B668CD7001A28A6 /* EBShadedView.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AC4D1B668CD7001A28A6 /* EBShadedView.m */; };
 		DEE2AC5D1B668CD7001A28A6 /* EBTagPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AC4F1B668CD7001A28A6 /* EBTagPopover.m */; };
-		DEE2AC631B668DAA001A28A6 /* TWRGalleryDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE2AC621B668DAA001A28A6 /* TWRGalleryDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,22 +134,14 @@
 		04AF027D1B6103CF002CEB65 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		04AF027F1B6103D5002CEB65 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		04AF02811B6103DC002CEB65 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
-		04AF02B71B61051C002CEB65 /* TWRFeedVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRFeedVC.h; sourceTree = "<group>"; };
-		04AF02B81B61051C002CEB65 /* TWRFeedVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRFeedVC.m; sourceTree = "<group>"; };
-		04AF02BA1B61054F002CEB65 /* TWRLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRLoginVC.h; sourceTree = "<group>"; };
-		04AF02BB1B61054F002CEB65 /* TWRLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRLoginVC.m; sourceTree = "<group>"; };
 		04AF02C81B61098C002CEB65 /* TWRTwitterAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRTwitterAPIManager.h; sourceTree = "<group>"; };
 		04AF02C91B61098C002CEB65 /* TWRTwitterAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRTwitterAPIManager.m; sourceTree = "<group>"; };
-		04AF02CF1B6111F4002CEB65 /* TWRLoginWebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRLoginWebVC.h; sourceTree = "<group>"; };
-		04AF02D01B6111F4002CEB65 /* TWRLoginWebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRLoginWebVC.m; sourceTree = "<group>"; };
 		04AF02D91B61244A002CEB65 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		04DEE64E1B65563C00AE0E4A /* TWRMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRMedia.h; sourceTree = "<group>"; };
 		04DEE64F1B65563C00AE0E4A /* TWRMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRMedia.m; sourceTree = "<group>"; };
 		04DEE6541B65695B00AE0E4A /* TWRPlace+TWRHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TWRPlace+TWRHelper.h"; sourceTree = "<group>"; };
 		04DEE6551B65695B00AE0E4A /* TWRPlace+TWRHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TWRPlace+TWRHelper.m"; sourceTree = "<group>"; };
 		04DEE6571B656AB000AE0E4A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		04DEE65A1B656AF900AE0E4A /* TWRLocationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRLocationVC.h; sourceTree = "<group>"; };
-		04DEE65B1B656AF900AE0E4A /* TWRLocationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRLocationVC.m; sourceTree = "<group>"; };
 		04E391CD1B6521D700F9A9C5 /* UIImage+TWRImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+TWRImages.h"; sourceTree = "<group>"; };
 		04E391CE1B6521D700F9A9C5 /* UIImage+TWRImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TWRImages.m"; sourceTree = "<group>"; };
 		0FB5AA8DB33D14217CB53028 /* libPods-TwitteroidTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TwitteroidTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,17 +153,59 @@
 		7FA12681C5DAB9DF7371212F /* Pods-TwitteroidTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitteroidTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TwitteroidTests/Pods-TwitteroidTests.release.xcconfig"; sourceTree = "<group>"; };
 		AC75D2D8D8D5EC211100AE45 /* libPods-Twitteroid.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Twitteroid.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B93E8CC38E8BCF5C0E9C93A8 /* Pods-Twitteroid.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitteroid.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Twitteroid/Pods-Twitteroid.debug.xcconfig"; sourceTree = "<group>"; };
+		C52EE3B61CF9AA2F00CC6BC0 /* TWRFeedVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRFeedVC.h; sourceTree = "<group>"; };
+		C52EE3B71CF9AA2F00CC6BC0 /* TWRFeedVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRFeedVC.m; sourceTree = "<group>"; };
+		C52EE3B81CF9AA2F00CC6BC0 /* TWRFeedViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRFeedViewModel.h; sourceTree = "<group>"; };
+		C52EE3B91CF9AA2F00CC6BC0 /* TWRFeedViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRFeedViewModel.m; sourceTree = "<group>"; };
+		C52EE3BA1CF9AA2F00CC6BC0 /* TWRGalleryDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRGalleryDelegate.h; sourceTree = "<group>"; };
+		C52EE3BB1CF9AA2F00CC6BC0 /* TWRGalleryDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRGalleryDelegate.m; sourceTree = "<group>"; };
+		C52EE3BC1CF9AA2F00CC6BC0 /* TWRYoutubeVideoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRYoutubeVideoVC.h; sourceTree = "<group>"; };
+		C52EE3BD1CF9AA2F00CC6BC0 /* TWRYoutubeVideoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRYoutubeVideoVC.m; sourceTree = "<group>"; };
+		C52EE3C31CF9AA2F00CC6BC0 /* TWRLocationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRLocationVC.h; sourceTree = "<group>"; };
+		C52EE3C41CF9AA2F00CC6BC0 /* TWRLocationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRLocationVC.m; sourceTree = "<group>"; };
+		C52EE3C51CF9AA2F00CC6BC0 /* TWRPlaceAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRPlaceAnnotation.h; sourceTree = "<group>"; };
+		C52EE3C61CF9AA2F00CC6BC0 /* TWRPlaceAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRPlaceAnnotation.m; sourceTree = "<group>"; };
+		C52EE3CF1CF9AA2F00CC6BC0 /* TWRLoginWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRLoginWebViewController.h; sourceTree = "<group>"; };
+		C52EE3D01CF9AA2F00CC6BC0 /* TWRLoginWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRLoginWebViewController.m; sourceTree = "<group>"; };
+		C52EE3D61CF9AA2F00CC6BC0 /* TWRLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRLoginViewController.h; sourceTree = "<group>"; };
+		C52EE3D71CF9AA2F00CC6BC0 /* TWRLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRLoginViewController.m; sourceTree = "<group>"; };
+		C52EE3DC1CF9AA2F00CC6BC0 /* TWRSettingsAutoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRSettingsAutoVC.h; sourceTree = "<group>"; };
+		C52EE3DD1CF9AA2F00CC6BC0 /* TWRSettingsAutoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRSettingsAutoVC.m; sourceTree = "<group>"; };
+		C52EE3DE1CF9AA2F00CC6BC0 /* TWRSettingsManualVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRSettingsManualVC.h; sourceTree = "<group>"; };
+		C52EE3DF1CF9AA2F00CC6BC0 /* TWRSettingsManualVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRSettingsManualVC.m; sourceTree = "<group>"; };
+		C52EE3E01CF9AA2F00CC6BC0 /* TWRSettingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRSettingsVC.h; sourceTree = "<group>"; };
+		C52EE3E11CF9AA2F00CC6BC0 /* TWRSettingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRSettingsVC.m; sourceTree = "<group>"; };
+		C52EE3F01CF9AA6400CC6BC0 /* TWRLoginPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRLoginPresenter.h; sourceTree = "<group>"; };
+		C52EE3F11CF9AA6400CC6BC0 /* TWRLoginPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRLoginPresenter.m; sourceTree = "<group>"; };
+		C52EE3F31CF9AA7000CC6BC0 /* TWRLoginPresenterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRLoginPresenterProtocol.h; sourceTree = "<group>"; };
+		C52EE3F41CF9AAA300CC6BC0 /* TWRLoginEventHandlerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRLoginEventHandlerProtocol.h; sourceTree = "<group>"; };
+		C52EE3F51CF9AABA00CC6BC0 /* TWRLoginInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRLoginInteractor.h; sourceTree = "<group>"; };
+		C52EE3F61CF9AABA00CC6BC0 /* TWRLoginInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRLoginInteractor.m; sourceTree = "<group>"; };
+		C52EE3F81CF9AAC300CC6BC0 /* TWRLoginInteractorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRLoginInteractorProtocol.h; sourceTree = "<group>"; };
+		C52EE3F91CF9AAD200CC6BC0 /* TWRLoginViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRLoginViewProtocol.h; sourceTree = "<group>"; };
+		C52EE3FA1CF9AF5E00CC6BC0 /* TWRLoginWireframe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRLoginWireframe.h; sourceTree = "<group>"; };
+		C52EE3FB1CF9AF5E00CC6BC0 /* TWRLoginWireframe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRLoginWireframe.m; sourceTree = "<group>"; };
+		C52EE3FD1CF9AF6600CC6BC0 /* TWRLoginWireframeProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRLoginWireframeProtocol.h; sourceTree = "<group>"; };
+		C52EE3FF1CF9B17E00CC6BC0 /* UIStoryboard+TWRUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStoryboard+TWRUtils.h"; sourceTree = "<group>"; };
+		C52EE4001CF9B17E00CC6BC0 /* UIStoryboard+TWRUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStoryboard+TWRUtils.m"; sourceTree = "<group>"; };
 		C532AE951CD13DE200A56F80 /* TwitteroidUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TwitteroidUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C532AE971CD13DE200A56F80 /* TwitteroidUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwitteroidUITests.m; sourceTree = "<group>"; };
 		C532AE991CD13DE200A56F80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C570931E1CF8A95F00B0489D /* TWRLoginViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRLoginViewModel.h; sourceTree = "<group>"; };
-		C570931F1CF8A95F00B0489D /* TWRLoginViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRLoginViewModel.m; sourceTree = "<group>"; };
 		C576F2B11C6E3A5400A91B68 /* UIViewController+TWRUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TWRUtils.h"; sourceTree = "<group>"; };
 		C576F2B21C6E3A5400A91B68 /* UIViewController+TWRUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TWRUtils.m"; sourceTree = "<group>"; };
 		C576F2B41C6E3B6D00A91B68 /* TWRCellIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRCellIdentifier.h; sourceTree = "<group>"; };
 		C576F2B51C6E3D4400A91B68 /* TWRViewControllerIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRViewControllerIdentifier.h; sourceTree = "<group>"; };
-		C5AC6A781C70F59F0066A574 /* TWRFeedViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRFeedViewModel.h; sourceTree = "<group>"; };
-		C5AC6A791C70F59F0066A574 /* TWRFeedViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRFeedViewModel.m; sourceTree = "<group>"; };
+		C5B5FC8E1CFC32D3000DE884 /* TWRLoginWebWireframe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRLoginWebWireframe.h; sourceTree = "<group>"; };
+		C5B5FC8F1CFC32D3000DE884 /* TWRLoginWebWireframe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRLoginWebWireframe.m; sourceTree = "<group>"; };
+		C5B5FC911CFC32E4000DE884 /* TWRLoginWebWireframeProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRLoginWebWireframeProtocol.h; sourceTree = "<group>"; };
+		C5B5FC921CFC32F1000DE884 /* TWRLoginWebViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRLoginWebViewProtocol.h; sourceTree = "<group>"; };
+		C5B5FC931CFC3308000DE884 /* TWRLoginWebPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRLoginWebPresenter.h; sourceTree = "<group>"; };
+		C5B5FC941CFC3308000DE884 /* TWRLoginWebPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRLoginWebPresenter.m; sourceTree = "<group>"; };
+		C5B5FC961CFC3315000DE884 /* TWRLoginWebPresenterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRLoginWebPresenterProtocol.h; sourceTree = "<group>"; };
+		C5B5FC971CFC3324000DE884 /* TWRLoginWebEventHandlerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRLoginWebEventHandlerProtocol.h; sourceTree = "<group>"; };
+		C5B5FC981CFC34AE000DE884 /* TWRLoginWebInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRLoginWebInteractor.h; sourceTree = "<group>"; };
+		C5B5FC991CFC34AE000DE884 /* TWRLoginWebInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRLoginWebInteractor.m; sourceTree = "<group>"; };
+		C5B5FC9B1CFC34B5000DE884 /* TWRLoginWebInteractorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRLoginWebInteractorProtocol.h; sourceTree = "<group>"; };
 		DE0B9BE91B6247F500CFC490 /* TWRTweet+TWRHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TWRTweet+TWRHelper.h"; sourceTree = "<group>"; };
 		DE0B9BEA1B6247F500CFC490 /* TWRTweet+TWRHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TWRTweet+TWRHelper.m"; sourceTree = "<group>"; };
 		DE0B9BF61B6267ED00CFC490 /* NSDateFormatter+LocaleAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+LocaleAdditions.h"; sourceTree = "<group>"; };
@@ -178,24 +218,14 @@
 		DE0B9C0F1B62713600CFC490 /* TWRMedia+TWRHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TWRMedia+TWRHelper.m"; sourceTree = "<group>"; };
 		DE0B9C1B1B628D5300CFC490 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		DE0B9C1C1B628D5300CFC490 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		DE0B9C1E1B6623B700CFC490 /* TWRPlaceAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRPlaceAnnotation.h; sourceTree = "<group>"; };
-		DE0B9C1F1B6623B700CFC490 /* TWRPlaceAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRPlaceAnnotation.m; sourceTree = "<group>"; };
 		DE4165001B690BF20086F47F /* TWRTweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRTweet.h; sourceTree = "<group>"; };
 		DE4165011B690BF20086F47F /* TWRTweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRTweet.m; sourceTree = "<group>"; };
-		DEC726A71B67BC0300155629 /* TWRSettingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRSettingsVC.h; sourceTree = "<group>"; };
-		DEC726A81B67BC0300155629 /* TWRSettingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRSettingsVC.m; sourceTree = "<group>"; };
 		DEC726AD1B67C45000155629 /* BHRRoundedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHRRoundedImageView.h; sourceTree = "<group>"; };
 		DEC726AE1B67C45000155629 /* BHRRoundedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHRRoundedImageView.m; sourceTree = "<group>"; };
-		DEC726B01B67C8B600155629 /* TWRSettingsManualVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRSettingsManualVC.h; sourceTree = "<group>"; };
-		DEC726B11B67C8B600155629 /* TWRSettingsManualVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRSettingsManualVC.m; sourceTree = "<group>"; };
-		DEC726B31B67C8C900155629 /* TWRSettingsAutoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRSettingsAutoVC.h; sourceTree = "<group>"; };
-		DEC726B41B67C8C900155629 /* TWRSettingsAutoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRSettingsAutoVC.m; sourceTree = "<group>"; };
 		DED5001F1B6A46AB008921F0 /* NSDate+NVTimeAgo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+NVTimeAgo.h"; sourceTree = "<group>"; };
 		DED500201B6A46AB008921F0 /* NSDate+NVTimeAgo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+NVTimeAgo.m"; sourceTree = "<group>"; };
 		DED833CF1B68C66C00A7A9E3 /* TWRUserProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRUserProfile.h; sourceTree = "<group>"; };
 		DED833D01B68C66C00A7A9E3 /* TWRUserProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRUserProfile.m; sourceTree = "<group>"; };
-		DED833D51B68F19E00A7A9E3 /* TWRYoutubeVideoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRYoutubeVideoVC.h; sourceTree = "<group>"; };
-		DED833D61B68F19E00A7A9E3 /* TWRYoutubeVideoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRYoutubeVideoVC.m; sourceTree = "<group>"; };
 		DEE2AB8A1B66483A001A28A6 /* KAOBorderedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAOBorderedButton.h; sourceTree = "<group>"; };
 		DEE2AB8B1B66483A001A28A6 /* KAOBorderedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KAOBorderedButton.m; sourceTree = "<group>"; };
 		DEE2AB901B665C99001A28A6 /* NSDate+Escort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Escort.h"; sourceTree = "<group>"; };
@@ -235,8 +265,6 @@
 		DEE2AC4E1B668CD7001A28A6 /* EBTagPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBTagPopover.h; sourceTree = "<group>"; };
 		DEE2AC4F1B668CD7001A28A6 /* EBTagPopover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBTagPopover.m; sourceTree = "<group>"; };
 		DEE2AC501B668CD7001A28A6 /* EBTagPopoverDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBTagPopoverDelegate.h; sourceTree = "<group>"; };
-		DEE2AC611B668DAA001A28A6 /* TWRGalleryDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRGalleryDelegate.h; sourceTree = "<group>"; };
-		DEE2AC621B668DAA001A28A6 /* TWRGalleryDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRGalleryDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -350,7 +378,7 @@
 			children = (
 				047B072A1B615D830058316F /* Models */,
 				04AF02851B6103FA002CEB65 /* Views */,
-				04AF02871B61042F002CEB65 /* Controllers */,
+				C52EE3B21CF9AA2F00CC6BC0 /* ViperModules */,
 				04AF02C71B61097D002CEB65 /* Managers */,
 				047B071C1B6153570058316F /* Protolocs */,
 				04AF02861B61040D002CEB65 /* Resources */,
@@ -424,17 +452,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		04AF02871B61042F002CEB65 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				DE0B9C111B6273A800CFC490 /* Feed */,
-				04DEE6591B656AE500AE0E4A /* LocationVC */,
-				04AF02CB1B611020002CEB65 /* Login */,
-				DE0B9C321B66276C00CFC490 /* Settings */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
 		04AF02881B61046F002CEB65 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
@@ -451,19 +468,6 @@
 				047B072B1B6161020058316F /* TWRTwitterAPIManager */,
 			);
 			path = Managers;
-			sourceTree = "<group>";
-		};
-		04AF02CB1B611020002CEB65 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				04AF02BA1B61054F002CEB65 /* TWRLoginVC.h */,
-				04AF02BB1B61054F002CEB65 /* TWRLoginVC.m */,
-				C570931E1CF8A95F00B0489D /* TWRLoginViewModel.h */,
-				C570931F1CF8A95F00B0489D /* TWRLoginViewModel.m */,
-				04AF02CF1B6111F4002CEB65 /* TWRLoginWebVC.h */,
-				04AF02D01B6111F4002CEB65 /* TWRLoginWebVC.m */,
-			);
-			path = Login;
 			sourceTree = "<group>";
 		};
 		04DEE6511B6557B100AE0E4A /* TWRCellMediaView */ = {
@@ -486,17 +490,6 @@
 			path = TWRPlace;
 			sourceTree = "<group>";
 		};
-		04DEE6591B656AE500AE0E4A /* LocationVC */ = {
-			isa = PBXGroup;
-			children = (
-				04DEE65A1B656AF900AE0E4A /* TWRLocationVC.h */,
-				04DEE65B1B656AF900AE0E4A /* TWRLocationVC.m */,
-				DE0B9C1E1B6623B700CFC490 /* TWRPlaceAnnotation.h */,
-				DE0B9C1F1B6623B700CFC490 /* TWRPlaceAnnotation.m */,
-			);
-			path = LocationVC;
-			sourceTree = "<group>";
-		};
 		175115BAF17D615D07C5A0B3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -510,6 +503,258 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C52EE3B21CF9AA2F00CC6BC0 /* ViperModules */ = {
+			isa = PBXGroup;
+			children = (
+				C52EE3B31CF9AA2F00CC6BC0 /* Feed */,
+				C52EE3C01CF9AA2F00CC6BC0 /* LocationVC */,
+				C52EE3CB1CF9AA2F00CC6BC0 /* LoginWebView */,
+				C52EE3C91CF9AA2F00CC6BC0 /* Login */,
+				C52EE3D91CF9AA2F00CC6BC0 /* Settings */,
+			);
+			path = ViperModules;
+			sourceTree = "<group>";
+		};
+		C52EE3B31CF9AA2F00CC6BC0 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				C52EE3B41CF9AA2F00CC6BC0 /* Interactor */,
+				C52EE3B51CF9AA2F00CC6BC0 /* Presenter */,
+				C52EE3B61CF9AA2F00CC6BC0 /* TWRFeedVC.h */,
+				C52EE3B71CF9AA2F00CC6BC0 /* TWRFeedVC.m */,
+				C52EE3B81CF9AA2F00CC6BC0 /* TWRFeedViewModel.h */,
+				C52EE3B91CF9AA2F00CC6BC0 /* TWRFeedViewModel.m */,
+				C52EE3BA1CF9AA2F00CC6BC0 /* TWRGalleryDelegate.h */,
+				C52EE3BB1CF9AA2F00CC6BC0 /* TWRGalleryDelegate.m */,
+				C52EE3BC1CF9AA2F00CC6BC0 /* TWRYoutubeVideoVC.h */,
+				C52EE3BD1CF9AA2F00CC6BC0 /* TWRYoutubeVideoVC.m */,
+				C52EE3BE1CF9AA2F00CC6BC0 /* View */,
+				C52EE3BF1CF9AA2F00CC6BC0 /* Wireframe */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		C52EE3B41CF9AA2F00CC6BC0 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		C52EE3B51CF9AA2F00CC6BC0 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		C52EE3BE1CF9AA2F00CC6BC0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C52EE3BF1CF9AA2F00CC6BC0 /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		C52EE3C01CF9AA2F00CC6BC0 /* LocationVC */ = {
+			isa = PBXGroup;
+			children = (
+				C52EE3C11CF9AA2F00CC6BC0 /* Interactor */,
+				C52EE3C21CF9AA2F00CC6BC0 /* Presenter */,
+				C52EE3C31CF9AA2F00CC6BC0 /* TWRLocationVC.h */,
+				C52EE3C41CF9AA2F00CC6BC0 /* TWRLocationVC.m */,
+				C52EE3C51CF9AA2F00CC6BC0 /* TWRPlaceAnnotation.h */,
+				C52EE3C61CF9AA2F00CC6BC0 /* TWRPlaceAnnotation.m */,
+				C52EE3C71CF9AA2F00CC6BC0 /* View */,
+				C52EE3C81CF9AA2F00CC6BC0 /* Wireframe */,
+			);
+			path = LocationVC;
+			sourceTree = "<group>";
+		};
+		C52EE3C11CF9AA2F00CC6BC0 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		C52EE3C21CF9AA2F00CC6BC0 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		C52EE3C71CF9AA2F00CC6BC0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C52EE3C81CF9AA2F00CC6BC0 /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		C52EE3C91CF9AA2F00CC6BC0 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				C52EE3CA1CF9AA2F00CC6BC0 /* Interactor */,
+				C52EE3D21CF9AA2F00CC6BC0 /* Presenter */,
+				C52EE3D51CF9AA2F00CC6BC0 /* View */,
+				C52EE3D81CF9AA2F00CC6BC0 /* Wireframe */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		C52EE3CA1CF9AA2F00CC6BC0 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				C52EE3F51CF9AABA00CC6BC0 /* TWRLoginInteractor.h */,
+				C52EE3F61CF9AABA00CC6BC0 /* TWRLoginInteractor.m */,
+				C52EE3F81CF9AAC300CC6BC0 /* TWRLoginInteractorProtocol.h */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		C52EE3CB1CF9AA2F00CC6BC0 /* LoginWebView */ = {
+			isa = PBXGroup;
+			children = (
+				C52EE3CC1CF9AA2F00CC6BC0 /* Interactor */,
+				C52EE3CD1CF9AA2F00CC6BC0 /* Presenter */,
+				C52EE3CE1CF9AA2F00CC6BC0 /* View */,
+				C52EE3D11CF9AA2F00CC6BC0 /* Wireframe */,
+			);
+			name = LoginWebView;
+			path = Login/LoginWebView;
+			sourceTree = "<group>";
+		};
+		C52EE3CC1CF9AA2F00CC6BC0 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				C5B5FC981CFC34AE000DE884 /* TWRLoginWebInteractor.h */,
+				C5B5FC991CFC34AE000DE884 /* TWRLoginWebInteractor.m */,
+				C5B5FC9B1CFC34B5000DE884 /* TWRLoginWebInteractorProtocol.h */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		C52EE3CD1CF9AA2F00CC6BC0 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				C5B5FC931CFC3308000DE884 /* TWRLoginWebPresenter.h */,
+				C5B5FC941CFC3308000DE884 /* TWRLoginWebPresenter.m */,
+				C5B5FC961CFC3315000DE884 /* TWRLoginWebPresenterProtocol.h */,
+				C5B5FC971CFC3324000DE884 /* TWRLoginWebEventHandlerProtocol.h */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		C52EE3CE1CF9AA2F00CC6BC0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C52EE3CF1CF9AA2F00CC6BC0 /* TWRLoginWebViewController.h */,
+				C52EE3D01CF9AA2F00CC6BC0 /* TWRLoginWebViewController.m */,
+				C5B5FC921CFC32F1000DE884 /* TWRLoginWebViewProtocol.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C52EE3D11CF9AA2F00CC6BC0 /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				C5B5FC8E1CFC32D3000DE884 /* TWRLoginWebWireframe.h */,
+				C5B5FC8F1CFC32D3000DE884 /* TWRLoginWebWireframe.m */,
+				C5B5FC911CFC32E4000DE884 /* TWRLoginWebWireframeProtocol.h */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		C52EE3D21CF9AA2F00CC6BC0 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				C52EE3F01CF9AA6400CC6BC0 /* TWRLoginPresenter.h */,
+				C52EE3F11CF9AA6400CC6BC0 /* TWRLoginPresenter.m */,
+				C52EE3F31CF9AA7000CC6BC0 /* TWRLoginPresenterProtocol.h */,
+				C52EE3F41CF9AAA300CC6BC0 /* TWRLoginEventHandlerProtocol.h */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		C52EE3D51CF9AA2F00CC6BC0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C52EE3D61CF9AA2F00CC6BC0 /* TWRLoginViewController.h */,
+				C52EE3D71CF9AA2F00CC6BC0 /* TWRLoginViewController.m */,
+				C52EE3F91CF9AAD200CC6BC0 /* TWRLoginViewProtocol.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C52EE3D81CF9AA2F00CC6BC0 /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				C52EE3FA1CF9AF5E00CC6BC0 /* TWRLoginWireframe.h */,
+				C52EE3FB1CF9AF5E00CC6BC0 /* TWRLoginWireframe.m */,
+				C52EE3FD1CF9AF6600CC6BC0 /* TWRLoginWireframeProtocol.h */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		C52EE3D91CF9AA2F00CC6BC0 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C52EE3DA1CF9AA2F00CC6BC0 /* Interactor */,
+				C52EE3DB1CF9AA2F00CC6BC0 /* Presenter */,
+				C52EE3DC1CF9AA2F00CC6BC0 /* TWRSettingsAutoVC.h */,
+				C52EE3DD1CF9AA2F00CC6BC0 /* TWRSettingsAutoVC.m */,
+				C52EE3DE1CF9AA2F00CC6BC0 /* TWRSettingsManualVC.h */,
+				C52EE3DF1CF9AA2F00CC6BC0 /* TWRSettingsManualVC.m */,
+				C52EE3E01CF9AA2F00CC6BC0 /* TWRSettingsVC.h */,
+				C52EE3E11CF9AA2F00CC6BC0 /* TWRSettingsVC.m */,
+				C52EE3E21CF9AA2F00CC6BC0 /* View */,
+				C52EE3E31CF9AA2F00CC6BC0 /* Wireframe */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		C52EE3DA1CF9AA2F00CC6BC0 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		C52EE3DB1CF9AA2F00CC6BC0 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		C52EE3E21CF9AA2F00CC6BC0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C52EE3E31CF9AA2F00CC6BC0 /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
 		C532AE961CD13DE200A56F80 /* TwitteroidUITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -517,17 +762,6 @@
 				C532AE991CD13DE200A56F80 /* Info.plist */,
 			);
 			path = TwitteroidUITests;
-			sourceTree = "<group>";
-		};
-		C5AC6A7F1C70F80F0066A574 /* HashFeedVC */ = {
-			isa = PBXGroup;
-			children = (
-				C5AC6A781C70F59F0066A574 /* TWRFeedViewModel.h */,
-				C5AC6A791C70F59F0066A574 /* TWRFeedViewModel.m */,
-				04AF02B71B61051C002CEB65 /* TWRFeedVC.h */,
-				04AF02B81B61051C002CEB65 /* TWRFeedVC.m */,
-			);
-			name = HashFeedVC;
 			sourceTree = "<group>";
 		};
 		DE0B9BEC1B624EAB00CFC490 /* TWRTweet */ = {
@@ -560,6 +794,8 @@
 				04E391CE1B6521D700F9A9C5 /* UIImage+TWRImages.m */,
 				C576F2B11C6E3A5400A91B68 /* UIViewController+TWRUtils.h */,
 				C576F2B21C6E3A5400A91B68 /* UIViewController+TWRUtils.m */,
+				C52EE3FF1CF9B17E00CC6BC0 /* UIStoryboard+TWRUtils.h */,
+				C52EE4001CF9B17E00CC6BC0 /* UIStoryboard+TWRUtils.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -584,31 +820,6 @@
 				04DEE64F1B65563C00AE0E4A /* TWRMedia.m */,
 			);
 			path = TWRMedia;
-			sourceTree = "<group>";
-		};
-		DE0B9C111B6273A800CFC490 /* Feed */ = {
-			isa = PBXGroup;
-			children = (
-				C5AC6A7F1C70F80F0066A574 /* HashFeedVC */,
-				DEE2AC611B668DAA001A28A6 /* TWRGalleryDelegate.h */,
-				DEE2AC621B668DAA001A28A6 /* TWRGalleryDelegate.m */,
-				DED833D51B68F19E00A7A9E3 /* TWRYoutubeVideoVC.h */,
-				DED833D61B68F19E00A7A9E3 /* TWRYoutubeVideoVC.m */,
-			);
-			path = Feed;
-			sourceTree = "<group>";
-		};
-		DE0B9C321B66276C00CFC490 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				DEC726B31B67C8C900155629 /* TWRSettingsAutoVC.h */,
-				DEC726B41B67C8C900155629 /* TWRSettingsAutoVC.m */,
-				DEC726B01B67C8B600155629 /* TWRSettingsManualVC.h */,
-				DEC726B11B67C8B600155629 /* TWRSettingsManualVC.m */,
-				DEC726A71B67BC0300155629 /* TWRSettingsVC.h */,
-				DEC726A81B67BC0300155629 /* TWRSettingsVC.m */,
-			);
-			path = Settings;
 			sourceTree = "<group>";
 		};
 		DED833CB1B68C23C00A7A9E3 /* BHRRoundedImageView */ = {
@@ -974,57 +1185,63 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE0B9C0C1B626F0F00CFC490 /* TWRHashtag+TWRHelper.m in Sources */,
-				04DEE65C1B656AF900AE0E4A /* TWRLocationVC.m in Sources */,
+				C5B5FC901CFC32D3000DE884 /* TWRLoginWebWireframe.m in Sources */,
+				C52EE3E61CF9AA2F00CC6BC0 /* TWRGalleryDelegate.m in Sources */,
 				DEE2AB8C1B66483A001A28A6 /* KAOBorderedButton.m in Sources */,
+				C52EE3EC1CF9AA2F00CC6BC0 /* TWRLoginViewController.m in Sources */,
 				DEC726AF1B67C45000155629 /* BHRRoundedImageView.m in Sources */,
-				04AF02D11B6111F4002CEB65 /* TWRLoginWebVC.m in Sources */,
-				DEE2AC631B668DAA001A28A6 /* TWRGalleryDelegate.m in Sources */,
-				C57093201CF8A95F00B0489D /* TWRLoginViewModel.m in Sources */,
 				DEE2AB921B665C99001A28A6 /* NSDate+Escort.m in Sources */,
 				043AB9BC1B6411BC005F2BD5 /* UIColor+BHRUtils.m in Sources */,
-				DE0B9C201B6623B700CFC490 /* TWRPlaceAnnotation.m in Sources */,
 				DEE2AC561B668CD7001A28A6 /* EBPhotoPagesFactory.m in Sources */,
+				C52EE3E51CF9AA2F00CC6BC0 /* TWRFeedViewModel.m in Sources */,
 				047B07291B615B6A0058316F /* TWRTwitterAPIManager+TWRFeed.m in Sources */,
+				C52EE3EA1CF9AA2F00CC6BC0 /* TWRLoginWebViewController.m in Sources */,
 				DEE2AC541B668CD7001A28A6 /* EBCommentsView.m in Sources */,
+				C52EE3FC1CF9AF5E00CC6BC0 /* TWRLoginWireframe.m in Sources */,
+				C52EE3E81CF9AA2F00CC6BC0 /* TWRLocationVC.m in Sources */,
 				04E391CF1B6521D700F9A9C5 /* UIImage+TWRImages.m in Sources */,
+				C52EE3E91CF9AA2F00CC6BC0 /* TWRPlaceAnnotation.m in Sources */,
 				DEE2AC551B668CD7001A28A6 /* EBPhotoPagesController.m in Sources */,
 				DEE2AC521B668CD7001A28A6 /* EBCommentCell.m in Sources */,
 				DEE2AC5C1B668CD7001A28A6 /* EBShadedView.m in Sources */,
+				C52EE3E41CF9AA2F00CC6BC0 /* TWRFeedVC.m in Sources */,
+				C52EE3F21CF9AA6400CC6BC0 /* TWRLoginPresenter.m in Sources */,
 				043AB9C21B6418ED005F2BD5 /* TWRCellMediaView.m in Sources */,
 				DE0B9C1D1B628D5300CFC490 /* Reachability.m in Sources */,
 				DEE2AC581B668CD7001A28A6 /* EBPhotoPagesState.m in Sources */,
+				C5B5FC951CFC3308000DE884 /* TWRLoginWebPresenter.m in Sources */,
+				C52EE3F71CF9AABA00CC6BC0 /* TWRLoginInteractor.m in Sources */,
+				C52EE3EE1CF9AA2F00CC6BC0 /* TWRSettingsManualVC.m in Sources */,
 				DEE2AC531B668CD7001A28A6 /* EBCommentsTableView.m in Sources */,
 				DEE2AC571B668CD7001A28A6 /* EBPhotoPagesOperation.m in Sources */,
+				C52EE3E71CF9AA2F00CC6BC0 /* TWRYoutubeVideoVC.m in Sources */,
 				DE4165021B690BF20086F47F /* TWRTweet.m in Sources */,
 				04AF02CA1B61098C002CEB65 /* TWRTwitterAPIManager.m in Sources */,
+				C5B5FC9A1CFC34AE000DE884 /* TWRLoginWebInteractor.m in Sources */,
+				C52EE3EF1CF9AA2F00CC6BC0 /* TWRSettingsVC.m in Sources */,
 				047B071B1B61520B0058316F /* TWRTwitterAPIManager+TWRLogin.m in Sources */,
+				C52EE4011CF9B17E00CC6BC0 /* UIStoryboard+TWRUtils.m in Sources */,
 				DEE2AC591B668CD7001A28A6 /* EBPhotoToolbar.m in Sources */,
 				047B073A1B6168230058316F /* TWRCoreDataManager.m in Sources */,
 				04AF025A1B60FE4A002CEB65 /* AppDelegate.m in Sources */,
 				DE0B9BF81B6267ED00CFC490 /* NSDateFormatter+LocaleAdditions.m in Sources */,
 				C576F2B31C6E3A5400A91B68 /* UIViewController+TWRUtils.m in Sources */,
+				C52EE3ED1CF9AA2F00CC6BC0 /* TWRSettingsAutoVC.m in Sources */,
 				DEE2AC5A1B668CD7001A28A6 /* EBPhotoView.m in Sources */,
 				DEE2AC511B668CD7001A28A6 /* EBCaptionView.m in Sources */,
 				043AB9B91B64117E005F2BD5 /* UIColor+TWRColors.m in Sources */,
 				DED500211B6A46AB008921F0 /* NSDate+NVTimeAgo.m in Sources */,
 				DED833D11B68C66C00A7A9E3 /* TWRUserProfile.m in Sources */,
-				04AF02BC1B61054F002CEB65 /* TWRLoginVC.m in Sources */,
 				DE0B9BEB1B6247F500CFC490 /* TWRTweet+TWRHelper.m in Sources */,
 				04AF025D1B60FE4A002CEB65 /* Twitteroid.xcdatamodeld in Sources */,
-				DEC726B21B67C8B600155629 /* TWRSettingsManualVC.m in Sources */,
-				DED833D71B68F19E00A7A9E3 /* TWRYoutubeVideoVC.m in Sources */,
 				04DEE6501B65563C00AE0E4A /* TWRMedia.m in Sources */,
-				DEC726A91B67BC0300155629 /* TWRSettingsVC.m in Sources */,
 				047B072E1B6167E70058316F /* TWRPlace.m in Sources */,
-				04AF02B91B61051C002CEB65 /* TWRFeedVC.m in Sources */,
-				DEC726B51B67C8C900155629 /* TWRSettingsAutoVC.m in Sources */,
 				DE0B9C091B626EFF00CFC490 /* TWRHashtag.m in Sources */,
 				DEE2AC5D1B668CD7001A28A6 /* EBTagPopover.m in Sources */,
 				04AF02571B60FE49002CEB65 /* main.m in Sources */,
 				047B07261B6159480058316F /* TWRTwitCell.m in Sources */,
 				043AB9BF1B64124E005F2BD5 /* UIFont+TWRFonts.m in Sources */,
 				DEE2AC5B1B668CD7001A28A6 /* EBPhotoViewController.m in Sources */,
-				C5AC6A7A1C70F59F0066A574 /* TWRFeedViewModel.m in Sources */,
 				04DEE6561B65695B00AE0E4A /* TWRPlace+TWRHelper.m in Sources */,
 				DE0B9C101B62713600CFC490 /* TWRMedia+TWRHelper.m in Sources */,
 			);

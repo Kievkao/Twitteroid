@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="tNK-49-Yyn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="i2j-zo-ZaH">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -348,26 +347,10 @@
             </objects>
             <point key="canvasLocation" x="2314" y="2387"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="tB6-VR-ucm">
-            <objects>
-                <navigationController navigationBarHidden="YES" id="tNK-49-Yyn" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dTA-Hr-EQb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="i2j-zo-ZaH" kind="relationship" relationship="rootViewController" id="xJf-RB-Jqq"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Mvn-lB-arC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-288" y="997"/>
-        </scene>
-        <!--LoginVC-->
+        <!--Login View Controller-->
         <scene sceneID="fRK-O2-M3l">
             <objects>
-                <viewController storyboardIdentifier="loginVC" id="i2j-zo-ZaH" customClass="TWRLoginVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginVC" id="i2j-zo-ZaH" customClass="TWRLoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uV1-al-nkl"/>
                         <viewControllerLayoutGuide type="bottom" id="PuS-O5-3E7"/>
@@ -423,10 +406,10 @@
             </objects>
             <point key="canvasLocation" x="374" y="997"/>
         </scene>
-        <!--Login WebVC-->
+        <!--Login Web View Controller-->
         <scene sceneID="nGr-AU-92e">
             <objects>
-                <viewController storyboardIdentifier="TWRLoginWebVC" id="3A7-cc-NHi" customClass="TWRLoginWebVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TWRLoginWebVC" id="3A7-cc-NHi" customClass="TWRLoginWebViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qXR-UV-gVg"/>
                         <viewControllerLayoutGuide type="bottom" id="OWg-le-HCS"/>

@@ -1,39 +1,40 @@
 //
-//  TWRLoginWebVC.m
+//  TWRLoginWebInteractor.m
 //  Twitteroid
 //
-//  Created by Mac on 23/07/15.
-//  Copyright (c) 2015 Kievkao. All rights reserved.
+//  Created by Andrii Kravchenko on 5/30/16.
+//  Copyright © 2016 Kievkao. All rights reserved.
 //
 
-#import "TWRLoginWebVC.h"
+#import "TWRLoginWebInteractor.h"
 #import "TWRTwitterAPIManager+TWRLogin.h"
 
-@interface TWRLoginWebVC () <UIWebViewDelegate>
+@interface TWRLoginWebInteractor()
+
+@property (strong, nonatomic) TWRTwitterAPIManager *twitterAPIManager;
 
 @end
 
-@implementation TWRLoginWebVC
+@implementation TWRLoginWebInteractor
 
-+ (NSString *)identifier {
-    return @"TWRLoginWebVC";
+- (instancetype)initWithTwitterAPIManager:(TWRTwitterAPIManager *)twitterAPIManager
+{
+    self = [super init];
+    if (self) {
+        _twitterAPIManager = twitterAPIManager;
+    }
+    return self;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-}
-
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+- (BOOL)shouldStartLoadRequest:(NSURLRequest *)request {
     if ([request.URL.absoluteString containsString:@"myapp.here.com"]) {
-        
+
         NSDictionary *oauthResponseDict = [self parametersDictionaryFromQueryString:[request.URL query]];
-        
+
         NSString *token = oauthResponseDict[@"oauth_token"];
         NSString *verifier = oauthResponseDict[@"oauth_verifier"];
-        [[TWRTwitterAPIManager sharedInstance] setOAuthToken:token oauthVerifier:verifier];
-        
+        [self.twitterAPIManager setOAuthToken:token oauthVerifier:verifier];
+
         return NO;
     }
     else {
@@ -41,29 +42,21 @@
     }
 }
 
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
-}
-
 - (NSDictionary *)parametersDictionaryFromQueryString:(NSString *)queryString {
     NSMutableDictionary *md = [NSMutableDictionary dictionary];
     NSArray *queryComponents = [queryString componentsSeparatedByString:@"&"];
-    
+
     for(NSString *s in queryComponents) {
         NSArray *pair = [s componentsSeparatedByString:@"="];
         if([pair count] != 2) continue;
-        
+
         NSString *key = pair[0];
         NSString *value = pair[1];
-        
+
         md[key] = value;
     }
-    
-    return md;
-}
 
-- (IBAction)cancelClicked:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    return md;
 }
 
 @end
