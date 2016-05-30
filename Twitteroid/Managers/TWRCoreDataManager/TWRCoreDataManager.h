@@ -7,7 +7,9 @@
 //
 
 #import <CoreData/CoreData.h>
-@class TWRTweet, TWRHashtag, TWRMedia, TWRPlace;
+@class TWRManagedTweet, TWRManagedHashtag, TWRManagedMedia, TWRManagedPlace, TWRTweet, TWRHashtag, TWRMedia, TWRPlace;
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface TWRCoreDataManager : NSObject
 
@@ -28,4 +30,8 @@
 - (nullable NSDate *)savedAutomaticTweetsDeleteDate;
 - (BOOL)isTweetDateIsAllowed:(nonnull NSDate *)date;
 
+- (void)insertNewTweet:(TWRTweet *)tweet;
+
 @end
+
+NS_ASSUME_NONNULL_END

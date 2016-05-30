@@ -32,7 +32,6 @@
     presenter.interactor = interactor;
     presenter.view = self.loginWebViewController;
 
-    interactor.presenter = presenter;
     self.loginWebViewController.eventHandler = presenter;
 
     [viewController presentViewController:self.loginWebViewController animated:YES completion:nil];

@@ -22,7 +22,7 @@
 
 @implementation TWRSettingsVC
 
-+ (NSString *)rootNavControllerIdentifier {
++ (NSString *)identifier {
     return @"SettingsNavC";
 }
 

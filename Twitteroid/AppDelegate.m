@@ -13,6 +13,8 @@
 
 @interface AppDelegate ()
 
+@property (strong, nonatomic) TWRLoginWireframe *loginWireframe;
+
 @end
 
 @implementation AppDelegate
@@ -23,9 +25,9 @@
     [self setupKeychain];
     [self setupAppearance];
 
-    TWRLoginWireframe *loginWireframe = [TWRLoginWireframe new];
+    self.loginWireframe = [TWRLoginWireframe new];
 
-    UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:[loginWireframe createLoginViewController]];
+    UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:[self.loginWireframe createLoginViewController]];
     navigationController.navigationBarHidden = YES;
 
     self.window.rootViewController = navigationController;

@@ -7,13 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TWRLoginWebPresenterProtocol.h"
 #import "TWRLoginWebEventHandlerProtocol.h"
 #import "TWRLoginWebViewProtocol.h"
 #import "TWRLoginWebInteractorProtocol.h"
 #import "TWRLoginWebWireframeProtocol.h"
 
-@interface TWRLoginWebPresenter : NSObject <TWRLoginWebPresenterProtocol, TWRLoginWebEventHandlerProtocol>
+@interface TWRLoginWebPresenter : NSObject <TWRLoginWebEventHandlerProtocol>
 
 @property (nonatomic, weak) id<TWRLoginWebViewProtocol> view;
 @property (nonatomic) id<TWRLoginWebInteractorProtocol> interactor;
