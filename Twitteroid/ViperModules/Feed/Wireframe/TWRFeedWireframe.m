@@ -22,6 +22,7 @@
 @interface TWRFeedWireframe()
 
 @property (weak, nonatomic) TWRFeedViewController *feedViewController;
+@property (strong, nonatomic) TWRFeedWireframe *childFeedWireframe;
 
 @end
 
@@ -30,7 +31,7 @@
 - (void)presentFeedScreenFromViewController:(UIViewController*)viewController withHashtag:(NSString *)hashtag {
     self.feedViewController = [self createFeedViewWithHashtag:hashtag];
 
-    [viewController presentViewController:self.feedViewController animated:YES completion:nil];
+    [viewController.navigationController pushViewController:self.feedViewController animated:YES];
 }
 
 - (void)setFeedScreenInsteadViewController:(UIViewController*)viewController withHashtag:(NSString *)hashtag {
@@ -64,9 +65,8 @@
 }
 
 - (void)presentTweetsScreenForHashtag:(NSString *)hashtag {
-    TWRFeedViewController *feedVC = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:[TWRFeedViewController identifier]];
-    feedVC.hashTag = hashtag;
-    [self.feedViewController presentViewController:feedVC animated:YES completion:nil];
+    self.childFeedWireframe = [TWRFeedWireframe new];
+    [self.childFeedWireframe presentFeedScreenFromViewController:self.feedViewController withHashtag:hashtag];
 }
 
 - (void)presentLocationScreenWithLatitude:(double)latitude longitude:(double)longitude {

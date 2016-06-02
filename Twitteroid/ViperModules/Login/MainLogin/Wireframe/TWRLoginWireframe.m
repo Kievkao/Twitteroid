@@ -20,6 +20,7 @@
 
 @property (weak, nonatomic) TWRLoginViewController *loginViewController;
 @property (strong, nonatomic) TWRLoginWebWireframe *webLoginWireframe;
+@property (strong, nonatomic) TWRFeedWireframe *feedWireframe;
 
 @end
 
@@ -60,8 +61,8 @@
 }
 
 - (void)presentFeedScreen {
-    TWRFeedWireframe *feedWireframe = [TWRFeedWireframe new];
-    [feedWireframe setFeedScreenInsteadViewController:self.loginViewController withHashtag:nil];
+    self.feedWireframe = [TWRFeedWireframe new];
+    [self.feedWireframe setFeedScreenInsteadViewController:self.loginViewController withHashtag:nil];
 }
 
 - (void)presentWebLoginScreenWithRequest:(NSURLRequest *)request {
