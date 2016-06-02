@@ -1,12 +1,12 @@
 //
-//  TWRTwitterAPIManager.m
+//  TWRTwitterManager.m
 //  Twitteroid
 //
 //  Created by Mac on 23/07/15.
 //  Copyright (c) 2015 Kievkao. All rights reserved.
 //
 
-#import "TWRTwitterAPIManager.h"
+#import "TWRTwitterManager.h"
 #import "SSKeychain.h"
 #import "TWRUserProfile.h"
 
@@ -17,11 +17,11 @@ static NSString *const kKeychainTokenSecretKey = @"TwitterTokenSecret";
 NSString *const kTwitterApiKey = @"Vtr9Yi3UkWuqqo4sD7WJaYHPp";
 NSString *const kTwitterApiSecret = @"FgJV89KXSGYf42opyMLFfZxk5J9fPIwITzYrKsZWG0xvxh7HdH";
 
-@interface TWRTwitterAPIManager()
+@interface TWRTwitterManager()
 
 @end
 
-@implementation TWRTwitterAPIManager
+@implementation TWRTwitterManager
 @synthesize token = _token, tokenSecret = _tokenSecret;
 
 + (instancetype)sharedInstance {

@@ -1,17 +1,17 @@
 //
-//  TWRTwitterAPIManager+TWRLogin.m
+//  TWRTwitterManager+TWRLogin.m
 //  Twitteroid
 //
 //  Created by Mac on 23/07/15.
 //  Copyright (c) 2015 Kievkao. All rights reserved.
 //
 
-#import "TWRTwitterAPIManager+TWRLogin.h"
-#import "TWRTwitterAPIManager.h"
+#import "TWRTwitterManager+TWRLogin.h"
+#import "TWRTwitterManager.h"
 #import "STTwitter.h"
 #import "TWRUserProfile.h"
 
-@implementation TWRTwitterAPIManager (TWRLogin)
+@implementation TWRTwitterManager (TWRLogin)
 
 - (BOOL)isUserAlreadyLogged {
     return (self.token && self.tokenSecret);
@@ -35,7 +35,7 @@
         self.sessionLoginDone = YES;
         [[TWRUserProfile sharedInstance] setUserID:userID];
         [[TWRUserProfile sharedInstance] setUserNickname:username];
-        [[TWRTwitterAPIManager sharedInstance] fillUserProfile];
+        [[TWRTwitterManager sharedInstance] fillUserProfile];
         completion(nil);
 
     } errorBlock:^(NSError *error) {

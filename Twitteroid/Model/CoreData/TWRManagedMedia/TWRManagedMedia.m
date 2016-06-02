@@ -9,7 +9,6 @@
 #import "TWRManagedMedia.h"
 #import "TWRManagedTweet.h"
 
-
 @implementation TWRManagedMedia
 
 @dynamic mediaURL;

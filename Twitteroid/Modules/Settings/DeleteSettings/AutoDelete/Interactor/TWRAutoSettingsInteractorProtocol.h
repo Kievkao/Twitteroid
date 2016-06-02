@@ -12,6 +12,6 @@
 
 - (void)retrieveSavedWeeksNumber;
 - (void)deleteTweetsOlderThanDate:(NSDate *)date;
-- (void)saveAutomaticTweetsDeleteDate:(NSDate *)date;
+- (void)saveTweetsAutoDeleteDate:(NSDate *)date;
 
 @end

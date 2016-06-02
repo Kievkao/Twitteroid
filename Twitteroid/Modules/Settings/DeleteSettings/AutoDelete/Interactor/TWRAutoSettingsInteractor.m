@@ -13,7 +13,7 @@
 @implementation TWRAutoSettingsInteractor
 
 - (void)retrieveSavedWeeksNumber {
-    NSDate *savedDateForAutoDeleting = [[TWRCoreDataManager sharedInstance] savedAutomaticTweetsDeleteDate];
+    NSDate *savedDateForAutoDeleting = [[TWRCoreDataManager sharedInstance] tweetsAutoDeleteDate];
 
     if (savedDateForAutoDeleting) {
         NSInteger daysAfterSavedData = [[NSDate date] daysAfterDate:savedDateForAutoDeleting];

@@ -7,17 +7,17 @@
 //
 
 #import "TWRLoginInteractor.h"
-#import "TWRTwitterAPIManager+TWRLogin.h"
+#import "TWRTwitterManager+TWRLogin.h"
 
 @interface TWRLoginInteractor()
 
-@property (strong, nonatomic) TWRTwitterAPIManager *twitterAPIManager;
+@property (strong, nonatomic) TWRTwitterManager *twitterAPIManager;
 
 @end
 
 @implementation TWRLoginInteractor
 
-- (instancetype)initWithTwitterAPIManager:(TWRTwitterAPIManager *)twitterAPIManager
+- (instancetype)initWithTwitterAPIManager:(TWRTwitterManager *)twitterAPIManager
 {
     self = [super init];
     if (self) {

@@ -1,5 +1,5 @@
 //
-//  TWRTwitterAPIManager.h
+//  TWRTwitterManager.h
 //  Twitteroid
 //
 //  Created by Mac on 23/07/15.
@@ -12,7 +12,7 @@
 extern NSString *const kTwitterApiKey;
 extern NSString *const kTwitterApiSecret;
 
-@interface TWRTwitterAPIManager : NSObject
+@interface TWRTwitterManager : NSObject
 
 @property (nonatomic, strong) STTwitterAPI *twitter;
 @property (nonatomic, strong) NSString *token;

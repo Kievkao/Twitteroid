@@ -11,7 +11,7 @@
 #import "TWRLoginWebInteractor.h"
 #import "TWRLoginWebPresenter.h"
 #import "TWRLoginWebViewController.h"
-#import "TWRTwitterAPIManager.h"
+#import "TWRTwitterManager.h"
 
 @interface TWRLoginWebWireframe()
 
@@ -25,7 +25,7 @@
 {
     self.loginWebViewController = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:[TWRLoginWebViewController identifier]];
 
-    TWRLoginWebInteractor* interactor = [[TWRLoginWebInteractor alloc] initWithTwitterAPIManager:[TWRTwitterAPIManager sharedInstance]];
+    TWRLoginWebInteractor* interactor = [[TWRLoginWebInteractor alloc] initWithTwitterAPIManager:[TWRTwitterManager sharedInstance]];
     TWRLoginWebPresenter* presenter = [[TWRLoginWebPresenter alloc] initWithURLRequest:request];
 
     presenter.wireframe = self;

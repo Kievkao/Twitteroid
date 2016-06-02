@@ -1,15 +1,15 @@
 //
-//  TWRTwitterAPIManager+TWRFeed.m
+//  TWRTwitterManager+TWRFeed.m
 //  Twitteroid
 //
 //  Created by Mac on 23/07/15.
 //  Copyright (c) 2015 Kievkao. All rights reserved.
 //
 
-#import "TWRTwitterAPIManager.h"
-#import "TWRTwitterAPIManager+TWRFeed.h"
+#import "TWRTwitterManager.h"
+#import "TWRTwitterManager+TWRFeed.h"
 
-@implementation TWRTwitterAPIManager (TWRFeed)
+@implementation TWRTwitterManager (TWRFeed)
 
 - (void)getFeedOlderThatTwitID:(NSString *)twitID
                     forHashtag:(NSString *)hashtag

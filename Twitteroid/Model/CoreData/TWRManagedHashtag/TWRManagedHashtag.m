@@ -9,7 +9,6 @@
 #import "TWRManagedHashtag.h"
 #import "TWRManagedTweet.h"
 
-// TODO: rework to category/protocol with identifier method
 @implementation TWRManagedHashtag
 
 @dynamic endIndex;

@@ -7,8 +7,8 @@
 //
 
 #import "TWRTweetsDAO.h"
-#import "TWRTwitterAPIManager+TWRLogin.h"
-#import "TWRTwitterAPIManager+TWRFeed.h"
+#import "TWRTwitterManager+TWRLogin.h"
+#import "TWRTwitterManager+TWRFeed.h"
 #import "Reachability.h"
 #import "NSDateFormatter+LocaleAdditions.h"
 #import "TWRTweet.h"
@@ -33,7 +33,7 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
 
     [self prepareForLoadingWithCompletion:^(NSError *error) {
         if (error == nil) {
-            [[TWRTwitterAPIManager sharedInstance] getFeedOlderThatTwitID:tweetID forHashtag:hashtag count:kTweetsLoadingPortion completion:^(NSError *error, NSArray *items) {
+            [[TWRTwitterManager sharedInstance] getFeedOlderThatTwitID:tweetID forHashtag:hashtag count:kTweetsLoadingPortion completion:^(NSError *error, NSArray *items) {
                 if (!error) {
                     NSArray <TWRTweet *> *tweets = [weakSelf parseTweetsArray:items forHashtag:hashtag];
                     loadingCompletion(tweets, nil);
@@ -53,7 +53,7 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
 
 - (void)prepareForLoadingWithCompletion:(void (^)(NSError *error))completion {
 
-    BOOL isSessionLoginDone = [[TWRTwitterAPIManager sharedInstance] isSessionLoginDone];
+    BOOL isSessionLoginDone = [[TWRTwitterManager sharedInstance] isSessionLoginDone];
     BOOL isInternetActive = [self isInternetActive];
 
     if (!isInternetActive) {
@@ -61,7 +61,7 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
         completion(error);
     }
     else if (!isSessionLoginDone) {
-        [[TWRTwitterAPIManager sharedInstance] reloginWithCompletion:^(NSError *error) {
+        [[TWRTwitterManager sharedInstance] reloginWithCompletion:^(NSError *error) {
             if (!error) {
                 completion(nil);
             }

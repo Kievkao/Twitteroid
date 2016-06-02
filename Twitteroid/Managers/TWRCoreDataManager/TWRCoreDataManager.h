@@ -13,19 +13,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TWRCoreDataManager : NSObject
 
-- (nullable instancetype)init __attribute__((unavailable("Must use 'sharedInstance' instead.")));
+- (instancetype)init __attribute__((unavailable("Use 'sharedInstance' instead")));
 
-+ (nullable instancetype)sharedInstance;
-- (void)saveContext;
-- (nullable NSFetchedResultsController *)fetchedResultsControllerForTweetsHashtag:(nullable NSString *)hashtag;
-
-- (void)deleteTweetsOlderThanDate:(nonnull NSDate *)date;
-
-- (void)saveAutomaticTweetsDeleteDate:(nonnull NSDate *)date;
-- (nullable NSDate *)savedAutomaticTweetsDeleteDate;
-- (BOOL)isTweetDateIsAllowed:(nonnull NSDate *)date;
++ (instancetype)sharedInstance;
 
 - (void)insertNewTweet:(TWRTweet *)tweet;
+- (void)saveContext;
+- (NSFetchedResultsController *)fetchedResultsControllerForTweetsHashtag:(nullable NSString *)hashtag;
+
+- (void)deleteTweetsOlderThanDate:(nonnull NSDate *)date;
+- (void)saveAutomaticTweetsDeleteDate:(nonnull NSDate *)date;
+- (nullable NSDate *)tweetsAutoDeleteDate;
+- (BOOL)isTweetDateIsAllowed:(nonnull NSDate *)date;
 
 @end
 

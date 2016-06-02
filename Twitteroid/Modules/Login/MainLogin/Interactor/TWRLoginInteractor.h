@@ -10,12 +10,12 @@
 #import "TWRLoginInteractorProtocol.h"
 #import "TWRLoginPresenterProtocol.h"
 
-@class TWRTwitterAPIManager;
+@class TWRTwitterManager;
 
 @interface TWRLoginInteractor : NSObject <TWRLoginInteractorProtocol>
 
 @property (nonatomic, weak) id<TWRLoginPresenterProtocol> presenter;
 
-- (instancetype)initWithTwitterAPIManager:(TWRTwitterAPIManager *)twitterAPIManager;
+- (instancetype)initWithTwitterAPIManager:(TWRTwitterManager *)twitterAPIManager;
 
 @end

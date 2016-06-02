@@ -83,7 +83,7 @@ static NSString *const kTweetsDeleteDateKey = @"TWRManagedTweetsDeleteDateKey";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(managedObjectContextDidSave:) name:NSManagedObjectContextDidSaveNotification object:self.privateContext];
 }
 
-- (nullable NSFetchedResultsController *)fetchedResultsControllerForTweetsHashtag:(nullable NSString *)hashtag {
+- (NSFetchedResultsController *)fetchedResultsControllerForTweetsHashtag:(nullable NSString *)hashtag {
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:[TWRManagedTweet entityName]];
     
@@ -166,35 +166,6 @@ static NSString *const kTweetsDeleteDateKey = @"TWRManagedTweetsDeleteDateKey";
     return managedHashtag;
 }
 
-- (TWRManagedMedia *)insertNewMedia:(TWRMedia *)media {
-
-    __block TWRManagedMedia *managedMedia = nil;
-    __typeof(self) __weak weakSelf = self;
-
-    [self.privateContext performBlockAndWait:^{
-        managedMedia = [NSEntityDescription insertNewObjectForEntityForName:[TWRManagedMedia entityName] inManagedObjectContext:weakSelf.privateContext];
-        managedMedia.mediaURL = media.mediaURL;
-        managedMedia.isPhoto = media.isPhoto;
-    }];
-
-    return managedMedia;
-}
-
-- (TWRManagedPlace *)insertNewPlace:(TWRPlace *)place {
-
-    __block TWRManagedPlace *managedPlace = nil;
-    __typeof(self) __weak weakSelf = self;
-
-    [self.privateContext performBlockAndWait:^{
-        managedPlace = [NSEntityDescription insertNewObjectForEntityForName:[TWRManagedPlace entityName] inManagedObjectContext:weakSelf.privateContext];
-        managedPlace.countryName = place.countryName;
-        managedPlace.lattitude = place.lattitude;
-        managedPlace.longitude = place.longitude;
-    }];
-
-    return managedPlace;
-}
-
 - (void)saveAutomaticTweetsDeleteDate:(nonnull NSDate *)date {
     
     self.dateForOlderDeleting = date;
@@ -246,7 +217,7 @@ static NSString *const kTweetsDeleteDateKey = @"TWRManagedTweetsDeleteDateKey";
     }];
 }
 
-- (nullable NSDate *)savedAutomaticTweetsDeleteDate {
+- (nullable NSDate *)tweetsAutoDeleteDate {
     return self.dateForOlderDeleting;
 }
 
@@ -255,6 +226,35 @@ static NSString *const kTweetsDeleteDateKey = @"TWRManagedTweetsDeleteDateKey";
         _dateForOlderDeleting = [[NSUserDefaults standardUserDefaults] objectForKey:kTweetsDeleteDateKey];
     }
     return _dateForOlderDeleting;
+}
+
+- (TWRManagedMedia *)insertNewMedia:(TWRMedia *)media {
+
+    __block TWRManagedMedia *managedMedia = nil;
+    __typeof(self) __weak weakSelf = self;
+
+    [self.privateContext performBlockAndWait:^{
+        managedMedia = [NSEntityDescription insertNewObjectForEntityForName:[TWRManagedMedia entityName] inManagedObjectContext:weakSelf.privateContext];
+        managedMedia.mediaURL = media.mediaURL;
+        managedMedia.isPhoto = media.isPhoto;
+    }];
+
+    return managedMedia;
+}
+
+- (TWRManagedPlace *)insertNewPlace:(TWRPlace *)place {
+
+    __block TWRManagedPlace *managedPlace = nil;
+    __typeof(self) __weak weakSelf = self;
+
+    [self.privateContext performBlockAndWait:^{
+        managedPlace = [NSEntityDescription insertNewObjectForEntityForName:[TWRManagedPlace entityName] inManagedObjectContext:weakSelf.privateContext];
+        managedPlace.countryName = place.countryName;
+        managedPlace.lattitude = place.lattitude;
+        managedPlace.longitude = place.longitude;
+    }];
+
+    return managedPlace;
 }
 
 @end
