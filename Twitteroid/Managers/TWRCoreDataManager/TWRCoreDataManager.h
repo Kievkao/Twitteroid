@@ -19,11 +19,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)saveContext;
 - (nullable NSFetchedResultsController *)fetchedResultsControllerForTweetsHashtag:(nullable NSString *)hashtag;
 
-- (nullable NSManagedObject *)insertNewEntity:(nonnull Class)entityClass;
-
-- (BOOL)isExistsTweetWithID:(nonnull NSString *)tweetID forHashtag:(nullable NSString *)hashtag;
-- (BOOL)isAnySavedTweetsForHashtag:(nullable NSString *)hashtag;
-
 - (void)deleteTweetsOlderThanDate:(nonnull NSDate *)date;
 
 - (void)saveAutomaticTweetsDeleteDate:(nonnull NSDate *)date;

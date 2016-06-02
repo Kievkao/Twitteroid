@@ -14,7 +14,7 @@
 #import "TWRLocationVC.h"
 #import "EBPhotoPagesController.h"
 #import "TWRGalleryDelegate.h"
-#import "TWRSettingsVC.h"
+#import "TWRSettingsViewController.h"
 #import "TWRYoutubeVideoVC.h"
 #import "NSDate+NVTimeAgo.h"
 #import "TWRCoreDataManager.h"

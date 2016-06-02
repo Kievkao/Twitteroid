@@ -195,7 +195,7 @@
         <!--Manual deleting-->
         <scene sceneID="09G-w1-hkA">
             <objects>
-                <viewController title="Manual deleting" id="aPc-Sf-mX3" customClass="TWRSettingsManualVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="manualSettings" title="Manual deleting" id="aPc-Sf-mX3" customClass="TWRSettingsManualVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GgE-kG-ZZP"/>
                         <viewControllerLayoutGuide type="bottom" id="LmV-2R-UC7"/>
@@ -205,7 +205,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saved tweets before selected date will be deleted " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AA0-L7-uww">
-                                <rect key="frame" x="0.0" y="68" width="600" height="23"/>
+                                <rect key="frame" x="0.0" y="24" width="600" height="23"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -237,7 +237,7 @@
                                 </connections>
                             </button>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="fg3-vY-fGd">
-                                <rect key="frame" x="0.0" y="93" width="600" height="216"/>
+                                <rect key="frame" x="0.0" y="49" width="600" height="216"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="136" id="VBe-f7-hU9"/>
                                 </constraints>
@@ -275,7 +275,7 @@
         <!--Settings AutoVC-->
         <scene sceneID="wSK-O2-72C">
             <objects>
-                <viewController id="v6u-kH-Wgt" customClass="TWRSettingsAutoVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AutoSettingsVC" id="v6u-kH-Wgt" customClass="TWRSettingsAutoVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sKy-Zd-e9G"/>
                         <viewControllerLayoutGuide type="bottom" id="2cz-Ur-CBh"/>
@@ -285,7 +285,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IyS-R1-2gw">
-                                <rect key="frame" x="0.0" y="93" width="600" height="162"/>
+                                <rect key="frame" x="0.0" y="49" width="600" height="162"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="162" id="qlj-zb-OLt"/>
                                 </constraints>
@@ -295,7 +295,7 @@
                                 </connections>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Automatically delete tweets that are older than selected period" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8TZ-E5-xZW">
-                                <rect key="frame" x="0.0" y="72" width="600" height="23"/>
+                                <rect key="frame" x="0.0" y="28" width="600" height="23"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -536,7 +536,7 @@
         <!--Settings-->
         <scene sceneID="llk-JH-vLf">
             <objects>
-                <tableViewController storyboardIdentifier="TWRSettingsVC" id="8L3-Ka-Ji5" customClass="TWRSettingsVC" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="TWRSettingsVC" id="8L3-Ka-Ji5" customClass="TWRSettingsViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Gf5-2p-qQ7">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -603,9 +603,6 @@
                                                 <constraint firstAttribute="centerY" secondItem="IGZ-U2-bAl" secondAttribute="centerY" id="ueU-dh-8wC"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="aPc-Sf-mX3" kind="show" id="cJD-yX-aYG"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -631,9 +628,6 @@
                                                 <constraint firstAttribute="centerY" secondItem="jNx-Hf-BUc" secondAttribute="centerY" id="i3e-Zk-gl3"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="v6u-kH-Wgt" kind="show" id="Qmm-qw-Ygw"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>

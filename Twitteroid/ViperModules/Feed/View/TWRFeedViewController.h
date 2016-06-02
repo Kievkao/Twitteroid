@@ -13,7 +13,6 @@
 
 @property (nonatomic) id<TWRFeedEventHandlerProtocol> eventHandler;
 
-@property (strong, nonatomic) NSDateFormatter *dateFormatter;
 @property (nonatomic, strong) NSString *hashTag;
 
 @end

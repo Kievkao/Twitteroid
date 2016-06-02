@@ -7,7 +7,7 @@
 //
 
 #import "TWRFeedWireframe.h"
-#import "TWRSettingsVC.h"
+#import "TWRSettingsViewController.h"
 #import "TWRLocationVC.h"
 #import "TWRYoutubeVideoVC.h"
 #import "TWRGalleryDelegate.h"
@@ -18,11 +18,13 @@
 #import "TWRFeedPresenter.h"
 #import "TWRFeedViewController.h"
 #import "TWRTweetsDAO.h"
+#import "TWRSettingsWireframe.h"
 
 @interface TWRFeedWireframe()
 
 @property (weak, nonatomic) TWRFeedViewController *feedViewController;
 @property (strong, nonatomic) TWRFeedWireframe *childFeedWireframe;
+@property (strong, nonatomic) TWRSettingsWireframe *settingsWireframe;
 
 @end
 
@@ -57,7 +59,8 @@
 }
 
 - (void)presentSettingsScreen {
-    [self.feedViewController presentViewController:[[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:[TWRSettingsVC identifier]] animated:YES completion:nil];
+    self.settingsWireframe = [TWRSettingsWireframe new];
+    [self.settingsWireframe presentSettingsScreenFromViewController:self.feedViewController];
 }
 
 - (void)presentWebViewForURL:(NSURL *)url {

@@ -48,7 +48,6 @@ static NSString *const kTweetsDeleteDateKey = @"TWRManagedTweetsDeleteDateKey";
     return self;
 }
 
-// TODO: add child private context
 - (void)setupStack {
     
     NSManagedObjectModel *model = [[NSManagedObjectModel alloc] initWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"Twitteroid" withExtension:@"momd"]];
@@ -100,42 +99,6 @@ static NSString *const kTweetsDeleteDateKey = @"TWRManagedTweetsDeleteDateKey";
     NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.mainContext sectionNameKeyPath:nil cacheName:nil];
     
     return fetchedResultsController;
-}
-
-- (BOOL)isAnySavedTweetsForHashtag:(nullable NSString *)hashtag {
-    
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:[TWRManagedTweet entityName]];
-    [fetchRequest setFetchLimit:1];
-    
-    if (hashtag) {
-        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"%K = %@", [TWRManagedTweet tweetHashtagParameter], hashtag];
-    }
-    else {
-        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"%K = nil", [TWRManagedTweet tweetHashtagParameter]];
-    }
-    
-    __block NSUInteger count = 0;
-    
-    [self.mainContext performBlockAndWait:^{
-        count = [self.mainContext countForFetchRequest:fetchRequest error:nil];
-    }];
-    
-    return count > 0;
-}
-
-- (nullable NSManagedObject *)insertNewEntity:(nonnull Class)entityClass {
-    
-    if ([entityClass isSubclassOfClass:[NSManagedObject class]]) {
-        NSString *entityName = [entityClass entityName];
-        __block NSManagedObject *insertedObject = nil;
-        [self.privateContext performBlockAndWait:^{
-            insertedObject = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:self.privateContext];
-        }];
-        return insertedObject;
-    }
-    else {
-        return nil;
-    }
 }
 
 - (void)insertNewTweet:(TWRTweet *)tweet {
@@ -230,24 +193,6 @@ static NSString *const kTweetsDeleteDateKey = @"TWRManagedTweetsDeleteDateKey";
     }];
 
     return managedPlace;
-}
-
-- (BOOL)isExistsTweetWithID:(nonnull NSString *)tweetID forHashtag:(nullable NSString *)hashtag {
-    
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:[TWRManagedTweet entityName]];
-    
-    NSPredicate *tweetIdPredicate = [NSPredicate predicateWithFormat:@"%K = %@", [TWRManagedTweet tweetIDParameter], tweetID];
-    NSPredicate *hashtagPredicate = (hashtag) ? [NSPredicate predicateWithFormat:@"%K = %@", [TWRManagedTweet tweetHashtagParameter], hashtag] : [NSPredicate predicateWithFormat:@"%K = nil", [TWRManagedTweet tweetHashtagParameter]];
-    
-    request.predicate = [[NSCompoundPredicate alloc] initWithType:NSAndPredicateType subpredicates:@[hashtagPredicate, tweetIdPredicate]];
-    
-    __block NSUInteger count = 0;
-    
-    [self.mainContext performBlockAndWait:^{
-        count = [self.mainContext countForFetchRequest:request error:nil];
-    }];
-    
-    return count;
 }
 
 - (void)saveAutomaticTweetsDeleteDate:(nonnull NSDate *)date {
