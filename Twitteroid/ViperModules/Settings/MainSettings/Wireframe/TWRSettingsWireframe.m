@@ -9,11 +9,10 @@
 #import "TWRSettingsWireframe.h"
 #import "TWRSettingsViewController.h"
 #import "TWRSettingsPresenter.h"
-
-#import "TWRSettingsAutoVC.h"
-#import "TWRSettingsManualVC.h"
-
 #import "TWRUserProfile.h"
+
+#import "TWRManualSettingsWireframe.h"
+#import "TWRAutoSettingsWireframe.h"
 
 @interface TWRSettingsWireframe()
 
@@ -48,13 +47,13 @@
 }
 
 - (void)presentAutoSettingsScreen {
-    TWRSettingsAutoVC *autoSettingsViewController = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:@"AutoSettingsVC"];
-    [self.settingsViewController.navigationController pushViewController:autoSettingsViewController animated:YES];
+    TWRAutoSettingsWireframe *autoSettingsWireframe = [TWRAutoSettingsWireframe new];
+    [autoSettingsWireframe presentSettingsScreenFromViewController:self.settingsViewController];
 }
 
 - (void)presentManualSettingsScreen {
-    TWRSettingsManualVC *manualSettingsViewController = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:@"manualSettings"];
-    [self.settingsViewController.navigationController pushViewController:manualSettingsViewController animated:YES];
+    TWRManualSettingsWireframe *manualSettingsWireframe = [TWRManualSettingsWireframe new];
+    [manualSettingsWireframe presentSettingsScreenFromViewController:self.settingsViewController];
 }
 
 @end

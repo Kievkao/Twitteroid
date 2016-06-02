@@ -31,11 +31,17 @@
 		04E391CF1B6521D700F9A9C5 /* UIImage+TWRImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E391CE1B6521D700F9A9C5 /* UIImage+TWRImages.m */; };
 		6EA585B71CAEE27F4B95ABEF /* libPods-TwitteroidUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A773F52E416298A68453260 /* libPods-TwitteroidUITests.a */; };
 		87A6460CE42813BB4FE8A2A0 /* libPods-Twitteroid.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC75D2D8D8D5EC211100AE45 /* libPods-Twitteroid.a */; };
-		C509519A1D0032F900258B70 /* TWRSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C50951971D0032F900258B70 /* TWRSettingsViewController.m */; };
-		C509519D1D00330B00258B70 /* TWRSettingsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = C509519C1D00330B00258B70 /* TWRSettingsPresenter.m */; };
-		C50951A51D00334600258B70 /* TWRSettingsWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = C50951A41D00334600258B70 /* TWRSettingsWireframe.m */; };
-		C50951AE1D0036D500258B70 /* TWRSettingsAutoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C50951AB1D0036D500258B70 /* TWRSettingsAutoVC.m */; };
-		C50951AF1D0036D500258B70 /* TWRSettingsManualVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C50951AD1D0036D500258B70 /* TWRSettingsManualVC.m */; };
+		C50951C61D003C0F00258B70 /* TWRSettingsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = C50951BA1D003C0F00258B70 /* TWRSettingsPresenter.m */; };
+		C50951C71D003C0F00258B70 /* TWRSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C50951BE1D003C0F00258B70 /* TWRSettingsViewController.m */; };
+		C50951C81D003C0F00258B70 /* TWRSettingsWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = C50951C21D003C0F00258B70 /* TWRSettingsWireframe.m */; };
+		C50951D71D003D5C00258B70 /* TWRAutoSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C50951D51D003D5C00258B70 /* TWRAutoSettingsViewController.m */; };
+		C50951DE1D003D6300258B70 /* TWRManualSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C50951DC1D003D6300258B70 /* TWRManualSettingsViewController.m */; };
+		C50951E11D003D8000258B70 /* TWRAutoSettingsWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = C50951E01D003D8000258B70 /* TWRAutoSettingsWireframe.m */; };
+		C50951E41D003D9300258B70 /* TWRAutoSettingsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = C50951E31D003D9300258B70 /* TWRAutoSettingsPresenter.m */; };
+		C50951E71D003D9A00258B70 /* TWRAutoSettingsInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = C50951E61D003D9A00258B70 /* TWRAutoSettingsInteractor.m */; };
+		C50951F21D003E1C00258B70 /* TWRManualSettingsInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = C50951F11D003E1C00258B70 /* TWRManualSettingsInteractor.m */; };
+		C50951F51D003E2600258B70 /* TWRManualSettingsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = C50951F41D003E2600258B70 /* TWRManualSettingsPresenter.m */; };
+		C50951F81D00400200258B70 /* TWRManualSettingsWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = C50951F71D00400200258B70 /* TWRManualSettingsWireframe.m */; };
 		C51B2E8E1CFDB7A400C75615 /* TWRTweetsDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = C51B2E8D1CFDB7A400C75615 /* TWRTweetsDAO.m */; };
 		C51B2E921CFDBC9C00C75615 /* TWRHashtag.m in Sources */ = {isa = PBXBuildFile; fileRef = C51B2E911CFDBC9C00C75615 /* TWRHashtag.m */; };
 		C51B2E951CFDBCE800C75615 /* TWRMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = C51B2E941CFDBCE800C75615 /* TWRMedia.m */; };
@@ -156,20 +162,39 @@
 		7FA12681C5DAB9DF7371212F /* Pods-TwitteroidTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitteroidTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TwitteroidTests/Pods-TwitteroidTests.release.xcconfig"; sourceTree = "<group>"; };
 		AC75D2D8D8D5EC211100AE45 /* libPods-Twitteroid.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Twitteroid.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B93E8CC38E8BCF5C0E9C93A8 /* Pods-Twitteroid.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitteroid.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Twitteroid/Pods-Twitteroid.debug.xcconfig"; sourceTree = "<group>"; };
-		C50951961D0032F900258B70 /* TWRSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRSettingsViewController.h; sourceTree = "<group>"; };
-		C50951971D0032F900258B70 /* TWRSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRSettingsViewController.m; sourceTree = "<group>"; };
-		C509519B1D00330B00258B70 /* TWRSettingsPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRSettingsPresenter.h; sourceTree = "<group>"; };
-		C509519C1D00330B00258B70 /* TWRSettingsPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRSettingsPresenter.m; sourceTree = "<group>"; };
-		C509519E1D00332600258B70 /* TWRSettingsPresenterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRSettingsPresenterProtocol.h; sourceTree = "<group>"; };
-		C50951A31D00334600258B70 /* TWRSettingsWireframe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRSettingsWireframe.h; sourceTree = "<group>"; };
-		C50951A41D00334600258B70 /* TWRSettingsWireframe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRSettingsWireframe.m; sourceTree = "<group>"; };
-		C50951A61D00334E00258B70 /* TWRSettingsWireframeProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRSettingsWireframeProtocol.h; sourceTree = "<group>"; };
-		C50951A71D00340700258B70 /* TWRSettingsEventHandlerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRSettingsEventHandlerProtocol.h; sourceTree = "<group>"; };
-		C50951A81D00343B00258B70 /* TWRSettingsViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRSettingsViewProtocol.h; sourceTree = "<group>"; };
-		C50951AA1D0036D500258B70 /* TWRSettingsAutoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRSettingsAutoVC.h; sourceTree = "<group>"; };
-		C50951AB1D0036D500258B70 /* TWRSettingsAutoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRSettingsAutoVC.m; sourceTree = "<group>"; };
-		C50951AC1D0036D500258B70 /* TWRSettingsManualVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRSettingsManualVC.h; sourceTree = "<group>"; };
-		C50951AD1D0036D500258B70 /* TWRSettingsManualVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRSettingsManualVC.m; sourceTree = "<group>"; };
+		C50951B81D003C0F00258B70 /* TWRSettingsEventHandlerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRSettingsEventHandlerProtocol.h; sourceTree = "<group>"; };
+		C50951B91D003C0F00258B70 /* TWRSettingsPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRSettingsPresenter.h; sourceTree = "<group>"; };
+		C50951BA1D003C0F00258B70 /* TWRSettingsPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRSettingsPresenter.m; sourceTree = "<group>"; };
+		C50951BB1D003C0F00258B70 /* TWRSettingsPresenterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRSettingsPresenterProtocol.h; sourceTree = "<group>"; };
+		C50951BD1D003C0F00258B70 /* TWRSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRSettingsViewController.h; sourceTree = "<group>"; };
+		C50951BE1D003C0F00258B70 /* TWRSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRSettingsViewController.m; sourceTree = "<group>"; };
+		C50951BF1D003C0F00258B70 /* TWRSettingsViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRSettingsViewProtocol.h; sourceTree = "<group>"; };
+		C50951C11D003C0F00258B70 /* TWRSettingsWireframe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRSettingsWireframe.h; sourceTree = "<group>"; };
+		C50951C21D003C0F00258B70 /* TWRSettingsWireframe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRSettingsWireframe.m; sourceTree = "<group>"; };
+		C50951C31D003C0F00258B70 /* TWRSettingsWireframeProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRSettingsWireframeProtocol.h; sourceTree = "<group>"; };
+		C50951D41D003D5C00258B70 /* TWRAutoSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRAutoSettingsViewController.h; sourceTree = "<group>"; };
+		C50951D51D003D5C00258B70 /* TWRAutoSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRAutoSettingsViewController.m; sourceTree = "<group>"; };
+		C50951DB1D003D6300258B70 /* TWRManualSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRManualSettingsViewController.h; sourceTree = "<group>"; };
+		C50951DC1D003D6300258B70 /* TWRManualSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRManualSettingsViewController.m; sourceTree = "<group>"; };
+		C50951DF1D003D8000258B70 /* TWRAutoSettingsWireframe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRAutoSettingsWireframe.h; sourceTree = "<group>"; };
+		C50951E01D003D8000258B70 /* TWRAutoSettingsWireframe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRAutoSettingsWireframe.m; sourceTree = "<group>"; };
+		C50951E21D003D9300258B70 /* TWRAutoSettingsPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRAutoSettingsPresenter.h; sourceTree = "<group>"; };
+		C50951E31D003D9300258B70 /* TWRAutoSettingsPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRAutoSettingsPresenter.m; sourceTree = "<group>"; };
+		C50951E61D003D9A00258B70 /* TWRAutoSettingsInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRAutoSettingsInteractor.m; sourceTree = "<group>"; };
+		C50951E81D003DA400258B70 /* TWRAutoSettingsInteractorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRAutoSettingsInteractorProtocol.h; sourceTree = "<group>"; };
+		C50951E91D003DAE00258B70 /* TWRAutoSettingsPresenterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRAutoSettingsPresenterProtocol.h; sourceTree = "<group>"; };
+		C50951EA1D003DB700258B70 /* TWRAutoSettingsEventHandlerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRAutoSettingsEventHandlerProtocol.h; sourceTree = "<group>"; };
+		C50951EB1D003DC200258B70 /* TWRAutoSettingsViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRAutoSettingsViewProtocol.h; sourceTree = "<group>"; };
+		C50951EC1D003DF300258B70 /* TWRManualSettingsViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRManualSettingsViewProtocol.h; sourceTree = "<group>"; };
+		C50951EE1D003E0A00258B70 /* TWRManualSettingsEventHandlerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRManualSettingsEventHandlerProtocol.h; sourceTree = "<group>"; };
+		C50951EF1D003E1300258B70 /* TWRManualSettingsInteractorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRManualSettingsInteractorProtocol.h; sourceTree = "<group>"; };
+		C50951F01D003E1C00258B70 /* TWRManualSettingsInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRManualSettingsInteractor.h; sourceTree = "<group>"; };
+		C50951F11D003E1C00258B70 /* TWRManualSettingsInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRManualSettingsInteractor.m; sourceTree = "<group>"; };
+		C50951F31D003E2600258B70 /* TWRManualSettingsPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRManualSettingsPresenter.h; sourceTree = "<group>"; };
+		C50951F41D003E2600258B70 /* TWRManualSettingsPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRManualSettingsPresenter.m; sourceTree = "<group>"; };
+		C50951F61D00400200258B70 /* TWRManualSettingsWireframe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRManualSettingsWireframe.h; sourceTree = "<group>"; };
+		C50951F71D00400200258B70 /* TWRManualSettingsWireframe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRManualSettingsWireframe.m; sourceTree = "<group>"; };
+		C50951F91D006DF500258B70 /* TWRAutoSettingsInteractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWRAutoSettingsInteractor.h; sourceTree = "<group>"; };
 		C51B2E8C1CFDB7A400C75615 /* TWRTweetsDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRTweetsDAO.h; sourceTree = "<group>"; };
 		C51B2E8D1CFDB7A400C75615 /* TWRTweetsDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRTweetsDAO.m; sourceTree = "<group>"; };
 		C51B2E8F1CFDB7B000C75615 /* TWRTweetsDAOProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRTweetsDAOProtocol.h; sourceTree = "<group>"; };
@@ -530,15 +555,155 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		C50951A91D0036C500258B70 /* DeleteTweetsSettings */ = {
+		C50951B01D003C0F00258B70 /* DeleteSettings */ = {
 			isa = PBXGroup;
 			children = (
-				C50951AA1D0036D500258B70 /* TWRSettingsAutoVC.h */,
-				C50951AB1D0036D500258B70 /* TWRSettingsAutoVC.m */,
-				C50951AC1D0036D500258B70 /* TWRSettingsManualVC.h */,
-				C50951AD1D0036D500258B70 /* TWRSettingsManualVC.m */,
+				C50951C91D003D1500258B70 /* AutoDelete */,
+				C50951CC1D003D1500258B70 /* ManualDelete */,
 			);
-			path = DeleteTweetsSettings;
+			path = DeleteSettings;
+			sourceTree = "<group>";
+		};
+		C50951B51D003C0F00258B70 /* MainSettings */ = {
+			isa = PBXGroup;
+			children = (
+				C50951B71D003C0F00258B70 /* Presenter */,
+				C50951BC1D003C0F00258B70 /* View */,
+				C50951C01D003C0F00258B70 /* Wireframe */,
+			);
+			path = MainSettings;
+			sourceTree = "<group>";
+		};
+		C50951B71D003C0F00258B70 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				C50951B81D003C0F00258B70 /* TWRSettingsEventHandlerProtocol.h */,
+				C50951B91D003C0F00258B70 /* TWRSettingsPresenter.h */,
+				C50951BA1D003C0F00258B70 /* TWRSettingsPresenter.m */,
+				C50951BB1D003C0F00258B70 /* TWRSettingsPresenterProtocol.h */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		C50951BC1D003C0F00258B70 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C50951BD1D003C0F00258B70 /* TWRSettingsViewController.h */,
+				C50951BE1D003C0F00258B70 /* TWRSettingsViewController.m */,
+				C50951BF1D003C0F00258B70 /* TWRSettingsViewProtocol.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C50951C01D003C0F00258B70 /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				C50951C11D003C0F00258B70 /* TWRSettingsWireframe.h */,
+				C50951C21D003C0F00258B70 /* TWRSettingsWireframe.m */,
+				C50951C31D003C0F00258B70 /* TWRSettingsWireframeProtocol.h */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		C50951C91D003D1500258B70 /* AutoDelete */ = {
+			isa = PBXGroup;
+			children = (
+				C50951D11D003D5C00258B70 /* Interactor */,
+				C50951D21D003D5C00258B70 /* Presenter */,
+				C50951D31D003D5C00258B70 /* View */,
+				C50951D61D003D5C00258B70 /* Wireframe */,
+			);
+			path = AutoDelete;
+			sourceTree = "<group>";
+		};
+		C50951CC1D003D1500258B70 /* ManualDelete */ = {
+			isa = PBXGroup;
+			children = (
+				C50951D81D003D6300258B70 /* Interactor */,
+				C50951D91D003D6300258B70 /* Presenter */,
+				C50951DA1D003D6300258B70 /* View */,
+				C50951DD1D003D6300258B70 /* Wireframe */,
+			);
+			path = ManualDelete;
+			sourceTree = "<group>";
+		};
+		C50951D11D003D5C00258B70 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				C50951F91D006DF500258B70 /* TWRAutoSettingsInteractor.h */,
+				C50951E61D003D9A00258B70 /* TWRAutoSettingsInteractor.m */,
+				C50951E81D003DA400258B70 /* TWRAutoSettingsInteractorProtocol.h */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		C50951D21D003D5C00258B70 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				C50951E21D003D9300258B70 /* TWRAutoSettingsPresenter.h */,
+				C50951E31D003D9300258B70 /* TWRAutoSettingsPresenter.m */,
+				C50951E91D003DAE00258B70 /* TWRAutoSettingsPresenterProtocol.h */,
+				C50951EA1D003DB700258B70 /* TWRAutoSettingsEventHandlerProtocol.h */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		C50951D31D003D5C00258B70 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C50951D41D003D5C00258B70 /* TWRAutoSettingsViewController.h */,
+				C50951D51D003D5C00258B70 /* TWRAutoSettingsViewController.m */,
+				C50951EB1D003DC200258B70 /* TWRAutoSettingsViewProtocol.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C50951D61D003D5C00258B70 /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				C50951DF1D003D8000258B70 /* TWRAutoSettingsWireframe.h */,
+				C50951E01D003D8000258B70 /* TWRAutoSettingsWireframe.m */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		C50951D81D003D6300258B70 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				C50951F01D003E1C00258B70 /* TWRManualSettingsInteractor.h */,
+				C50951F11D003E1C00258B70 /* TWRManualSettingsInteractor.m */,
+				C50951EF1D003E1300258B70 /* TWRManualSettingsInteractorProtocol.h */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		C50951D91D003D6300258B70 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				C50951F31D003E2600258B70 /* TWRManualSettingsPresenter.h */,
+				C50951F41D003E2600258B70 /* TWRManualSettingsPresenter.m */,
+				C50951EE1D003E0A00258B70 /* TWRManualSettingsEventHandlerProtocol.h */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		C50951DA1D003D6300258B70 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C50951DB1D003D6300258B70 /* TWRManualSettingsViewController.h */,
+				C50951DC1D003D6300258B70 /* TWRManualSettingsViewController.m */,
+				C50951EC1D003DF300258B70 /* TWRManualSettingsViewProtocol.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C50951DD1D003D6300258B70 /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				C50951F61D00400200258B70 /* TWRManualSettingsWireframe.h */,
+				C50951F71D00400200258B70 /* TWRManualSettingsWireframe.m */,
+			);
+			path = Wireframe;
 			sourceTree = "<group>";
 		};
 		C51B2E8B1CFDB79200C75615 /* DAOs */ = {
@@ -673,43 +838,10 @@
 		C52EE3D91CF9AA2F00CC6BC0 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				C52EE3DB1CF9AA2F00CC6BC0 /* Presenter */,
-				C52EE3E21CF9AA2F00CC6BC0 /* View */,
-				C52EE3E31CF9AA2F00CC6BC0 /* Wireframe */,
+				C50951B01D003C0F00258B70 /* DeleteSettings */,
+				C50951B51D003C0F00258B70 /* MainSettings */,
 			);
 			path = Settings;
-			sourceTree = "<group>";
-		};
-		C52EE3DB1CF9AA2F00CC6BC0 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				C509519B1D00330B00258B70 /* TWRSettingsPresenter.h */,
-				C509519C1D00330B00258B70 /* TWRSettingsPresenter.m */,
-				C509519E1D00332600258B70 /* TWRSettingsPresenterProtocol.h */,
-				C50951A71D00340700258B70 /* TWRSettingsEventHandlerProtocol.h */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		C52EE3E21CF9AA2F00CC6BC0 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				C50951A91D0036C500258B70 /* DeleteTweetsSettings */,
-				C50951961D0032F900258B70 /* TWRSettingsViewController.h */,
-				C50951971D0032F900258B70 /* TWRSettingsViewController.m */,
-				C50951A81D00343B00258B70 /* TWRSettingsViewProtocol.h */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		C52EE3E31CF9AA2F00CC6BC0 /* Wireframe */ = {
-			isa = PBXGroup;
-			children = (
-				C50951A31D00334600258B70 /* TWRSettingsWireframe.h */,
-				C50951A41D00334600258B70 /* TWRSettingsWireframe.m */,
-				C50951A61D00334E00258B70 /* TWRSettingsWireframeProtocol.h */,
-			);
-			path = Wireframe;
 			sourceTree = "<group>";
 		};
 		C532AE961CD13DE200A56F80 /* TwitteroidUITests */ = {
@@ -1281,6 +1413,8 @@
 				043AB9BC1B6411BC005F2BD5 /* UIColor+BHRUtils.m in Sources */,
 				C5B5FCFE1CFC7B01000DE884 /* TWRManagedTweet.m in Sources */,
 				C5B5FCCD1CFC3A3D000DE884 /* TWRFeedPresenter.m in Sources */,
+				C50951F21D003E1C00258B70 /* TWRManualSettingsInteractor.m in Sources */,
+				C50951E71D003D9A00258B70 /* TWRAutoSettingsInteractor.m in Sources */,
 				DEE2AC561B668CD7001A28A6 /* EBPhotoPagesFactory.m in Sources */,
 				C51B2E921CFDBC9C00C75615 /* TWRHashtag.m in Sources */,
 				C5B5FCD21CFC3AC1000DE884 /* TWRFeedWireframe.m in Sources */,
@@ -1288,14 +1422,17 @@
 				047B07291B615B6A0058316F /* TWRTwitterAPIManager+TWRFeed.m in Sources */,
 				DEE2AC541B668CD7001A28A6 /* EBCommentsView.m in Sources */,
 				C52EE3E81CF9AA2F00CC6BC0 /* TWRLocationVC.m in Sources */,
+				C50951C71D003C0F00258B70 /* TWRSettingsViewController.m in Sources */,
 				04E391CF1B6521D700F9A9C5 /* UIImage+TWRImages.m in Sources */,
 				C52EE3E91CF9AA2F00CC6BC0 /* TWRPlaceAnnotation.m in Sources */,
 				DEE2AC551B668CD7001A28A6 /* EBPhotoPagesController.m in Sources */,
 				DEE2AC521B668CD7001A28A6 /* EBCommentCell.m in Sources */,
+				C50951DE1D003D6300258B70 /* TWRManualSettingsViewController.m in Sources */,
 				DEE2AC5C1B668CD7001A28A6 /* EBShadedView.m in Sources */,
 				043AB9C21B6418ED005F2BD5 /* TWRCellMediaView.m in Sources */,
 				DE0B9C1D1B628D5300CFC490 /* Reachability.m in Sources */,
 				C5B5FCFA1CFC7B01000DE884 /* TWRManagedMedia.m in Sources */,
+				C50951E41D003D9300258B70 /* TWRAutoSettingsPresenter.m in Sources */,
 				DEE2AC581B668CD7001A28A6 /* EBPhotoPagesState.m in Sources */,
 				C5B5FCF71CFC7B01000DE884 /* TWRManagedHashtag+TWRHelper.m in Sources */,
 				DEE2AC531B668CD7001A28A6 /* EBCommentsTableView.m in Sources */,
@@ -1307,10 +1444,12 @@
 				C5B5FCC21CFC39D5000DE884 /* TWRLoginWebViewController.m in Sources */,
 				C5B5FCCA1CFC3A03000DE884 /* TWRFeedViewController.m in Sources */,
 				C5B5FCC41CFC39D5000DE884 /* TWRLoginInteractor.m in Sources */,
+				C50951C81D003C0F00258B70 /* TWRSettingsWireframe.m in Sources */,
 				047B071B1B61520B0058316F /* TWRTwitterAPIManager+TWRLogin.m in Sources */,
-				C50951AF1D0036D500258B70 /* TWRSettingsManualVC.m in Sources */,
 				C52EE4011CF9B17E00CC6BC0 /* UIStoryboard+TWRUtils.m in Sources */,
 				C5B5FCC31CFC39D5000DE884 /* TWRLoginWebWireframe.m in Sources */,
+				C50951F81D00400200258B70 /* TWRManualSettingsWireframe.m in Sources */,
+				C50951F51D003E2600258B70 /* TWRManualSettingsPresenter.m in Sources */,
 				C5B5FCFB1CFC7B01000DE884 /* TWRManagedPlace+TWRHelper.m in Sources */,
 				DEE2AC591B668CD7001A28A6 /* EBPhotoToolbar.m in Sources */,
 				C5B5FCF81CFC7B01000DE884 /* TWRManagedHashtag.m in Sources */,
@@ -1318,13 +1457,10 @@
 				04AF025A1B60FE4A002CEB65 /* AppDelegate.m in Sources */,
 				C5B5FCD61CFC3B04000DE884 /* TWRFeedInteractor.m in Sources */,
 				DE0B9BF81B6267ED00CFC490 /* NSDateFormatter+LocaleAdditions.m in Sources */,
-				C50951A51D00334600258B70 /* TWRSettingsWireframe.m in Sources */,
 				C576F2B31C6E3A5400A91B68 /* UIViewController+TWRUtils.m in Sources */,
+				C50951D71D003D5C00258B70 /* TWRAutoSettingsViewController.m in Sources */,
 				DEE2AC5A1B668CD7001A28A6 /* EBPhotoView.m in Sources */,
 				DEE2AC511B668CD7001A28A6 /* EBCaptionView.m in Sources */,
-				C509519D1D00330B00258B70 /* TWRSettingsPresenter.m in Sources */,
-				C50951AE1D0036D500258B70 /* TWRSettingsAutoVC.m in Sources */,
-				C509519A1D0032F900258B70 /* TWRSettingsViewController.m in Sources */,
 				C51B2E951CFDBCE800C75615 /* TWRMedia.m in Sources */,
 				043AB9B91B64117E005F2BD5 /* UIColor+TWRColors.m in Sources */,
 				DED500211B6A46AB008921F0 /* NSDate+NVTimeAgo.m in Sources */,
@@ -1335,6 +1471,8 @@
 				C5B5FCC61CFC39D5000DE884 /* TWRLoginViewController.m in Sources */,
 				DEE2AC5D1B668CD7001A28A6 /* EBTagPopover.m in Sources */,
 				04AF02571B60FE49002CEB65 /* main.m in Sources */,
+				C50951E11D003D8000258B70 /* TWRAutoSettingsWireframe.m in Sources */,
+				C50951C61D003C0F00258B70 /* TWRSettingsPresenter.m in Sources */,
 				047B07261B6159480058316F /* TWRTwitCell.m in Sources */,
 				043AB9BF1B64124E005F2BD5 /* UIFont+TWRFonts.m in Sources */,
 				DEE2AC5B1B668CD7001A28A6 /* EBPhotoViewController.m in Sources */,

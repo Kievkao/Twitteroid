@@ -10,8 +10,8 @@
 #import "BHRRoundedImageView.h"
 
 typedef enum : NSUInteger {
-    TWRAutoSettingsSection,
     TWRManualSettingsSection,
+    TWRAutoSettingsSection
 } TWRSettingsSection;
 
 @interface TWRSettingsViewController ()
@@ -42,12 +42,12 @@ typedef enum : NSUInteger {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
-        case TWRAutoSettingsSection:
-            [self.eventHandler handleAutoSettingsAction];
-            break;
-
         case TWRManualSettingsSection:
             [self.eventHandler handleManualSettingsAction];
+            break;
+
+        case TWRAutoSettingsSection:
+            [self.eventHandler handleAutoSettingsAction];
             break;
 
         default:

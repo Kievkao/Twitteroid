@@ -195,7 +195,7 @@
         <!--Manual deleting-->
         <scene sceneID="09G-w1-hkA">
             <objects>
-                <viewController storyboardIdentifier="manualSettings" title="Manual deleting" id="aPc-Sf-mX3" customClass="TWRSettingsManualVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="manualSettings" title="Manual deleting" id="aPc-Sf-mX3" customClass="TWRManualSettingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GgE-kG-ZZP"/>
                         <viewControllerLayoutGuide type="bottom" id="LmV-2R-UC7"/>
@@ -272,10 +272,10 @@
             </objects>
             <point key="canvasLocation" x="2314" y="1724"/>
         </scene>
-        <!--Settings AutoVC-->
+        <!--Auto Settings View Controller-->
         <scene sceneID="wSK-O2-72C">
             <objects>
-                <viewController storyboardIdentifier="AutoSettingsVC" id="v6u-kH-Wgt" customClass="TWRSettingsAutoVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AutoSettingsVC" id="v6u-kH-Wgt" customClass="TWRAutoSettingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sKy-Zd-e9G"/>
                         <viewControllerLayoutGuide type="bottom" id="2cz-Ur-CBh"/>
@@ -537,7 +537,7 @@
         <scene sceneID="llk-JH-vLf">
             <objects>
                 <tableViewController storyboardIdentifier="TWRSettingsVC" id="8L3-Ka-Ji5" customClass="TWRSettingsViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Gf5-2p-qQ7">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Gf5-2p-qQ7">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -584,7 +584,7 @@
                             <tableViewSection headerTitle="MANUAL TWEETS DELETING" id="6Zj-bI-EO8">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="cEs-Sv-wrX">
-                                        <rect key="frame" x="0.0" y="307" width="600" height="60"/>
+                                        <rect key="frame" x="0.0" y="306.5" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cEs-Sv-wrX" id="PCS-Ww-d7A">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="60"/>
@@ -609,7 +609,7 @@
                             <tableViewSection headerTitle="AUTOMATIC TWEETS DELETING" id="jlw-Uh-lL1">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="cTC-DV-wTH">
-                                        <rect key="frame" x="0.0" y="409" width="600" height="60"/>
+                                        <rect key="frame" x="0.0" y="408.5" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cTC-DV-wTH" id="Hdb-jo-MC7">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="60"/>
