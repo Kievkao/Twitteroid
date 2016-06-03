@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "TWRLoginWebInteractorProtocol.h"
 
-@class TWRTwitterManager;
+@protocol TWRTwitterAPIManagerProtocol;
 
 @interface TWRLoginWebInteractor : NSObject <TWRLoginWebInteractorProtocol>
 
-- (instancetype)initWithTwitterAPIManager:(TWRTwitterManager *)twitterAPIManager;
+- (instancetype)initWithTwitterAPIManager:(id<TWRTwitterAPIManagerProtocol>)twitterAPIManager;
 
 @end

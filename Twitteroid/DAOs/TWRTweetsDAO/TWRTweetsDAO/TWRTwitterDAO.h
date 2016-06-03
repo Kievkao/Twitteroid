@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "TWRTwitterDAOProtocol.h"
 
-@protocol TWRTweetParserProtocol;
+@protocol TWRTweetParserProtocol, TWRTwitterAPIManagerProtocol;
 
 @interface TWRTwitterDAO : NSObject <TWRTwitterDAOProtocol>
 
-- (instancetype)initWithTweetParser:(id<TWRTweetParserProtocol>)tweetParser;
+- (instancetype)initWithTwitterAPIManager:(id<TWRTwitterAPIManagerProtocol>)twitterAPIManager tweetParser:(id<TWRTweetParserProtocol>)tweetParser;
 
 @end

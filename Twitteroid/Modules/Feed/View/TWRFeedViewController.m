@@ -206,9 +206,9 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
     
     [cell setAuthorName:tweet.userName];
     [cell setAuthorNickname:tweet.userNickname];
-    [cell setTwitText:tweet.text];
-    [cell setAuthorAvatarByURLStr:tweet.userAvatarURL];
-    [cell setLocationBtnVisible:(tweet.place) ? YES : NO];
+    [cell setTweetText:tweet.text];
+    [cell setAuthorAvatarFromURLString:tweet.userAvatarURL];
+    [cell setLocationButtonVisible:(tweet.place) ? YES : NO];
     [cell setTweetTime:[tweet.createdAt formattedAsTimeAgo]];
     
     if (tweet.isRetwitted) {
@@ -224,19 +224,19 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
 - (void)setActionsHandlersForCell:(TWRTwitCell *)cell tweet:(TWRTweet *)tweet {
     __weak typeof(self)weakSelf = self;
     
-    cell.webLinkClickedBlock = ^(NSURL *url) {
+    cell.webLinkClickBlock = ^(NSURL *url) {
         [weakSelf tweet:tweet clickedURL:url];
     };
     
-    cell.hashtagClickedBlock = ^(NSString *hashtag) {
+    cell.hashtagClickBlock = ^(NSString *hashtag) {
         [weakSelf tweet:tweet clickedHashtag:hashtag];
     };
     
-    cell.locationBtnClickedBlock = ^() {
+    cell.locationButtonClickBlock = ^() {
         [weakSelf tweet:tweet clickedLocation:CLLocationCoordinate2DMake(tweet.place.lattitude, tweet.place.longitude)];
     };
     
-    cell.mediaClickedBlock = ^(BOOL isVideo, NSUInteger index) {
+    cell.mediaClickBlock = ^(BOOL isVideo, NSUInteger index) {
         NSMutableArray *mediasURLs = [NSMutableArray new];
         
         for (TWRMedia *media in tweet.medias) {

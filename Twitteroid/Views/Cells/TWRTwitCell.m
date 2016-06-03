@@ -78,14 +78,14 @@ static CGFloat const kRetweetViewFullHeight = 25.0;
     [self.twitTextLabel setDetectionBlock:^(STTweetHotWord hotWordType, NSString *string, NSString *protocol, NSRange range) {
         switch (hotWordType) {
             case STTweetLink:
-                if (weakSelf.webLinkClickedBlock) {
-                    weakSelf.webLinkClickedBlock([NSURL URLWithString:string]);
+                if (weakSelf.webLinkClickBlock) {
+                    weakSelf.webLinkClickBlock([NSURL URLWithString:string]);
                 }
                 break;
                 
             case STTweetHashtag:
-                if (weakSelf.hashtagClickedBlock) {
-                    weakSelf.hashtagClickedBlock(string);
+                if (weakSelf.hashtagClickBlock) {
+                    weakSelf.hashtagClickBlock(string);
                 }
                 break;
                 
@@ -94,20 +94,20 @@ static CGFloat const kRetweetViewFullHeight = 25.0;
         }
     }];
     
-    [self.mediaView setMediaClickedBlock:^(BOOL isVideo, NSUInteger index) {
-        if (weakSelf.mediaClickedBlock) {
-            weakSelf.mediaClickedBlock(isVideo, index);
+    [self.mediaView setMediaClickBlock:^(BOOL isVideo, NSUInteger index) {
+        if (weakSelf.mediaClickBlock) {
+            weakSelf.mediaClickBlock(isVideo, index);
         }
     }];
 }
 
-- (void)setLocationBtnVisible:(BOOL)visible {
+- (void)setLocationButtonVisible:(BOOL)visible {
     self.locationBtn.hidden = !visible;
 }
 
 - (IBAction)locationBtnClicked:(id)sender {
-    if (self.locationBtnClickedBlock) {
-        self.locationBtnClickedBlock();
+    if (self.locationButtonClickBlock) {
+        self.locationButtonClickBlock();
     }
 }
 
@@ -138,8 +138,8 @@ static CGFloat const kRetweetViewFullHeight = 25.0;
     [self.mediaView setLinksToMedia:linksURLs isForVideo:YES];
 }
 
-- (void)setTweetTime:(NSString *)timeStr {
-    self.timeLabel.text = timeStr;
+- (void)setTweetTime:(NSString *)timeString {
+    self.timeLabel.text = timeString;
 }
 
 - (void)setAuthorName:(NSString *)name {
@@ -150,11 +150,11 @@ static CGFloat const kRetweetViewFullHeight = 25.0;
     self.authorNickNameLabel.text = [NSString stringWithFormat:@"@%@", nickname];
 }
 
-- (void)setAuthorAvatarByURLStr:(NSString *)avatarUrl {
+- (void)setAuthorAvatarFromURLString:(NSString *)avatarUrl {
     [self.authorAvatarImageView sd_setImageWithURL:[NSURL URLWithString:avatarUrl] placeholderImage:nil];
 }
 
-- (void)setTwitText:(NSString *)text {
+- (void)setTweetText:(NSString *)text {
     self.twitTextLabel.text = text;
 }
 

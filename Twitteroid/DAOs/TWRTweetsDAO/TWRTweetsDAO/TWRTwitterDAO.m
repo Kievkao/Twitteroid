@@ -7,11 +7,10 @@
 //
 
 #import "TWRTwitterDAO.h"
-#import "TWRTwitterManager+TWRLogin.h"
-#import "TWRTwitterManager+TWRFeed.h"
 #import "Reachability.h"
 #import "TWRTweet.h"
 #import "TWRTweetParserProtocol.h"
+#import "TWRTwitterAPIManagerProtocol.h"
 
 static NSUInteger const kTweetsLoadingPortion = 20;
 static NSString *const kAppErrorDomain = @"TwitteroidDomain";
@@ -19,15 +18,17 @@ static NSString *const kAppErrorDomain = @"TwitteroidDomain";
 @interface TWRTwitterDAO()
 
 @property (strong, nonatomic) id<TWRTweetParserProtocol> tweetParser;
+@property (strong, nonatomic) id<TWRTwitterAPIManagerProtocol> twitterAPIManager;
 
 @end
 
 @implementation TWRTwitterDAO
 
-- (instancetype)initWithTweetParser:(id<TWRTweetParserProtocol>)tweetParser
+- (instancetype)initWithTwitterAPIManager:(id<TWRTwitterAPIManagerProtocol>)twitterAPIManager tweetParser:(id<TWRTweetParserProtocol>)tweetParser
 {
     self = [super init];
     if (self) {
+        _twitterAPIManager = twitterAPIManager;
         _tweetParser = tweetParser;
     }
     return self;
@@ -38,7 +39,7 @@ static NSString *const kAppErrorDomain = @"TwitteroidDomain";
 
     [self prepareForLoadingWithCompletion:^(NSError *error) {
         if (error == nil) {
-            [[TWRTwitterManager sharedInstance] getFeedOlderThatTwitID:tweetID forHashtag:hashtag count:kTweetsLoadingPortion completion:^(NSError *error, NSArray *items) {
+            [self.twitterAPIManager getFeedOlderThatTwitID:tweetID forHashtag:hashtag count:kTweetsLoadingPortion completion:^(NSError *error, NSArray *items) {
                 if (!error) {
                     NSArray <TWRTweet *> *tweets = [weakSelf parseTweetsArray:items forHashtag:hashtag];
                     loadingCompletion(tweets, nil);
@@ -58,7 +59,7 @@ static NSString *const kAppErrorDomain = @"TwitteroidDomain";
 
 - (void)prepareForLoadingWithCompletion:(void (^)(NSError *error))completion {
 
-    BOOL isSessionLoginDone = [[TWRTwitterManager sharedInstance] isSessionLoginDone];
+    BOOL isSessionLoginDone = [self.twitterAPIManager isSessionLoginDone];
     BOOL isInternetActive = [self isInternetActive];
 
     if (!isInternetActive) {
@@ -66,7 +67,7 @@ static NSString *const kAppErrorDomain = @"TwitteroidDomain";
         completion(error);
     }
     else if (!isSessionLoginDone) {
-        [[TWRTwitterManager sharedInstance] reloginWithCompletion:^(NSError *error) {
+        [self.twitterAPIManager reloginWithCompletion:^(NSError *error) {
             if (!error) {
                 completion(nil);
             }

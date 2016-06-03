@@ -70,16 +70,16 @@ static CGFloat const kMediaFrameDistanceMultiplier = 0.49;
 - (void)handleImageTapFrom:(UITapGestureRecognizer *)recognizer {
     UIImageView *tappedView = (UIImageView *)recognizer.view;
     
-    if (self.mediaClickedBlock) {
-        self.mediaClickedBlock(NO, tappedView.tag);
+    if (self.mediaClickBlock) {
+        self.mediaClickBlock(NO, tappedView.tag);
     }
 }
 
 - (void)handleVideoTapFrom:(UITapGestureRecognizer *)recognizer {
     UIImageView *tappedView = (UIImageView *)recognizer.view;
     
-    if (self.mediaClickedBlock) {
-        self.mediaClickedBlock(YES, tappedView.tag);
+    if (self.mediaClickBlock) {
+        self.mediaClickBlock(YES, tappedView.tag);
     }
 }
 

@@ -102,7 +102,6 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
             }
             tweet.hashtags = hashtags;
         }
-
     }
 
     if (tweetDict[@"extended_entities"]) {
@@ -118,7 +117,6 @@ static NSString *const kTweetsDateFormat = @"eee MMM dd HH:mm:ss Z yyyy";
 
             [tweetMedias addObject:media];
         }
-
         tweet.medias = tweetMedias;
     }
     else if (tweetDict[@"entities"]) {

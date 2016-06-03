@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "STTwitter.h"
+#import "TWRTwitterAPIManagerProtocol.h"
 
 extern NSString *const kTwitterApiKey;
 extern NSString *const kTwitterApiSecret;
 
-@interface TWRTwitterManager : NSObject
+@interface TWRTwitterAPIManager : NSObject <TWRTwitterAPIManagerProtocol>
 
 @property (nonatomic, strong) STTwitterAPI *twitter;
 @property (nonatomic, strong) NSString *token;

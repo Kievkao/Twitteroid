@@ -7,7 +7,6 @@
 //
 
 #import "TWRLoginWebViewController.h"
-#import "TWRTwitterManager+TWRLogin.h"
 
 @interface TWRLoginWebViewController () <UIWebViewDelegate>
 

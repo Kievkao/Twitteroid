@@ -10,7 +10,7 @@
 
 @interface TWRCellMediaView : UIView
 
-@property (nonatomic, strong) void (^mediaClickedBlock)(BOOL isVideo, NSUInteger index);
+@property (nonatomic, strong) void (^mediaClickBlock)(BOOL isVideo, NSUInteger index);
 
 - (void)setLinksToMedia:(NSArray *)images isForVideo:(BOOL)isForVideo;
 - (void)removeAllFrames;

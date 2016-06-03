@@ -10,26 +10,26 @@
 
 @interface TWRTwitCell : UITableViewCell<TWRCellIdentifier>
 
-@property (nonatomic, strong) void (^hashtagClickedBlock)(NSString *hashtag);
-@property (nonatomic, strong) void (^webLinkClickedBlock)(NSURL *clickedUrl);
-@property (nonatomic, strong) void (^locationBtnClickedBlock)();
-@property (nonatomic, strong) void (^mediaClickedBlock)(BOOL isVideo, NSUInteger index);
+@property (nonatomic, strong) void (^hashtagClickBlock)(NSString *hashtag);
+@property (nonatomic, strong) void (^webLinkClickBlock)(NSURL *clickedUrl);
+@property (nonatomic, strong) void (^locationButtonClickBlock)();
+@property (nonatomic, strong) void (^mediaClickBlock)(BOOL isVideo, NSUInteger index);
 
 + (CGFloat)cellHeightForTableViewWidth:(CGFloat)tableViewWidth
                              tweetText:(NSString *)text
                           mediaPresent:(BOOL)isMediaPresent
                              retwitted:(BOOL)isRetwitted;
 
-- (void)setTwitText:(NSString *)text;
+- (void)setTweetText:(NSString *)text;
 - (void)setAuthorName:(NSString *)name;
 - (void)setAuthorNickname:(NSString *)nickname;
-- (void)setAuthorAvatarByURLStr:(NSString *)avatarUrl;
+- (void)setAuthorAvatarFromURLString:(NSString *)avatarUrl;
 
 - (void)setImagesURLs:(NSArray *)imagesURLs;
 - (void)setVideoURLs:(NSArray *)linksURLs;
 - (void)hideMediaFrame;
-- (void)setLocationBtnVisible:(BOOL)visible;
+- (void)setLocationButtonVisible:(BOOL)visible;
 - (void)setRetwittedViewVisible:(BOOL)visible withRetweetAuthor:(NSString *)author;
-- (void)setTweetTime:(NSString *)timeStr;
+- (void)setTweetTime:(NSString *)timeString;
 
 @end
