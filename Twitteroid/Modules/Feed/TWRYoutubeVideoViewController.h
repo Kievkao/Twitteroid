@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TWRYoutubeVideoVC : UIViewController
+@interface TWRYoutubeVideoViewController : UIViewController <TWRViewControllerIdentifier>
 
 @property (nonatomic, strong) NSString *youtubeLinkStr;
-
-+ (NSString *)rootNavigationIdentifier;
 
 @end

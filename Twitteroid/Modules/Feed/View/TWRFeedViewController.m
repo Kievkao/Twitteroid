@@ -15,7 +15,7 @@
 #import "EBPhotoPagesController.h"
 #import "TWRGalleryDelegate.h"
 #import "TWRSettingsViewController.h"
-#import "TWRYoutubeVideoVC.h"
+#import "TWRYoutubeVideoViewController.h"
 #import "NSDate+NVTimeAgo.h"
 #import "TWRCoreDataDAO.h"
 #import "TWRTweet.h"

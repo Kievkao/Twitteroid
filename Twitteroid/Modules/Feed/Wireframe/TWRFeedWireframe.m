@@ -9,7 +9,7 @@
 #import "TWRFeedWireframe.h"
 #import "TWRSettingsViewController.h"
 #import "TWRLocationVC.h"
-#import "TWRYoutubeVideoVC.h"
+#import "TWRYoutubeVideoViewController.h"
 #import "TWRGalleryDelegate.h"
 #import "EBPhotoPagesController.h"
 #import <MapKit/MapKit.h>
@@ -18,7 +18,7 @@
 #import "TWRFeedInteractor.h"
 #import "TWRFeedPresenter.h"
 #import "TWRFeedViewController.h"
-#import "TWRTweetsDAO.h"
+#import "TWRTwitterDAO.h"
 #import "TWRTweetParser.h"
 #import "TWRSettingsWireframe.h"
 
@@ -47,7 +47,7 @@
 - (TWRFeedViewController *)createFeedViewWithHashtag:(NSString *)hashtag {
     TWRFeedViewController *feedViewController = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:@"TWRFeedVC"];
 
-    TWRFeedInteractor* interactor = [[TWRFeedInteractor alloc] initWithHashtag:hashtag tweetsDAO:[[TWRTweetsDAO alloc] initWithTweetParser:[TWRTweetParser new]] coreDataDAO:[TWRCoreDataDAO sharedInstance]];
+    TWRFeedInteractor* interactor = [[TWRFeedInteractor alloc] initWithHashtag:hashtag tweetsDAO:[[TWRTwitterDAO alloc] initWithTweetParser:[TWRTweetParser new]] coreDataDAO:[TWRCoreDataDAO sharedInstance]];
     TWRFeedPresenter* presenter = [TWRFeedPresenter new];
 
     presenter.wireframe = self;
@@ -59,6 +59,8 @@
 
     return feedViewController;
 }
+
+#pragma mark - TWRFeedWireframeProtocol
 
 - (void)presentSettingsScreen {
     self.settingsWireframe = [TWRSettingsWireframe new];
@@ -81,8 +83,8 @@
 }
 
 - (void)presentYoutubeVideoFromLink:(NSString *)youtubeLink {
-    UINavigationController *videoRootNavC = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:[TWRYoutubeVideoVC rootNavigationIdentifier]];
-    TWRYoutubeVideoVC *videoVC = [[videoRootNavC childViewControllers] firstObject];
+    UINavigationController *videoRootNavC = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:[TWRYoutubeVideoViewController identifier]];
+    TWRYoutubeVideoViewController *videoVC = [[videoRootNavC childViewControllers] firstObject];
     videoVC.youtubeLinkStr = youtubeLink;
     [self.feedViewController presentViewController:videoRootNavC animated:YES completion:nil];
 }

@@ -15,21 +15,21 @@
 #import "TWRManagedPlace.h"
 #import "TWRManagedHashtag.h"
 #import "TWRManagedMedia.h"
-#import "TWRTweetsDAOProtocol.h"
+#import "TWRTwitterDAOProtocol.h"
 #import "TWRCoreDataDAOProtocol.h"
 
 @interface TWRFeedInteractor() <NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSString *hashTag;
-@property (strong, nonatomic) id<TWRTweetsDAOProtocol> tweetsDAO;
+@property (strong, nonatomic) id<TWRTwitterDAOProtocol> tweetsDAO;
 @property (strong, nonatomic) id<TWRCoreDataDAOProtocol> coreDataDAO;
 
 @end
 
 @implementation TWRFeedInteractor
 
-- (instancetype)initWithHashtag:(NSString *)hashtag tweetsDAO:(id<TWRTweetsDAOProtocol>)tweetsDAO coreDataDAO:(id<TWRCoreDataDAOProtocol>)coreDataDAO {
+- (instancetype)initWithHashtag:(NSString *)hashtag tweetsDAO:(id<TWRTwitterDAOProtocol>)tweetsDAO coreDataDAO:(id<TWRCoreDataDAOProtocol>)coreDataDAO {
     self = [super init];
     if (self) {
         _hashTag = hashtag;

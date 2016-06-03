@@ -6,16 +6,20 @@
 //  Copyright (c) 2015 Kievkao. All rights reserved.
 //
 
-#import "TWRYoutubeVideoVC.h"
+#import "TWRYoutubeVideoViewController.h"
 #import "YTPlayerView.h"
 
-@interface TWRYoutubeVideoVC ()
+@interface TWRYoutubeVideoViewController ()
 
 @property (weak, nonatomic) IBOutlet YTPlayerView *playerView;
 
 @end
 
-@implementation TWRYoutubeVideoVC
+@implementation TWRYoutubeVideoViewController
+
++ (NSString *)identifier {
+    return @"TWRYoutubeRootNavC";
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,10 +28,6 @@
         NSString *lastPath = [self.youtubeLinkStr lastPathComponent];
         [self.playerView loadWithVideoId:lastPath];
     }    
-}
-
-+ (NSString *)rootNavigationIdentifier {
-    return @"TWRYoutubeRootNavC";
 }
 
 - (IBAction)doneClicked:(id)sender {

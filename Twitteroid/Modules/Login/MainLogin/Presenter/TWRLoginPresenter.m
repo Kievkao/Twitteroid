@@ -16,6 +16,13 @@
     [self.interactor performRelogin];
 }
 
+- (void)handleLoginClicked {
+    [self.view setProgressIndicatorVisible:YES];
+    [self.interactor performLogin];
+}
+
+#pragma mark - TWRLoginPresenterProtocol
+
 - (void)loginSuccess {
     [self.wireframe dismissWebLoginScreen];
     [self.view setProgressIndicatorVisible:NO];
@@ -34,11 +41,6 @@
 
 - (void)reloginStarts {
     [self.view setProgressIndicatorVisible:YES];
-}
-
-- (void)handleLoginClicked {
-    [self.view setProgressIndicatorVisible:YES];
-    [self.interactor performLogin];
 }
 
 @end

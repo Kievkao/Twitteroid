@@ -6,7 +6,7 @@
 //  Copyright © 2016 Kievkao. All rights reserved.
 //
 
-#import "TWRTweetsDAO.h"
+#import "TWRTwitterDAO.h"
 #import "TWRTwitterManager+TWRLogin.h"
 #import "TWRTwitterManager+TWRFeed.h"
 #import "Reachability.h"
@@ -16,13 +16,13 @@
 static NSUInteger const kTweetsLoadingPortion = 20;
 static NSString *const kAppErrorDomain = @"TwitteroidDomain";
 
-@interface TWRTweetsDAO()
+@interface TWRTwitterDAO()
 
 @property (strong, nonatomic) id<TWRTweetParserProtocol> tweetParser;
 
 @end
 
-@implementation TWRTweetsDAO
+@implementation TWRTwitterDAO
 
 - (instancetype)initWithTweetParser:(id<TWRTweetParserProtocol>)tweetParser
 {
@@ -80,7 +80,6 @@ static NSString *const kAppErrorDomain = @"TwitteroidDomain";
     }
 }
 
-#pragma mark - CoreData
 - (NSArray <TWRTweet *> *)parseTweetsArray:(NSArray *)items forHashtag:(NSString *)hashtag {
 
     NSMutableArray <TWRTweet *> *tweets = [[NSMutableArray alloc] initWithCapacity:items.count];

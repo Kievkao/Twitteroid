@@ -10,7 +10,7 @@
 
 @class TWRTweet;
 
-@protocol TWRTweetsDAOProtocol <NSObject>
+@protocol TWRTwitterDAOProtocol <NSObject>
 
 - (void)loadTweetsFromID:(NSString *)tweetID hashtag:(NSString *)hashtag withCompletion:(void (^)(NSArray <TWRTweet *> *tweets, NSError *error))loadingCompletion;
 

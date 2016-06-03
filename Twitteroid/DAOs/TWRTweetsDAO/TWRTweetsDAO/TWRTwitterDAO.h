@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TWRTweetsDAOProtocol.h"
+#import "TWRTwitterDAOProtocol.h"
 
 @protocol TWRTweetParserProtocol;
 
-@interface TWRTweetsDAO : NSObject <TWRTweetsDAOProtocol>
+@interface TWRTwitterDAO : NSObject <TWRTwitterDAOProtocol>
 
 - (instancetype)initWithTweetParser:(id<TWRTweetParserProtocol>)tweetParser;
 

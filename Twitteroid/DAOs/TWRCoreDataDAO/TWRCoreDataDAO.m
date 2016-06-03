@@ -126,7 +126,6 @@ static NSString *const kTweetsDeleteDateKey = @"TWRManagedTweetsDeleteDateKey";
 
                 [hashtags addObject:managedHashtag];
             }
-
             managedTweet.hashtags = hashtags;
         }
 
@@ -138,7 +137,6 @@ static NSString *const kTweetsDeleteDateKey = @"TWRManagedTweetsDeleteDateKey";
 
                 [medias addObject:managedMedia];
             }
-
             managedTweet.medias = medias;
         }
 
@@ -189,10 +187,11 @@ static NSString *const kTweetsDeleteDateKey = @"TWRManagedTweetsDeleteDateKey";
     request.predicate = [NSPredicate predicateWithFormat:@"createdAt < %@", date];
     
     NSBatchDeleteRequest *deleteRequest = [[NSBatchDeleteRequest alloc] initWithFetchRequest:request];
-    
+
+    __typeof(self) __weak weakSelf = self;
     [self.mainContext performBlock:^{
-        [self.mainContext executeRequest:deleteRequest error:nil];
-        [self.mainContext save:nil];
+        [weakSelf.mainContext executeRequest:deleteRequest error:nil];
+        [weakSelf.mainContext save:nil];
     }];    
 }
 
