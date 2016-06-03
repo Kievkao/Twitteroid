@@ -10,25 +10,26 @@
 
 @implementation TWRFeedPresenter
 
-- (void)tweetsLoadSuccess {
+#pragma mark - TWRFeedPresenterProtocol
+
+- (void)tweetsDidLoad {
+    [self.view setProgressIndicatorVisible:NO];
     [self.view releasePullToRefresh];
     [self.view stopInfinitiveScrollWaitingIndicator];
+
     [self.view reloadTweets];
 }
 
-- (void)fetchCachedTweetsDidFinishWithError:(NSError *)error {
+- (void)tweetsLoadDidFailWithError:(NSError *)error {
+    [self.view setProgressIndicatorVisible:NO];
     [self.view releasePullToRefresh];
     [self.view stopInfinitiveScrollWaitingIndicator];
-    [self.view showAlertWithTitle:NSLocalizedString(@"Error", @"Error title") text:error.localizedDescription];
-}
-
-- (void)tweetsLoadDidFinishWithError:(NSError *)error {
 
     if (error.domain == NSURLErrorDomain && error.code == NSURLErrorNotConnectedToInternet) {
-        [self.view showAlertWithTitle:NSLocalizedString(@"Connection Failed", @"Connection Failed") text:NSLocalizedString(@"Please check your internet connection", @"Please check your internet connection")];
+        [self.view showAlertWithTitle:NSLocalizedString(@"Connection Failed", @"Connection Failed") message:NSLocalizedString(@"Please check your internet connection", @"Please check your internet connection")];
     }
     else {
-        [self.view showAlertWithTitle:NSLocalizedString(@"Error", @"Error title") text:error.localizedDescription];
+        [self.view showAlertWithTitle:NSLocalizedString(@"Error", @"Error title") message:error.localizedDescription];
     }
 }
 
@@ -59,6 +60,8 @@
 #pragma mark - TWRFeedEventHandlerProtocol
 
 - (void)handleViewDidLoadAction {
+    [self.view setProgressIndicatorVisible:YES];
+
     [self.interactor retrieveTweetsFromID:nil];
 }
 

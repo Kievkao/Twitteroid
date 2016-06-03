@@ -19,6 +19,10 @@
 
 #pragma mark - ViewController lifecycle
 
++ (NSString *)identifier {
+    return @"loginVC";
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 

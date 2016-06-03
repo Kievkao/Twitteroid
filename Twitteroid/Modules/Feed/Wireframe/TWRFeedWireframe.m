@@ -13,6 +13,7 @@
 #import "TWRGalleryDelegate.h"
 #import "EBPhotoPagesController.h"
 #import <MapKit/MapKit.h>
+#import "TWRCoreDataDAO.h"
 
 #import "TWRFeedInteractor.h"
 #import "TWRFeedPresenter.h"
@@ -45,7 +46,7 @@
 - (TWRFeedViewController *)createFeedViewWithHashtag:(NSString *)hashtag {
     TWRFeedViewController *feedViewController = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:@"TWRFeedVC"];
 
-    TWRFeedInteractor* interactor = [[TWRFeedInteractor alloc] initWithHashtag:hashtag tweetsDAO:[TWRTweetsDAO new]];
+    TWRFeedInteractor* interactor = [[TWRFeedInteractor alloc] initWithHashtag:hashtag tweetsDAO:[TWRTweetsDAO new] coreDataDAO:[TWRCoreDataDAO sharedInstance]];
     TWRFeedPresenter* presenter = [TWRFeedPresenter new];
 
     presenter.wireframe = self;

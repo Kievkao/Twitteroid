@@ -1,21 +1,19 @@
 //
-//  TWRCoreDataManager.h
+//  TWRCoreDataDAOProtocol.h
 //  Twitteroid
 //
-//  Created by Mac on 23/07/15.
-//  Copyright (c) 2015 Kievkao. All rights reserved.
+//  Created by Andrii Kravchenko on 6/2/16.
+//  Copyright © 2016 Kievkao. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-@class TWRManagedTweet, TWRManagedHashtag, TWRManagedMedia, TWRManagedPlace, TWRTweet, TWRHashtag, TWRMedia, TWRPlace;
+
+@class TWRTweet;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TWRCoreDataManager : NSObject
-
-- (instancetype)init __attribute__((unavailable("Use 'sharedInstance' instead")));
-
-+ (instancetype)sharedInstance;
+@protocol TWRCoreDataDAOProtocol <NSObject>
 
 - (void)insertNewTweet:(TWRTweet *)tweet;
 - (void)saveContext;

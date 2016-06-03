@@ -15,25 +15,27 @@
 #import "TWRManagedPlace.h"
 #import "TWRManagedHashtag.h"
 #import "TWRManagedMedia.h"
-#import "TWRCoreDataManager.h"
 #import "TWRTweetsDAOProtocol.h"
+#import "TWRCoreDataDAOProtocol.h"
 
 @interface TWRFeedInteractor() <NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSString *hashTag;
 @property (strong, nonatomic) id<TWRTweetsDAOProtocol> tweetsDAO;
+@property (strong, nonatomic) id<TWRCoreDataDAOProtocol> coreDataDAO;
 
 @end
 
 @implementation TWRFeedInteractor
 
-- (instancetype)initWithHashtag:(NSString *)hashtag tweetsDAO:(id<TWRTweetsDAOProtocol>)tweetsDAO {
+- (instancetype)initWithHashtag:(NSString *)hashtag tweetsDAO:(id<TWRTweetsDAOProtocol>)tweetsDAO coreDataDAO:(id<TWRCoreDataDAOProtocol>)coreDataDAO {
     self = [super init];
     if (self) {
         _hashTag = hashtag;
         _tweetsDAO = tweetsDAO;
-        _fetchedResultsController = [[TWRCoreDataManager sharedInstance] fetchedResultsControllerForTweetsHashtag:self.hashTag];
+        _coreDataDAO = coreDataDAO;
+        _fetchedResultsController = [coreDataDAO fetchedResultsControllerForTweetsHashtag:self.hashTag];
         _fetchedResultsController.delegate = self;
     }
     return self;
@@ -47,7 +49,7 @@
             [weakSelf saveTweetsInStorage:tweets];
         }
         else {
-            [weakSelf.presenter tweetsLoadDidFinishWithError:error];
+            [weakSelf.presenter tweetsLoadDidFailWithError:error];
         }
     }];
 
@@ -55,7 +57,7 @@
     [self.fetchedResultsController performFetch:&error];
 
     if (error) {
-        [self.presenter fetchCachedTweetsDidFinishWithError:error];
+        [self.presenter tweetsLoadDidFailWithError:error];
     }
 }
 
@@ -69,11 +71,11 @@
 - (void)saveTweetsInStorage:(NSArray<TWRTweet *> *)tweets {
 
     for (TWRTweet *tweet in tweets) {    
-        [[TWRCoreDataManager sharedInstance] insertNewTweet:tweet];
+        [self.coreDataDAO insertNewTweet:tweet];
     }
 
-    [[TWRCoreDataManager sharedInstance] saveContext];
-    [self.presenter tweetsLoadSuccess];
+    [self.coreDataDAO saveContext];
+    [self.presenter tweetsDidLoad];
 }
 
 - (NSUInteger)numberOfDataSections {

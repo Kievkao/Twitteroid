@@ -18,7 +18,8 @@
 - (void)updateTweetAtIndexPath:(NSIndexPath *)indexPath;
 - (void)moveTweetAtIndexPath:(NSIndexPath *)oldIndexPath toNewIndexPath:(NSIndexPath *)toNewIndexPath;
 
-- (void)showAlertWithTitle:(NSString *)title text:(NSString *)text;
+- (void)showAlertWithTitle:(NSString *)title message:(NSString *)message;
+- (void)setProgressIndicatorVisible:(BOOL)visible;
 - (void)releasePullToRefresh;
 - (void)stopInfinitiveScrollWaitingIndicator;
 

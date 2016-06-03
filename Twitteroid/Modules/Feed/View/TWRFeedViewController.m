@@ -17,10 +17,10 @@
 #import "TWRSettingsViewController.h"
 #import "TWRYoutubeVideoVC.h"
 #import "NSDate+NVTimeAgo.h"
-#import "TWRCoreDataManager.h"
+#import "TWRCoreDataDAO.h"
 #import "TWRTweet.h"
 #import "TWRPlace.h"
-#import "TWRManagedMedia.h"
+#import "TWRMedia.h"
 
 static CGFloat const kEstimatedCellHeight = 95.0;
 
@@ -43,12 +43,20 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
 }
 
 #pragma mark - UIViewController lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     [self.eventHandler handleViewDidLoadAction];
     [self setupUI];
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
+}
+
+#pragma mark - UI Setup
 
 - (void)setupUI {
     [self setupNavigationBar];
@@ -62,34 +70,26 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
     self.title = self.hashTag ? self.hashTag : @"Feed";
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = NO;
-}
+#pragma mark - TWRFeedViewProtocol
 
 - (void)reloadTweets {
     [self.tableView reloadData];
 }
 
-- (void)settingsBtnClicked {
-    [self.eventHandler handleSettingsAction];    
-}
-
-#pragma mark - View model delegate
 - (void)beginTweetsUpdate {
-    [self.tableView beginUpdates];    
+    [self.tableView beginUpdates];
 }
 
 - (void)finishTweetsUpdate {
-    [self.tableView endUpdates];    
+    [self.tableView endUpdates];
 }
 
 - (void)insertTweetAtIndexPath:(NSIndexPath *)indexPath {
-    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];    
+    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 - (void)removeTweetAtIndexPath:(NSIndexPath *)indexPath {
-    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];    
+    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 - (void)updateTweetAtIndexPath:(NSIndexPath *)indexPath {
@@ -101,11 +101,32 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
     [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:toNewIndexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
 
-- (void)showAlertWithTitle:(NSString *)title text:(NSString *)text {
-    [self showInfoAlertWithTitle:title text:text];
+- (void)showAlertWithTitle:(NSString *)title message:(NSString *)message {
+    UIAlertController* alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+
+    UIAlertAction* alertAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"Alert button title") style:UIAlertActionStyleCancel handler:nil];
+    [alertController addAction:alertAction];
+
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)setProgressIndicatorVisible:(BOOL)visible {
+    if (visible) {
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    }
+    else {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    }
+}
+
+#pragma mark - Actions
+
+- (void)settingsBtnClicked {
+    [self.eventHandler handleSettingsAction];    
 }
 
 #pragma mark - Infinitive scroll && PullToRefresh
+
 - (void)pullToRefreshSetup {
     __typeof(self) __weak weakSelf = self;
 
@@ -218,7 +239,7 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
     cell.mediaClickedBlock = ^(BOOL isVideo, NSUInteger index) {
         NSMutableArray *mediasURLs = [NSMutableArray new];
         
-        for (TWRManagedMedia *media in tweet.medias) {
+        for (TWRMedia *media in tweet.medias) {
             [mediasURLs addObject:media.mediaURL];
         }
         
@@ -234,11 +255,11 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
     if (tweet.medias.count) {
         NSMutableArray *mediaUrlsArray = [NSMutableArray new];
         
-        for (TWRManagedMedia *media in tweet.medias) {
+        for (TWRMedia *media in tweet.medias) {
             [mediaUrlsArray addObject:media.mediaURL];
         }
         
-        TWRManagedMedia *media = [tweet.medias anyObject];
+        TWRMedia *media = [tweet.medias anyObject];
         
         if (media.isPhoto) {
             [cell setImagesURLs:mediaUrlsArray];

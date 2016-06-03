@@ -10,7 +10,7 @@
 #import "TWRLoginViewProtocol.h"
 #import "TWRLoginEventHandlerProtocol.h"
 
-@interface TWRLoginViewController : UIViewController <TWRLoginViewProtocol>
+@interface TWRLoginViewController : UIViewController <TWRLoginViewProtocol, TWRViewControllerIdentifier>
 
 @property (strong, nonatomic) id<TWRLoginEventHandlerProtocol> eventHandler;
 

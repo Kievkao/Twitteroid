@@ -30,7 +30,7 @@ static NSUInteger const kMaxWeeksNumber = 52;
     NSDate *selectedDate = [NSDate dateWithDaysBeforeNow:(weeksNumber * 7)];
 
     [self.interactor deleteTweetsOlderThanDate:selectedDate];
-    [self.interactor saveTweetsAutoDeleteDate:selectedDate];
+    [self.interactor saveAutomaticTweetsDeleteDate:selectedDate];
     [self.view showAlertWithTitle:NSLocalizedString(@"Done", @"Done alert text") message:NSLocalizedString(@"Filtered tweets have deleted", @"Filtered tweets have deleted")];
 }
 

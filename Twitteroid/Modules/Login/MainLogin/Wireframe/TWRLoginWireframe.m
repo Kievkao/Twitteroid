@@ -26,26 +26,9 @@
 
 @implementation TWRLoginWireframe
 
-- (void)presentLoginScreenFromViewController:(UIViewController*)viewController
-{
-    self.loginViewController = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:@"loginVC"];
-
-    TWRLoginInteractor* interactor = [[TWRLoginInteractor alloc] initWithTwitterAPIManager:[TWRTwitterManager sharedInstance]];
-    TWRLoginPresenter* presenter = [TWRLoginPresenter new];
-
-    presenter.wireframe = self;
-    presenter.interactor = interactor;
-    presenter.view = self.loginViewController;
-
-    interactor.presenter = presenter;
-    self.loginViewController.eventHandler = presenter;
-
-    [viewController presentViewController:self.loginViewController animated:YES completion:nil];
-}
-
 - (UIViewController *)createLoginViewController
 {
-    self.loginViewController = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:@"loginVC"];
+    self.loginViewController = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:[TWRLoginViewController identifier]];
 
     TWRLoginInteractor* interactor = [[TWRLoginInteractor alloc] initWithTwitterAPIManager:[TWRTwitterManager sharedInstance]];
     TWRLoginPresenter* presenter = [TWRLoginPresenter new];

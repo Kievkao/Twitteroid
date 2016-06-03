@@ -7,12 +7,12 @@
 //
 
 #import "TWRManualSettingsInteractor.h"
-#import "TWRCoreDataManager.h"
+#import "TWRCoreDataDAO.h"
 
 @implementation TWRManualSettingsInteractor
 
 - (void)deleteTweetsOlderThanDate:(NSDate *)date {
-    [[TWRCoreDataManager sharedInstance] deleteTweetsOlderThanDate:date];
+    [[TWRCoreDataDAO sharedInstance] deleteTweetsOlderThanDate:date];
 }
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "TWRManualSettingsViewController.h"
-#import "TWRCoreDataManager.h"
+#import "TWRCoreDataDAO.h"
 
 @interface TWRManualSettingsViewController ()
 

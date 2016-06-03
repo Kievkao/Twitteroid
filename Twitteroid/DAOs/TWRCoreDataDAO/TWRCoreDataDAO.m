@@ -1,5 +1,5 @@
 //
-//  TWRCoreDataManager.m
+//  TWRCoreDataDAO.m
 //  Twitteroid
 //
 //  Created by Mac on 23/07/15.
@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "TWRCoreDataManager.h"
+#import "TWRCoreDataDAO.h"
 #import "TWRManagedMedia+TWRHelper.h"
 #import "TWRManagedTweet+TWRHelper.h"
 #import "TWRManagedHashtag+TWRHelper.h"
@@ -20,7 +20,7 @@
 
 static NSString *const kTweetsDeleteDateKey = @"TWRManagedTweetsDeleteDateKey";
 
-@interface TWRCoreDataManager()
+@interface TWRCoreDataDAO()
 
 @property (nonatomic, strong) NSDate *dateForOlderDeleting;
 @property (nonatomic, strong) NSManagedObjectContext *mainContext;
@@ -28,7 +28,7 @@ static NSString *const kTweetsDeleteDateKey = @"TWRManagedTweetsDeleteDateKey";
 
 @end
 
-@implementation TWRCoreDataManager
+@implementation TWRCoreDataDAO
 
 + (instancetype)sharedInstance {
     static dispatch_once_t once;

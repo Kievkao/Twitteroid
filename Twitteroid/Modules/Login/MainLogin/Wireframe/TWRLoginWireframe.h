@@ -11,7 +11,6 @@
 
 @interface TWRLoginWireframe : NSObject <TWRLoginWireframeProtocol>
 
-- (void)presentLoginScreenFromViewController:(UIViewController*)viewController;
 - (UIViewController *)createLoginViewController;
 
 @end

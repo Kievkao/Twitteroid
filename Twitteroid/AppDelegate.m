@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "SSKeychain.h"
-#import "TWRCoreDataManager.h"
+#import "TWRCoreDataDAO.h"
 #import "TWRLoginWireframe.h"
 
 @interface AppDelegate ()
@@ -25,14 +25,18 @@
     [self setupKeychain];
     [self setupAppearance];
 
+    [self presentLoginScreen];
+
+    return YES;
+}
+
+- (void)presentLoginScreen {
     self.loginWireframe = [TWRLoginWireframe new];
 
     UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:[self.loginWireframe createLoginViewController]];
     navigationController.navigationBarHidden = YES;
 
     self.window.rootViewController = navigationController;
-    
-    return YES;
 }
 
 - (void)setupKeychain {
@@ -51,7 +55,7 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    [[TWRCoreDataManager sharedInstance] saveContext];
+    [[TWRCoreDataDAO sharedInstance] saveContext];
 }
 
 @end

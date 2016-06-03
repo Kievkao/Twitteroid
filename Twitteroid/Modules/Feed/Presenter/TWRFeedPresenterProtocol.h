@@ -10,9 +10,8 @@
 
 @protocol TWRFeedPresenterProtocol <NSObject>
 
-- (void)tweetsLoadSuccess;
-- (void)fetchCachedTweetsDidFinishWithError:(NSError *)error;
-- (void)tweetsLoadDidFinishWithError:(NSError *)error;
+- (void)tweetsDidLoad;
+- (void)tweetsLoadDidFailWithError:(NSError *)error;
 
 - (void)beginTweetsUpdate;
 - (void)finishTweetsUpdate;
