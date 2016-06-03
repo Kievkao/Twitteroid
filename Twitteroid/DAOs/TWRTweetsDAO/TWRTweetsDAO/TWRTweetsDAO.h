@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "TWRTweetsDAOProtocol.h"
 
+@protocol TWRTweetParserProtocol;
+
 @interface TWRTweetsDAO : NSObject <TWRTweetsDAOProtocol>
+
+- (instancetype)initWithTweetParser:(id<TWRTweetParserProtocol>)tweetParser;
 
 @end

@@ -19,6 +19,7 @@
 #import "TWRFeedPresenter.h"
 #import "TWRFeedViewController.h"
 #import "TWRTweetsDAO.h"
+#import "TWRTweetParser.h"
 #import "TWRSettingsWireframe.h"
 
 @interface TWRFeedWireframe()
@@ -46,7 +47,7 @@
 - (TWRFeedViewController *)createFeedViewWithHashtag:(NSString *)hashtag {
     TWRFeedViewController *feedViewController = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:@"TWRFeedVC"];
 
-    TWRFeedInteractor* interactor = [[TWRFeedInteractor alloc] initWithHashtag:hashtag tweetsDAO:[TWRTweetsDAO new] coreDataDAO:[TWRCoreDataDAO sharedInstance]];
+    TWRFeedInteractor* interactor = [[TWRFeedInteractor alloc] initWithHashtag:hashtag tweetsDAO:[[TWRTweetsDAO alloc] initWithTweetParser:[TWRTweetParser new]] coreDataDAO:[TWRCoreDataDAO sharedInstance]];
     TWRFeedPresenter* presenter = [TWRFeedPresenter new];
 
     presenter.wireframe = self;
