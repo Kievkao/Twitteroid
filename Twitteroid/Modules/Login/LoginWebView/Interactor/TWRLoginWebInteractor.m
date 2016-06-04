@@ -7,21 +7,21 @@
 //
 
 #import "TWRLoginWebInteractor.h"
-#import "TWRTwitterAPIManagerProtocol.h"
+#import "TWRTwitterLoginServiceProtocol.h"
 
 @interface TWRLoginWebInteractor()
 
-@property (strong, nonatomic) id<TWRTwitterAPIManagerProtocol> twitterAPIManager;
+@property (strong, nonatomic) id<TWRTwitterLoginServiceProtocol> loginService;
 
 @end
 
 @implementation TWRLoginWebInteractor
 
-- (instancetype)initWithTwitterAPIManager:(id<TWRTwitterAPIManagerProtocol>)twitterAPIManager
+- (instancetype)initWithLoginService:(id<TWRTwitterLoginServiceProtocol>)loginService
 {
     self = [super init];
     if (self) {
-        _twitterAPIManager = twitterAPIManager;
+        _loginService = loginService;
     }
     return self;
 }
@@ -33,7 +33,16 @@
 
         NSString *token = oauthResponseDict[@"oauth_token"];
         NSString *verifier = oauthResponseDict[@"oauth_verifier"];
-        [self.twitterAPIManager setOAuthToken:token oauthVerifier:verifier];
+
+        __typeof(self) __weak weakSelf = self;
+        [self.loginService sendOAuthToken:token oauthVerifier:verifier completion:^(NSError *error) {
+            if (error == nil) {
+                [weakSelf.presenter webLoginDidSuccess];
+            }
+            else {
+                [weakSelf.presenter webLoginDidFinishWithError:error];
+            }
+        }];
 
         return NO;
     }

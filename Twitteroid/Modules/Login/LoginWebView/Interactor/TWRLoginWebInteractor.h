@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "TWRLoginWebInteractorProtocol.h"
+#import "TWRLoginWebPresenterProtocol.h"
 
-@protocol TWRTwitterAPIManagerProtocol;
+@protocol TWRTwitterLoginServiceProtocol;
 
 @interface TWRLoginWebInteractor : NSObject <TWRLoginWebInteractorProtocol>
 
-- (instancetype)initWithTwitterAPIManager:(id<TWRTwitterAPIManagerProtocol>)twitterAPIManager;
+- (instancetype)initWithLoginService:(id<TWRTwitterLoginServiceProtocol>)loginService;;
+
+@property (nonatomic, weak) id<TWRLoginWebPresenterProtocol> presenter;
 
 @end

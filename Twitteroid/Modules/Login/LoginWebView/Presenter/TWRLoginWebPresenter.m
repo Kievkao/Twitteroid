@@ -25,6 +25,14 @@
     return self;
 }
 
+- (void)webLoginDidSuccess {
+    [self.wireframe notifyLoginSuccess];
+}
+
+- (void)webLoginDidFinishWithError:(NSError *)error {
+    [self.wireframe notifyLoginError:error];
+}
+
 - (BOOL)shouldStartLoadRequest:(NSURLRequest *)request {
     return [self.interactor shouldStartLoadRequest:request];
 }

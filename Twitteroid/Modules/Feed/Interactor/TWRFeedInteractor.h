@@ -10,12 +10,12 @@
 #import "TWRFeedInteractorProtocol.h"
 #import "TWRFeedPresenterProtocol.h"
 
-@protocol TWRTwitterDAOProtocol, TWRCoreDataDAOProtocol;
+@protocol TWRTwitterFeedServiceProtocol, TWRCoreDataDAOProtocol;
 
 @interface TWRFeedInteractor : NSObject <TWRFeedInteractorProtocol>
 
 @property (nonatomic, weak) id<TWRFeedPresenterProtocol> presenter;
 
-- (instancetype)initWithHashtag:(NSString *)hashtag tweetsDAO:(id<TWRTwitterDAOProtocol>)tweetsDAO coreDataDAO:(id<TWRCoreDataDAOProtocol>)coreDataDAO;
+- (instancetype)initWithHashtag:(NSString *)hashtag feedService:(id<TWRTwitterFeedServiceProtocol>)feedService coreDataDAO:(id<TWRCoreDataDAOProtocol>)coreDataDAO;
 
 @end

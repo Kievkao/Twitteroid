@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol TWRLoginWebModuleDelegate;
+
 @protocol TWRLoginWireframeProtocol <NSObject>
 
 - (void)presentFeedScreen;
-- (void)presentWebLoginScreenWithRequest:(NSURLRequest *)request;
+- (void)presentWebLoginScreenWithRequest:(NSURLRequest *)request moduleDelegate:(id<TWRLoginWebModuleDelegate>)moduleDelegate;
 - (void)dismissWebLoginScreen;
 
 @end

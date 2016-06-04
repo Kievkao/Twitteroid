@@ -7,6 +7,11 @@
 //
 
 #import "TWRLoginPresenter.h"
+#import "TWRLoginWebModuleDelegate.h"
+
+@interface TWRLoginPresenter() <TWRLoginWebModuleDelegate>
+
+@end
 
 @implementation TWRLoginPresenter
 
@@ -21,22 +26,34 @@
     [self.interactor performLogin];
 }
 
-#pragma mark - TWRLoginPresenterProtocol
+#pragma mark - TWRLoginWebModuleDelegate
 
 - (void)loginSuccess {
-    [self.wireframe dismissWebLoginScreen];
     [self.view setProgressIndicatorVisible:NO];
     [self.wireframe presentFeedScreen];
 }
 
 - (void)loginDidFailWithError:(NSError *)error {
+    [self.view setProgressIndicatorVisible:NO];
+    [self.view showAlertWithTitle:NSLocalizedString(@"Login Error", @"Error title") message:error.localizedDescription];
+}
+
+- (void)webLoginDidSuccess {
+    [self.wireframe dismissWebLoginScreen];
+    [self.view setProgressIndicatorVisible:NO];
+    [self.wireframe presentFeedScreen];
+}
+
+- (void)webLoginDidFinishWithError:(NSError *)error {
     [self.wireframe dismissWebLoginScreen];
     [self.view setProgressIndicatorVisible:NO];
     [self.view showAlertWithTitle:NSLocalizedString(@"Login Error", @"Error title") message:error.localizedDescription];
 }
 
+#pragma mark - TWRLoginPresenterProtocol
+
 - (void)presentWebLoginScreenWithRequest:(NSURLRequest *)request {
-    [self.wireframe presentWebLoginScreenWithRequest:request];
+    [self.wireframe presentWebLoginScreenWithRequest:request moduleDelegate:self];
 }
 
 - (void)reloginStarts {

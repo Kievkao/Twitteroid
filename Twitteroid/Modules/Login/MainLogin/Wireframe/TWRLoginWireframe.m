@@ -14,7 +14,9 @@
 #import "TWRLoginPresenter.h"
 #import "TWRLoginViewController.h"
 
-#import "TWRTwitterAPIManager.h"
+#import "TWRTwitterLoginService.h"
+#import "STTwitterAPI.h"
+#import "TWRCredentialsStore.h"
 
 @interface TWRLoginWireframe()
 
@@ -22,15 +24,27 @@
 @property (strong, nonatomic) TWRLoginWebWireframe *webLoginWireframe;
 @property (strong, nonatomic) TWRFeedWireframe *feedWireframe;
 
+@property (strong, nonatomic) STTwitterAPI *twitterAPI;
+
 @end
 
 @implementation TWRLoginWireframe
+
+- (instancetype)initWithTwitterAPI:(STTwitterAPI *)twitterAPI
+{
+    self = [super init];
+    if (self) {
+        _twitterAPI = twitterAPI;
+    }
+    return self;
+}
 
 - (UIViewController *)createLoginViewController
 {
     self.loginViewController = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:[TWRLoginViewController identifier]];
 
-    TWRLoginInteractor* interactor = [[TWRLoginInteractor alloc] initWithTwitterAPIManager:[TWRTwitterAPIManager sharedInstance]];
+    TWRLoginInteractor* interactor = [[TWRLoginInteractor alloc] initWithLoginService:[[TWRTwitterLoginService alloc] initWithTwitterAPI:self.twitterAPI credentialsStore:[TWRCredentialsStore new]]];
+    
     TWRLoginPresenter* presenter = [TWRLoginPresenter new];
 
     presenter.wireframe = self;
@@ -44,13 +58,13 @@
 }
 
 - (void)presentFeedScreen {
-    self.feedWireframe = [TWRFeedWireframe new];
+    self.feedWireframe = [[TWRFeedWireframe alloc] initWithTwitterAPI:self.twitterAPI];
     [self.feedWireframe setFeedScreenInsteadViewController:self.loginViewController withHashtag:nil];
 }
 
-- (void)presentWebLoginScreenWithRequest:(NSURLRequest *)request {
-    self.webLoginWireframe = [TWRLoginWebWireframe new];
-    [self.webLoginWireframe presentLoginWebScreenFromViewController:self.loginViewController withURLRequest:request];
+- (void)presentWebLoginScreenWithRequest:(NSURLRequest *)request moduleDelegate:(id<TWRLoginWebModuleDelegate>)moduleDelegate {
+    self.webLoginWireframe = [[TWRLoginWebWireframe alloc] initWithTwitterAPI:self.twitterAPI];
+    [self.webLoginWireframe presentLoginWebScreenFromViewController:self.loginViewController withURLRequest:request moduleDelegate:moduleDelegate];
 }
 
 - (void)dismissWebLoginScreen {

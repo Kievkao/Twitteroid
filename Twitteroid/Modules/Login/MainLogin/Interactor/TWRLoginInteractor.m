@@ -7,21 +7,21 @@
 //
 
 #import "TWRLoginInteractor.h"
-#import "TWRTwitterAPIManagerProtocol.h"
+#import "TWRTwitterLoginServiceProtocol.h"
 
 @interface TWRLoginInteractor()
 
-@property (strong, nonatomic) id<TWRTwitterAPIManagerProtocol> twitterAPIManager;
+@property (strong, nonatomic) id<TWRTwitterLoginServiceProtocol> loginService;
 
 @end
 
 @implementation TWRLoginInteractor
 
-- (instancetype)initWithTwitterAPIManager:(id<TWRTwitterAPIManagerProtocol>)twitterAPIManager
+- (instancetype)initWithLoginService:(id<TWRTwitterLoginServiceProtocol>)loginService;
 {
     self = [super init];
     if (self) {
-        _twitterAPIManager = twitterAPIManager;
+        _loginService = loginService;
     }
     return self;
 }
@@ -31,10 +31,10 @@
 - (void)performRelogin {
     __typeof(self) __weak weakSelf = self;
     
-    if ([self.twitterAPIManager isUserAlreadyLogged]) {
+    if ([self.loginService isUserLogged]) {
         [self.presenter reloginStarts];
 
-        [self.twitterAPIManager reloginWithCompletion:^(NSError *error) {
+        [self.loginService reloginWithCompletion:^(NSError *error) {
             if (error == nil) {
                 [weakSelf.presenter loginSuccess];
             }
@@ -48,11 +48,11 @@
 - (void)performLogin {
     __typeof(self) __weak weakSelf = self;
 
-    [self.twitterAPIManager loginWithOpenRequestBlock:^(NSURLRequest *request) {
+    [self.loginService loginWithOpenRequestBlock:^(NSURLRequest *request) {
         [weakSelf.presenter presentWebLoginScreenWithRequest:request];
     } completion:^(NSError *error) {
         if (error == nil) {
-            [weakSelf.twitterAPIManager fillUserProfile];
+            [weakSelf.loginService fillUserProfile];
             [weakSelf.presenter loginSuccess];
         }
         else {

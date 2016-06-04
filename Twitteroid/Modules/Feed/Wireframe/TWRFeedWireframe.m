@@ -14,12 +14,11 @@
 #import "EBPhotoPagesController.h"
 #import <MapKit/MapKit.h>
 #import "TWRCoreDataDAO.h"
-#import "TWRTwitterAPIManager.h"
+#import "TWRTwitterFeedService.h"
 
 #import "TWRFeedInteractor.h"
 #import "TWRFeedPresenter.h"
 #import "TWRFeedViewController.h"
-#import "TWRTwitterDAO.h"
 #import "TWRTweetParser.h"
 #import "TWRSettingsWireframe.h"
 
@@ -28,10 +27,20 @@
 @property (weak, nonatomic) TWRFeedViewController *feedViewController;
 @property (strong, nonatomic) TWRFeedWireframe *childFeedWireframe;
 @property (strong, nonatomic) TWRSettingsWireframe *settingsWireframe;
+@property (strong, nonatomic) STTwitterAPI *twitterAPI;
 
 @end
 
 @implementation TWRFeedWireframe
+
+- (instancetype)initWithTwitterAPI:(STTwitterAPI *)twitterAPI
+{
+    self = [super init];
+    if (self) {
+        _twitterAPI = twitterAPI;
+    }
+    return self;
+}
 
 - (void)presentFeedScreenFromViewController:(UIViewController*)viewController withHashtag:(NSString *)hashtag {
     self.feedViewController = [self createFeedViewWithHashtag:hashtag];
@@ -48,10 +57,9 @@
 - (TWRFeedViewController *)createFeedViewWithHashtag:(NSString *)hashtag {
     TWRFeedViewController *feedViewController = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:@"TWRFeedVC"];
 
-    TWRTwitterDAO *twitterDAO = [[TWRTwitterDAO alloc] initWithTwitterAPIManager:[TWRTwitterAPIManager sharedInstance] tweetParser:[TWRTweetParser new]];
-    TWRCoreDataDAO *coreDataDAO = [TWRCoreDataDAO sharedInstance];
+    TWRTwitterFeedService *twitterFeedService = [[TWRTwitterFeedService alloc] initWithTwitterAPI:self.twitterAPI tweetParser:[TWRTweetParser new]];
 
-    TWRFeedInteractor* interactor = [[TWRFeedInteractor alloc] initWithHashtag:hashtag tweetsDAO:twitterDAO coreDataDAO:coreDataDAO];
+    TWRFeedInteractor* interactor = [[TWRFeedInteractor alloc] initWithHashtag:hashtag feedService:twitterFeedService coreDataDAO:[TWRCoreDataDAO sharedInstance]];
     TWRFeedPresenter* presenter = [TWRFeedPresenter new];
 
     presenter.wireframe = self;

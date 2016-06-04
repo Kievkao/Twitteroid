@@ -15,25 +15,25 @@
 #import "TWRManagedPlace.h"
 #import "TWRManagedHashtag.h"
 #import "TWRManagedMedia.h"
-#import "TWRTwitterDAOProtocol.h"
+#import "TWRTwitterFeedServiceProtocol.h"
 #import "TWRCoreDataDAOProtocol.h"
 
 @interface TWRFeedInteractor() <NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSString *hashTag;
-@property (strong, nonatomic) id<TWRTwitterDAOProtocol> tweetsDAO;
+@property (strong, nonatomic) id<TWRTwitterFeedServiceProtocol> feedService;
 @property (strong, nonatomic) id<TWRCoreDataDAOProtocol> coreDataDAO;
 
 @end
 
 @implementation TWRFeedInteractor
 
-- (instancetype)initWithHashtag:(NSString *)hashtag tweetsDAO:(id<TWRTwitterDAOProtocol>)tweetsDAO coreDataDAO:(id<TWRCoreDataDAOProtocol>)coreDataDAO {
+- (instancetype)initWithHashtag:(NSString *)hashtag feedService:(id<TWRTwitterFeedServiceProtocol>)feedService coreDataDAO:(id<TWRCoreDataDAOProtocol>)coreDataDAO {
     self = [super init];
     if (self) {
         _hashTag = hashtag;
-        _tweetsDAO = tweetsDAO;
+        _feedService = feedService;
         _coreDataDAO = coreDataDAO;
         _fetchedResultsController = [coreDataDAO fetchedResultsControllerForTweetsHashtag:self.hashTag];
         _fetchedResultsController.delegate = self;
@@ -44,7 +44,7 @@
 - (void)retrieveTweetsFromID:(NSString *)tweetID {
     __typeof(self) __weak weakSelf = self;
 
-    [self.tweetsDAO loadTweetsFromID:tweetID hashtag:self.hashTag withCompletion:^(NSArray<TWRTweet *> *tweets, NSError *error) {
+    [self.feedService loadTweetsFromID:tweetID hashtag:self.hashTag withCompletion:^(NSArray<TWRTweet *> *tweets, NSError *error) {
         if (error == nil) {
             [weakSelf saveTweetsInStorage:tweets];
         }
