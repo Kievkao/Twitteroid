@@ -24,10 +24,12 @@
 @interface TWRFeedWireframe()
 
 @property (weak, nonatomic) TWRFeedViewController *feedViewController;
+
 @property (strong, nonatomic) TWRFeedWireframe *childFeedWireframe;
 @property (strong, nonatomic) TWRSettingsWireframe *settingsWireframe;
 
 @property (strong, nonatomic) TWRTwitterFeedService *feedService;
+@property (strong, nonatomic) id<TWRCoreDataDAOProtocol> coreDataDAO;
 
 @end
 
@@ -47,8 +49,9 @@
 
 - (TWRFeedViewController *)createFeedViewWithHashtag:(NSString *)hashtag {
     TWRFeedViewController *feedViewController = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:@"TWRFeedVC"];
+    feedViewController.hashTag = hashtag;
 
-    TWRFeedInteractor* interactor = [[TWRFeedInteractor alloc] initWithHashtag:hashtag feedService:self.feedService coreDataDAO:[TWRCoreDataDAO sharedInstance]];
+    TWRFeedInteractor* interactor = [[TWRFeedInteractor alloc] initWithHashtag:hashtag feedService:self.feedService coreDataDAO:self.coreDataDAO];
     TWRFeedPresenter* presenter = [TWRFeedPresenter new];
 
     presenter.wireframe = self;
@@ -64,7 +67,6 @@
 #pragma mark - TWRFeedWireframeProtocol
 
 - (void)presentSettingsScreen {
-    self.settingsWireframe = [TWRSettingsWireframe new];
     [self.settingsWireframe presentSettingsScreenFromViewController:self.feedViewController];
 }
 
@@ -73,7 +75,6 @@
 }
 
 - (void)presentTweetsScreenForHashtag:(NSString *)hashtag {
-    self.childFeedWireframe = [TWRFeedWireframe new];
     [self.childFeedWireframe presentFeedScreenFromViewController:self.feedViewController withHashtag:hashtag];
 }
 

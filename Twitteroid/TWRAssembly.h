@@ -8,10 +8,8 @@
 
 #import <Typhoon/Typhoon.h>
 
-@class STTwitterAPI, TWRCredentialsStore;
-@protocol TWRTwitterLoginServiceProtocol;
+@class TWRFeedWireframe;
 
 @interface TWRAssembly : TyphoonAssembly
-
 
 @end

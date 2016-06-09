@@ -14,11 +14,15 @@
 #import "TWRTwitterLoginService.h"
 #import "TWRTwitterFeedService.h"
 #import "TWRTweetParser.h"
+#import "TWRCoreDataDAO.h"
 #import "TWRLoginInteractor.h"
 #import "TWRLoginPresenter.h"
 #import "TWRLoginWireframe.h"
 #import "TWRLoginWebWireframe.h"
 #import "TWRFeedWireframe.h"
+#import "TWRLoginViewController.h"
+#import "TWRUserProfile.h"
+#import "TWRSettingsWireframe.h"
 
 @implementation TWRAssembly
 
@@ -47,13 +51,36 @@
 
 - (TWRFeedWireframe *)feedWireframe {
     return [TyphoonDefinition withClass:[TWRFeedWireframe class] configuration:^(TyphoonDefinition *definition) {
+        [definition injectProperty:sel_registerName("childFeedWireframe") with:[self childFeedWireframe]];
         [definition injectProperty:@selector(feedService) with:[self feedService]];
+        [definition injectProperty:@selector(coreDataDAO) with:[self coreDataDAO]];
+        [definition injectProperty:@selector(settingsWireframe) with:[self settingsWireframe]];
+    }];
+}
+
+- (TWRFeedWireframe *)childFeedWireframe {
+    return [TyphoonDefinition withClass:[TWRFeedWireframe class] configuration:^(TyphoonDefinition *definition) {
+        [definition injectProperty:sel_registerName("childFeedWireframe") with:[self feedWireframe]];
+        [definition injectProperty:@selector(feedService) with:[self feedService]];
+        [definition injectProperty:@selector(coreDataDAO) with:[self coreDataDAO]];
+        [definition injectProperty:@selector(settingsWireframe) with:[self settingsWireframe]];
     }];
 }
 
 #pragma mark - Services
 
-//TWRTwitterFeedService *twitterFeedService = [[TWRTwitterFeedService alloc] initWithTwitterAPI:self.twitterAPI tweetParser:[TWRTweetParser new]];
+- (TWRSettingsWireframe *)settingsWireframe {
+    return [TyphoonDefinition withClass:[TWRSettingsWireframe class] configuration:^(TyphoonDefinition *definition) {
+        [definition injectProperty:@selector(userProfile) with:[self twitterAPI]];
+        
+    }];
+}
+
+- (TWRUserProfile *)userProfile {
+    return [TyphoonDefinition withClass:[TWRUserProfile class] configuration:^(TyphoonDefinition *definition) {
+        [definition useInitializer:@selector(sharedInstance)];
+    }];
+}
 
 - (TWRTwitterFeedService *)feedService {
     return [TyphoonDefinition withClass:[TWRTwitterFeedService class] configuration:^(TyphoonDefinition *definition) {
@@ -66,6 +93,12 @@
     return [TyphoonDefinition withClass:[TWRTweetParser class]];
 }
 
+- (id<TWRCoreDataDAOProtocol>)coreDataDAO {
+    return [TyphoonDefinition withClass:[TWRCoreDataDAO class] configuration:^(TyphoonDefinition *definition) {
+        [definition useInitializer:@selector(sharedInstance)];
+    }];
+}
+
 - (TWRTwitterLoginService *)loginService {
     return [TyphoonDefinition withClass:[TWRTwitterLoginService class] configuration:^(TyphoonDefinition *definition) {
         [definition injectProperty:@selector(twitterAPI) with:[self twitterAPI]];
@@ -76,21 +109,21 @@
 - (STTwitterAPI *)twitterAPI {
     return [TyphoonDefinition withClass:[STTwitterAPI class] configuration:^(TyphoonDefinition* definition) {
 
-            TWRCredentialsStore *store = [TWRCredentialsStore new];
-            BOOL isUserLogged = store.token && store.tokenSecret;
-            SEL initializer = isUserLogged ? @selector(twitterAPIWithOAuthConsumerKey:consumerSecret:oauthToken:oauthTokenSecret:) : @selector(twitterAPIWithOAuthConsumerKey:consumerSecret:);
+        TWRCredentialsStore *store = [TWRCredentialsStore new];
+        BOOL isUserLogged = store.token && store.tokenSecret;
+        SEL initializer = isUserLogged ? @selector(twitterAPIWithOAuthConsumerKey:consumerSecret:oauthToken:oauthTokenSecret:) : @selector(twitterAPIWithOAuthConsumerKey:consumerSecret:);
 
-            [definition useInitializer:initializer parameters:^(TyphoonMethod *initializer) {
+        [definition useInitializer:initializer parameters:^(TyphoonMethod *initializer) {
 
-                [initializer injectParameterWith:store.twitterAPIKey];
-                [initializer injectParameterWith:store.twitterAPISecret];
+            [initializer injectParameterWith:store.twitterAPIKey];
+            [initializer injectParameterWith:store.twitterAPISecret];
 
-                if (isUserLogged) {
-                    [initializer injectParameterWith:store.token];
-                    [initializer injectParameterWith:store.tokenSecret];
-                }
-            }];
+            if (isUserLogged) {
+                [initializer injectParameterWith:store.token];
+                [initializer injectParameterWith:store.tokenSecret];
+            }
         }];
+    }];
 }
 
 - (TWRCredentialsStore *)credentialsStore {

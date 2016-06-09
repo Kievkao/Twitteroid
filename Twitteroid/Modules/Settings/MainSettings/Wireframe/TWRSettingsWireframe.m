@@ -18,6 +18,8 @@
 
 @property (weak, nonatomic) TWRSettingsViewController *settingsViewController;
 
+@property (strong, nonatomic) TWRUserProfile *userProfile;
+
 @end
 
 @implementation TWRSettingsWireframe
@@ -27,9 +29,9 @@
     UINavigationController *settingsNavigationController = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:@"SettingsNavC"];
 
     TWRSettingsViewController *settingsViewController = (TWRSettingsViewController *)settingsNavigationController.topViewController;
-    settingsViewController.userName = [[TWRUserProfile sharedInstance] userName];
-    settingsViewController.userNickname = [NSString stringWithFormat:@"@%@",[[TWRUserProfile sharedInstance] userNickname]];
-    settingsViewController.userAvatar = [[TWRUserProfile sharedInstance] userAvatar];
+    settingsViewController.userName = self.userProfile.userName;
+    settingsViewController.userNickname = [NSString stringWithFormat:@"@%@",self.userProfile.userNickname];
+    settingsViewController.userAvatar = self.userProfile.userAvatar;
 
     TWRSettingsPresenter* presenter = [TWRSettingsPresenter new];
 
