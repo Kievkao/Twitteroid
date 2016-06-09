@@ -72,9 +72,9 @@
 
     for (TWRTweet *tweet in tweets) {    
         [self.coreDataDAO insertNewTweet:tweet];
+        [self.coreDataDAO saveContext];
     }
 
-    [self.coreDataDAO saveContext];
     [self.presenter tweetsDidLoad];
 }
 

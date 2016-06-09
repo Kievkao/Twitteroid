@@ -62,10 +62,10 @@ static NSString *const kTweetsDeleteDateKey = @"TWRManagedTweetsDeleteDateKey";
     
     self.privateContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
     self.privateContext.persistentStoreCoordinator = persistentStoreCoordinator;
-    
+
     self.mainContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-    self.mainContext.parentContext = self.privateContext;
-    
+    self.mainContext.persistentStoreCoordinator = persistentStoreCoordinator;
+
     NSURL *documentsURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] firstObject];
     if (!documentsURL) {
         abort();
