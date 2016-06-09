@@ -12,10 +12,13 @@
 #import "STTwitterAPI.h"
 #import "TWRCredentialsStore.h"
 #import "TWRTwitterLoginService.h"
+#import "TWRTwitterFeedService.h"
+#import "TWRTweetParser.h"
 #import "TWRLoginInteractor.h"
 #import "TWRLoginPresenter.h"
 #import "TWRLoginWireframe.h"
 #import "TWRLoginWebWireframe.h"
+#import "TWRFeedWireframe.h"
 
 @implementation TWRAssembly
 
@@ -25,11 +28,14 @@
     }];
 }
 
+#pragma mark - Wireframes
+
 - (TWRLoginWireframe *)loginWireframe {
     return [TyphoonDefinition withClass:[TWRLoginWireframe class] configuration:^(TyphoonDefinition *definition) {
         [definition injectProperty:@selector(twitterAPI) with:[self twitterAPI]];
         [definition injectProperty:@selector(loginService) with:[self loginService]];
         [definition injectProperty:@selector(webLoginWireframe) with:[self webLoginWireframe]];
+        [definition injectProperty:@selector(feedWireframe) with:[self feedWireframe]];
     }];
 }
 
@@ -37,6 +43,27 @@
     return [TyphoonDefinition withClass:[TWRLoginWebWireframe class] configuration:^(TyphoonDefinition *definition) {
         [definition injectProperty:@selector(loginService) with:[self loginService]];
     }];
+}
+
+- (TWRFeedWireframe *)feedWireframe {
+    return [TyphoonDefinition withClass:[TWRFeedWireframe class] configuration:^(TyphoonDefinition *definition) {
+        [definition injectProperty:@selector(feedService) with:[self feedService]];
+    }];
+}
+
+#pragma mark - Services
+
+//TWRTwitterFeedService *twitterFeedService = [[TWRTwitterFeedService alloc] initWithTwitterAPI:self.twitterAPI tweetParser:[TWRTweetParser new]];
+
+- (TWRTwitterFeedService *)feedService {
+    return [TyphoonDefinition withClass:[TWRTwitterFeedService class] configuration:^(TyphoonDefinition *definition) {
+        [definition injectProperty:@selector(twitterAPI) with:[self twitterAPI]];
+        [definition injectProperty:@selector(tweetParser) with:[self tweetParser]];
+    }];
+}
+
+- (TWRTweetParser *)tweetParser {
+    return [TyphoonDefinition withClass:[TWRTweetParser class]];
 }
 
 - (TWRTwitterLoginService *)loginService {

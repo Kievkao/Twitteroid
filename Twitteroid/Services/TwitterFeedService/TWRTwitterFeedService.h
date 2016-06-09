@@ -9,11 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "TWRTwitterFeedServiceProtocol.h"
 
-@class STTwitterAPI;
-@protocol TWRTweetParserProtocol;
-
 @interface TWRTwitterFeedService : NSObject <TWRTwitterFeedServiceProtocol>
-
-- (instancetype)initWithTwitterAPI:(STTwitterAPI *)twitterAPI tweetParser:(id<TWRTweetParserProtocol>)tweetParser;
 
 @end

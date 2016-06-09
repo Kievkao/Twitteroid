@@ -19,7 +19,6 @@
 #import "TWRFeedInteractor.h"
 #import "TWRFeedPresenter.h"
 #import "TWRFeedViewController.h"
-#import "TWRTweetParser.h"
 #import "TWRSettingsWireframe.h"
 
 @interface TWRFeedWireframe()
@@ -27,20 +26,12 @@
 @property (weak, nonatomic) TWRFeedViewController *feedViewController;
 @property (strong, nonatomic) TWRFeedWireframe *childFeedWireframe;
 @property (strong, nonatomic) TWRSettingsWireframe *settingsWireframe;
-@property (strong, nonatomic) STTwitterAPI *twitterAPI;
+
+@property (strong, nonatomic) TWRTwitterFeedService *feedService;
 
 @end
 
 @implementation TWRFeedWireframe
-
-- (instancetype)initWithTwitterAPI:(STTwitterAPI *)twitterAPI
-{
-    self = [super init];
-    if (self) {
-        _twitterAPI = twitterAPI;
-    }
-    return self;
-}
 
 - (void)presentFeedScreenFromViewController:(UIViewController*)viewController withHashtag:(NSString *)hashtag {
     self.feedViewController = [self createFeedViewWithHashtag:hashtag];
@@ -57,9 +48,7 @@
 - (TWRFeedViewController *)createFeedViewWithHashtag:(NSString *)hashtag {
     TWRFeedViewController *feedViewController = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:@"TWRFeedVC"];
 
-    TWRTwitterFeedService *twitterFeedService = [[TWRTwitterFeedService alloc] initWithTwitterAPI:self.twitterAPI tweetParser:[TWRTweetParser new]];
-
-    TWRFeedInteractor* interactor = [[TWRFeedInteractor alloc] initWithHashtag:hashtag feedService:twitterFeedService coreDataDAO:[TWRCoreDataDAO sharedInstance]];
+    TWRFeedInteractor* interactor = [[TWRFeedInteractor alloc] initWithHashtag:hashtag feedService:self.feedService coreDataDAO:[TWRCoreDataDAO sharedInstance]];
     TWRFeedPresenter* presenter = [TWRFeedPresenter new];
 
     presenter.wireframe = self;

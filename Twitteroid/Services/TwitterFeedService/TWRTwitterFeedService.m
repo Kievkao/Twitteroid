@@ -24,16 +24,6 @@ static NSString *const kAppErrorDomain = @"TwitteroidDomain";
 
 @implementation TWRTwitterFeedService
 
-- (instancetype)initWithTwitterAPI:(STTwitterAPI *)twitterAPI tweetParser:(id<TWRTweetParserProtocol>)tweetParser
-{
-    self = [super init];
-    if (self) {
-        _twitterAPI = twitterAPI;
-        _tweetParser = tweetParser;
-    }
-    return self;
-}
-
 - (void)loadTweetsFromID:(NSString *)tweetID hashtag:(NSString *)hashtag withCompletion:(void (^)(NSArray <TWRTweet *> *tweets, NSError *error))loadingCompletion {
     __typeof(self) __weak weakSelf = self;
 

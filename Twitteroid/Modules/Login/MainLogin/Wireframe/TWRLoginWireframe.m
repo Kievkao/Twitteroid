@@ -49,7 +49,6 @@
 }
 
 - (void)presentFeedScreen {
-    self.feedWireframe = [[TWRFeedWireframe alloc] initWithTwitterAPI:self.twitterAPI];
     [self.feedWireframe setFeedScreenInsteadViewController:self.loginViewController withHashtag:nil];
 }
 
