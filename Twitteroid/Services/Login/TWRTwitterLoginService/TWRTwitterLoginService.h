@@ -13,6 +13,4 @@
 
 @interface TWRTwitterLoginService : NSObject <TWRTwitterLoginServiceProtocol>
 
-- (instancetype)initWithTwitterAPI:(STTwitterAPI *)twitterAPI credentialsStore:(TWRCredentialsStore *)credentialsStore;
-
 @end

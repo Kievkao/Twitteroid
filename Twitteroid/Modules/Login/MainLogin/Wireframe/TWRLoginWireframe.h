@@ -9,11 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "TWRLoginWireframeProtocol.h"
 
-@class STTwitterAPI;
-
 @interface TWRLoginWireframe : NSObject <TWRLoginWireframeProtocol>
-
-- (instancetype)initWithTwitterAPI:(STTwitterAPI *)twitterAPI;
 
 - (UIViewController *)createLoginViewController;
 

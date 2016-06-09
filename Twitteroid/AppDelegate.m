@@ -32,18 +32,6 @@
 }
 
 - (void)presentLoginScreen {
-    TWRCredentialsStore *credentialsStore = [TWRCredentialsStore new];
-
-    STTwitterAPI *twitterAPI = nil;
-    BOOL isUserLogged = credentialsStore.token && credentialsStore.tokenSecret;
-
-    if (isUserLogged) {
-        twitterAPI = [STTwitterAPI twitterAPIWithOAuthConsumerKey:credentialsStore.twitterAPIKey consumerSecret:credentialsStore.twitterAPISecret oauthToken:credentialsStore.token oauthTokenSecret:credentialsStore.tokenSecret];
-    } else {
-        twitterAPI = [STTwitterAPI twitterAPIWithOAuthConsumerKey:credentialsStore.twitterAPIKey consumerSecret:credentialsStore.twitterAPISecret];
-    }
-
-    self.loginWireframe = [[TWRLoginWireframe alloc] initWithTwitterAPI:twitterAPI];
 
     UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:[self.loginWireframe createLoginViewController]];
     navigationController.navigationBarHidden = YES;

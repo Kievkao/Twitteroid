@@ -13,6 +13,7 @@ pod 'RQShineLabel'
 pod 'STTweetLabel'
 pod 'youtube-ios-player-helper', '~> 0.1.4'
 pod 'SSKeychain'
+pod 'Typhoon'
 end
 
 target 'TwitteroidTests' do

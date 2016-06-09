@@ -10,11 +10,7 @@
 #import "TWRLoginWebWireframeProtocol.h"
 #import "TWRLoginWebModuleDelegate.h"
 
-@class STTwitterAPI;
-
 @interface TWRLoginWebWireframe : NSObject <TWRLoginWebWireframeProtocol>
-
-- (instancetype)initWithTwitterAPI:(STTwitterAPI *)twitterAPI;
 
 - (void)presentLoginWebScreenFromViewController:(UIViewController*)viewController withURLRequest:(NSURLRequest *)request moduleDelegate:(id<TWRLoginWebModuleDelegate>)moduleDelegate;
 

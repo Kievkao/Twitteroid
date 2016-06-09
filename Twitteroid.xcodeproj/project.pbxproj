@@ -55,6 +55,7 @@
 		C50EEAF21D01C9F60016B70E /* TWRTwitterFeedService.m in Sources */ = {isa = PBXBuildFile; fileRef = C50EEAF11D01C9F60016B70E /* TWRTwitterFeedService.m */; };
 		C50EEB031D01D2B50016B70E /* TWRCredentialsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = C50EEAFE1D01D2B50016B70E /* TWRCredentialsStore.m */; };
 		C50EEB041D01D2B50016B70E /* TWRTwitterLoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = C50EEB011D01D2B50016B70E /* TWRTwitterLoginService.m */; };
+		C517BEE41D09621A002CC5F4 /* TWRAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = C517BEE31D09621A002CC5F4 /* TWRAssembly.m */; };
 		C51B2E921CFDBC9C00C75615 /* TWRHashtag.m in Sources */ = {isa = PBXBuildFile; fileRef = C51B2E911CFDBC9C00C75615 /* TWRHashtag.m */; };
 		C51B2E951CFDBCE800C75615 /* TWRMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = C51B2E941CFDBCE800C75615 /* TWRMedia.m */; };
 		C532AE981CD13DE200A56F80 /* TwitteroidUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C532AE971CD13DE200A56F80 /* TwitteroidUITests.m */; };
@@ -238,6 +239,8 @@
 		C50EEB001D01D2B50016B70E /* TWRTwitterLoginService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRTwitterLoginService.h; sourceTree = "<group>"; };
 		C50EEB011D01D2B50016B70E /* TWRTwitterLoginService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRTwitterLoginService.m; sourceTree = "<group>"; };
 		C50EEB021D01D2B50016B70E /* TWRTwitterLoginServiceProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRTwitterLoginServiceProtocol.h; sourceTree = "<group>"; };
+		C517BEE21D09621A002CC5F4 /* TWRAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRAssembly.h; sourceTree = "<group>"; };
+		C517BEE31D09621A002CC5F4 /* TWRAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRAssembly.m; sourceTree = "<group>"; };
 		C51B2E901CFDBC9C00C75615 /* TWRHashtag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRHashtag.h; sourceTree = "<group>"; };
 		C51B2E911CFDBC9C00C75615 /* TWRHashtag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRHashtag.m; sourceTree = "<group>"; };
 		C51B2E931CFDBCE800C75615 /* TWRMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRMedia.h; sourceTree = "<group>"; };
@@ -436,6 +439,8 @@
 				04AF02541B60FE49002CEB65 /* Supporting Files */,
 				04AF02581B60FE49002CEB65 /* AppDelegate.h */,
 				04AF02591B60FE4A002CEB65 /* AppDelegate.m */,
+				C517BEE21D09621A002CC5F4 /* TWRAssembly.h */,
+				C517BEE31D09621A002CC5F4 /* TWRAssembly.m */,
 			);
 			path = Twitteroid;
 			sourceTree = "<group>";
@@ -1500,6 +1505,7 @@
 				C509527F1D00710100258B70 /* TWRLoginWebPresenter.m in Sources */,
 				C50952771D00710100258B70 /* TWRFeedPresenter.m in Sources */,
 				C509528E1D00710100258B70 /* TWRSettingsPresenter.m in Sources */,
+				C517BEE41D09621A002CC5F4 /* TWRAssembly.m in Sources */,
 				C509528A1D00710100258B70 /* TWRManualSettingsInteractor.m in Sources */,
 				DEE2AC5A1B668CD7001A28A6 /* EBPhotoView.m in Sources */,
 				DEE2AC511B668CD7001A28A6 /* EBCaptionView.m in Sources */,

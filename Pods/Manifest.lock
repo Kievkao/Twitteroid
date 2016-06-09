@@ -9,6 +9,9 @@ PODS:
   - SSKeychain (1.4.0)
   - STTweetLabel (3.1.21)
   - STTwitter (0.2.4)
+  - Typhoon (3.4.5):
+    - Typhoon/no-arc (= 3.4.5)
+  - Typhoon/no-arc (3.4.5)
   - youtube-ios-player-helper (0.1.6)
 
 DEPENDENCIES:
@@ -20,6 +23,7 @@ DEPENDENCIES:
   - SSKeychain
   - STTweetLabel
   - STTwitter
+  - Typhoon
   - youtube-ios-player-helper (~> 0.1.4)
 
 SPEC CHECKSUMS:
@@ -31,8 +35,9 @@ SPEC CHECKSUMS:
   SSKeychain: c71293fa57216a40ab06c23f4085387583293de4
   STTweetLabel: 842bc86cdf13288414440405757478bd4820e1be
   STTwitter: a82de278afbd4191d0a07f4f3ffd8f1fb8404da0
+  Typhoon: 200100687af3233ec5ed019064df3c9ffe350475
   youtube-ios-player-helper: 21ab92db027c7ff86cb17a3843a3f6eafc8158d2
 
-PODFILE CHECKSUM: b86d33deb68ed15de0dc397cb102972a66783135
+PODFILE CHECKSUM: 18ed66c0ae7804acd9741ae980681ad9a5c626db
 
 COCOAPODS: 1.0.0

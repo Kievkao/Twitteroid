@@ -13,24 +13,14 @@
 
 @interface TWRTwitterLoginService()
 
-@property (nonatomic, strong) STTwitterAPI *twitterAPI;
-@property (nonatomic, strong) TWRCredentialsStore *credentialsStore;
+@property (strong, nonatomic) STTwitterAPI *twitterAPI;
+@property (strong, nonatomic) TWRCredentialsStore *credentialsStore;
 
 @property (nonatomic) BOOL sessionLoginDone;
 
 @end
 
 @implementation TWRTwitterLoginService
-
-- (instancetype)initWithTwitterAPI:(STTwitterAPI *)twitterAPI credentialsStore:(TWRCredentialsStore *)credentialsStore
-{
-    self = [super init];
-    if (self) {
-        _twitterAPI = twitterAPI;
-        _credentialsStore = credentialsStore;
-    }
-    return self;
-}
 
 #pragma mark - Login
 

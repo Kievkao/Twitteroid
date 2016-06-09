@@ -11,29 +11,18 @@
 #import "TWRLoginWebInteractor.h"
 #import "TWRLoginWebPresenter.h"
 #import "TWRLoginWebViewController.h"
-#import "STTwitterAPI.h"
-#import "TWRTwitterLoginService.h"
 #import "TWRCredentialsStore.h"
+#import "TWRTwitterLoginService.h"
 
 @interface TWRLoginWebWireframe()
 
 @property (weak, nonatomic) TWRLoginWebViewController *loginWebViewController;
 @property (weak, nonatomic) id<TWRLoginWebModuleDelegate> moduleDelegate;
-
-@property (strong, nonatomic) STTwitterAPI *twitterAPI;
+@property (strong, nonatomic) TWRTwitterLoginService *loginService;
 
 @end
 
 @implementation TWRLoginWebWireframe
-
-- (instancetype)initWithTwitterAPI:(STTwitterAPI *)twitterAPI
-{
-    self = [super init];
-    if (self) {
-        _twitterAPI = twitterAPI;
-    }
-    return self;
-}
 
 - (void)presentLoginWebScreenFromViewController:(UIViewController*)viewController withURLRequest:(NSURLRequest *)request moduleDelegate:(id<TWRLoginWebModuleDelegate>)moduleDelegate {
 
@@ -43,7 +32,7 @@
 
     TWRLoginWebPresenter* presenter = [[TWRLoginWebPresenter alloc] initWithURLRequest:request];
 
-    TWRLoginWebInteractor* interactor = [[TWRLoginWebInteractor alloc] initWithLoginService:[[TWRTwitterLoginService alloc] initWithTwitterAPI:self.twitterAPI credentialsStore:[TWRCredentialsStore new]]];
+    TWRLoginWebInteractor* interactor = [[TWRLoginWebInteractor alloc] initWithLoginService:self.loginService];
 
     presenter.wireframe = self;
     presenter.interactor = interactor;

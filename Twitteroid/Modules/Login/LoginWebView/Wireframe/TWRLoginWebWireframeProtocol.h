@@ -8,11 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@class STTwitterAPI;
-
 @protocol TWRLoginWebWireframeProtocol <NSObject>
 
-- (instancetype)initWithTwitterAPI:(STTwitterAPI *)twitterAPI;
 - (void)dismissLoginWebScreen;
 
 - (void)notifyLoginSuccess;
