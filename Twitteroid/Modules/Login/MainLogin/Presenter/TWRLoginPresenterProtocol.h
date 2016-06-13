@@ -12,7 +12,7 @@
 
 - (void)loginSuccess;
 - (void)loginDidFailWithError:(NSError *)error;
-- (void)presentWebLoginScreenWithRequest:(NSURLRequest *)request;
-- (void)reloginStarts;
+- (void)processWebLoginWithRequest:(NSURLRequest *)request;
+- (void)reloginDidStart;
 
 @end

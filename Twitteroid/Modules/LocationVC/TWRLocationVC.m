@@ -19,6 +19,10 @@ static CGFloat kLocationRegionRadius = 500000.0;
 
 @implementation TWRLocationVC
 
++ (NSString *)identifier {
+    return @"TWRLocationVC";
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -36,10 +40,6 @@ static CGFloat kLocationRegionRadius = 500000.0;
         
         [self.mapView addAnnotation:placeAnnotation];
     }
-}
-
-+ (NSString *)identifier {
-    return @"TWRLocationVC";
 }
 
 @end

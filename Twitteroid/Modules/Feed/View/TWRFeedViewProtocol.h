@@ -13,6 +13,7 @@
 - (void)reloadTweets;
 - (void)beginTweetsUpdate;
 - (void)finishTweetsUpdate;
+
 - (void)insertTweetAtIndexPath:(NSIndexPath *)indexPath;
 - (void)removeTweetAtIndexPath:(NSIndexPath *)indexPath;
 - (void)updateTweetAtIndexPath:(NSIndexPath *)indexPath;

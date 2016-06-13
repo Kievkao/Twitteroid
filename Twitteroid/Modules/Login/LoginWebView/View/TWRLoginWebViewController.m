@@ -27,6 +27,8 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
 
+#pragma mark - UIWebViewDelegate
+
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     return [self.eventHandler shouldStartLoadRequest:request];
 }
@@ -35,9 +37,13 @@
     [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
+#pragma mark - TWRLoginWebViewProtocol
+
 - (void)loadURLRequest:(NSURLRequest *)request {
     [self.webView loadRequest:request];
 }
+
+#pragma mark - Actions
 
 - (IBAction)cancelClicked:(id)sender {
     [self.eventHandler handleCancelAction];    

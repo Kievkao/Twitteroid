@@ -52,7 +52,7 @@
     [self.feedWireframe setFeedScreenInsteadViewController:self.loginViewController withHashtag:nil];
 }
 
-- (void)presentWebLoginScreenWithRequest:(NSURLRequest *)request moduleDelegate:(id<TWRLoginWebModuleDelegate>)moduleDelegate {
+- (void)processWebLoginWithRequest:(NSURLRequest *)request moduleDelegate:(id<TWRLoginWebModuleDelegate>)moduleDelegate {
     [self.webLoginWireframe presentLoginWebScreenFromViewController:self.loginViewController withURLRequest:request moduleDelegate:moduleDelegate];
 }
 

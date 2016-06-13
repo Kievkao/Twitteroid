@@ -13,7 +13,7 @@
 @protocol TWRLoginWireframeProtocol <NSObject>
 
 - (void)presentFeedScreen;
-- (void)presentWebLoginScreenWithRequest:(NSURLRequest *)request moduleDelegate:(id<TWRLoginWebModuleDelegate>)moduleDelegate;
+- (void)processWebLoginWithRequest:(NSURLRequest *)request moduleDelegate:(id<TWRLoginWebModuleDelegate>)moduleDelegate;
 - (void)dismissWebLoginScreen;
 
 @end

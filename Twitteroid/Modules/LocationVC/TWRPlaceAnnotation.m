@@ -9,8 +9,6 @@
 #import "TWRPlaceAnnotation.h"
 
 @implementation TWRPlaceAnnotation
-@synthesize coordinate =_coordinate;
-@synthesize title =_title;
 
 - (instancetype)initWithTitle:(NSString *)title coordinates:(CLLocationCoordinate2D)coordinate {
     self = [super init];

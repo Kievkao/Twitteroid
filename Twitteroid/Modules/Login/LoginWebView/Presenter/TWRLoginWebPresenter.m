@@ -25,6 +25,8 @@
     return self;
 }
 
+#pragma mark - TWRLoginWebPresenterProtocol
+
 - (void)webLoginDidSuccess {
     [self.wireframe notifyLoginSuccess];
 }
@@ -32,6 +34,8 @@
 - (void)webLoginDidFinishWithError:(NSError *)error {
     [self.wireframe notifyLoginError:error];
 }
+
+#pragma mark - TWRLoginWebEventHandlerProtocol
 
 - (BOOL)shouldStartLoadRequest:(NSURLRequest *)request {
     return [self.interactor shouldStartLoadRequest:request];

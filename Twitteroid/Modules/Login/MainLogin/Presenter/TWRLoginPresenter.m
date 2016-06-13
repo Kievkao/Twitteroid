@@ -52,11 +52,11 @@
 
 #pragma mark - TWRLoginPresenterProtocol
 
-- (void)presentWebLoginScreenWithRequest:(NSURLRequest *)request {
-    [self.wireframe presentWebLoginScreenWithRequest:request moduleDelegate:self];
+- (void)processWebLoginWithRequest:(NSURLRequest *)request {
+    [self.wireframe processWebLoginWithRequest:request moduleDelegate:self];
 }
 
-- (void)reloginStarts {
+- (void)reloginDidStart {
     [self.view setProgressIndicatorVisible:YES];
 }
 

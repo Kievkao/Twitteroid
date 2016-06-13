@@ -32,7 +32,7 @@
     __typeof(self) __weak weakSelf = self;
     
     if ([self.loginService isUserLogged]) {
-        [self.presenter reloginStarts];
+        [self.presenter reloginDidStart];
 
         [self.loginService reloginWithCompletion:^(NSError *error) {
             if (error == nil) {
@@ -49,7 +49,7 @@
     __typeof(self) __weak weakSelf = self;
 
     [self.loginService loginWithOpenRequestBlock:^(NSURLRequest *request) {
-        [weakSelf.presenter presentWebLoginScreenWithRequest:request];
+        [weakSelf.presenter processWebLoginWithRequest:request];
     } completion:^(NSError *error) {
         if (error == nil) {
             [weakSelf.presenter loginSuccess];

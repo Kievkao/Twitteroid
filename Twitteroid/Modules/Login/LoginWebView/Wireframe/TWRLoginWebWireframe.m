@@ -28,11 +28,9 @@
 
     self.loginWebViewController = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:[TWRLoginWebViewController identifier]];
 
-    self.moduleDelegate = moduleDelegate;
+    TWRLoginWebInteractor* interactor = [[TWRLoginWebInteractor alloc] initWithLoginService:self.loginService];
 
     TWRLoginWebPresenter* presenter = [[TWRLoginWebPresenter alloc] initWithURLRequest:request];
-
-    TWRLoginWebInteractor* interactor = [[TWRLoginWebInteractor alloc] initWithLoginService:self.loginService];
 
     presenter.wireframe = self;
     presenter.interactor = interactor;
@@ -41,6 +39,7 @@
     interactor.presenter = presenter;
 
     self.loginWebViewController.eventHandler = presenter;
+    self.moduleDelegate = moduleDelegate;
 
     [viewController presentViewController:self.loginWebViewController animated:YES completion:nil];
 }

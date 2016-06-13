@@ -41,9 +41,11 @@
     return self;
 }
 
-- (void)retrieveTweetsFromID:(NSString *)tweetID {
-    __typeof(self) __weak weakSelf = self;
+#pragma mark - TWRFeedInteractorProtocol
 
+- (void)retrieveTweetsFromID:(NSString *)tweetID {
+
+    __typeof(self) __weak weakSelf = self;
     [self.feedService loadTweetsFromID:tweetID hashtag:self.hashTag withCompletion:^(NSArray<TWRTweet *> *tweets, NSError *error) {
         if (error == nil) {
             [weakSelf saveTweetsInStorage:tweets];
@@ -72,7 +74,7 @@
 
     for (TWRTweet *tweet in tweets) {    
         [self.coreDataDAO insertNewTweet:tweet];
-        [self.coreDataDAO saveContext];
+        [self.coreDataDAO saveContext]; // save each tweet separately because of processing unique NSManagedObject field during saving
     }
 
     [self.presenter tweetsDidLoad];
