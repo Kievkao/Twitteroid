@@ -10,6 +10,7 @@
 
 @protocol TWRSettingsEventHandlerProtocol <NSObject>
 
+- (void)handleViewDidLoad;
 - (void)handleDoneAction;
 - (void)handleAutoSettingsAction;
 - (void)handleManualSettingsAction;

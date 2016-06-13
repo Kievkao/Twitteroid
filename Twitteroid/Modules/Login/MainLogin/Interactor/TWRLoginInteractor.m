@@ -17,7 +17,7 @@
 
 @implementation TWRLoginInteractor
 
-- (instancetype)initWithLoginService:(id<TWRTwitterLoginServiceProtocol>)loginService;
+- (instancetype)initWithLoginService:(id<TWRTwitterLoginServiceProtocol>)loginService
 {
     self = [super init];
     if (self) {
@@ -52,7 +52,6 @@
         [weakSelf.presenter presentWebLoginScreenWithRequest:request];
     } completion:^(NSError *error) {
         if (error == nil) {
-            [weakSelf.loginService fillUserProfile];
             [weakSelf.presenter loginSuccess];
         }
         else {

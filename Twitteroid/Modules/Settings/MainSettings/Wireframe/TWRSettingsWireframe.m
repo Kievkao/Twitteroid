@@ -9,16 +9,19 @@
 #import "TWRSettingsWireframe.h"
 #import "TWRSettingsViewController.h"
 #import "TWRSettingsPresenter.h"
-#import "TWRUserProfile.h"
+#import "TWRSettingsInteractor.h"
+#import "TWRUserProfileStorage.h"
 
 #import "TWRManualSettingsWireframe.h"
 #import "TWRAutoSettingsWireframe.h"
+#import "TWRTwitterLoginServiceProtocol.h"
 
 @interface TWRSettingsWireframe()
 
 @property (weak, nonatomic) TWRSettingsViewController *settingsViewController;
 
-@property (strong, nonatomic) TWRUserProfile *userProfile;
+@property (strong, nonatomic) TWRUserProfileStorage *userProfile;
+@property (strong, nonatomic) id<TWRTwitterLoginServiceProtocol> loginService;
 
 @end
 
@@ -29,14 +32,15 @@
     UINavigationController *settingsNavigationController = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:@"SettingsNavC"];
 
     TWRSettingsViewController *settingsViewController = (TWRSettingsViewController *)settingsNavigationController.topViewController;
-    settingsViewController.userName = self.userProfile.userName;
-    settingsViewController.userNickname = [NSString stringWithFormat:@"@%@",self.userProfile.userNickname];
-    settingsViewController.userAvatar = self.userProfile.userAvatar;
 
+    TWRSettingsInteractor *interactor = [[TWRSettingsInteractor alloc] initWithLoginService:self.loginService userProfileStorage:self.userProfile];
     TWRSettingsPresenter* presenter = [TWRSettingsPresenter new];
 
     presenter.wireframe = self;
     presenter.view = settingsViewController;
+    presenter.interactor = interactor;
+
+    interactor.presenter = presenter;
 
     settingsViewController.eventHandler = presenter;
     self.settingsViewController = settingsViewController;

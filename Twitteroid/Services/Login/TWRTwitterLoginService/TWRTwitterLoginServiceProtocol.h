@@ -14,7 +14,9 @@
 - (void)reloginWithCompletion:(void (^)(NSError *error))completion;
 - (void)sendOAuthToken:(NSString *)token oauthVerifier:(NSString *)verifier completion:(void (^)(NSError *error))completion;
 
-- (void)fillUserProfile;
 - (BOOL)isUserLogged;
+
+- (void)getLoggedUserInfoWithCompletion:(void (^)(NSError *error, NSDictionary *profile))completion;
+//- (void)fillUserProfile;
 
 @end

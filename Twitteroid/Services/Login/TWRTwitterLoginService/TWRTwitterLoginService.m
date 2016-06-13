@@ -7,7 +7,6 @@
 //
 
 #import "TWRTwitterLoginService.h"
-#import "TWRUserProfile.h"
 #import "STTwitterAPI.h"
 #import "TWRCredentialsStore.h"
 
@@ -49,9 +48,6 @@
     __typeof(self) __weak weakSelf = self;
     [self.twitterAPI verifyCredentialsWithUserSuccessBlock:^(NSString *username, NSString *userID) {
         weakSelf.sessionLoginDone = YES;
-        [[TWRUserProfile sharedInstance] setUserID:userID];
-        [[TWRUserProfile sharedInstance] setUserNickname:username];
-        [weakSelf fillUserProfile];
         completion(nil);
 
     } errorBlock:^(NSError *error) {
@@ -81,9 +77,6 @@
     __weak typeof(self) weakSelf = self;
     [self.twitterAPI postAccessTokenRequestWithPIN:verifier successBlock:^(NSString *oauthToken, NSString *oauthTokenSecret, NSString *userID, NSString *screenName) {
 
-        [[TWRUserProfile sharedInstance] setUserID:userID];
-        [[TWRUserProfile sharedInstance] setUserNickname:screenName];
-
         [weakSelf.credentialsStore setToken:oauthToken];
         [weakSelf.credentialsStore setTokenSecret:oauthTokenSecret];
 
@@ -96,19 +89,12 @@
     }];
 }
 
-- (void)fillUserProfile {
-
-    if ([[TWRUserProfile sharedInstance] userNickname]) {
-        [self.twitterAPI getUserInformationFor:[[TWRUserProfile sharedInstance] userNickname] successBlock:^(NSDictionary *user) {
-            [[TWRUserProfile sharedInstance] setUserName:user[@"name"]];
-            [[TWRUserProfile sharedInstance] setUserAvatarByURL:[NSURL URLWithString:user[@"profile_image_url"]]];
-        } errorBlock:^(NSError *error) {
-            NSLog(@"Retrieving profile error");
-        }];
-    }
-    else {
-        NSLog(@"User nickname is empty");
-    }
+- (void)getLoggedUserInfoWithCompletion:(void (^)(NSError *error, NSDictionary *profile))completion {
+    [self.twitterAPI getUsersShowForUserID:[self.twitterAPI userID] orScreenName:nil includeEntities:nil successBlock:^(NSDictionary *user) {
+        completion(nil, user);
+    } errorBlock:^(NSError *error) {
+        completion(error, nil);
+    }];
 }
 
 - (BOOL)isUserLogged {

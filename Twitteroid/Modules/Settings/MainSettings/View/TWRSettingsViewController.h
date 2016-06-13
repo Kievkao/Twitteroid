@@ -15,8 +15,4 @@
 
 @property (nonatomic) id<TWRSettingsEventHandlerProtocol> eventHandler;
 
-@property (copy, nonatomic) NSString *userName;
-@property (copy, nonatomic) NSString *userNickname;
-@property (strong, nonatomic) UIImage *userAvatar;
-
 @end

@@ -11,10 +11,12 @@
 #import "TWRSettingsEventHandlerProtocol.h"
 #import "TWRSettingsViewProtocol.h"
 #import "TWRSettingsWireframeProtocol.h"
+#import "TWRSettingsInteractorProtocol.h"
 
 @interface TWRSettingsPresenter : NSObject <TWRSettingsPresenterProtocol, TWRSettingsEventHandlerProtocol>
 
 @property (nonatomic, weak) id<TWRSettingsViewProtocol> view;
+@property (nonatomic) id<TWRSettingsInteractorProtocol> interactor;
 @property (nonatomic, weak) id<TWRSettingsWireframeProtocol> wireframe;
 
 @end

@@ -10,4 +10,11 @@
 
 @protocol TWRSettingsViewProtocol <NSObject>
 
+- (void)setUserName:(NSString *)userName;
+- (void)setUserNickname:(NSString *)nickname;
+- (void)setUserAvatar:(UIImage *)avatar;
+
+- (void)setProgressIndicatorVisible:(BOOL)visible;
+- (void)showAlertWithTitle:(NSString *)title message:(NSString *)message;
+
 @end

@@ -21,7 +21,7 @@
 #import "TWRLoginWebWireframe.h"
 #import "TWRFeedWireframe.h"
 #import "TWRLoginViewController.h"
-#import "TWRUserProfile.h"
+#import "TWRUserProfileStorage.h"
 #import "TWRSettingsWireframe.h"
 
 @implementation TWRAssembly
@@ -67,17 +67,17 @@
     }];
 }
 
-#pragma mark - Services
-
 - (TWRSettingsWireframe *)settingsWireframe {
     return [TyphoonDefinition withClass:[TWRSettingsWireframe class] configuration:^(TyphoonDefinition *definition) {
-        [definition injectProperty:@selector(userProfile) with:[self twitterAPI]];
-        
+        [definition injectProperty:@selector(userProfile) with:[self userProfile]];
+        [definition injectProperty:@selector(loginService) with:[self loginService]];
     }];
 }
 
-- (TWRUserProfile *)userProfile {
-    return [TyphoonDefinition withClass:[TWRUserProfile class] configuration:^(TyphoonDefinition *definition) {
+#pragma mark - Services
+
+- (TWRUserProfileStorage *)userProfile {
+    return [TyphoonDefinition withClass:[TWRUserProfileStorage class] configuration:^(TyphoonDefinition *definition) {
         [definition useInitializer:@selector(sharedInstance)];
     }];
 }

@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+@class TWRUserProfile;
+
 @protocol TWRSettingsPresenterProtocol <NSObject>
+
+- (void)retrieveUserProfileDidLoad:(TWRUserProfile *)userProfile;
+- (void)retrieveUserProfileDidStartAsync;
+- (void)retrieveUserProfileDidFinishWithError:(NSError *)error;
 
 @end

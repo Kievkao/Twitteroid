@@ -31,14 +31,48 @@ typedef enum : NSUInteger {
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.userNameLabel.text = self.userName;
-    self.userNicknameLabel.text = [NSString stringWithFormat:@"@%@", self.userNickname];
-    self.userAvatarImageView.image = self.userAvatar;
+    [self.eventHandler handleViewDidLoad];
 }
+
+#pragma mark - TWRSettingsViewProtocol
+
+- (void)setUserName:(NSString *)userName {
+    self.userNameLabel.text = userName;
+}
+
+- (void)setUserNickname:(NSString *)nickname {
+    self.userNicknameLabel.text = [NSString stringWithFormat:@"@%@", nickname];
+}
+
+- (void)setUserAvatar:(UIImage *)avatar {
+    self.userAvatarImageView.image = avatar;
+}
+
+- (void)setProgressIndicatorVisible:(BOOL)visible {
+    if (visible) {
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    }
+    else {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    }
+}
+
+- (void)showAlertWithTitle:(NSString *)title message:(NSString *)message {
+    UIAlertController* alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+
+    UIAlertAction* alertAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"Alert button title") style:UIAlertActionStyleCancel handler:nil];
+    [alertController addAction:alertAction];
+
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+#pragma mark - Actions
 
 - (IBAction)doneClicked:(id)sender {
     [self.eventHandler handleDoneAction];
 }
+
+#pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
