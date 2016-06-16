@@ -16,6 +16,10 @@
 
 @implementation TWRManualSettingsViewController
 
++ (NSString *)identifier {
+    return @"manualSettings";
+}
+
 - (IBAction)deleteNowClicked:(id)sender {
     [self.eventHandler handleDeleteNowAction];
 }

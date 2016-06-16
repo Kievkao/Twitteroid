@@ -8,8 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol TWRManualSettingsInteractorProtocol <NSObject>
 
 - (void)deleteTweetsOlderThanDate:(NSDate *)date;
 
 @end
+
+NS_ASSUME_NONNULL_END

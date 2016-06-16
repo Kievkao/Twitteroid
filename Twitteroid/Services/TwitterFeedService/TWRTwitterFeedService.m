@@ -37,14 +37,12 @@ static NSUInteger const kTweetsLoadingPortion = 10;
 }
 
 - (NSArray <TWRTweet *> *)parseTweetsArray:(NSArray *)items forHashtag:(NSString *)hashtag {
-
     NSMutableArray <TWRTweet *> *tweets = [[NSMutableArray alloc] initWithCapacity:items.count];
 
     for (NSDictionary *oneItem in items) {
-
         TWRTweet *tweet = [self.tweetParser parseTweetDictionary:oneItem];
 
-        if (hashtag) {
+        if (hashtag != nil) {
             tweet.hashtag = hashtag;
         }
         [tweets addObject:tweet];
@@ -57,7 +55,7 @@ static NSUInteger const kTweetsLoadingPortion = 10;
                          count:(NSUInteger)count
                     completion:(void(^)(NSError *error, NSArray *items))completion {
 
-    if (hashtag) {
+    if (hashtag != nil) {
         [self.twitterAPI getSearchTweetsWithQuery:hashtag geocode:nil lang:nil locale:nil resultType:nil count:[NSString stringWithFormat:@"%lu", (unsigned long)count] until:nil sinceID:nil maxID:twitID includeEntities:nil callback:nil successBlock:^(NSDictionary *searchMetadata, NSArray *statuses) {
             completion(nil, statuses);
         } errorBlock:^(NSError *error) {

@@ -8,9 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol TWRManualSettingsEventHandlerProtocol <NSObject>
 
 - (void)handleDeleteNowAction;
 - (void)handleDeleteConfirmationActionWithDate:(NSDate *)date;
 
 @end
+
+NS_ASSUME_NONNULL_END

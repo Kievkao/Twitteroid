@@ -11,6 +11,8 @@
 #import "TWRManualSettingsPresenter.h"
 #import "TWRManualSettingsInteractor.h"
 
+#import "TWRStorageManagerProtocol.h"
+
 @interface TWRManualSettingsWireframe()
 
 @property (weak, nonatomic) TWRManualSettingsViewController *manualSettingsViewController;
@@ -21,7 +23,7 @@
 @implementation TWRManualSettingsWireframe
 
 - (void)presentSettingsScreenFromViewController:(UIViewController*)viewController {
-    self.manualSettingsViewController = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:@"manualSettings"];
+    self.manualSettingsViewController = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:[TWRManualSettingsViewController identifier]];
 
     TWRManualSettingsPresenter* presenter = [TWRManualSettingsPresenter new];
 

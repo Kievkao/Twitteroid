@@ -32,7 +32,7 @@
 
 - (void)presentSettingsScreenFromViewController:(UIViewController*)viewController {
 
-    UINavigationController *settingsNavigationController = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:@"SettingsNavC"];
+    UINavigationController *settingsNavigationController = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier: [TWRSettingsViewController rootNavigationControllerIdentifier]];
 
     TWRSettingsViewController *settingsViewController = (TWRSettingsViewController *)settingsNavigationController.topViewController;
 

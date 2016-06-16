@@ -10,6 +10,8 @@
 
 @class TWRUserProfile;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol TWRSettingsPresenterProtocol <NSObject>
 
 - (void)retrieveUserProfileDidLoad:(TWRUserProfile *)userProfile;
@@ -17,3 +19,5 @@
 - (void)retrieveUserProfileDidFinishWithError:(NSError *)error;
 
 @end
+
+NS_ASSUME_NONNULL_END

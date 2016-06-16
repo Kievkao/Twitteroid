@@ -10,7 +10,7 @@
 #import "TWRAutoSettingsViewProtocol.h"
 #import "TWRAutoSettingsEventHandlerProtocol.h"
 
-@interface TWRAutoSettingsViewController : UIViewController <TWRAutoSettingsViewProtocol>
+@interface TWRAutoSettingsViewController : UIViewController <TWRViewControllerIdentifier, TWRAutoSettingsViewProtocol>
 
 @property (nonatomic) id<TWRAutoSettingsEventHandlerProtocol> eventHandler;
 

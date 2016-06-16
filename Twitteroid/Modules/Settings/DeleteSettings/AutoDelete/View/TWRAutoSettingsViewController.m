@@ -18,6 +18,10 @@ static NSUInteger const kTotalWeeksAmount = 52;
 
 @implementation TWRAutoSettingsViewController
 
++ (NSString *)identifier {
+    return @"AutoSettingsVC";
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 

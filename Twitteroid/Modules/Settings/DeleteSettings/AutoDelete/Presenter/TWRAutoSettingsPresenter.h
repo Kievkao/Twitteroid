@@ -19,5 +19,4 @@
 @property (nonatomic) id<TWRAutoSettingsInteractorProtocol> interactor;
 @property (nonatomic, weak) TWRAutoSettingsWireframe *wireframe;
 
-
 @end

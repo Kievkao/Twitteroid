@@ -17,6 +17,5 @@
 - (BOOL)isUserLogged;
 
 - (void)getLoggedUserInfoWithCompletion:(void (^)(NSError *error, NSDictionary *profile))completion;
-//- (void)fillUserProfile;
 
 @end

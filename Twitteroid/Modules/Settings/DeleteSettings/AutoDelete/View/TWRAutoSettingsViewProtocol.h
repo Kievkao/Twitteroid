@@ -8,11 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol TWRAutoSettingsViewProtocol <NSObject>
 
 - (void)setWeeksNumber:(NSUInteger)weeksNumber;
 
-- (void)showAlertWithTitle:(NSString *)title message:(NSString *)message;
-- (void)showApplyRuleAlertWithTitle:(NSString *)title message:(NSString *)message;
+- (void)showAlertWithTitle:(NSString * _Nullable)title message:(NSString *)message;
+- (void)showApplyRuleAlertWithTitle:(NSString * _Nullable)title message:(NSString *)message;
 
 @end
+
+NS_ASSUME_NONNULL_END

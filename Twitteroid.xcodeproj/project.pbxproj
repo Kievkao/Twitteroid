@@ -831,9 +831,9 @@
 		C509525D1D00710100258B70 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				C509525E1D00710100258B70 /* TWRManualSettingsEventHandlerProtocol.h */,
 				C509525F1D00710100258B70 /* TWRManualSettingsPresenter.h */,
 				C50952601D00710100258B70 /* TWRManualSettingsPresenter.m */,
+				C509525E1D00710100258B70 /* TWRManualSettingsEventHandlerProtocol.h */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";

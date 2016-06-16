@@ -194,7 +194,6 @@ static CGFloat const kMediaFrameDistanceMultiplier = 0.49;
     [imageView4 autoPinEdgeToSuperviewEdge:ALEdgeRight];
     [imageView4 autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self withMultiplier:kMediaFrameDistanceMultiplier];
     [imageView4 autoMatchDimension:ALDimensionHeight toDimension:ALDimensionHeight ofView:self withMultiplier:kMediaFrameDistanceMultiplier];
-
 }
 
 - (NSMutableArray *)mediaFrames {

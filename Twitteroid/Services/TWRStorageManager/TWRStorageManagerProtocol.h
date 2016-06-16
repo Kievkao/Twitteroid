@@ -19,10 +19,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)saveContext;
 - (NSFetchedResultsController *)fetchedResultsControllerForTweetsHashtag:(nullable NSString *)hashtag;
 
-- (void)deleteTweetsOlderThanDate:(nonnull NSDate *)date;
-- (void)saveAutomaticTweetsDeleteDate:(nonnull NSDate *)date;
+- (void)deleteTweetsOlderThanDate:(NSDate *)date;
+- (void)saveAutomaticTweetsDeleteDate:(NSDate *)date;
+
 - (nullable NSDate *)tweetsAutoDeleteDate;
-- (BOOL)isTweetDateIsAllowed:(nonnull NSDate *)date;
+- (BOOL)isTweetDateIsAllowed:(NSDate *)date;
 
 @end
 

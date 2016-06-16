@@ -23,7 +23,7 @@
 @implementation TWRAutoSettingsWireframe
 
 - (void)presentSettingsScreenFromViewController:(UIViewController*)viewController {
-    self.autoSettingsViewController = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:@"AutoSettingsVC"];
+    self.autoSettingsViewController = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:[TWRAutoSettingsViewController identifier]];
 
     TWRAutoSettingsPresenter* presenter = [TWRAutoSettingsPresenter new];
 

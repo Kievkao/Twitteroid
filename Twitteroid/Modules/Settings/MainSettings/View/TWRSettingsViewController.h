@@ -11,8 +11,10 @@
 #import "TWRSettingsViewProtocol.h"
 #import "TWRSettingsEventHandlerProtocol.h"
 
-@interface TWRSettingsViewController : UITableViewController <TWRViewControllerIdentifier, TWRSettingsViewProtocol>
+@interface TWRSettingsViewController : UITableViewController <TWRSettingsViewProtocol>
 
 @property (nonatomic) id<TWRSettingsEventHandlerProtocol> eventHandler;
+
++ (NSString *)rootNavigationControllerIdentifier;
 
 @end

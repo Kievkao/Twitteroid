@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol TWRAutoSettingsInteractorProtocol <NSObject>
 
 - (void)retrieveSavedWeeksNumber;
@@ -15,3 +17,5 @@
 - (void)saveAutomaticTweetsDeleteDate:(NSDate *)date;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -134,7 +134,7 @@ static NSString *const kTweetsDeleteDateKey = @"TWRManagedTweetsDeleteDateKey";
         if (tweet.place != nil) {
             TWRManagedPlace *managedPlace = [weakSelf insertNewPlace:tweet.place];
             
-            //managedPlace.tweet = managedTweet;
+            managedPlace.tweet = managedTweet;
             managedTweet.place = managedPlace;
         }
     }];

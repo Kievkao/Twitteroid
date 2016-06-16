@@ -10,7 +10,7 @@
 #import "TWRManualSettingsViewProtocol.h"
 #import "TWRManualSettingsEventHandlerProtocol.h"
 
-@interface TWRManualSettingsViewController : UIViewController <TWRManualSettingsViewProtocol>
+@interface TWRManualSettingsViewController : UIViewController <TWRViewControllerIdentifier, TWRManualSettingsViewProtocol>
 
 @property (nonatomic) id<TWRManualSettingsEventHandlerProtocol> eventHandler;
 

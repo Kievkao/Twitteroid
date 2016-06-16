@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol TWRSettingsViewProtocol <NSObject>
 
 - (void)setUserName:(NSString *)userName;
@@ -15,6 +17,8 @@
 - (void)setUserAvatar:(UIImage *)avatar;
 
 - (void)setProgressIndicatorVisible:(BOOL)visible;
-- (void)showAlertWithTitle:(NSString *)title message:(NSString *)message;
+- (void)showAlertWithTitle:(NSString * _Nullable)title message:(NSString *)message;
 
 @end
+
+NS_ASSUME_NONNULL_END

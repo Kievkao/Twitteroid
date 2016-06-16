@@ -24,7 +24,7 @@ typedef enum : NSUInteger {
 
 @implementation TWRSettingsViewController
 
-+ (NSString *)identifier {
++ (NSString *)rootNavigationControllerIdentifier {
     return @"SettingsNavC";
 }
 
