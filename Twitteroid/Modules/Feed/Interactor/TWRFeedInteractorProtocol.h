@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol TWRCoreDataDAOProtocol;
 @class TWRTweet;
 
 @protocol TWRFeedInteractorProtocol <NSObject>

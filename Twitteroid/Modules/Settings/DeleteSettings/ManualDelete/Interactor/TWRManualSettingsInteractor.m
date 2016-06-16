@@ -7,12 +7,26 @@
 //
 
 #import "TWRManualSettingsInteractor.h"
-#import "TWRCoreDataDAO.h"
+#import "TWRStorageManagerProtocol.h"
+
+@interface TWRManualSettingsInteractor()
+
+@property (strong, nonatomic) id<TWRStorageManagerProtocol> storageManager;
+
+@end
 
 @implementation TWRManualSettingsInteractor
 
+- (instancetype)initWithStorageManager:(id<TWRStorageManagerProtocol>)storageManager {
+    self = [super init];
+    if (self) {
+        _storageManager = storageManager;
+    }
+    return self;
+}
+
 - (void)deleteTweetsOlderThanDate:(NSDate *)date {
-    [[TWRCoreDataDAO sharedInstance] deleteTweetsOlderThanDate:date];
+    [self.storageManager deleteTweetsOlderThanDate:date];
 }
 
 @end

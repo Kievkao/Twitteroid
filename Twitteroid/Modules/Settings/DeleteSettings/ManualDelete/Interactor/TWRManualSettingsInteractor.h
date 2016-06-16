@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "TWRManualSettingsInteractorProtocol.h"
 
+@protocol TWRStorageManagerProtocol;
+
 @interface TWRManualSettingsInteractor : NSObject <TWRManualSettingsInteractorProtocol>
+
+- (instancetype)initWithStorageManager:(id<TWRStorageManagerProtocol>)storageManager;
 
 @end

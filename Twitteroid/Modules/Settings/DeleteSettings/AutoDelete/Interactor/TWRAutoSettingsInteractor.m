@@ -7,27 +7,27 @@
 //
 
 #import "TWRAutoSettingsInteractor.h"
-#import "TWRCoreDataDAOProtocol.h"
+#import "TWRStorageManagerProtocol.h"
 #import "NSDate+Escort.h"
 
 @interface TWRAutoSettingsInteractor()
 
-@property (strong, nonatomic) id<TWRCoreDataDAOProtocol> coreDataDAO;
+@property (strong, nonatomic) id<TWRStorageManagerProtocol> storageManager;
 
 @end
 
 @implementation TWRAutoSettingsInteractor
 
-- (instancetype)initWithCoreDataDAO:(id<TWRCoreDataDAOProtocol>)coreDataDAO {
+- (instancetype)initWithStorageManager:(id<TWRStorageManagerProtocol>)storageManager {
     self = [super init];
     if (self) {
-        _coreDataDAO = coreDataDAO;
+        _storageManager = storageManager;
     }
     return self;
 }
 
 - (void)retrieveSavedWeeksNumber {
-    NSDate *savedDateForAutoDeleting = [self.coreDataDAO tweetsAutoDeleteDate];
+    NSDate *savedDateForAutoDeleting = [self.storageManager tweetsAutoDeleteDate];
 
     if (savedDateForAutoDeleting) {
         NSInteger daysAfterSavedData = [[NSDate date] daysAfterDate:savedDateForAutoDeleting];
@@ -41,11 +41,11 @@
 }
 
 - (void)deleteTweetsOlderThanDate:(NSDate *)date {
-    [self.coreDataDAO deleteTweetsOlderThanDate:date];
+    [self.storageManager deleteTweetsOlderThanDate:date];
 }
 
 - (void)saveAutomaticTweetsDeleteDate:(NSDate *)date {
-    [self.coreDataDAO saveAutomaticTweetsDeleteDate:date];
+    [self.storageManager saveAutomaticTweetsDeleteDate:date];
 }
 
 @end

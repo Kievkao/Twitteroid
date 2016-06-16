@@ -13,7 +13,7 @@
 #import "TWRGalleryDelegate.h"
 #import "EBPhotoPagesController.h"
 #import <MapKit/MapKit.h>
-#import "TWRCoreDataDAO.h"
+#import "TWRStorageManagerProtocol.h"
 #import "TWRTwitterFeedService.h"
 
 #import "TWRFeedInteractor.h"
@@ -29,7 +29,7 @@
 @property (strong, nonatomic) TWRSettingsWireframe *settingsWireframe;
 
 @property (strong, nonatomic) TWRTwitterFeedService *feedService;
-@property (strong, nonatomic) id<TWRCoreDataDAOProtocol> coreDataDAO;
+@property (strong, nonatomic) id<TWRStorageManagerProtocol> storageManager;
 
 @end
 
@@ -51,7 +51,7 @@
     TWRFeedViewController *feedViewController = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:@"TWRFeedVC"];
     feedViewController.hashTag = hashtag;
 
-    TWRFeedInteractor* interactor = [[TWRFeedInteractor alloc] initWithHashtag:hashtag feedService:self.feedService coreDataDAO:self.coreDataDAO];
+    TWRFeedInteractor* interactor = [[TWRFeedInteractor alloc] initWithHashtag:hashtag feedService:self.feedService storageManager:self.storageManager];
     TWRFeedPresenter* presenter = [TWRFeedPresenter new];
 
     presenter.wireframe = self;

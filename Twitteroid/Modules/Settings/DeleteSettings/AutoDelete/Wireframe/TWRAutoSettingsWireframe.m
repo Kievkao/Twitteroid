@@ -11,11 +11,12 @@
 #import "TWRAutoSettingsPresenter.h"
 #import "TWRAutoSettingsInteractor.h"
 
-#import "TWRCoreDataDAO.h"
+#import "TWRStorageManager.h"
 
 @interface TWRAutoSettingsWireframe()
 
 @property (weak, nonatomic) TWRAutoSettingsViewController *autoSettingsViewController;
+@property (strong, nonatomic) id<TWRStorageManagerProtocol> storageManager;
 
 @end
 
@@ -29,7 +30,7 @@
     presenter.wireframe = self;
     presenter.view = self.autoSettingsViewController;
 
-    TWRAutoSettingsInteractor *interactor = [[TWRAutoSettingsInteractor alloc] initWithCoreDataDAO:[TWRCoreDataDAO sharedInstance]];
+    TWRAutoSettingsInteractor *interactor = [[TWRAutoSettingsInteractor alloc] initWithStorageManager:self.storageManager];
     interactor.presenter = presenter;
     presenter.interactor = interactor;
 

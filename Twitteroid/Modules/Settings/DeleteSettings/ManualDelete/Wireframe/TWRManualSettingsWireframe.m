@@ -14,6 +14,7 @@
 @interface TWRManualSettingsWireframe()
 
 @property (weak, nonatomic) TWRManualSettingsViewController *manualSettingsViewController;
+@property (strong, nonatomic) id<TWRStorageManagerProtocol> storageManager;
 
 @end
 
@@ -27,7 +28,7 @@
     presenter.wireframe = self;
     presenter.view = self.manualSettingsViewController;
 
-    TWRManualSettingsInteractor *interactor = [TWRManualSettingsInteractor new];
+    TWRManualSettingsInteractor *interactor = [[TWRManualSettingsInteractor alloc] initWithStorageManager:self.storageManager];
     presenter.interactor = interactor;
 
     self.manualSettingsViewController.eventHandler = presenter;

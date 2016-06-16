@@ -16,26 +16,26 @@
 #import "TWRManagedHashtag.h"
 #import "TWRManagedMedia.h"
 #import "TWRTwitterFeedServiceProtocol.h"
-#import "TWRCoreDataDAOProtocol.h"
+#import "TWRStorageManagerProtocol.h"
 
 @interface TWRFeedInteractor() <NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSString *hashTag;
 @property (strong, nonatomic) id<TWRTwitterFeedServiceProtocol> feedService;
-@property (strong, nonatomic) id<TWRCoreDataDAOProtocol> coreDataDAO;
+@property (strong, nonatomic) id<TWRStorageManagerProtocol> storageManager;
 
 @end
 
 @implementation TWRFeedInteractor
 
-- (instancetype)initWithHashtag:(NSString *)hashtag feedService:(id<TWRTwitterFeedServiceProtocol>)feedService coreDataDAO:(id<TWRCoreDataDAOProtocol>)coreDataDAO {
+- (instancetype)initWithHashtag:(NSString *)hashtag feedService:(id<TWRTwitterFeedServiceProtocol>)feedService storageManager:(id<TWRStorageManagerProtocol>)storageManager {
     self = [super init];
     if (self) {
         _hashTag = hashtag;
         _feedService = feedService;
-        _coreDataDAO = coreDataDAO;
-        _fetchedResultsController = [coreDataDAO fetchedResultsControllerForTweetsHashtag:self.hashTag];
+        _storageManager = storageManager;
+        _fetchedResultsController = [storageManager fetchedResultsControllerForTweetsHashtag:self.hashTag];
         _fetchedResultsController.delegate = self;
     }
     return self;
@@ -73,8 +73,8 @@
 - (void)saveTweetsInStorage:(NSArray<TWRTweet *> *)tweets {
 
     for (TWRTweet *tweet in tweets) {    
-        [self.coreDataDAO insertNewTweet:tweet];
-        [self.coreDataDAO saveContext]; // save each tweet separately because of processing unique NSManagedObject field during saving
+        [self.storageManager insertNewTweet:tweet];
+        [self.storageManager saveContext]; // save each tweet separately because of processing unique NSManagedObject field during saving
     }
 
     [self.presenter tweetsDidLoad];

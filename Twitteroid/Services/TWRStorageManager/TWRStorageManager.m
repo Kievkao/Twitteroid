@@ -1,5 +1,5 @@
 //
-//  TWRCoreDataDAO.m
+//  TWRStorageManager.m
 //  Twitteroid
 //
 //  Created by Mac on 23/07/15.
@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "TWRCoreDataDAO.h"
+#import "TWRStorageManager.h"
 #import "TWRManagedMedia+TWRHelper.h"
 #import "TWRManagedTweet+TWRHelper.h"
 #import "TWRManagedHashtag+TWRHelper.h"
@@ -20,7 +20,7 @@
 
 static NSString *const kTweetsDeleteDateKey = @"TWRManagedTweetsDeleteDateKey";
 
-@interface TWRCoreDataDAO()
+@interface TWRStorageManager()
 
 @property (nonatomic, strong) NSDate *dateForOlderDeleting;
 @property (nonatomic, strong) NSManagedObjectContext *mainContext;
@@ -28,16 +28,7 @@ static NSString *const kTweetsDeleteDateKey = @"TWRManagedTweetsDeleteDateKey";
 
 @end
 
-@implementation TWRCoreDataDAO
-
-+ (instancetype)sharedInstance {
-    static dispatch_once_t once;
-    static id sharedInstance;
-    dispatch_once(&once, ^{
-        sharedInstance = [[self alloc] init];
-    });
-    return sharedInstance;
-}
+@implementation TWRStorageManager
 
 - (instancetype)init {
     self = [super init];
@@ -202,8 +193,11 @@ static NSString *const kTweetsDeleteDateKey = @"TWRManagedTweetsDeleteDateKey";
         NSError *error = nil;
         [weakSelf.privateContext save:&error];
 
-        if (error) {
-            NSLog(@"Save private context error: %@", error.localizedDescription);
+        if (error.domain == NSCocoaErrorDomain && error.code == NSManagedObjectConstraintMergeError) {
+            NSLog(@"Attempt to save duplicate tweet");
+        }
+        else if (error != nil) {
+            NSLog(@"Save context error: %@", error.localizedDescription);
         }
     }];
 }

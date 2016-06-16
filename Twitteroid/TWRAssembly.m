@@ -14,7 +14,7 @@
 #import "TWRTwitterLoginService.h"
 #import "TWRTwitterFeedService.h"
 #import "TWRTweetParser.h"
-#import "TWRCoreDataDAO.h"
+#import "TWRStorageManager.h"
 #import "TWRLoginInteractor.h"
 #import "TWRLoginPresenter.h"
 #import "TWRLoginWireframe.h"
@@ -23,12 +23,15 @@
 #import "TWRLoginViewController.h"
 #import "TWRUserProfileStorage.h"
 #import "TWRSettingsWireframe.h"
+#import "TWRAutoSettingsWireframe.h"
+#import "TWRManualSettingsWireframe.h"
 
 @implementation TWRAssembly
 
 - (AppDelegate *)appDelegate {
     return [TyphoonDefinition withClass:[AppDelegate class] configuration:^(TyphoonDefinition *definition) {
         [definition injectProperty:@selector(loginWireframe) with:[self loginWireframe]];
+        [definition injectProperty:@selector(storageManager) with:[self storageManager]];
     }];
 }
 
@@ -53,7 +56,7 @@
     return [TyphoonDefinition withClass:[TWRFeedWireframe class] configuration:^(TyphoonDefinition *definition) {
         [definition injectProperty:sel_registerName("childFeedWireframe") with:[self childFeedWireframe]];
         [definition injectProperty:@selector(feedService) with:[self feedService]];
-        [definition injectProperty:@selector(coreDataDAO) with:[self coreDataDAO]];
+        [definition injectProperty:@selector(storageManager) with:[self storageManager]];
         [definition injectProperty:@selector(settingsWireframe) with:[self settingsWireframe]];
     }];
 }
@@ -62,7 +65,7 @@
     return [TyphoonDefinition withClass:[TWRFeedWireframe class] configuration:^(TyphoonDefinition *definition) {
         [definition injectProperty:sel_registerName("childFeedWireframe") with:[self feedWireframe]];
         [definition injectProperty:@selector(feedService) with:[self feedService]];
-        [definition injectProperty:@selector(coreDataDAO) with:[self coreDataDAO]];
+        [definition injectProperty:@selector(storageManager) with:[self storageManager]];
         [definition injectProperty:@selector(settingsWireframe) with:[self settingsWireframe]];
     }];
 }
@@ -71,6 +74,20 @@
     return [TyphoonDefinition withClass:[TWRSettingsWireframe class] configuration:^(TyphoonDefinition *definition) {
         [definition injectProperty:@selector(userProfile) with:[self userProfile]];
         [definition injectProperty:@selector(loginService) with:[self loginService]];
+        [definition injectProperty:@selector(autoSettingsWireframe) with:[self autoSettingsWireframe]];
+        [definition injectProperty:@selector(manualSettingsWireframe) with:[self manualSettingsWireframe]];
+    }];
+}
+
+- (TWRAutoSettingsWireframe *)autoSettingsWireframe {
+    return [TyphoonDefinition withClass:[TWRAutoSettingsWireframe class] configuration:^(TyphoonDefinition *definition) {
+        [definition injectProperty:@selector(storageManager) with:[self storageManager]];
+    }];
+}
+
+- (TWRManualSettingsWireframe *)manualSettingsWireframe {
+    return [TyphoonDefinition withClass:[TWRManualSettingsWireframe class] configuration:^(TyphoonDefinition *definition) {
+        [definition injectProperty:@selector(storageManager) with:[self storageManager]];
     }];
 }
 
@@ -93,9 +110,9 @@
     return [TyphoonDefinition withClass:[TWRTweetParser class]];
 }
 
-- (id<TWRCoreDataDAOProtocol>)coreDataDAO {
-    return [TyphoonDefinition withClass:[TWRCoreDataDAO class] configuration:^(TyphoonDefinition *definition) {
-        [definition useInitializer:@selector(sharedInstance)];
+- (id<TWRStorageManagerProtocol>)storageManager {
+    return [TyphoonDefinition withClass:[TWRStorageManager class] configuration:^(TyphoonDefinition *definition) {
+        definition.scope = TyphoonScopeSingleton;
     }];
 }
 

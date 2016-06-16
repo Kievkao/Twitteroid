@@ -17,7 +17,7 @@
 #import "TWRSettingsViewController.h"
 #import "TWRYoutubeVideoViewController.h"
 #import "NSDate+NVTimeAgo.h"
-#import "TWRCoreDataDAO.h"
+#import "TWRStorageManagerProtocol.h"
 #import "TWRTweet.h"
 #import "TWRPlace.h"
 #import "TWRMedia.h"

@@ -23,6 +23,9 @@
 @property (strong, nonatomic) TWRUserProfileStorage *userProfile;
 @property (strong, nonatomic) id<TWRTwitterLoginServiceProtocol> loginService;
 
+@property (strong, nonatomic) TWRAutoSettingsWireframe *autoSettingsWireframe;
+@property (strong, nonatomic) TWRManualSettingsWireframe *manualSettingsWireframe;
+
 @end
 
 @implementation TWRSettingsWireframe
@@ -53,13 +56,11 @@
 }
 
 - (void)presentAutoSettingsScreen {
-    TWRAutoSettingsWireframe *autoSettingsWireframe = [TWRAutoSettingsWireframe new];
-    [autoSettingsWireframe presentSettingsScreenFromViewController:self.settingsViewController];
+    [self.autoSettingsWireframe presentSettingsScreenFromViewController:self.settingsViewController];
 }
 
 - (void)presentManualSettingsScreen {
-    TWRManualSettingsWireframe *manualSettingsWireframe = [TWRManualSettingsWireframe new];
-    [manualSettingsWireframe presentSettingsScreenFromViewController:self.settingsViewController];
+    [self.manualSettingsWireframe presentSettingsScreenFromViewController:self.settingsViewController];
 }
 
 @end

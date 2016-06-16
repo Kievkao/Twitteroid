@@ -10,12 +10,12 @@
 #import "TWRAutoSettingsInteractorProtocol.h"
 #import "TWRAutoSettingsPresenterProtocol.h"
 
-@protocol TWRCoreDataDAOProtocol;
+@protocol TWRStorageManagerProtocol;
 
 @interface TWRAutoSettingsInteractor : NSObject <TWRAutoSettingsInteractorProtocol>
 
 @property (nonatomic, weak) id<TWRAutoSettingsPresenterProtocol> presenter;
 
-- (instancetype)initWithCoreDataDAO:(id<TWRCoreDataDAOProtocol>)coreDataDAO;
+- (instancetype)initWithStorageManager:(id<TWRStorageManagerProtocol>)storageManager;
 
 @end

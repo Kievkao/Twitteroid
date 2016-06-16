@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "SSKeychain.h"
-#import "TWRCoreDataDAO.h"
+#import "TWRStorageManagerProtocol.h"
 #import "TWRLoginWireframe.h"
 #import "TWRCredentialsStore.h"
 #import "STTwitterAPI.h"
@@ -16,6 +16,7 @@
 @interface AppDelegate ()
 
 @property (strong, nonatomic) TWRLoginWireframe *loginWireframe;
+@property (strong, nonatomic) id<TWRStorageManagerProtocol> storageManager;
 
 @end
 
@@ -55,7 +56,7 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    [[TWRCoreDataDAO sharedInstance] saveContext];
+    [self.storageManager saveContext];
 }
 
 @end

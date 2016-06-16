@@ -1,5 +1,5 @@
 //
-//  TWRCoreDataDAOProtocol.h
+//  TWRStorageManagerProtocol.h
 //  Twitteroid
 //
 //  Created by Andrii Kravchenko on 6/2/16.
@@ -13,7 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol TWRCoreDataDAOProtocol <NSObject>
+@protocol TWRStorageManagerProtocol <NSObject>
 
 - (void)insertNewTweet:(TWRTweet *)tweet;
 - (void)saveContext;
