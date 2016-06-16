@@ -97,7 +97,7 @@ static NSString *const kTweetsDeleteDateKey = @"TWRManagedTweetsDeleteDateKey";
     __typeof(self) __weak weakSelf = self;
 
     [self.privateContext performBlockAndWait:^{
-       TWRManagedTweet * managedTweet = [NSEntityDescription insertNewObjectForEntityForName:[TWRManagedTweet entityName] inManagedObjectContext:weakSelf.privateContext];
+       TWRManagedTweet *managedTweet = [NSEntityDescription insertNewObjectForEntityForName:[TWRManagedTweet entityName] inManagedObjectContext:weakSelf.privateContext];
 
         managedTweet.createdAt = tweet.createdAt;
         managedTweet.hashtag = tweet.hashtag;
@@ -134,7 +134,7 @@ static NSString *const kTweetsDeleteDateKey = @"TWRManagedTweetsDeleteDateKey";
         if (tweet.place != nil) {
             TWRManagedPlace *managedPlace = [weakSelf insertNewPlace:tweet.place];
             
-            managedPlace.tweet = managedTweet;
+            //managedPlace.tweet = managedTweet;
             managedTweet.place = managedPlace;
         }
     }];
@@ -193,11 +193,12 @@ static NSString *const kTweetsDeleteDateKey = @"TWRManagedTweetsDeleteDateKey";
         NSError *error = nil;
         [weakSelf.privateContext save:&error];
 
-        if (error.domain == NSCocoaErrorDomain && error.code == NSManagedObjectConstraintMergeError) {
-            NSLog(@"Attempt to save duplicate tweet");
-        }
-        else if (error != nil) {
-            NSLog(@"Save context error: %@", error.localizedDescription);
+        if (error != nil) {
+            // Ignore error of saving duplicate tweet attempt
+            if (error.domain != NSCocoaErrorDomain || error.code != NSManagedObjectConstraintMergeError) {
+                NSLog(@"Save context error: %@", error.localizedDescription);
+            }
+            [weakSelf.privateContext reset];
         }
     }];
 }

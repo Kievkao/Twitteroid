@@ -12,8 +12,7 @@
 #import "TWRTweet.h"
 #import "Reachability.h"
 
-static NSUInteger const kTweetsLoadingPortion = 20;
-static NSString *const kAppErrorDomain = @"TwitteroidDomain";
+static NSUInteger const kTweetsLoadingPortion = 10;
 
 @interface TWRTwitterFeedService()
 
