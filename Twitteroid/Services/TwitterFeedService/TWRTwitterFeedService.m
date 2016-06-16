@@ -58,7 +58,7 @@ static NSUInteger const kTweetsLoadingPortion = 10;
                     completion:(void(^)(NSError *error, NSArray *items))completion {
 
     if (hashtag) {
-        [self.twitterAPI getSearchTweetsWithQuery:hashtag successBlock:^(NSDictionary *searchMetadata, NSArray *statuses) {
+        [self.twitterAPI getSearchTweetsWithQuery:hashtag geocode:nil lang:nil locale:nil resultType:nil count:[NSString stringWithFormat:@"%lu", (unsigned long)count] until:nil sinceID:nil maxID:twitID includeEntities:nil callback:nil successBlock:^(NSDictionary *searchMetadata, NSArray *statuses) {
             completion(nil, statuses);
         } errorBlock:^(NSError *error) {
             completion(error, nil);
