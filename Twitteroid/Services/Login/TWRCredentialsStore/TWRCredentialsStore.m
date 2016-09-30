@@ -13,11 +13,12 @@ static NSString *const kKeychainAccountKey = @"kievkao.Twitteroid";
 static NSString *const kKeychainTokenKey = @"TwitterToken";
 static NSString *const kKeychainTokenSecretKey = @"TwitterTokenSecret";
 
-NSString *const kTwitterApiKey = @"Vtr9Yi3UkWuqqo4sD7WJaYHPp";
-NSString *const kTwitterApiSecret = @"FgJV89KXSGYf42opyMLFfZxk5J9fPIwITzYrKsZWG0xvxh7HdH";
+static NSString *const kTwitterApiKey = @"Vtr9Yi3UkWuqqo4sD7WJaYHPp";
+static NSString *const kTwitterApiSecret = @"FgJV89KXSGYf42opyMLFfZxk5J9fPIwITzYrKsZWG0xvxh7HdH";
 
 @implementation TWRCredentialsStore
 
+#pragma mark - Twitter Key & Secret
 - (NSString *)twitterAPIKey {
     return kTwitterApiKey;
 }
@@ -26,6 +27,7 @@ NSString *const kTwitterApiSecret = @"FgJV89KXSGYf42opyMLFfZxk5J9fPIwITzYrKsZWG0
     return kTwitterApiSecret;
 }
 
+#pragma mark - Token
 - (NSString *)token {
     return [SSKeychain passwordForService:kKeychainTokenKey account:kKeychainAccountKey];
 }
@@ -39,6 +41,7 @@ NSString *const kTwitterApiSecret = @"FgJV89KXSGYf42opyMLFfZxk5J9fPIwITzYrKsZWG0
     }
 }
 
+#pragma mark - Secret
 - (NSString *)tokenSecret {
     return [SSKeychain passwordForService:kKeychainTokenSecretKey account:kKeychainAccountKey];
 }

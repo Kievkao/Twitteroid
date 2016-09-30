@@ -23,6 +23,7 @@ static NSUInteger const kTweetsLoadingPortion = 10;
 
 @implementation TWRTwitterFeedService
 
+#pragma mark - Public
 - (void)loadTweetsFromID:(NSString *)tweetID hashtag:(NSString *)hashtag withCompletion:(void (^)(NSArray <TWRTweet *> *tweets, NSError *error))loadingCompletion {
     __typeof(self) __weak weakSelf = self;
 
@@ -36,6 +37,7 @@ static NSUInteger const kTweetsLoadingPortion = 10;
     }];
 }
 
+#pragma mark - Private
 - (NSArray <TWRTweet *> *)parseTweetsArray:(NSArray *)items forHashtag:(NSString *)hashtag {
     NSMutableArray <TWRTweet *> *tweets = [[NSMutableArray alloc] initWithCapacity:items.count];
 

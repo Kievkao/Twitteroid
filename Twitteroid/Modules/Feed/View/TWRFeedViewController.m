@@ -67,6 +67,7 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
 - (void)setupNavigationBar {
     UIBarButtonItem *settingsBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settingsIcon"] style:UIBarButtonItemStylePlain target:self action:@selector(settingsBtnClicked)];
     [self.navigationItem setRightBarButtonItem:settingsBarItem animated:YES];
+    
     self.title = self.hashTag ? self.hashTag : @"Feed";
 }
 
@@ -210,13 +211,7 @@ static CGFloat const kInfinitiveScrollIndicatorDiameter = 24.0;
     [cell setAuthorAvatarFromURLString:tweet.userAvatarURL];
     [cell setLocationButtonVisible:(tweet.place) ? YES : NO];
     [cell setTweetTime:[tweet.createdAt formattedAsTimeAgo]];
-    
-    if (tweet.isRetwitted) {
-        [cell setRetwittedViewVisible:YES withRetweetAuthor:tweet.retwittedBy];
-    }
-    else {
-        [cell setRetwittedViewVisible:NO withRetweetAuthor:nil];
-    }
+    [cell setRetwittedViewVisible:tweet.isRetwitted withRetweetAuthor:tweet.isRetwitted ? tweet.retwittedBy : nil];
     
     [self setActionsHandlersForCell:cell tweet:tweet];
 }

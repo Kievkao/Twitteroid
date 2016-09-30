@@ -34,7 +34,6 @@
 }
 
 - (void)loginWithOpenRequestBlock:(void (^)(NSURLRequest *request))requestBlock completion:(void (^)(NSError *error))completion {
-
     if ([self.credentialsStore token] && [self.credentialsStore tokenSecret]) {
         [self reloginWithOpenRequestBlock:requestBlock completion:completion];
     }
@@ -44,8 +43,8 @@
 }
 
 - (void)reloginWithCompletion:(void (^)(NSError *error))completion {
-
     __typeof(self) __weak weakSelf = self;
+    
     [self.twitterAPI verifyCredentialsWithUserSuccessBlock:^(NSString *username, NSString *userID) {
         weakSelf.sessionLoginDone = YES;
         completion(nil);
@@ -58,8 +57,8 @@
 }
 
 - (void)reloginWithOpenRequestBlock:(void (^)(NSURLRequest *request))requestBlock completion:(void (^)(NSError *error))completion {
-
     __typeof(self) __weak weakSelf = self;
+    
     [self.twitterAPI verifyCredentialsWithUserSuccessBlock:^(NSString *username, NSString *userID) {
         completion(nil);
         weakSelf.sessionLoginDone = YES;
@@ -73,13 +72,12 @@
 }
 
 - (void)sendOAuthToken:(NSString *)token oauthVerifier:(NSString *)verifier completion:(void (^)(NSError *error))completion {
-
     __weak typeof(self) weakSelf = self;
+    
     [self.twitterAPI postAccessTokenRequestWithPIN:verifier successBlock:^(NSString *oauthToken, NSString *oauthTokenSecret, NSString *userID, NSString *screenName) {
 
         [weakSelf.credentialsStore setToken:oauthToken];
         [weakSelf.credentialsStore setTokenSecret:oauthTokenSecret];
-
         weakSelf.sessionLoginDone = YES;
 
         completion(nil);

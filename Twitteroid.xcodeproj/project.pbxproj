@@ -1210,12 +1210,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04AF02771B60FE4A002CEB65 /* Build configuration list for PBXNativeTarget "Twitteroid" */;
 			buildPhases = (
-				171168F5AAE79AA11EE4AF13 /* 📦 Check Pods Manifest.lock */,
+				171168F5AAE79AA11EE4AF13 /* [CP] Check Pods Manifest.lock */,
 				04AF024D1B60FE49002CEB65 /* Sources */,
 				04AF024E1B60FE49002CEB65 /* Frameworks */,
 				04AF024F1B60FE49002CEB65 /* Resources */,
-				96E7504F48F70E2C80EB0F6B /* 📦 Embed Pods Frameworks */,
-				9ADD1F3813705CF17BFB4DD7 /* 📦 Copy Pods Resources */,
+				96E7504F48F70E2C80EB0F6B /* [CP] Embed Pods Frameworks */,
+				9ADD1F3813705CF17BFB4DD7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1230,12 +1230,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04AF027A1B60FE4A002CEB65 /* Build configuration list for PBXNativeTarget "TwitteroidTests" */;
 			buildPhases = (
-				2DC2F14EE19B87E79A72F912 /* 📦 Check Pods Manifest.lock */,
+				2DC2F14EE19B87E79A72F912 /* [CP] Check Pods Manifest.lock */,
 				04AF02691B60FE4A002CEB65 /* Sources */,
 				04AF026A1B60FE4A002CEB65 /* Frameworks */,
 				04AF026B1B60FE4A002CEB65 /* Resources */,
-				C112EEB0D63C641BFD698CAE /* 📦 Embed Pods Frameworks */,
-				626A5C73F4F8C1C29E12223C /* 📦 Copy Pods Resources */,
+				C112EEB0D63C641BFD698CAE /* [CP] Embed Pods Frameworks */,
+				626A5C73F4F8C1C29E12223C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1251,11 +1251,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C532AE9C1CD13DE200A56F80 /* Build configuration list for PBXNativeTarget "TwitteroidUITests" */;
 			buildPhases = (
-				434FB3AD573DF1C71CFB522B /* 📦 Check Pods Manifest.lock */,
+				434FB3AD573DF1C71CFB522B /* [CP] Check Pods Manifest.lock */,
 				C532AE911CD13DE200A56F80 /* Sources */,
 				C532AE921CD13DE200A56F80 /* Frameworks */,
 				C532AE931CD13DE200A56F80 /* Resources */,
-				76EDA06E7CE071BB80FFBF52 /* 📦 Copy Pods Resources */,
+				76EDA06E7CE071BB80FFBF52 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1274,7 +1274,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = TWR;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Kievkao;
 				TargetAttributes = {
 					04AF02501B60FE49002CEB65 = {
@@ -1338,14 +1338,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		171168F5AAE79AA11EE4AF13 /* 📦 Check Pods Manifest.lock */ = {
+		171168F5AAE79AA11EE4AF13 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1353,14 +1353,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		2DC2F14EE19B87E79A72F912 /* 📦 Check Pods Manifest.lock */ = {
+		2DC2F14EE19B87E79A72F912 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1368,14 +1368,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		434FB3AD573DF1C71CFB522B /* 📦 Check Pods Manifest.lock */ = {
+		434FB3AD573DF1C71CFB522B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1383,14 +1383,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		626A5C73F4F8C1C29E12223C /* 📦 Copy Pods Resources */ = {
+		626A5C73F4F8C1C29E12223C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1398,14 +1398,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TwitteroidTests/Pods-TwitteroidTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		76EDA06E7CE071BB80FFBF52 /* 📦 Copy Pods Resources */ = {
+		76EDA06E7CE071BB80FFBF52 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1413,14 +1413,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TwitteroidUITests/Pods-TwitteroidUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		96E7504F48F70E2C80EB0F6B /* 📦 Embed Pods Frameworks */ = {
+		96E7504F48F70E2C80EB0F6B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1428,14 +1428,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Twitteroid/Pods-Twitteroid-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9ADD1F3813705CF17BFB4DD7 /* 📦 Copy Pods Resources */ = {
+		9ADD1F3813705CF17BFB4DD7 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1443,14 +1443,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Twitteroid/Pods-Twitteroid-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C112EEB0D63C641BFD698CAE /* 📦 Embed Pods Frameworks */ = {
+		C112EEB0D63C641BFD698CAE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1611,8 +1611,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1656,8 +1658,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

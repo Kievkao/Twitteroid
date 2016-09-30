@@ -42,8 +42,8 @@
 }
 
 - (void)setFeedScreenInsteadViewController:(UIViewController*)viewController withHashtag:(NSString *)hashtag {
-
     self.feedViewController = [self createFeedViewWithHashtag:hashtag];
+    
     [viewController.navigationController setViewControllers:@[self.feedViewController] animated:YES];
 }
 
@@ -88,12 +88,14 @@
     UINavigationController *videoRootNavC = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:[TWRYoutubeVideoViewController identifier]];
     TWRYoutubeVideoViewController *videoVC = [[videoRootNavC childViewControllers] firstObject];
     videoVC.youtubeLinkStr = youtubeLink;
+    
     [self.feedViewController presentViewController:videoRootNavC animated:YES completion:nil];
 }
 
 - (void)presentGalleryScreenWithImagesURLs:(NSArray <NSURL *>*)imagesURLs {
     TWRGalleryDelegate *galleryDelegate = [[TWRGalleryDelegate alloc] initWithImagesURLs:imagesURLs];
     EBPhotoPagesController *photoPagesController = [[EBPhotoPagesController alloc] initWithDataSource:galleryDelegate delegate:galleryDelegate];
+    
     [self.feedViewController presentViewController:photoPagesController animated:YES completion:nil];
 }
 
